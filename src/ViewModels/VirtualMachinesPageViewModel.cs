@@ -55,6 +55,7 @@ namespace ExHyperV.ViewModels
         private readonly Dictionary<string, LinkedList<double>> _historyCache = new();
         private VmProcessorSettings _originalSettingsCache;
         private Snackbar? _activeSnackbar;
+        private bool _isInternalUpdating = false;
 
         // ----------------------------------------------------------------------------------
         // 视图模型属性 - 页面状态
@@ -1076,35 +1077,33 @@ namespace ExHyperV.ViewModels
         // 属性变更监听 - 控制器类型
         partial void OnSelectedControllerTypeChanged(string value)
         {
-            if (value == null) return;
+            if (_isInternalUpdating || value == null) return;
 
-            int currentNumber = SelectedControllerNumber;
+            Debug.WriteLine($"[DEBUG-STORAGE] 手动切换类型: {value}");
+            RefreshAvailableNumbers(value);
 
-            AvailableControllerNumbers.Clear();
-            int maxCtrl = (value == "IDE") ? 2 : 4;
-            for (int i = 0; i < maxCtrl; i++)
-                AvailableControllerNumbers.Add(i);
+            // 强制触发一次编号刷新
+            SelectedControllerNumber = -2;
+            SelectedControllerNumber = AvailableControllerNumbers.FirstOrDefault();
 
-            if (AvailableControllerNumbers.Contains(currentNumber))
-            {
-                SelectedControllerNumber = currentNumber;
-            }
-            else
-            {
-                SelectedControllerNumber = AvailableControllerNumbers.FirstOrDefault();
-            }
-
-            if (SelectedControllerNumber == currentNumber)
-            {
-                UpdateAvailableLocations();
-            }
+            UpdateAvailableLocations();
         }
-
         // 属性变更监听 - 控制器编号
         partial void OnSelectedControllerNumberChanged(int value)
         {
+            // 如果是自动分配设定的 -2，或者是内部更新中，直接跳过，防止死循环刷新列表
+            if (value == -2 || _isInternalUpdating) return;
+
+            Debug.WriteLine($"[DEBUG-STORAGE] 手动切换编号: {value}");
             UpdateAvailableLocations();
         }
+
+        // 增加位置变更监听（用于观察是否有 UI 回传 null/默认值的情况）
+        partial void OnSelectedLocationChanged(int value)
+        {
+            Debug.WriteLine($"[DEBUG-STORAGE] [通知] SelectedLocation 当前值为: {value}");
+        }
+
 
         // 导航至添加存储向导
         [RelayCommand]
@@ -1391,91 +1390,106 @@ namespace ExHyperV.ViewModels
         // 设置当前选中的插槽
         private void SetSlot(string type, int ctrlNum, int loc)
         {
-            SelectedControllerType = type;
+            Debug.WriteLine($"[DEBUG-STORAGE] >>> 开始自动分配: {type} #{ctrlNum} Loc:{loc}");
 
-            SelectedControllerNumber = ctrlNum;
-            SelectedLocation = loc;
-
-            IsSlotValid = true;
-            SlotWarningMessage = string.Empty;
-        }
-
-        // 更新可用的位置列表
-        private void UpdateAvailableLocations()
-        {
-            if (SelectedVm == null || string.IsNullOrEmpty(SelectedControllerType)) return;
-
-            int currentLocation = SelectedLocation;
-
-            var usedLocations = SelectedVm.StorageItems
-                .Where(i => i.ControllerType == SelectedControllerType &&
-                            i.ControllerNumber == SelectedControllerNumber)
-                .Select(i => i.ControllerLocation)
-                .ToHashSet();
-
-            int maxLoc = (SelectedControllerType == "IDE") ? 2 : 64;
-
-            AvailableLocations.Clear();
-            for (int i = 0; i < maxLoc; i++)
+            _isInternalUpdating = true;
+            try
             {
-                if (!usedLocations.Contains(i))
+                // 1. 设置接口类型
+                SelectedControllerType = type;
+
+                // 2. 刷新并设置编号 (实施强刷技巧)
+                RefreshAvailableNumbers(type);
+
+                // 技巧：先设为一个无效值 (-1)，再设为目标值，强迫 UI 重新检索列表
+                SelectedControllerNumber = -1;
+                if (AvailableControllerNumbers.Contains(ctrlNum))
                 {
-                    AvailableLocations.Add(i);
-                }
-            }
-
-            // 如果当前编号下没有可用位置，自动切换到下一个有位置的编号
-            if (!AutoAssign && AvailableLocations.Count == 0)
-            {
-                foreach (int num in AvailableControllerNumbers)
-                {
-                    if (num == SelectedControllerNumber) continue;
-
-                    var testUsedLocs = SelectedVm.StorageItems
-                        .Where(i => i.ControllerType == SelectedControllerType &&
-                                    i.ControllerNumber == num)
-                        .Select(i => i.ControllerLocation)
-                        .ToHashSet();
-
-                    if (testUsedLocs.Count < maxLoc)
-                    {
-                        SelectedControllerNumber = num;
-                        return;
-                    }
-                }
-            }
-
-            // 恢复位置选择
-            if (AvailableLocations.Contains(currentLocation))
-            {
-                SelectedLocation = currentLocation;
-            }
-            else if (AvailableLocations.Count > 0)
-            {
-                SelectedLocation = AvailableLocations[0];
-            }
-
-            // 更新验证状态
-            if (!AutoAssign)
-            {
-                if (AvailableLocations.Count == 0)
-                {
-                    IsSlotValid = false;
-                    SlotWarningMessage = $"控制器 {SelectedControllerType} #{SelectedControllerNumber} 已满";
+                    SelectedControllerNumber = ctrlNum;
                 }
                 else
                 {
-                    IsSlotValid = true;
-                    SlotWarningMessage = string.Empty;
+                    SelectedControllerNumber = AvailableControllerNumbers.FirstOrDefault();
                 }
-            }
-            else
-            {
+                Debug.WriteLine($"[DEBUG-STORAGE] 编号已刷新为: {SelectedControllerNumber}");
+
+                // 3. 刷新位置列表 (实施强刷技巧)
+                RefreshAvailableLocations(type, SelectedControllerNumber);
+
+                SelectedLocation = -1;
+                if (AvailableLocations.Contains(loc))
+                {
+                    SelectedLocation = loc;
+                }
+                else if (AvailableLocations.Count > 0)
+                {
+                    SelectedLocation = AvailableLocations[0];
+                }
+                Debug.WriteLine($"[DEBUG-STORAGE] 位置已刷新为: {SelectedLocation}");
+
                 IsSlotValid = true;
                 SlotWarningMessage = string.Empty;
             }
+            finally
+            {
+                // 延迟恢复监听，给 UI 渲染留出缓冲时间
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => {
+                    _isInternalUpdating = false;
+                    Debug.WriteLine("[DEBUG-STORAGE] <<< 自动分配结束，状态已同步");
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
+        }
+        private void RefreshAvailableNumbers(string type)
+        {
+            Debug.WriteLine($"[DEBUG-STORAGE] 正在刷新 [编号] 列表，类型: {type}");
+            AvailableControllerNumbers.Clear();
+            int maxCtrl = (type == "IDE") ? 2 : 4;
+            for (int i = 0; i < maxCtrl; i++)
+                AvailableControllerNumbers.Add(i);
         }
 
+        private void RefreshAvailableLocations(string type, int ctrlNum)
+        {
+            if (SelectedVm == null || type == null) return;
+
+            Debug.WriteLine($"[DEBUG-STORAGE] 正在刷新 [位置] 列表: {type}, #{ctrlNum}");
+            var usedLocations = SelectedVm.StorageItems
+                .Where(i => i.ControllerType == type && i.ControllerNumber == ctrlNum)
+                .Select(i => i.ControllerLocation)
+                .ToHashSet();
+
+            int maxLoc = (type == "IDE") ? 2 : 64;
+            AvailableLocations.Clear();
+            for (int i = 0; i < maxLoc; i++)
+            {
+                if (!usedLocations.Contains(i)) AvailableLocations.Add(i);
+            }
+        }
+        // 更新可用的位置列表
+        private void UpdateAvailableLocations()
+        {
+            if (_isInternalUpdating) return;
+
+            if (SelectedVm == null || string.IsNullOrEmpty(SelectedControllerType)) return;
+
+            RefreshAvailableLocations(SelectedControllerType, SelectedControllerNumber);
+
+            // 如果当前选中的位置在新列表里不存在，安全地重置它
+            if (!AvailableLocations.Contains(SelectedLocation))
+            {
+                if (AvailableLocations.Count > 0)
+                {
+                    SelectedLocation = AvailableLocations[0];
+                }
+                else
+                {
+                    // 如果控制器全满，设为 -1 触发红框警告，而不是设为 0 误导 UI
+                    SelectedLocation = -1;
+                    IsSlotValid = false;
+                    SlotWarningMessage = $"控制器 {SelectedControllerType} #{SelectedControllerNumber} 已满";
+                }
+            }
+        }
         // 刷新控制器选项
         private void RefreshControllerOptions()
         {
