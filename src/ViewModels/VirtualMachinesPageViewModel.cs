@@ -1356,7 +1356,7 @@ namespace ExHyperV.ViewModels
                 if (isRunning)
                 {
                     IsSlotValid = false;
-                    SlotWarningMessage = "第 1 代虚拟机的光驱无法在运行状态下添加（IDE 不支持热插拔）。请先关机。";
+                    SlotWarningMessage = "第 1 代虚拟机的光盘无法在运行状态下添加（IDE 不支持热插拔）。请先关机。";
                     return;
                 }
 
@@ -1368,7 +1368,7 @@ namespace ExHyperV.ViewModels
                     }
                 }
                 IsSlotValid = false;
-                SlotWarningMessage = "第 1 代虚拟机的 IDE 控制器已满，无法添加光驱。";
+                SlotWarningMessage = "第 1 代虚拟机的 IDE 控制器已满，无法添加光盘。";
                 return;
             }
 
