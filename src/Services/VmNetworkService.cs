@@ -8,10 +8,21 @@ namespace ExHyperV.Services
 {
     public class VmNetworkService
     {
+        // ==========================================
+        // 1. 基础常量与日志工具
+        // ==========================================
+
         private const string ServiceClass = "Msvm_VirtualSystemManagementService";
         private const string ScopeNamespace = @"root\virtualization\v2";
+
+        // 输出调试日志
         private void Log(string message) => Debug.WriteLine($"[VmNetDebug][{DateTime.Now:HH:mm:ss.fff}] {message}");
 
+        // ==========================================
+        // 2. 数据获取与查询 (Read Operations)
+        // ==========================================
+
+        // 获取指定虚拟机的所有网卡信息（包含连接状态、高级配置等）
         public async Task<List<VmNetworkAdapter>> GetNetworkAdaptersAsync(string vmName)
         {
             Log($"==============================================================");
@@ -156,16 +167,14 @@ namespace ExHyperV.Services
             return resultList;
         }
 
-        // 辅助方法：通过交换机 GUID 查找其显示名称 ElementName
-        private async Task<string> GetSwitchNameByGuidAsync(string guid)
+        // 获取宿主机上所有可用的虚拟交换机名称列表
+        public async Task<List<string>> GetAvailableSwitchesAsync()
         {
-            if (string.IsNullOrEmpty(guid)) return "未连接";
-            var res = await WmiTools.QueryAsync(
-                $"SELECT ElementName FROM Msvm_VirtualEthernetSwitch WHERE Name = '{guid}'",
-                (s) => s["ElementName"]?.ToString());
-            return res.FirstOrDefault() ?? "未知交换机";
+            var res = await WmiTools.QueryAsync("SELECT ElementName FROM Msvm_VirtualEthernetSwitch", (s) => s["ElementName"]?.ToString());
+            return res.Where(s => !string.IsNullOrEmpty(s)).OrderBy(s => s).ToList();
         }
 
+        // 后台任务：尝试通过 ARP/KVP 填充网卡的动态 IP 地址
         public async Task FillDynamicIpsAsync(string vmName, IEnumerable<VmNetworkAdapter> adapters)
         {
             var targetAdapters = adapters.Where(a => (a.IpAddresses == null || a.IpAddresses.Count == 0) && !string.IsNullOrEmpty(a.MacAddress)).ToList();
@@ -195,9 +204,57 @@ namespace ExHyperV.Services
         }
 
         // ==========================================
-        // 2. 写入逻辑 (Apply 方法)
+        // 3. 网卡生命周期与连接管理 (Lifecycle & Connection)
         // ==========================================
 
+        // 为虚拟机新增一块网络适配器
+        public async Task<(bool Success, string Message)> AddNetworkAdapterAsync(string vmName)
+        {
+            var searcher = new ManagementObjectSearcher(ScopeNamespace, "SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID LIKE '%Default%'");
+            var template = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
+            if (template == null) return (false, "模板缺失");
+            template["InstanceID"] = Guid.NewGuid().ToString();
+            string xml = template.GetText(TextFormat.CimDtd20);
+            var vmPaths = await WmiTools.QueryAsync($"SELECT * FROM Msvm_ComputerSystem WHERE ElementName = '{vmName.Replace("'", "''")}'", (vm) => {
+                var sets = vm.GetRelated("Msvm_VirtualSystemSettingData").Cast<ManagementObject>().ToList();
+                return sets.FirstOrDefault(s => s["VirtualSystemType"]?.ToString().Contains("Realized") == true)?.Path.Path ?? sets.FirstOrDefault()?.Path.Path;
+            });
+            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "AddResourceSettings", new Dictionary<string, object> { { "SystemSettingData", vmPaths.First() }, { "ResourceSettings", new string[] { xml } } });
+        }
+
+        // 移除指定的网络适配器
+        public async Task<(bool Success, string Message)> RemoveNetworkAdapterAsync(string vmName, string id)
+        {
+            string escapedId = id.Replace("\\", "\\\\");
+            var paths = await WmiTools.QueryAsync($"SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID = '{escapedId}'", (p) => p.Path.Path);
+            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "RemoveResourceSettings", new Dictionary<string, object> { { "ResourceSettings", new string[] { paths.First() } } });
+        }
+
+        // 更新网卡的连接状态（连接到指定交换机或断开连接）
+        public async Task<(bool Success, string Message)> UpdateConnectionAsync(string vmName, VmNetworkAdapter adapter)
+        {
+            string escapedId = adapter.Id.Replace("\\", "\\\\");
+            var res = await WmiTools.QueryAsync($"SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID = '{escapedId}'", (port) => {
+                using var allocation = port.GetRelated("Msvm_EthernetPortAllocationSettingData").Cast<ManagementObject>().FirstOrDefault();
+                if (allocation == null) return null;
+                allocation["EnabledState"] = (ushort)(adapter.IsConnected ? 2 : 3);
+                if (adapter.IsConnected && !string.IsNullOrEmpty(adapter.SwitchName))
+                {
+                    string path = GetSwitchPathByName(adapter.SwitchName);
+                    if (!string.IsNullOrEmpty(path)) allocation["HostResource"] = new string[] { path };
+                }
+                else { allocation["HostResource"] = null; }
+                return allocation.GetText(TextFormat.CimDtd20);
+            });
+            if (string.IsNullOrEmpty(res.FirstOrDefault())) return (false, "找不到分配对象");
+            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "ModifyResourceSettings", new Dictionary<string, object> { { "ResourceSettings", new string[] { res.First() } } });
+        }
+
+        // ==========================================
+        // 4. 高级特性配置 (Apply Settings)
+        // ==========================================
+
+        // 应用 VLAN 设置 (Access, Trunk, Pvlan)
         public async Task<(bool Success, string Message)> ApplyVlanSettingsAsync(string vmName, VmNetworkAdapter adapter)
         {
             return await EnsureAndModifyFeatureAsync(adapter.Id, "Msvm_EthernetSwitchPortVlanSettingData", (s) => {
@@ -212,6 +269,7 @@ namespace ExHyperV.Services
             });
         }
 
+        // 应用带宽管理设置 (Limit, Reservation)
         public async Task<(bool Success, string Message)> ApplyBandwidthSettingsAsync(string vmName, VmNetworkAdapter adapter)
         {
             return await EnsureAndModifyFeatureAsync(adapter.Id, "Msvm_EthernetSwitchPortBandwidthSettingData", (s) => {
@@ -220,6 +278,7 @@ namespace ExHyperV.Services
             });
         }
 
+        // 应用安全设置 (MacSpoofing, Guards, StormLimit)
         public async Task<(bool Success, string Message)> ApplySecuritySettingsAsync(string vmName, VmNetworkAdapter adapter)
         {
             return await EnsureAndModifyFeatureAsync(adapter.Id, "Msvm_EthernetSwitchPortSecuritySettingData", (s) => {
@@ -232,6 +291,7 @@ namespace ExHyperV.Services
             });
         }
 
+        // 应用硬件卸载设置 (VMQ, IOV, IPSec)
         public async Task<(bool Success, string Message)> ApplyOffloadSettingsAsync(string vmName, VmNetworkAdapter adapter)
         {
             return await EnsureAndModifyFeatureAsync(adapter.Id, "Msvm_EthernetSwitchPortOffloadSettingData", (s) => {
@@ -242,8 +302,10 @@ namespace ExHyperV.Services
         }
 
         // ==========================================
-        // 3. 核心机制
+        // 5. 核心内部逻辑 (Internal Core Logic)
         // ==========================================
+
+        // 通用方法：确保高级特性存在并修改其属性（如果不存在则从默认模板创建）
         private async Task<(bool Success, string Message)> EnsureAndModifyFeatureAsync(string portId, string featureClass, Action<ManagementObject> updateAction)
         {
             try
@@ -277,7 +339,7 @@ namespace ExHyperV.Services
             catch (Exception ex) { return (false, ex.Message); }
         }
 
-        // 解析功能设置 (被 GetNetworkAdaptersAsync 调用)
+        // 将 WMI 获取的 FeatureSettings 对象解析为 Model 属性
         private void ParseFeatureSettings(VmNetworkAdapter adapter, ManagementObject feature)
         {
             string cls = feature.ClassPath.ClassName;
@@ -314,71 +376,50 @@ namespace ExHyperV.Services
         }
 
         // ==========================================
-        // 4. 其余辅助
+        // 6. WMI 辅助工具 (WMI Helpers)
         // ==========================================
 
-        public async Task<(bool Success, string Message)> UpdateConnectionAsync(string vmName, VmNetworkAdapter adapter)
+        // 根据交换机 GUID 查找显示名称
+        private async Task<string> GetSwitchNameByGuidAsync(string guid)
         {
-            string escapedId = adapter.Id.Replace("\\", "\\\\");
-            var res = await WmiTools.QueryAsync($"SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID = '{escapedId}'", (port) => {
-                using var allocation = port.GetRelated("Msvm_EthernetPortAllocationSettingData").Cast<ManagementObject>().FirstOrDefault();
-                if (allocation == null) return null;
-                allocation["EnabledState"] = (ushort)(adapter.IsConnected ? 2 : 3);
-                if (adapter.IsConnected && !string.IsNullOrEmpty(adapter.SwitchName))
-                {
-                    string path = GetSwitchPathByName(adapter.SwitchName);
-                    if (!string.IsNullOrEmpty(path)) allocation["HostResource"] = new string[] { path };
-                }
-                else { allocation["HostResource"] = null; }
-                return allocation.GetText(TextFormat.CimDtd20);
-            });
-            if (string.IsNullOrEmpty(res.FirstOrDefault())) return (false, "找不到分配对象");
-            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "ModifyResourceSettings", new Dictionary<string, object> { { "ResourceSettings", new string[] { res.First() } } });
+            if (string.IsNullOrEmpty(guid)) return "未连接";
+            var res = await WmiTools.QueryAsync(
+                $"SELECT ElementName FROM Msvm_VirtualEthernetSwitch WHERE Name = '{guid}'",
+                (s) => s["ElementName"]?.ToString());
+            return res.FirstOrDefault() ?? "未知交换机";
         }
 
-        public async Task<(bool Success, string Message)> AddNetworkAdapterAsync(string vmName)
-        {
-            var searcher = new ManagementObjectSearcher(ScopeNamespace, "SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID LIKE '%Default%'");
-            var template = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
-            if (template == null) return (false, "模板缺失");
-            template["InstanceID"] = Guid.NewGuid().ToString();
-            string xml = template.GetText(TextFormat.CimDtd20);
-            var vmPaths = await WmiTools.QueryAsync($"SELECT * FROM Msvm_ComputerSystem WHERE ElementName = '{vmName.Replace("'", "''")}'", (vm) => {
-                var sets = vm.GetRelated("Msvm_VirtualSystemSettingData").Cast<ManagementObject>().ToList();
-                return sets.FirstOrDefault(s => s["VirtualSystemType"]?.ToString().Contains("Realized") == true)?.Path.Path ?? sets.FirstOrDefault()?.Path.Path;
-            });
-            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "AddResourceSettings", new Dictionary<string, object> { { "SystemSettingData", vmPaths.First() }, { "ResourceSettings", new string[] { xml } } });
-        }
-
-        public async Task<(bool Success, string Message)> RemoveNetworkAdapterAsync(string vmName, string id)
-        {
-            string escapedId = id.Replace("\\", "\\\\");
-            var paths = await WmiTools.QueryAsync($"SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID = '{escapedId}'", (p) => p.Path.Path);
-            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "RemoveResourceSettings", new Dictionary<string, object> { { "ResourceSettings", new string[] { paths.First() } } });
-        }
-
+        // 根据交换机名称查找其 WMI 路径
         private string GetSwitchPathByName(string switchName)
         {
             var searcher = new ManagementObjectSearcher(ScopeNamespace, $"SELECT * FROM Msvm_VirtualEthernetSwitch WHERE ElementName = '{switchName.Replace("'", "''")}'");
             return searcher.Get().Cast<ManagementObject>().FirstOrDefault()?.Path.Path;
         }
 
+        // 获取特定功能类的默认设置模板
         private ManagementObject GetDefaultFeatureTemplate(string className)
         {
             var searcher = new ManagementObjectSearcher(ScopeNamespace, $"SELECT * FROM {className} WHERE InstanceID LIKE '%Default%'");
             return searcher.Get().Cast<ManagementObject>().FirstOrDefault();
         }
 
-        public async Task<List<string>> GetAvailableSwitchesAsync()
-        {
-            var res = await WmiTools.QueryAsync("SELECT ElementName FROM Msvm_VirtualEthernetSwitch", (s) => s["ElementName"]?.ToString());
-            return res.Where(s => !string.IsNullOrEmpty(s)).OrderBy(s => s).ToList();
-        }
+        // ==========================================
+        // 7. 通用静态工具 (Static Utilities)
+        // ==========================================
 
+        // 格式化 MAC 地址
         private static string FormatMac(string rawMac) => string.IsNullOrEmpty(rawMac) ? "00-15-5D-00-00-00" : Regex.Replace(rawMac.Replace(":", "").Replace("-", ""), ".{2}", "$0-").TrimEnd('-').ToUpperInvariant();
+
+        // 检查 WMI 对象是否包含指定属性
         private static bool HasProperty(ManagementObject obj, string name) => obj.Properties.Cast<PropertyData>().Any(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+        // 安全获取布尔属性值
         private static bool GetBool(ManagementObject obj, string name) => HasProperty(obj, name) && obj[name] != null && Convert.ToBoolean(obj[name]);
+
+        // 安全获取 ulong 属性值 (转为 ulong)
         private static ulong GetUint(ManagementObject obj, string name) => HasProperty(obj, name) && obj[name] != null ? Convert.ToUInt64(obj[name]) : 0;
+
+        // 安全获取 ulong 属性值
         private static ulong GetUlong(ManagementObject obj, string name) => HasProperty(obj, name) && obj[name] != null ? Convert.ToUInt64(obj[name]) : 0;
     }
 }
