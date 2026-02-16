@@ -9,9 +9,12 @@ namespace ExHyperV.Services
 {
     public class VmQueryService
     {
-        // --- 1. 必须保留的基础定义 (之前被错误删除了) ---
+        // --- 数据结构定义 ---
+
+        // 用于存储虚拟机动态内存运行状态的结构体
         public struct VmDynamicMemoryData { public long AssignedMb; public int AvailablePercent; }
 
+        // 用于存储 GPU 各引擎使用率的结构体
         public struct GpuUsageData
         {
             public double Gpu3d;
@@ -20,16 +23,23 @@ namespace ExHyperV.Services
             public double GpuDecode;
         }
 
-        private static readonly Dictionary<string, string> _switchNameCache = new(StringComparer.OrdinalIgnoreCase);
-        private static readonly Dictionary<string, (long Current, long Max, string Type)> _diskSizeCache = new();
+        // --- 静态变量与缓存 ---
 
-        // GPU 性能相关私有变量
+        // 虚拟交换机 GUID 与名称的映射缓存
+        private static readonly Dictionary<string, string> _switchNameCache = new(StringComparer.OrdinalIgnoreCase);
+        // 磁盘文件路径与大小信息的映射缓存
+        private static readonly Dictionary<string, (long Current, long Max, string Type)> _diskSizeCache = new();
+        // 虚拟机 GUID 与其进程 ID (vmwp.exe) 的映射缓存
         private static Dictionary<Guid, int> _vmProcessIdCache = new();
+        // 进程 ID 缓存的上次更新时间
         private static DateTime _processIdCacheTimestamp = DateTime.MinValue;
+        // GPU 性能计数器列表
         private List<PerformanceCounter> _gpuCounters = new();
+        // 用于解析 GPU 实例名称中的 PID 和引擎类型的正则
         private static readonly Regex GpuInstanceRegex = new Regex(@"pid_(\d+).*engtype_([a-zA-Z0-9]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-        // WMI 查询语句
+        // --- WMI 查询语句常量 ---
+
         private const string QuerySummary = "SELECT Name, ElementName, EnabledState, UpTime, NumberOfProcessors, MemoryUsage, Notes FROM Msvm_SummaryInformation";
         private const string QueryMemSettings = "SELECT InstanceID, VirtualQuantity FROM Msvm_MemorySettingData WHERE ResourceType = 4";
         private const string QuerySettings = "SELECT ConfigurationID, VirtualSystemSubType, Version FROM Msvm_VirtualSystemSettingData WHERE VirtualSystemType = 'Microsoft:Hyper-V:System:Realized'";
@@ -39,10 +49,11 @@ namespace ExHyperV.Services
         private const string QuerySwitches = "SELECT Name, ElementName FROM Msvm_VirtualEthernetSwitch";
         private const string QueryGuestNetwork = "SELECT InstanceID, IPAddresses FROM Msvm_GuestNetworkAdapterConfiguration";
 
-        // --- 2. 虚拟机列表查询 (整合了存储修复逻辑) ---
+        // --- 核心业务查询方法 ---
+
+        // 获取所有虚拟机的详细列表信息，整合了计算、存储、网络和 GPU 基础配置
         public async Task<List<VmInstanceInfo>> GetVmListAsync()
         {
-            // 虚拟磁盘和物理磁盘分配查询
             const string QueryVirtualDiskAllocations = "SELECT InstanceID, Parent, HostResource, ResourceType FROM Msvm_StorageAllocationSettingData WHERE ResourceType = 31 OR ResourceType = 16";
             const string QueryPhysicalDiskAllocations = "SELECT InstanceID, Parent, HostResource, ResourceType FROM Msvm_ResourceAllocationSettingData WHERE ResourceType = 17";
 
@@ -178,7 +189,6 @@ namespace ExHyperV.Services
                         vmInfo.IpAddress = adapters.SelectMany(a => a.IpAddresses ?? Enumerable.Empty<string>()).FirstOrDefault(ip => !string.IsNullOrWhiteSpace(ip) && !ip.Contains(':')) ?? "---";
                     }
 
-                    // 磁盘合并处理
                     var allDiskResources = vDiskTask.Result.Concat(pDiskTask.Result)
                         .Where(d => (d.Parent?.ToUpper().Contains(vmGuidKey) == true) || (d.InstanceID?.ToUpper().Contains(vmGuidKey) == true))
                         .ToList();
@@ -239,7 +249,9 @@ namespace ExHyperV.Services
             });
         }
 
-        // --- 3. 磁盘性能与大小 (保持修复后的版本) ---
+        // --- 性能监控相关方法 ---
+
+        // 更新虚拟机的实时磁盘读写性能数据
         public async Task UpdateDiskPerformanceAsync(IEnumerable<VmInstanceInfo> vms)
         {
             try
@@ -265,38 +277,7 @@ namespace ExHyperV.Services
             catch { }
         }
 
-        private (long Current, long Max, string DiskType) GetDiskSizes(string path)
-        {
-            if (string.IsNullOrEmpty(path)) return (0, 0, "Unknown");
-            if (_diskSizeCache.TryGetValue(path, out var cached)) return cached;
-            long currentSize = 0; try { var fi = new FileInfo(path); if (fi.Exists) currentSize = fi.Length; } catch { }
-            long maxSize = 0; string diskType = "Unknown";
-            try
-            {
-                ManagementScope scope = new ManagementScope(@"\\.\root\virtualization\v2"); scope.Connect();
-                using var searcher = new ManagementObjectSearcher(scope, new ObjectQuery("SELECT * FROM Msvm_ImageManagementService"));
-                using var service = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
-                if (service != null)
-                {
-                    using var inParams = service.GetMethodParameters("GetVirtualHardDiskSettingData"); inParams["Path"] = path;
-                    using var outParams = service.InvokeMethod("GetVirtualHardDiskSettingData", inParams, null);
-                    if ((uint)(outParams["ReturnValue"] ?? 1) == 0)
-                    {
-                        string xml = outParams["SettingData"]?.ToString() ?? "";
-                        var tM = Regex.Match(xml, @"<PROPERTY NAME=""Type"" TYPE=""uint16""><VALUE>(\d+)</VALUE>");
-                        var sM = Regex.Match(xml, @"<PROPERTY NAME=""MaxInternalSize"" TYPE=""uint64""><VALUE>(\d+)</VALUE>");
-                        if (tM.Success) diskType = tM.Groups[1].Value switch { "2" => "Fixed", "3" => "Dynamic", "4" => "Differencing", _ => "Unknown" };
-                        if (sM.Success) maxSize = long.Parse(sM.Groups[1].Value);
-                    }
-                }
-            }
-            catch { }
-            var result = (currentSize, maxSize > 0 ? maxSize : currentSize, diskType == "Unknown" ? "Dynamic" : diskType);
-            if (result.Item2 > 0) _diskSizeCache[path] = result;
-            return result;
-        }
-
-        // --- 4. GPU 性能逻辑 (修复了删除变量导致的报错，补全了逻辑) ---
+        // 获取分配了 GPU 的虚拟机的实时 GPU 性能数据 (3D, Copy, Encode, Decode)
         public async Task<Dictionary<Guid, GpuUsageData>> GetGpuPerformanceAsync(IEnumerable<VmInstanceInfo> vms)
         {
             var results = new Dictionary<Guid, GpuUsageData>();
@@ -341,6 +322,83 @@ namespace ExHyperV.Services
             return results;
         }
 
+        // 获取虚拟机动态内存当前的分配量和可用百分比
+        public async Task<Dictionary<string, VmDynamicMemoryData>> GetVmRuntimeMemoryDataAsync()
+        {
+            var list = await WmiTools.QueryAsync("SELECT Name, MemoryUsage, MemoryAvailable FROM Msvm_SummaryInformation", item => {
+                long usage = Convert.ToInt64(item["MemoryUsage"] ?? 0);
+                return new { Id = item["Name"]?.ToString(), Data = new VmDynamicMemoryData { AssignedMb = (usage < 0 || usage > 1048576) ? 0 : usage, AvailablePercent = Math.Clamp(Convert.ToInt32(item["MemoryAvailable"] ?? 0), 0, 100) } };
+            });
+            return list.Where(x => x.Id != null).ToDictionary(x => x.Id, x => x.Data);
+        }
+
+        // --- 虚拟机设置修改方法 ---
+
+        // 设置虚拟机的 OSType 标记（存储在 Notes 字段中）
+        public async Task<bool> SetVmOsTypeAsync(string vmName, string osType)
+        {
+            try
+            {
+                string safeName = vmName.Replace("'", "''");
+                var settingsList = await WmiTools.QueryAsync($"SELECT * FROM Msvm_VirtualSystemSettingData WHERE ElementName = '{safeName}' AND VirtualSystemType = 'Microsoft:Hyper-V:System:Realized'", o => o);
+                var settings = settingsList.FirstOrDefault();
+                if (settings == null) return false;
+                string oldNotes = (settings["Notes"] is string[] arr && arr.Length > 0) ? string.Join("\n", arr) : "";
+                string newNotes = Utils.UpdateTagValue(oldNotes, "OSType", osType);
+                if (oldNotes == newNotes) return true;
+                settings["Notes"] = new string[] { newNotes };
+                var result = await WmiTools.ExecuteMethodAsync("SELECT * FROM Msvm_VirtualSystemManagementService", "ModifySystemSettings", new Dictionary<string, object> { { "SystemSettings", settings.GetText(TextFormat.CimDtd20) } });
+                return result.Success;
+            }
+            catch { return false; }
+        }
+
+        // --- 私有辅助方法：磁盘与硬件映射 ---
+
+        // 查询虚拟磁盘文件的实际大小、最大限制及磁盘类型
+        private (long Current, long Max, string DiskType) GetDiskSizes(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return (0, 0, "Unknown");
+            if (_diskSizeCache.TryGetValue(path, out var cached)) return cached;
+            long currentSize = 0; try { var fi = new FileInfo(path); if (fi.Exists) currentSize = fi.Length; } catch { }
+            long maxSize = 0; string diskType = "Unknown";
+            try
+            {
+                ManagementScope scope = new ManagementScope(@"\\.\root\virtualization\v2"); scope.Connect();
+                using var searcher = new ManagementObjectSearcher(scope, new ObjectQuery("SELECT * FROM Msvm_ImageManagementService"));
+                using var service = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
+                if (service != null)
+                {
+                    using var inParams = service.GetMethodParameters("GetVirtualHardDiskSettingData"); inParams["Path"] = path;
+                    using var outParams = service.InvokeMethod("GetVirtualHardDiskSettingData", inParams, null);
+                    if ((uint)(outParams["ReturnValue"] ?? 1) == 0)
+                    {
+                        string xml = outParams["SettingData"]?.ToString() ?? "";
+                        var tM = Regex.Match(xml, @"<PROPERTY NAME=""Type"" TYPE=""uint16""><VALUE>(\d+)</VALUE>");
+                        var sM = Regex.Match(xml, @"<PROPERTY NAME=""MaxInternalSize"" TYPE=""uint64""><VALUE>(\d+)</VALUE>");
+                        if (tM.Success) diskType = tM.Groups[1].Value switch { "2" => "Fixed", "3" => "Dynamic", "4" => "Differencing", _ => "Unknown" };
+                        if (sM.Success) maxSize = long.Parse(sM.Groups[1].Value);
+                    }
+                }
+            }
+            catch { }
+            var result = (currentSize, maxSize > 0 ? maxSize : currentSize, diskType == "Unknown" ? "Dynamic" : diskType);
+            if (result.Item2 > 0) _diskSizeCache[path] = result;
+            return result;
+        }
+
+        // 获取宿主机所有显卡的 PCI 标识符与友好名称的映射
+        private async Task<Dictionary<string, string>> GetHostVideoControllerMapAsync()
+        {
+            var res = await WmiTools.QueryAsync("SELECT Name, PNPDeviceID FROM Win32_VideoController", i => new { Name = i["Name"]?.ToString(), PnpId = i["PNPDeviceID"]?.ToString() }, WmiTools.CimV2Scope);
+            var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var item in res) { string id = ExtractPciId(item.PnpId); if (id != null && !map.ContainsKey(id)) map[id] = item.Name; }
+            return map;
+        }
+
+        // --- 私有辅助方法：进程与性能计数器 ---
+
+        // 刷新运行中虚拟机的 Worker 进程 PID 缓存
         private async Task RefreshVmPidCache(List<VmInstanceInfo> runningGpuVms)
         {
             _vmProcessIdCache.Clear();
@@ -353,6 +411,7 @@ namespace ExHyperV.Services
             _processIdCacheTimestamp = DateTime.Now;
         }
 
+        // 根据缓存的虚拟机 PID 重新构建 GPU 性能计数器列表
         private void RebuildGpuCounters()
         {
             try
@@ -374,44 +433,15 @@ namespace ExHyperV.Services
             catch { }
         }
 
-        // --- 5. 其他辅助方法 ---
-        public async Task<bool> SetVmOsTypeAsync(string vmName, string osType)
-        {
-            try
-            {
-                string safeName = vmName.Replace("'", "''");
-                var settingsList = await WmiTools.QueryAsync($"SELECT * FROM Msvm_VirtualSystemSettingData WHERE ElementName = '{safeName}' AND VirtualSystemType = 'Microsoft:Hyper-V:System:Realized'", o => o);
-                var settings = settingsList.FirstOrDefault();
-                if (settings == null) return false;
-                string oldNotes = (settings["Notes"] is string[] arr && arr.Length > 0) ? string.Join("\n", arr) : "";
-                string newNotes = Utils.UpdateTagValue(oldNotes, "OSType", osType);
-                if (oldNotes == newNotes) return true;
-                settings["Notes"] = new string[] { newNotes };
-                var result = await WmiTools.ExecuteMethodAsync("SELECT * FROM Msvm_VirtualSystemManagementService", "ModifySystemSettings", new Dictionary<string, object> { { "SystemSettings", settings.GetText(TextFormat.CimDtd20) } });
-                return result.Success;
-            }
-            catch { return false; }
-        }
+        // --- 私有辅助方法：字符串解析与格式化 ---
 
-        public async Task<Dictionary<string, VmDynamicMemoryData>> GetVmRuntimeMemoryDataAsync()
-        {
-            var list = await WmiTools.QueryAsync("SELECT Name, MemoryUsage, MemoryAvailable FROM Msvm_SummaryInformation", item => {
-                long usage = Convert.ToInt64(item["MemoryUsage"] ?? 0);
-                return new { Id = item["Name"]?.ToString(), Data = new VmDynamicMemoryData { AssignedMb = (usage < 0 || usage > 1048576) ? 0 : usage, AvailablePercent = Math.Clamp(Convert.ToInt32(item["MemoryAvailable"] ?? 0), 0, 100) } };
-            });
-            return list.Where(x => x.Id != null).ToDictionary(x => x.Id, x => x.Data);
-        }
-
-        private async Task<Dictionary<string, string>> GetHostVideoControllerMapAsync()
-        {
-            var res = await WmiTools.QueryAsync("SELECT Name, PNPDeviceID FROM Win32_VideoController", i => new { Name = i["Name"]?.ToString(), PnpId = i["PNPDeviceID"]?.ToString() }, WmiTools.CimV2Scope);
-            var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            foreach (var item in res) { string id = ExtractPciId(item.PnpId); if (id != null && !map.ContainsKey(id)) map[id] = item.Name; }
-            return map;
-        }
-
+        // 从 PNPDeviceID 或 HostResource 字符串中提取 PCI 设备标识 (VEN/DEV)
         private string ExtractPciId(string input) => string.IsNullOrEmpty(input) ? null : Regex.Match(input, @"(VEN_[0-9A-Z]{4}&DEV_[0-9A-Z]{4})", RegexOptions.IgnoreCase).Value.ToUpper();
+
+        // 从长字符串（如 InstanceID）中提取第一个匹配的 GUID
         private string ExtractFirstGuid(string input) => string.IsNullOrEmpty(input) ? null : Regex.Match(input, @"[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}").Value.ToUpper();
+
+        // 将 WMI 原始 MAC 地址字符串格式化为标准 XX-XX-XX-XX-XX-XX 格式
         private static string FormatMac(string raw) => string.IsNullOrEmpty(raw) ? "" : Regex.Replace(raw.Replace(":", "").Replace("-", ""), "(.{2})", "$1-").TrimEnd('-').ToUpperInvariant();
     }
 }
