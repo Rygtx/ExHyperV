@@ -507,33 +507,30 @@ namespace ExHyperV.ViewModels
                                     if (existingDisk != null)
                                     {
                                         existingDisk.Name = newDiskData.Name;
+                                        existingDisk.MaxSize = newDiskData.MaxSize;
+                                        existingDisk.DiskType = newDiskData.DiskType;
+
+                                        // --- 逻辑拦截 ---
                                         if (vm.IsRunning && existingDisk.DiskType != "Physical" && File.Exists(existingDisk.Path))
                                         {
                                             try
                                             {
-                                                // 使用 long 字节更新，对应 VmDiskDetails 的 CurrentSize
                                                 long realSizeBytes = new FileInfo(existingDisk.Path).Length;
+                                                // 只有当文件大小真的变了才赋值，触发上面的 Notify 通知
                                                 if (existingDisk.CurrentSize != realSizeBytes)
                                                 {
                                                     existingDisk.CurrentSize = realSizeBytes;
                                                 }
                                             }
-                                            catch { /* 忽略锁定错误 */ }
+                                            catch { /* 处理独占锁定 */ }
                                         }
                                         else
                                         {
-                                            // 如果没开机或者查不到，才用 WMI 的数据
+                                            // 如果没开机，才同步后端可能滞后的数据
                                             existingDisk.CurrentSize = newDiskData.CurrentSize;
                                         }
-                                        existingDisk.MaxSize = newDiskData.MaxSize;
-                                        existingDisk.DiskType = newDiskData.DiskType;
-                                    }
-                                    else
-                                    {
-                                        vm.Disks.Add(newDiskData);
                                     }
                                 }
-
                                 vm.GpuName = update.GpuName;
 
                                 if (memoryMap.TryGetValue(vm.Id.ToString(), out var memData))
