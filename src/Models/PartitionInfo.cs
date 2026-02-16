@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExHyperV.Models // <--- ✅ 必须加上这一行
+namespace ExHyperV.Models 
 {
     public enum OperatingSystemType
     {

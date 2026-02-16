@@ -312,7 +312,7 @@
                                                     <MenuItem Header="保存状态" Icon="{ui:SymbolIcon Save24}"
                                                               Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
                                                               CommandParameter="Save"/>
-                                                    <MenuItem Header="断电 (强制关闭)" Icon="{ui:SymbolIcon Power24}" Foreground="#E81123"
+                                                    <MenuItem Header="强制关闭" Icon="{ui:SymbolIcon Power24}" Foreground="#E81123"
                                                               Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
                                                               CommandParameter="TurnOff"/>
                                                 </ContextMenu>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using ExHyperV.Models; // 请确保引用你的 SmtMode 所在的命名空间
+using ExHyperV.Models; 
 
 namespace ExHyperV.Converters
 {

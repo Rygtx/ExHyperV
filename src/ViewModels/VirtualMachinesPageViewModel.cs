@@ -414,6 +414,36 @@ namespace ExHyperV.ViewModels
                                 if (wasRunning != vm.IsRunning)
                                 {
                                     needsResort = true;
+
+                                    // --- [新增逻辑] Root 调度器自动同步补丁 ---
+                                    // 当检测到虚拟机从关机/挂起状态进入运行状态时
+                                    if (vm.IsRunning)
+                                    {
+                                        _ = Task.Run(async () => {
+                                            // 只有在 Root 调度器模式下才需要这种进程级补偿
+                                            if (HyperVSchedulerService.GetSchedulerType() == HyperVSchedulerType.Root)
+                                            {
+                                                string savedAffinity = Utils.GetTagValue(vm.Notes, "Affinity");
+                                                if (!string.IsNullOrEmpty(savedAffinity))
+                                                {
+                                                    try
+                                                    {
+                                                        var coreIds = savedAffinity.Split(',')
+                                                                        .Select(s => int.Parse(s.Trim()))
+                                                                        .ToList();
+                                                        // 等待 vmmem 进程完全初始化（防止 PID 还没分配或所有权还没同步）
+                                                        await Task.Delay(2000);
+                                                        ProcessAffinityManager.SetVmProcessAffinity(vm.Id, coreIds);
+                                                        System.Diagnostics.Debug.WriteLine($"[RootAutoSync] 已为虚拟机 {vm.Name} 自动恢复 CPU 绑定: {savedAffinity}");
+                                                    }
+                                                    catch (Exception ex)
+                                                    {
+                                                        System.Diagnostics.Debug.WriteLine($"[RootAutoSync] 自动同步失败: {ex.Message}");
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    }
                                 }
 
                                 if (CurrentViewType != VmDetailViewType.NetworkSettings && !IsLoadingSettings)
@@ -707,12 +737,45 @@ namespace ExHyperV.ViewModels
             IsLoadingSettings = true;
             try
             {
+                // 1. 获取用户选中的核心索引列表
                 var selectedIndices = AffinityHostCores.Where(c => c.IsSelected).Select(c => c.CoreId).ToList();
-                if (await _cpuAffinityService.SetCpuAffinityAsync(SelectedVm.Id, selectedIndices)) GoToCpuSettings();
-                else ShowSnackbar("保存失败", "无法应用亲和性设置，请检查 HCS权限", ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+
+                // 2. 调用服务应用设置 (内部会自动判断调度器类型)
+                bool success = await _cpuAffinityService.SetCpuAffinityAsync(SelectedVm.Id, selectedIndices, SelectedVm.IsRunning);
+
+                // 3. 无论当前是否应用成功（Root 模式关机时会返回 false），我们都将配置持久化到 Notes
+                string affinityStr = selectedIndices.Count > 0 ? string.Join(",", selectedIndices) : "";
+                SelectedVm.Notes = Utils.UpdateTagValue(SelectedVm.Notes, "Affinity", affinityStr);
+                await _queryService.SetVmOsTypeAsync(SelectedVm.Name, SelectedVm.OsType); // 复用保存 Notes 的逻辑
+
+                if (success)
+                {
+                    ShowSnackbar("保存成功", "CPU 亲和性已实时应用并保存。", ControlAppearance.Success, SymbolRegular.CheckmarkCircle24);
+                    GoToCpuSettings();
+                }
+                else
+                {
+                    // 如果是因为 Root 模式未开机导致无法实时应用
+                    var scheduler = HyperVSchedulerService.GetSchedulerType();
+                    if (scheduler == HyperVSchedulerType.Root && !SelectedVm.IsRunning)
+                    {
+                        ShowSnackbar("设定已排队", "当前为 Root 调度模式，亲和性已保存，将在虚拟机下次启动时自动生效。", ControlAppearance.Info, SymbolRegular.Clock24);
+                        GoToCpuSettings();
+                    }
+                    else
+                    {
+                        ShowSnackbar("保存失败", "无法应用设置，请检查 HCS 权限或调度器状态。", ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+                    }
+                }
             }
-            catch (Exception ex) { ShowSnackbar("错误", Utils.GetFriendlyErrorMessages(ex.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24); }
-            finally { IsLoadingSettings = false; }
+            catch (Exception ex)
+            {
+                ShowSnackbar("错误", Utils.GetFriendlyErrorMessages(ex.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+            }
+            finally
+            {
+                IsLoadingSettings = false;
+            }
         }
 
         // ----------------------------------------------------------------------------------

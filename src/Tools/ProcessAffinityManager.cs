@@ -1,8 +1,4 @@
-﻿// 文件: ProcessAffinityManager.cs
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Management;
 
 namespace ExHyperV.Services

@@ -3,7 +3,7 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using ExHyperV.Tools;
 
-// 必须添加这个命名空间包裹，且名称必须与 XAML 中的 clr-namespace 一致
+
 namespace ExHyperV.Converters
 {
     public class OsTypeToImageConverter : IValueConverter

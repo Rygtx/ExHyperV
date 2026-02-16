@@ -6,10 +6,23 @@ namespace ExHyperV.Services
 {
     public class CpuAffinityService
     {
+        /// <summary>
+        /// 获取虚拟机的 CPU 亲和性设置
+        /// </summary>
         public async Task<List<int>> GetCpuAffinityAsync(Guid vmId)
         {
             if (vmId == Guid.Empty) return new List<int>();
 
+            // 1. 获取当前实时生效的调度器类型
+            var scheduler = HyperVSchedulerService.GetSchedulerType();
+
+            if (scheduler == HyperVSchedulerType.Root)
+            {
+                // Root 模式：直接从 vmmem 进程的相关性掩码中读取
+                return await Task.Run(() => ProcessAffinityManager.GetVmProcessAffinity(vmId));
+            }
+
+            // 2. Classic/Core 模式：从 HCS CPU Group 中读取
             try
             {
                 string json = await Task.Run(() => HcsManager.GetVmCpuGroupAsJson(vmId));
@@ -32,27 +45,61 @@ namespace ExHyperV.Services
                 return new List<int>();
             }
         }
-        public async Task<bool> SetCpuAffinityAsync(Guid vmId, List<int> coreIndices)
+
+        /// <summary>
+        /// 设置虚拟机的 CPU 亲和性
+        /// </summary>
+        /// <param name="vmId">虚拟机 ID</param>
+        /// <param name="coreIndices">选中的核心索引列表</param>
+        /// <param name="isVmRunning">虚拟机当前是否正在运行（Root 模式必须开启）</param>
+        public async Task<bool> SetCpuAffinityAsync(Guid vmId, List<int> coreIndices, bool isVmRunning)
         {
             if (vmId == Guid.Empty) return false;
 
-            try
-            {
-                Guid targetGroupId = Guid.Empty;
-                if (coreIndices != null && coreIndices.Count > 0)
-                {
-                    targetGroupId = await FindOrCreateCpuGroupAsync(coreIndices);
-                    if (targetGroupId == Guid.Empty) return false;
-                }
-                await Task.Run(() => HcsManager.SetVmCpuGroup(vmId, targetGroupId));
+            // 1. 获取当前调度器类型
+            var scheduler = HyperVSchedulerService.GetSchedulerType();
 
+            if (scheduler == HyperVSchedulerType.Root)
+            {
+                // --- Root 调度器路径 ---
+                // 根据经验，Root 模式只能在运行时控制 vmmem 进程
+                if (!isVmRunning)
+                {
+                    // 这里我们返回 false，由 ViewModel 层决定是否提示用户“必须启动后设置”
+                    return false;
+                }
+
+                await Task.Run(() => ProcessAffinityManager.SetVmProcessAffinity(vmId, coreIndices));
                 return true;
             }
-            catch (Exception)
+            else
             {
-                return false;
+                // --- Classic / Core 调度器路径 ---
+                // 使用 CPU Group 方式，支持静态/动态设置
+                try
+                {
+                    Guid targetGroupId = Guid.Empty;
+                    if (coreIndices != null && coreIndices.Count > 0)
+                    {
+                        targetGroupId = await FindOrCreateCpuGroupAsync(coreIndices);
+                        if (targetGroupId == Guid.Empty) return false;
+                    }
+
+                    // 将 VM 关联到该组 (如果 coreIndices 为空，则 targetGroupId 为 Guid.Empty，代表移除组限制)
+                    await Task.Run(() => HcsManager.SetVmCpuGroup(vmId, targetGroupId));
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
         }
+
+        // ----------------------------------------------------------------------------------
+        // HCS CPU Group 辅助方法 (仅供 Classic/Core 模式使用)
+        // ----------------------------------------------------------------------------------
+
         public async Task<Guid> FindOrCreateCpuGroupAsync(List<int> selectedCores)
         {
             if (selectedCores == null || !selectedCores.Any())
@@ -87,11 +134,7 @@ namespace ExHyperV.Services
 
         public async Task<HcsCpuGroupDetail> GetCpuGroupDetailsAsync(Guid groupId)
         {
-            if (groupId == Guid.Empty)
-            {
-                return null;
-            }
-
+            if (groupId == Guid.Empty) return null;
             var allGroups = await GetAllCpuGroupsAsync();
             return allGroups?.FirstOrDefault(g => g.GroupId == groupId);
         }
@@ -101,17 +144,12 @@ namespace ExHyperV.Services
             try
             {
                 string jsonResult = await Task.Run(() => HcsManager.GetAllCpuGroupsAsJson());
-                if (string.IsNullOrEmpty(jsonResult))
-                {
-                    return new List<HcsCpuGroupDetail>();
-                }
+                if (string.IsNullOrEmpty(jsonResult)) return new List<HcsCpuGroupDetail>();
 
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var result = JsonSerializer.Deserialize<HcsQueryResult>(jsonResult, options);
 
-                return result?.Properties?
-                               .FirstOrDefault()?
-                               .CpuGroups ?? new List<HcsCpuGroupDetail>();
+                return result?.Properties?.FirstOrDefault()?.CpuGroups ?? new List<HcsCpuGroupDetail>();
             }
             catch
             {

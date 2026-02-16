@@ -20,7 +20,6 @@ namespace ExHyperV.Models
             {
                 if (long.TryParse(Ram, out long bytes) && bytes > 0)
                 {
-                    // ✅ 修正：计算为 MB 并取整
                     double mb = bytes / (1024.0 * 1024.0);
                     return $"{mb:F0} MB";
                 }
