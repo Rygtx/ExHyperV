@@ -280,6 +280,46 @@ namespace ExHyperV.Services
             });
         }
 
+        // 轻量级的方法，获取虚拟磁盘文件的实时大小
+        public async Task RefreshVirtualDiskSizesAsync(VmInstanceInfo vm)
+        {
+            if (vm == null || vm.StorageItems == null || vm.StorageItems.Count == 0) return;
+
+            // 在后台线程执行文件 IO
+            await Task.Run(() =>
+            {
+                foreach (var item in vm.StorageItems)
+                {
+                    // 只针对虚拟磁盘且路径有效的项
+                    if (item.DiskType == "Virtual" && !string.IsNullOrEmpty(item.PathOrDiskNumber))
+                    {
+                        try
+                        {
+                            var fi = new FileInfo(item.PathOrDiskNumber);
+                            if (fi.Exists)
+                            {
+                                double currentSizeBytes = (double)fi.Length / 1073741824.0;
+
+                                // 只有当数字发生变化时，才同步回 UI
+                                if (Math.Abs(item.DiskSizeGB - currentSizeBytes) > 0.001)
+                                {
+                                    // 回到 UI 线程更新属性
+                                    System.Windows.Application.Current.Dispatcher.Invoke(() => {
+                                        item.DiskSizeGB = currentSizeBytes;
+                                    });
+                                }
+                            }
+                        }
+                        catch (IOException)
+                        {
+                            // 如果文件被 Hyper-V 独占锁定导致无法读取，暂时跳过
+                        }
+                        catch (Exception) { /* 忽略其他错误 */ }
+                    }
+                }
+            });
+        }
+
         // ============================================================
         // 槽位检测：寻找可用的控制器接口
         // ============================================================

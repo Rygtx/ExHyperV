@@ -563,6 +563,13 @@ namespace ExHyperV.ViewModels
                             }
                         }
                     }
+
+                    if (SelectedVm != null && SelectedVm.IsRunning)
+                    {
+                        // 仅对当前选中的、且正在运行的 VM 进行磁盘大小轮询
+                        await _storageService.RefreshVirtualDiskSizesAsync(SelectedVm);
+                    }
+
                     await Task.Delay(2000, token);
                 }
                 catch (TaskCanceledException) { break; }
