@@ -203,77 +203,79 @@ namespace ExHyperV.Services
 
         public async Task<List<PartitionInfo>> GetPartitionsFromVmAsync(string vmName)
         {
-            var allPartitions = new List<PartitionInfo>();
-
-            // 获取虚拟机挂载的所有硬盘（虚拟+物理）
-            var diskTargets = await GetAllVmHardDrivesAsync(vmName);
-
-            foreach (var target in diskTargets)
+            // 强制切换到线程池执行，确保完全不阻塞 UI
+            return await Task.Run(() =>
             {
-                int hostDiskNumber = -1;
-                try
+                var allPartitions = new List<PartitionInfo>();
+                // 注意：GetAllVmHardDrivesAsync 内部如果是 Utils.Run，最好也确保它是同步运行在当前这个 Task.Run 里的
+                var diskTargetsTask = GetAllVmHardDrivesAsync(vmName);
+                diskTargetsTask.Wait();
+                var diskTargets = diskTargetsTask.Result;
+
+                foreach (var target in diskTargets)
                 {
-                    if (target.IsPhysical)
+                    int hostDiskNumber = -1;
+                    try
                     {
-                        // [物理盘逻辑] 联机以供读取
-                        var setupScript = $@"
-                    Set-Disk -Number {target.PhysicalDiskNumber} -IsOffline $false -ErrorAction SilentlyContinue
-                    Set-Disk -Number {target.PhysicalDiskNumber} -IsReadOnly $true -ErrorAction SilentlyContinue
-                    Start-Sleep -Milliseconds 500
-                    (Get-Disk -Number {target.PhysicalDiskNumber}).Number
-                ";
-                        var res = Utils.Run(setupScript);
-                        if (res != null && res.Count > 0) hostDiskNumber = target.PhysicalDiskNumber;
-                    }
-                    else
-                    {
-                        // [虚拟盘逻辑] 挂载
-                        var mountScript = $@"
-                    $path = '{target.Path}'
-                    Dismount-DiskImage -ImagePath $path -ErrorAction SilentlyContinue
-                    $img = Mount-DiskImage -ImagePath $path -NoDriveLetter -PassThru -ErrorAction Stop
-                    ($img | Get-Disk).Number
-                ";
-                        var mountResult = Utils.Run(mountScript);
-                        if (mountResult != null && mountResult.Count > 0)
-                            int.TryParse(mountResult[0].ToString(), out hostDiskNumber);
-                    }
-
-                    if (hostDiskNumber != -1)
-                    {
-                        var diskParser = new DiskParserService();
-                        var devicePath = $@"\\.\PhysicalDrive{hostDiskNumber}";
-                        var partitions = diskParser.GetPartitions(devicePath);
-
-                        foreach (var p in partitions)
+                        // 执行 PowerShell 挂载（非常耗时且吃资源）
+                        if (target.IsPhysical)
                         {
-                            p.DiskPath = target.IsPhysical ? target.PhysicalDiskNumber.ToString() : target.Path;
-                            p.DiskDisplayName = target.IsPhysical ? $"Physical Disk {target.PhysicalDiskNumber}" : Path.GetFileName(target.Path);
-                            p.IsPhysicalDisk = target.IsPhysical;
+                            var setupScript = $@"
+                        Set-Disk -Number {target.PhysicalDiskNumber} -IsOffline $false -ErrorAction SilentlyContinue
+                        Set-Disk -Number {target.PhysicalDiskNumber} -IsReadOnly $true -ErrorAction SilentlyContinue
+                        Start-Sleep -Milliseconds 500
+                        (Get-Disk -Number {target.PhysicalDiskNumber}).Number";
+                            var res = Utils.Run(setupScript);
+                            if (res != null && res.Count > 0) hostDiskNumber = target.PhysicalDiskNumber;
+                        }
+                        else
+                        {
+                            var mountScript = $@"
+                        $path = '{target.Path}'
+                        Dismount-DiskImage -ImagePath $path -ErrorAction SilentlyContinue
+                        $img = Mount-DiskImage -ImagePath $path -NoDriveLetter -PassThru -ErrorAction Stop
+                        ($img | Get-Disk).Number";
+                            var mountResult = Utils.Run(mountScript);
+                            if (mountResult != null && mountResult.Count > 0)
+                                int.TryParse(mountResult[0].ToString(), out hostDiskNumber);
+                        }
 
-                            allPartitions.Add(p);
+                        if (hostDiskNumber != -1)
+                        {
+                            // DiskParserService 读取扇区（这是 CPU 和磁盘 IO 密集型操作）
+                            var diskParser = new DiskParserService();
+                            var devicePath = $@"\\.\PhysicalDrive{hostDiskNumber}";
+                            var partitions = diskParser.GetPartitions(devicePath);
+
+                            foreach (var p in partitions)
+                            {
+                                p.DiskPath = target.IsPhysical ? target.PhysicalDiskNumber.ToString() : target.Path;
+                                p.DiskDisplayName = target.IsPhysical ? $"Physical Disk {target.PhysicalDiskNumber}" : Path.GetFileName(target.Path);
+                                p.IsPhysicalDisk = target.IsPhysical;
+                                allPartitions.Add(p);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[扫描磁盘失败] {target.Path ?? "Physical"}: {ex.Message}");
+                    }
+                    finally
+                    {
+                        // 清理卸载
+                        if (target.IsPhysical)
+                        {
+                            Utils.Run($"Set-Disk -Number {target.PhysicalDiskNumber} -IsReadOnly $false -ErrorAction SilentlyContinue");
+                            Utils.Run($"Set-Disk -Number {target.PhysicalDiskNumber} -IsOffline $true -ErrorAction SilentlyContinue");
+                        }
+                        else if (!string.IsNullOrEmpty(target.Path))
+                        {
+                            Utils.Run($"Dismount-DiskImage -ImagePath '{target.Path}' -ErrorAction SilentlyContinue");
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"[扫描磁盘失败] {target.Path ?? "Physical"}: {ex.Message}");
-                }
-                finally
-                {
-                    // 扫描完一个磁盘立即清理，防止后面磁盘挂载冲突
-                    if (target.IsPhysical)
-                    {
-                        Utils.Run($"Set-Disk -Number {target.PhysicalDiskNumber} -IsReadOnly $false -ErrorAction SilentlyContinue");
-                        Utils.Run($"Set-Disk -Number {target.PhysicalDiskNumber} -IsOffline $true -ErrorAction SilentlyContinue");
-                    }
-                    else if (!string.IsNullOrEmpty(target.Path))
-                    {
-                        Utils.Run($"Dismount-DiskImage -ImagePath '{target.Path}' -ErrorAction SilentlyContinue");
-                    }
-                }
-            }
-            return allPartitions;
+                return allPartitions;
+            });
         }
         public string NormalizeDeviceId(string deviceId)
         {

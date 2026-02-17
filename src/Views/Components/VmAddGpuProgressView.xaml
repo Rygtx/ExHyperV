@@ -67,23 +67,23 @@
                                 <TextBlock Text="请选择要安装驱动的分区" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                             </Border>
 
-                            <ui:ListView Grid.Row="1" ItemsSource="{Binding DetectedPartitions}" Padding="8">
+                            <ui:ListView Grid.Row="1" 
+             ItemsSource="{Binding DetectedPartitions}" 
+             SelectedItem="{Binding SelectedPartition}" 
+             Padding="8">
                                 <ui:ListView.ItemTemplate>
                                     <DataTemplate DataType="{x:Type models:PartitionInfo}">
+                                        <!-- 回归最原始的布局，没有任何按钮干扰 -->
                                         <Grid Margin="4,8">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="48"/>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="{Binding IconPath}" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality"/>
                                             <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
                                                 <TextBlock Text="{Binding DisplayName}" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                                 <TextBlock Text="{Binding TypeDescription}" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                                             </StackPanel>
-                                            <ui:Button Grid.Column="2" Content="开始" Appearance="Secondary" 
-                                       Command="{Binding DataContext.SelectPartitionAndContinueCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                       CommandParameter="{Binding}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ui:ListView.ItemTemplate>

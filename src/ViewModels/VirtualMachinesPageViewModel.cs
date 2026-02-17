@@ -2050,6 +2050,26 @@ namespace ExHyperV.ViewModels
             GpuTasks.Clear();
         }
 
+        partial void OnSelectedPartitionChanged(PartitionInfo? value)
+        {
+            if (value == null) return;
+
+            // 关键：不要在这里同步执行，而是推送到下一个 UI 渲染周期
+            Application.Current.Dispatcher.BeginInvoke(new Action(async () =>
+            {
+                // 使用 ExecuteAsync 异步启动（如果使用的是 AsyncRelayCommand）
+                if (SelectPartitionAndContinueCommand.CanExecute(value))
+                {
+                    await SelectPartitionAndContinueCommand.ExecuteAsync(value);
+                }
+
+                // 清除选中状态以保持 UI 干净
+                _selectedPartition = null;
+                OnPropertyChanged(nameof(SelectedPartition));
+
+            }), System.Windows.Threading.DispatcherPriority.Input);
+            // 使用 Input 优先级，它比 Background 高，能更快响应点击但又不会阻塞当前渲染
+        }
         // 检查是否可以确认添加
         private bool CanConfirmAddGpu() => SelectedHostGpu != null;
 
@@ -2143,7 +2163,7 @@ namespace ExHyperV.ViewModels
                             try
                             {
                                 task.Description = "正在扫描所有挂载硬盘的分区...";
-                            AppendLog(task.Description);
+                                AppendLog(task.Description);
 
                             // 获取所有硬盘的所有分区
                             var allPartitions = await _vmGpuService.GetPartitionsFromVmAsync(SelectedVm.Name);

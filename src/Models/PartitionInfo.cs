@@ -35,7 +35,7 @@ namespace ExHyperV.Models
 
         public double SizeInGb => SizeInBytes / (1024.0 * 1024.0 * 1024.0);
 
-        public string DisplayName => $"[{DiskDisplayName}] Partition {PartitionNumber} （{SizeInGb:F2} GB) - {TypeDescription}";
+        public string DisplayName => $"[{DiskDisplayName}] 分区 {PartitionNumber} ({SizeInGb:F1} GB)";
         public string IconPath
         {
             get
