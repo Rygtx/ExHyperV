@@ -2149,6 +2149,18 @@ namespace ExHyperV.ViewModels
                             AppendLog(task.Description);
                             var partitions = await _vmGpuService.GetPartitionsFromVmAsync(SelectedVm.Name);
 
+                            // ----------------------------------------------------------------------
+                            // 修复点 1: 处理未检测到分区的情况
+                            // ----------------------------------------------------------------------
+                            if (partitions == null || partitions.Count == 0)
+                            {
+                                // 直接抛出异常，会被外层的 catch 捕获，从而将任务状态置为 Failed (红色 X)
+                                throw new Exception("未能识别到任何有效分区，无法注入驱动。请确保虚拟机已安装操作系统且文件系统可识别。");
+                            }
+
+                            // ----------------------------------------------------------------------
+                            // 修复点 2: 唯一的 Windows 分区 (保持原样)
+                            // ----------------------------------------------------------------------
                             if (partitions.Count == 1 && partitions[0].OsType == OperatingSystemType.Windows)
                             {
                                 task.Description = "已识别到 Windows 主分区，正在同步驱动...";
@@ -2165,6 +2177,28 @@ namespace ExHyperV.ViewModels
                                 if (!syncRes.Success) throw new Exception(syncRes.Message);
                                 task.Description = "Windows 驱动安装成功。";
                             }
+                            // ----------------------------------------------------------------------
+                            // 修复点 3: 唯一的 Linux 分区 (新增逻辑 -> 自动跳转 SSH)
+                            // ----------------------------------------------------------------------
+                            else if (partitions.Count == 1 && partitions[0].OsType == OperatingSystemType.Linux)
+                            {
+                                task.Description = "已识别到 Linux 主分区，正在初始化连接...";
+                                AppendLog(task.Description);
+
+                                // 必须在 UI 线程调用跳转逻辑，因为 SelectPartitionAndContinue 会修改 ObservableProperty
+                                await Application.Current.Dispatcher.InvokeAsync(async () => {
+                                    ShowPartitionSelector = true;
+                                    // 直接调用选择分区的逻辑，就像用户点击了按钮一样
+                                    await SelectPartitionAndContinue(partitions[0]);
+                                });
+
+                                // 关键：直接 return 退出当前的循环工作流。
+                                // 因为 Linux 需要用户填写 SSH 密码，流程暂停，等待用户点击“连接”按钮触发 StartLinuxDeploy
+                                return;
+                            }
+                            // ----------------------------------------------------------------------
+                            // 修复点 4: 多个分区 (保持原样 -> 让用户选)
+                            // ----------------------------------------------------------------------
                             else
                             {
                                 Application.Current.Dispatcher.Invoke(() => {
@@ -2172,8 +2206,9 @@ namespace ExHyperV.ViewModels
                                     ShowPartitionSelector = true;
                                     ShowSshForm = false;
                                 });
-                                task.Description = "检测到多个环境或 Linux，等待用户选择注入目标...";
+                                task.Description = "检测到多个环境，请选择目标分区...";
                                 AppendLog(task.Description);
+                                // 同样 return，等待用户手动点击列表项
                                 return;
                             }
                             break;
@@ -2236,8 +2271,12 @@ namespace ExHyperV.ViewModels
             {
                 SelectedPartition = partition;
                 IsLoadingSettings = true;
-                driveTask.Description = "正在分析 Linux 环境并获取网络地址...";
-                AppendLog($">>> 用户选择了 Linux 分区: {partition.DisplayName}");
+
+                ShowPartitionSelector = false;
+                ShowSshForm = true;
+
+                driveTask.Description = "检测到 Linux 分区，正在等待虚拟机启动...";
+                AppendLog($">>> 自动选中 Linux 分区: {partition.DisplayName}，进入自动流程。");
 
                 try
                 {
@@ -2305,6 +2344,7 @@ namespace ExHyperV.ViewModels
                 finally
                 {
                     IsLoadingSettings = false;
+                    ShowPartitionSelector = true;
                 }
             }
         }
