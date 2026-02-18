@@ -19,6 +19,24 @@
         <converters:VmNameToIconConverter x:Key="VmNameToIconConverter" />
         <converters:OsTypeToImageConverter x:Key="OsTypeToImageConverter" />
 
+        <!-- 保底界面模板：未选择虚拟机时显示 -->
+        <DataTemplate x:Key="VmEmptyStateTemplate">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Opacity="0.6">
+                    <TextBlock Text="未选择虚拟机" 
+                       FontSize="20" 
+                       FontWeight="SemiBold" 
+                       HorizontalAlignment="Center" 
+                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
+                       Margin="0,0,0,8"/>
+                    <TextBlock Text="请从左侧列表选择一个虚拟机以开始管理" 
+                       FontSize="14"
+                       HorizontalAlignment="Center" 
+                       Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        
         <DataTemplate x:Key="VmListItemTemplate">
             <Grid Margin="2,6">
                 <Grid.ColumnDefinitions>
@@ -486,8 +504,26 @@
         <GridSplitter Grid.Column="1" Width="12" HorizontalAlignment="Stretch" Background="Transparent"/>
 
         <Border Grid.Column="2" Background="{ui:ThemeResource LayerFillColorDefaultBrush}"
-                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" ClipToBounds="True">
-            <ContentControl Content="{Binding SelectedVm}" ContentTemplate="{StaticResource VmDetailTemplate}"/>
+        BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" ClipToBounds="True">
+            <ContentControl Content="{Binding SelectedVm}">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <!-- 默认使用详情模板 -->
+                        <Setter Property="ContentTemplate" Value="{StaticResource VmDetailTemplate}" />
+                        <Style.Triggers>
+                            <!-- 逻辑 1: 当未选中虚拟机时，显示保底模板 -->
+                            <DataTrigger Binding="{Binding SelectedVm}" Value="{x:Null}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource VmEmptyStateTemplate}" />
+                            </DataTrigger>
+
+                            <!-- 逻辑 2: 当处于加载状态时，彻底隐藏内容，防止保底界面在加载遮罩下露出 -->
+                            <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
         </Border>
     </Grid>
 </Page>

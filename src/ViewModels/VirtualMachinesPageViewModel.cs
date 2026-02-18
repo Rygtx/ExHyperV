@@ -333,7 +333,16 @@ namespace ExHyperV.ViewModels
             {
                 IsLoading = false;
             }
+            if (VmList.Count == 0)
+            {
+                SelectedVm = null;
+            }
         }
+
+
+
+
+
 
         // 打开官方 vmconnect 连接工具
         [RelayCommand]

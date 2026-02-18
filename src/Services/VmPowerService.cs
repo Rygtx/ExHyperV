@@ -21,7 +21,12 @@ namespace ExHyperV.Services
                 "Start" => $"Start-VM -Name '{safeName}' -ErrorAction Stop",
                 "TurnOff" => $"Stop-VM -Name '{safeName}' -TurnOff -Force -Confirm:$false -ErrorAction Stop",
                 "Restart" => $"Restart-VM -Name '{safeName}' -Force -Confirm:$false -ErrorAction Stop",
-                "Stop" => $"Stop-VM -Name '{safeName}' -ErrorAction Stop", 
+                        "Stop" => $@"
+            try {{ 
+                Stop-VM -Name '{safeName}' -ErrorAction Stop -Confirm:$false 
+            }} catch {{ 
+                Stop-VM -Name '{safeName}' -TurnOff -Force -Confirm:$false 
+            }}",
                 "Save" => $"Save-VM -Name '{safeName}' -ErrorAction Stop",
                 "Suspend" => $"Suspend-VM -Name '{safeName}' -ErrorAction Stop",
 
