@@ -222,7 +222,7 @@ namespace ExHyperV.ViewModels
             {
                 try
                 {
-                    string script = "Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -All -NoRestart";
+                    string script = "Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRestart";
                     var result = Utils.Run(script);
                     return true;
                 }

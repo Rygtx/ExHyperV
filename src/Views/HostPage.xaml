@@ -68,7 +68,7 @@
                         </StackPanel>
 
                         <!-- 文字 -->
-                        <TextBlock Grid.Column="1" Text="IOMMU 开关" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                        <TextBlock Grid.Column="1" Text="IOMMU 状态" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                     </Grid>
                 </ui:Card>
 
