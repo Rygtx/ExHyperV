@@ -14,6 +14,7 @@
         <SatelliteResourceLanguages>en;zh-Hans</SatelliteResourceLanguages>
         <DebugType Condition=" '$(Configuration)' == 'Release' ">none</DebugType>
         <DebugSymbols Condition=" '$(Configuration)' == 'Release' ">false</DebugSymbols>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
 
     <!-- =================================================================== -->
