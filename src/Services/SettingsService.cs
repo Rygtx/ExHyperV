@@ -18,6 +18,7 @@ namespace ExHyperV.Services
     {
 
         private static readonly HttpClient _httpClient = new HttpClient();
+        public record UpdateResult(bool IsUpdateAvailable, string LatestVersion, bool IsInnerTest = false);
         private const string GitHubApiUrl = "https://api.github.com/repos/Justsenger/ExHyperV/releases/latest";
         private const string FallbackUrl = "https://update.shalingye.workers.dev/";
 
@@ -69,11 +70,16 @@ namespace ExHyperV.Services
 
             if (Version.TryParse(cleanCurrentStr, out var currentVer) && Version.TryParse(cleanLatestStr, out var latestVer))
             {
-                bool isUpdateAvailable = latestVer > currentVer;
-                return new UpdateResult(isUpdateAvailable, latestVersionTag);
+                // 这里是核心合并逻辑：
+                bool isUpdateAvailable = latestVer > currentVer;  // 服务器大 -> 有更新
+                bool isInnerTest = currentVer > latestVer;        // 本地大 -> 内测版
+
+                return new UpdateResult(isUpdateAvailable, latestVersionTag, isInnerTest);
             }
-            bool updateAvailableByString = !string.Equals(latestVersionTag, currentVersion, StringComparison.OrdinalIgnoreCase);
-            return new UpdateResult(updateAvailableByString, latestVersionTag);
+
+            // 字符串退化处理逻辑
+            bool isSame = string.Equals(latestVersionTag, currentVersion, StringComparison.OrdinalIgnoreCase);
+            return new UpdateResult(!isSame, latestVersionTag, false);
         }
         private const string ConfigFilePath = "config.xml";
 

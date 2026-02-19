@@ -50,6 +50,12 @@ namespace ExHyperV.ViewModels
                     _latestVersionTag = result.LatestVersion;
                     ShowUpdateIndicator = true;
                 }
+                else if (result.IsInnerTest) // 直接在这里合并判断
+                {
+                    UpdateStatusText = "内测版本"; // 或者从资源文件读
+                    UpdateActionIcon = "\uF196"; // 实验室/烧瓶图标
+                    UpdateActionCommand = CheckForUpdateCommand;
+                }
                 else
                 {
                     UpdateStatusText = ExHyperV.Properties.Resources.Info_AlreadyLatestVersion;
@@ -69,7 +75,6 @@ namespace ExHyperV.ViewModels
                 IsUpdateActionEnabled = true;
             }
         }
-
         [RelayCommand]
         private void GoToReleasePage()
         {

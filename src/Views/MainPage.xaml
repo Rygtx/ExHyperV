@@ -14,89 +14,162 @@
     d:DesignHeight="700"
     d:DesignWidth="1000">
 
-    <Grid Margin="15" VerticalAlignment="Top">
-
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <!-- 0: Banner -->
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <!-- 1: 信息展示区 -->
+            <RowDefinition Height="*"/>
+            <!-- 2: 引导按钮区 -->
         </Grid.RowDefinitions>
 
-        <Grid>
+        <!-- 1. Banner 区 (移除加粗，恢复圆角) -->
+        <Grid Grid.Row="0" Margin="0,0,0,10">
             <ui:Image CornerRadius="15" Stretch="Uniform" Source="pack://application:,,,/Assets/Bar.png"/>
+            <StackPanel VerticalAlignment="Center" Margin="30,0,0,-25">
+                <TextBlock Text="ExHyperV" FontSize="42" Foreground="White"/>
+                <TextBlock Text="{x:Static properties:Resources.exhyperv}" FontSize="18" Foreground="#CCFFFFFF" Margin="5,5,0,0"/>
+            </StackPanel>
         </Grid>
 
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30">
-            <TextBlock Text="ExHyperV" Margin="0,15,0,0" FontSize="42" Foreground="White"/>
-            <TextBlock Text="{x:Static properties:Resources.exhyperv}"  Margin="50,5,0,0" FontSize="18" Foreground="White"/>
-        </StackPanel>
+        <!-- 2. 信息展示区 (改为 VerticalAlignment="Top" 解决居中问题，移除加粗) -->
+        <Grid Grid.Row="1" Margin="0,5,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <ui:CardExpander Grid.Row="1" Margin="0,10,0,0" ContentPadding="6" IsExpanded="True">
-            <ui:CardExpander.Icon>
-                <ui:FontIcon FontSize="24" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph=""/>
-            </ui:CardExpander.Icon>
-            <ui:CardExpander.Header>
-                <Grid>
-                    <TextBlock Text="{x:Static properties:Resources.systeminfo}" FontSize="16" VerticalAlignment="Center"/>
-                </Grid>
-            </ui:CardExpander.Header>
-            <StackPanel Margin="50,10,0,0">
+            <!-- 系统信息卡片 -->
+            <ui:CardControl Grid.Column="0" Margin="0,0,5,0" VerticalAlignment="Top">
+                <ui:CardControl.Header>
+                    <StackPanel Margin="5">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <ui:FontIcon FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="" FontSize="24" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Text="{x:Static properties:Resources.systeminfo}" FontSize="18" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                        </StackPanel>
+
+                        <Grid Margin="38,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.version}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Grid.Row="1" Text="{x:Static properties:Resources.arch}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Grid.Row="2" Text="{x:Static properties:Resources.model}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Grid.Row="3" Text="{x:Static properties:Resources.Memorycapacity}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Caption}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding OSArchitecture}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding CpuModel}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MemCap}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+
+            <!-- 应用信息卡片 (VerticalAlignment="Top" 确保从顶部开始排列) -->
+            <ui:CardControl Grid.Column="1" Margin="5,0,0,0" VerticalAlignment="Top">
+                <ui:CardControl.Header>
+                    <StackPanel Margin="5">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <ui:FontIcon FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="" FontSize="24" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Text="{x:Static properties:Resources.soft}" FontSize="18" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                        </StackPanel>
+
+                        <Grid Margin="38,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.appversion}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Grid.Row="1" Text="{x:Static properties:Resources.author}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Grid.Row="2" Text="{x:Static properties:Resources.buildtime}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AppVersion}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Author}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding BuildDate}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+        </Grid>
+
+        <!-- 3. 引导按钮区 (移除加粗) -->
+        <UniformGrid Grid.Row="2" Columns="2" VerticalAlignment="Top">
+            <!-- 虚拟机管理 -->
+            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="32"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="{x:Static properties:Resources.version}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="0"/>
-                    <TextBlock Text="{x:Static properties:Resources.arch}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="1"/>
-                    <TextBlock Text="{x:Static properties:Resources.model}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="2"/>
-                    <TextBlock Text="{x:Static properties:Resources.Memorycapacity}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="3"/>
-
-                    <TextBlock Text="{Binding Caption}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="0"/>
-                    <TextBlock Text="{Binding OSArchitecture}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="1"/>
-                    <TextBlock Text="{Binding CpuModel}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="2"/>
-                    <TextBlock Text="{Binding MemCap}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="3"/>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xF5ED;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="虚拟机管理" FontSize="16"/>
+                        <TextBlock Text="创建、配置并运行 Hyper-V 虚拟机" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
                 </Grid>
-            </StackPanel>
-        </ui:CardExpander>
+            </ui:CardAction>
 
-        <ui:CardExpander Grid.Row="2" Margin="0,10,0,0" ContentPadding="6" IsExpanded="True">
-            <ui:CardExpander.Icon>
-                <ui:FontIcon FontSize="24" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="" />
-            </ui:CardExpander.Icon>
-            <ui:CardExpander.Header>
-                <Grid>
-                    <TextBlock Text="{x:Static properties:Resources.soft}" FontSize="16" VerticalAlignment="Center"/>
-                </Grid>
-            </ui:CardExpander.Header>
-            <StackPanel Margin="50,10,0,0">
+            <!-- 环境配置 -->
+            <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Host">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="32"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="{x:Static properties:Resources.appversion}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="0"/>
-                    <TextBlock Text="{x:Static properties:Resources.author}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="1"/>
-                    <TextBlock Text="{x:Static properties:Resources.buildtime}" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="2"/>
-
-                    <TextBlock Text="{Binding AppVersion}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="0"/>
-                    <TextBlock Text="{Binding Author}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="1"/>
-                    <TextBlock Text="{Binding BuildDate}" FontSize="16" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,10" Grid.Row="2"/>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xE737;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="主机配置" FontSize="16"/>
+                        <TextBlock Text="查看主机运行环境及高级设定" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
                 </Grid>
-            </StackPanel>
-        </ui:CardExpander>
+            </ui:CardAction>
 
+            <!-- PCIe 直通 -->
+            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="PCIe">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xF0B9;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="PCIe 直通" FontSize="16"/>
+                        <TextBlock Text="将物理显卡等设备直接分配给虚拟机" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </ui:CardAction>
+
+            <!-- 虚拟网络 -->
+            <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Network">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xE774;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="虚拟交换机" FontSize="16"/>
+                        <TextBlock Text="管理虚拟交换机、网络模式和上游网络" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </ui:CardAction>
+        </UniformGrid>
     </Grid>
 </Page>

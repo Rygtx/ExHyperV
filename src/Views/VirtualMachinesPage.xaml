@@ -168,8 +168,8 @@
 
                                 <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" CornerRadius="4" Padding="10,6" Margin="0,0,8,0">
                                     <StackPanel Orientation="Horizontal">
-                                        <ui:FontIcon Glyph="&#xE975;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                        <TextBlock Text="{Binding Generation, StringFormat='{}{0}代'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <ui:FontIcon Glyph="&#xE8C8;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Text="{Binding Generation, StringFormat='{}{0} 代'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                                     </StackPanel>
                                 </Border>
 
@@ -261,7 +261,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                            <ui:Button Content="连接" 
+                            <ui:Button Content="控制台" 
                Icon="Display24" 
                Appearance="Secondary" 
                Padding="16,6" 
@@ -491,7 +491,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Margin="8">
-                    <ui:TextBox PlaceholderText="搜索虚拟机" ClearButtonEnabled="True" Padding="10,0,32,0"
+                    <ui:TextBox PlaceholderText="搜索虚拟机 ..." ClearButtonEnabled="True" Padding="10,0,32,0"
                                 Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <ui:SymbolIcon Symbol="Search24" HorizontalAlignment="Right" Margin="0,0,10,0" 
                                    Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" IsHitTestVisible="False"/>

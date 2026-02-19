@@ -184,6 +184,28 @@
                             Glyph="&#xE71B;" />
                     </Grid>
                 </ui:Anchor>
+                <ui:Anchor
+                    Padding="16"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0,1,0,1"
+                    CornerRadius="0"
+                    NavigateUri="https://afdian.com/a/saniye">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="我很可爱，请给我钱" />
+                        <ui:FontIcon
+                            Grid.Column="1"
+                            FontFamily="{DynamicResource SegoeFluentIcons}"
+                            Glyph="&#xEB52;" 
+                            Foreground="#FF4A4A" />
+                    </Grid>
+                </ui:Anchor>
+                
             </StackPanel>
         </ui:CardExpander>
     </StackPanel>

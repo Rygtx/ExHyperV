@@ -762,7 +762,7 @@ namespace ExHyperV.ViewModels
 
                 if (success)
                 {
-                    ShowSnackbar("保存成功", "CPU 亲和性已实时应用并保存。", ControlAppearance.Success, SymbolRegular.CheckmarkCircle24);
+                    ShowSnackbar("保存成功", "CPU 亲和性已应用。", ControlAppearance.Success, SymbolRegular.CheckmarkCircle24);
                     GoToCpuSettings();
                 }
                 else

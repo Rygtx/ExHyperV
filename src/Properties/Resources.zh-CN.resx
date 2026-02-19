@@ -346,7 +346,7 @@
     <value>GPU半虚拟化</value>
   </data>
   <data name="DDA" xml:space="preserve">
-    <value>DDA直通</value>
+    <value>PCIe 直通</value>
   </data>
   <data name="Colsefirst" xml:space="preserve">
     <value>请先关闭虚拟机！</value>
@@ -364,7 +364,7 @@
     <value>检测是否属于服务器版本...</value>
   </data>
   <data name="ddaa" xml:space="preserve">
-    <value>宿主系统非服务器版本，无法使用DDA直通！</value>
+    <value>主机系统非服务器版本，无法使用 PCIe 直通！</value>
   </data>
   <data name="Isserver" xml:space="preserve">
     <value>宿主系统属于服务器版本。</value>
@@ -379,7 +379,7 @@
     <value>错误</value>
   </data>
   <data name="servererror" xml:space="preserve">
-    <value>宿主系统非服务器版本，添加了DDA设备的虚拟机将无法启动！</value>
+    <value>主机系统非服务器版本，无法使用 PCIe 直通！</value>
   </data>
   <data name="GetVmState_Error" xml:space="preserve">
     <value>错误：无法获取虚拟机‘{0}’的状态。</value>
@@ -1120,7 +1120,7 @@
     <value>嵌套虚拟化</value>
   </data>
   <data name="NestedVirtualizationDescription" xml:space="preserve">
-    <value>决定虚拟机是否开启虚拟化</value>
+    <value>开启后透传虚拟化指令集，支持在虚拟机内运行虚拟机</value>
   </data>
   <data name="HostResourceProtection" xml:space="preserve">
     <value>主机资源保护</value>
@@ -1129,19 +1129,19 @@
     <value>迁移兼容性</value>
   </data>
   <data name="MigrationCompatibilityDescription" xml:space="preserve">
-    <value>限制 CPU 特性，以便在不同版本的宿主间迁移</value>
+    <value>屏蔽 CPU 指令集，以便在不同版本的宿主间迁移</value>
   </data>
   <data name="LegacySystemCompatibility" xml:space="preserve">
-    <value>旧系统兼容性</value>
+    <value>老旧系统兼容性</value>
   </data>
   <data name="LegacySystemCompatibilityDescription" xml:space="preserve">
-    <value>限制 CPU 特性，以便兼容老旧操作系统</value>
+    <value>屏蔽 CPU 指令集，提高对老旧操作系统的兼容性</value>
   </data>
   <data name="VirtualMachineSmt" xml:space="preserve">
     <value>虚拟机 SMT</value>
   </data>
   <data name="VirtualMachineSmtDescription" xml:space="preserve">
-    <value>决定虚拟机超线程是否开启</value>
+    <value>启用超线程感知，优化内核缓存利用与进程调度</value>
   </data>
   <data name="FollowHost" xml:space="preserve">
     <value>跟随宿主</value>
@@ -1183,7 +1183,7 @@
     <value>数据加载中...</value>
   </data>
   <data name="LimitVmBusCommunicationFrequency" xml:space="preserve">
-    <value>限制虚拟机 VMbus 通信频率</value>
+    <value>监控 VMBus 通信，防止中断风暴影响主机</value>
   </data>
   <data name="VMSettingsSavedSuccessfully" xml:space="preserve">
     <value>虚拟机 {0} 的设置已成功应用。</value>

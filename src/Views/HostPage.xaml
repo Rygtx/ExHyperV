@@ -14,7 +14,7 @@
     <Grid Margin="24">
         <StackPanel>
             <StackPanel Margin="0,0,0,12">
-                <ui:TextBlock Text="环境与配置" FontSize="28" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" />
+                <ui:TextBlock Text="环境与设定" FontSize="28" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" />
             </StackPanel>
 
             <!-- 第一部分：运行环境 -->
@@ -147,7 +147,7 @@
                         </StackPanel>
 
                         <!-- 文字 -->
-                        <TextBlock Grid.Column="1" Text="Windows Server 环境" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                        <TextBlock Grid.Column="1" Text="属于 Windows Server 系统" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                     </Grid>
                 </ui:Card>
             </StackPanel>
@@ -184,7 +184,7 @@
                     <ui:CardControl.Header>
                         <StackPanel>
                             <TextBlock Text="允许 NUMA 跨越" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                            <TextBlock Text="开启后虚拟机可跨物理处理器分配内存" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Text="开启后虚拟机可跨物理节点分配内存" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                         </StackPanel>
                     </ui:CardControl.Header>
 
@@ -199,7 +199,7 @@
                     </ui:CardControl.Icon>
                     <ui:CardControl.Header>
                         <StackPanel>
-                            <TextBlock Text="解除消费级硬件限制" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                            <TextBlock Text="解锁消费级硬件限制" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                             <TextBlock Text="修复因硬件安全检查导致的问题" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                         </StackPanel>
                     </ui:CardControl.Header>

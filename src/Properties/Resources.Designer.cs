@@ -1097,7 +1097,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Discrete Device Assignment 的本地化字符串。
+        ///   查找类似 PCIe Passthrough 的本地化字符串。
         /// </summary>
         public static string DDA {
             get {
@@ -1106,7 +1106,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The host system is not a server version, so Discrete Device Assignment cannot be used! 的本地化字符串。
+        ///   查找类似 The host system is not a server version, so PCIe Passthrough cannot be used! 的本地化字符串。
         /// </summary>
         public static string ddaa {
             get {
@@ -3207,7 +3207,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The host system is not a server version, and the virtual machine with the DDA device added will not be able to start! 的本地化字符串。
+        ///   查找类似 The host system is not a server version, and the virtual machine with the PCIe Passthrough device added will not be able to start! 的本地化字符串。
         /// </summary>
         public static string servererror {
             get {

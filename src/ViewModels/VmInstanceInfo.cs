@@ -560,20 +560,22 @@ namespace ExHyperV.Models
             get
             {
                 string diskPart;
-                if (Disks.Count == 0)
+                if (Disks == null || Disks.Count == 0)
                 {
-                    diskPart = "无";
+                    diskPart = "无磁盘";
                 }
                 else
                 {
                     diskPart = string.Join(" + ", Disks
-                        .Select(d => d.MaxSize / 1073741824.0)
+                        .Select(d => d.MaxSize / 1073741824.0) // 字节转为 GB
                         .OrderByDescending(g => g)
-                        .Select(g => g >= 1 ? $"{g:0.#}G" : $"{g * 1024:0}M"));
+                        .Select(g => g >= 1 ? $"{g:0.#} GB" : $"{g * 1024:0} MB"));
                 }
-                return $"{_cpuCount} Cores / {_memoryGb:0.#}GB RAM / {diskPart}";
+
+                return $"{_cpuCount} 核 / {_memoryGb:0.#} GB / {diskPart}";
             }
         }
+
         public void SyncBackendData(string realState, TimeSpan realUptime)
         {
             // 记录旧状态

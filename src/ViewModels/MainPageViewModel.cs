@@ -2,6 +2,9 @@
 using System.Management.Automation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using ExHyperV.Tools;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows;
+using ExHyperV.Views.Pages;
 
 namespace ExHyperV.ViewModels
 {
@@ -28,11 +31,37 @@ namespace ExHyperV.ViewModels
         [ObservableProperty]
         private string? _buildDate;
 
+        [RelayCommand]
+        private void OnNavigate(string parameter)
+        {
+            // 1. 获取 MainWindow 实例
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow == null) return;
+
+            // 2. 根据 XAML 传过来的参数决定跳转到哪个页面
+            Type? pageType = parameter switch
+            {
+                "VM" => typeof(VirtualMachinesPage),
+                "Host" => typeof(HostPage),
+                "PCIe" => typeof(DDAPage),
+                "Network" => typeof(SwitchPage),
+                _ => null
+            };
+
+            // 3. 调用 MainWindow 里的 RootNavigation 执行跳转
+            if (pageType != null)
+            {
+                mainWindow.RootNavigation.Navigate(pageType);
+            }
+        }
+
+
         public MainPageViewModel()
         {
             AppVersion = Utils.Version;
             Author = Utils.Author;
             BuildDate = Utils.GetLinkerTime().ToString("yyyy/MM/dd HH:mm", CultureInfo.InvariantCulture);
+
 
             static (string Caption, string OSArchitecture, string CpuModel, string MemCap) LoadSystemData()
             {
