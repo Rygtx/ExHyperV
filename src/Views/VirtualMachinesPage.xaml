@@ -19,6 +19,8 @@
         <converters:VmNameToIconConverter x:Key="VmNameToIconConverter" />
         <converters:OsTypeToImageConverter x:Key="OsTypeToImageConverter" />
 
+
+
         <!-- 保底界面模板：未选择虚拟机时显示 -->
         <DataTemplate x:Key="VmEmptyStateTemplate">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -32,7 +34,7 @@
                     <TextBlock Text="请从左侧列表选择一个虚拟机以开始管理" 
                        FontSize="14"
                        HorizontalAlignment="Center" 
-                       Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -44,7 +46,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Width="4" Height="4" CornerRadius="2" VerticalAlignment="Center" Margin="0,0,8,0">
+                <Border Grid.Column="0" Width="6" Height="6" CornerRadius="2" VerticalAlignment="Center" Margin="0,0,8,0">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="Background" Value="{ui:ThemeResource TextFillColorTertiaryBrush}"/>
@@ -75,9 +77,9 @@
                 </Grid.RowDefinitions>
 
                 <Border Grid.Row="0" Margin="24,12,24,0" 
-                        Background="{ui:ThemeResource ControlFillColorSecondaryBrush}" 
-                        BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" 
-                        CornerRadius="8" Padding="24" MinHeight="160">
+                Background="{ui:ThemeResource ControlFillColorSecondaryBrush}" 
+                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" 
+                CornerRadius="8" Padding="24" MinHeight="160">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -85,18 +87,16 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- ==================== 新的监视器/图标容器 ==================== -->
+                        <!-- 监视器/图标容器 -->
                         <Grid Grid.Column="0" Width="120" Height="100" VerticalAlignment="Center">
-
                             <!-- 1. 默认 OS 图标 (关机时显示) -->
                             <Image RenderOptions.BitmapScalingMode="HighQuality"
-           Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"
-           Source="{Binding OsType, Converter={StaticResource OsTypeToImageConverter}}">
+                           Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Source="{Binding OsType, Converter={StaticResource OsTypeToImageConverter}}">
                                 <Image.Style>
                                     <Style TargetType="Image">
                                         <Setter Property="Visibility" Value="Visible"/>
                                         <Style.Triggers>
-                                            <!-- 当虚拟机运行时，隐藏图标 -->
                                             <DataTrigger Binding="{Binding IsRunning}" Value="True">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                             </DataTrigger>
@@ -107,8 +107,8 @@
 
                             <!-- 2. 实时监视器 (运行时显示) -->
                             <Border Background="Black" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" 
-        BorderThickness="4,4,4,8" CornerRadius="2" ClipToBounds="True"
-        ToolTip="双击以连接">
+                            BorderThickness="4,4,4,8" CornerRadius="2" ClipToBounds="True"
+                            ToolTip="双击以连接">
                                 <Border.Style>
                                     <Style TargetType="Border">
                                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -119,74 +119,70 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
-
-                                <!-- ==================== 新增的双击绑定 ==================== -->
                                 <Border.InputBindings>
-                                    <!-- 
-            当鼠标左键被双击时 (LeftDoubleClick)，
-            执行指定的命令。
-        -->
                                     <MouseBinding Gesture="LeftDoubleClick"
-                      Command="{Binding DataContext.OpenNativeConnectCommand, RelativeSource={RelativeSource AncestorType=Page}}" />
+                                          Command="{Binding DataContext.OpenNativeConnectCommand, RelativeSource={RelativeSource AncestorType=Page}}" />
                                 </Border.InputBindings>
-                                <!-- ========================================================== -->
-
                                 <Viewbox Stretch="Uniform">
-                                    <Image Source="{Binding Thumbnail}" 
-               Width="320" 
-               Height="240" 
-               RenderOptions.BitmapScalingMode="HighQuality" />
+                                    <Image Source="{Binding Thumbnail}" Width="320" Height="240" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
                                 </Viewbox>
-
                             </Border>
                         </Grid>
-                        <!-- =============================================================== -->
-                        
+
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,0,0">
                             <TextBlock Text="{Binding Name}" FontSize="28" 
-                                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
+                               Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
                                 <ui:SymbolIcon Symbol="Pulse24" FontSize="16" Margin="0,1,6,0" 
-                                               Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 <TextBlock Text="{Binding State}" FontSize="14" 
-                                           Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,12,0"/>
+                                   Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,12,0"/>
 
                                 <ui:SymbolIcon Symbol="Timer24" FontSize="16" Margin="0,1,6,0" 
-                                               Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 <TextBlock Text="{Binding Uptime}" FontSize="14" 
-                                           Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                   Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                             </StackPanel>
 
+                            <!-- 第一行标签：配置、代数、版本 -->
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" CornerRadius="4" Padding="10,6" Margin="0,0,8,0">
+                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
+                                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="10,6" Margin="0,0,8,0">
                                     <StackPanel Orientation="Horizontal">
-                                        <ui:FontIcon Glyph="&#xE81E;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                        <TextBlock Text="{Binding ConfigSummary}" TextTrimming="CharacterEllipsis" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <ui:FontIcon Glyph="&#xE81E;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Text="{Binding ConfigSummary}" TextTrimming="CharacterEllipsis" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     </StackPanel>
                                 </Border>
 
-                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" CornerRadius="4" Padding="10,6" Margin="0,0,8,0">
+                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
+                                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="10,6" Margin="0,0,8,0">
                                     <StackPanel Orientation="Horizontal">
-                                        <ui:FontIcon Glyph="&#xE8C8;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                        <TextBlock Text="{Binding Generation, StringFormat='{}{0} 代'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <ui:FontIcon Glyph="&#xE8C8;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Text="{Binding Generation, StringFormat='{}{0} 代'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     </StackPanel>
                                 </Border>
 
-                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" CornerRadius="4" Padding="10,6">
+                                <Border Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
+                                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="10,6">
                                     <StackPanel Orientation="Horizontal">
-                                        <ui:FontIcon Glyph="&#xE946;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                        <TextBlock Text="{Binding Version, StringFormat='{}配置版本 {0}'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <ui:FontIcon Glyph="&#xE946;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Text="{Binding Version, StringFormat='{}配置版本 {0}'}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     </StackPanel>
                                 </Border>
-
                             </StackPanel>
 
+                            <!-- 第二行标签：系统选择、GPU、IP -->
                             <StackPanel Orientation="Horizontal">
+                                <!-- 系统选择按钮 (ui:Button 自带边框，无需额外加 Border) -->
                                 <ui:DropDownButton Appearance="Secondary" Padding="10,6" CornerRadius="4">
                                     <ui:DropDownButton.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <ui:FontIcon Glyph="&#xE74C;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                            <ui:FontIcon Glyph="&#xE74C;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                             <TextBlock Text="{Binding OsType}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         </StackPanel>
                                     </ui:DropDownButton.Content>
@@ -203,27 +199,22 @@
                                         </ContextMenu>
                                     </ui:DropDownButton.Flyout>
                                 </ui:DropDownButton>
-                                <!-- ======== 修改后的 GPU 标签代码 ======== -->
-                                <Border Margin="8,0,0,0" VerticalAlignment="Center" 
-        Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
-        CornerRadius="4" Padding="10,6"
-        ToolTip="{Binding GpuDisplayLabel}">
-                                    <!-- 💡 增加悬停提示，可以看到完整信息 -->
 
+                                <!-- GPU 标签 -->
+                                <Border Margin="8,0,0,0" VerticalAlignment="Center" 
+                                Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
+                                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="10,6"
+                                ToolTip="{Binding GpuDisplayLabel}">
                                     <StackPanel Orientation="Horizontal">
                                         <ui:FontIcon Glyph="&#xF211;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" 
-                     Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-
+                                             Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <TextBlock FontSize="13" TextTrimming="CharacterEllipsis">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
-                                                    <!-- ✅ 核心修改：将原来的 GpuName 更改为 GpuDisplayLabel -->
                                                     <Setter Property="Text" Value="{Binding GpuDisplayLabel}"/>
-                                                    <Setter Property="Foreground" Value="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-
+                                                    <Setter Property="Foreground" Value="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                                     <Style.Triggers>
-                                                        <!-- 当 HasGpu 为 False 时，逻辑已经在 Model 层处理，
-                             这里的 Trigger 主要是为了视觉保底 -->
                                                         <DataTrigger Binding="{Binding HasGpu}" Value="False">
                                                             <Setter Property="Text" Value="无"/>
                                                         </DataTrigger>
@@ -233,58 +224,38 @@
                                         </TextBlock>
                                     </StackPanel>
                                 </Border>
-                                <!-- IP 地址 (移至第二行末尾) -->
-                                <!-- IP 地址部分 -->
+
+                                <!-- IP 地址标签 -->
                                 <Border Margin="8,0,0,0" VerticalAlignment="Center" 
-        Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
-        CornerRadius="4" Padding="10,6"
-        ToolTip="点击复制完整 IP 地址">
-                                    <!-- ToolTip 可以改简单点 -->
-
+                                Background="{ui:ThemeResource ControlFillColorTertiaryBrush}" 
+                                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="10,6"
+                                ToolTip="点击复制完整 IP 地址">
                                     <Border.InputBindings>
-                                        <!-- ✅ 保持绑定 IpAddress，这样复制走的是完整包含 IPv6 的数据 -->
                                         <MouseBinding Gesture="LeftClick" 
-                      Command="{Binding DataContext.CopyToClipboardCommand, RelativeSource={RelativeSource AncestorType=Page}}" 
-                      CommandParameter="{Binding IpAddress}"/>
+                                              Command="{Binding DataContext.CopyToClipboardCommand, RelativeSource={RelativeSource AncestorType=Page}}" 
+                                              CommandParameter="{Binding IpAddress}"/>
                                     </Border.InputBindings>
-
                                     <StackPanel Orientation="Horizontal">
-                                        <ui:FontIcon Glyph="&#xE839;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-
-                                        <!-- ✅ 修改这里：绑定到 IpAddressDisplay (只显示 IPv4) -->
-                                        <TextBlock Text="{Binding IpAddressDisplay}" 
-                   FontSize="13" 
-                   Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <ui:FontIcon Glyph="&#xE839;" FontSize="14" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,1,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Text="{Binding IpAddressDisplay}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
                         </StackPanel>
 
+                        <!-- 按钮控制区 -->
                         <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                            <ui:Button Content="控制台" 
-               Icon="Display24" 
-               Appearance="Secondary" 
-               Padding="16,6" 
-               Height="36" 
-               Margin="0,0,8,0"
-               CornerRadius="8"
-               Command="{Binding DataContext.OpenNativeConnectCommand, RelativeSource={RelativeSource AncestorType=Page}}" />
+                            <ui:Button Content="控制台" Icon="Display24" Appearance="Secondary" 
+                               Padding="16,6" Height="36" Margin="0,0,8,0" CornerRadius="8"
+                               Command="{Binding DataContext.OpenNativeConnectCommand, RelativeSource={RelativeSource AncestorType=Page}}" />
                             <Border CornerRadius="8" ClipToBounds="True">
                                 <Grid>
-                                    <Grid Visibility="Hidden" IsHitTestVisible="False">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <ui:Button Grid.Column="0" Content="关机" Icon="Stop24" Appearance="Danger" Padding="24,6" Height="36" BorderThickness="0" Margin="0"/>
-                                        <ui:DropDownButton Grid.Column="1" Icon="ChevronDown24" Appearance="Danger" Padding="8,6" Height="36" BorderThickness="0" Margin="0"/>
-                                    </Grid>
-
                                     <ui:Button Content="启动" Icon="Play24" Appearance="Primary" 
-                                               Padding="0,6" Height="36" CornerRadius="8" BorderThickness="0"
-                                               HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
-                                               Command="{Binding ControlCommand}" 
-                                               CommandParameter="Start">
+           Padding="41,6" Height="36" CornerRadius="8" BorderThickness="0"
+           HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+           Command="{Binding ControlCommand}" 
+           CommandParameter="Start">
                                         <ui:Button.Style>
                                             <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -296,7 +267,6 @@
                                             </Style>
                                         </ui:Button.Style>
                                     </ui:Button>
-
                                     <Grid>
                                         <Grid.Style>
                                             <Style TargetType="Grid">
@@ -313,26 +283,25 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <ui:Button Grid.Column="0" Content="关机" Icon="Stop24" Appearance="Danger" 
-                                                   Padding="24,6" Height="36" CornerRadius="8,0,0,8" BorderThickness="0" Margin="0"
-                                                   Command="{Binding ControlCommand}" 
-                                                   CommandParameter="Stop"/>
+                                           Padding="24,6" Height="36" CornerRadius="8,0,0,8" BorderThickness="0" Margin="0"
+                                           Command="{Binding ControlCommand}" CommandParameter="Stop"/>
                                         <ui:DropDownButton Grid.Column="1" Icon="ChevronDown24" Appearance="Danger" 
-                                                           Padding="8,6" Height="36" CornerRadius="0,8,8,0" BorderThickness="0" Margin="0">
+                                                   Padding="8,6" Height="36" CornerRadius="0,8,8,0" BorderThickness="0" Margin="0">
                                             <ui:DropDownButton.Flyout>
                                                 <ContextMenu>
                                                     <MenuItem Header="重启" Icon="{ui:SymbolIcon ArrowCounterclockwise24}"
-                                                              Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
-                                                              CommandParameter="Restart"/>
+                                                      Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                      CommandParameter="Restart"/>
                                                     <MenuItem Header="暂停" Icon="{ui:SymbolIcon Pause24}"
-                                                              Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
-                                                              CommandParameter="Suspend"/>
+                                                      Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                      CommandParameter="Suspend"/>
                                                     <Separator/>
                                                     <MenuItem Header="保存状态" Icon="{ui:SymbolIcon Save24}"
-                                                              Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
-                                                              CommandParameter="Save"/>
+                                                      Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                      CommandParameter="Save"/>
                                                     <MenuItem Header="强制关闭" Icon="{ui:SymbolIcon Power24}" Foreground="#E81123"
-                                                              Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
-                                                              CommandParameter="TurnOff"/>
+                                                      Command="{Binding PlacementTarget.DataContext.ControlCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                      CommandParameter="TurnOff"/>
                                                 </ContextMenu>
                                             </ui:DropDownButton.Flyout>
                                         </ui:DropDownButton>
@@ -345,7 +314,7 @@
 
                 <Rectangle Grid.Row="1" Height="1" Fill="{ui:ThemeResource CardStrokeColorDefaultBrush}" Margin="24,12,24,0" Opacity="0.5"/>
 
-                <!-- 找到 VirtualMachinesPage.xaml 中的 ContentControl 部分 -->
+                <!-- 视图切换区 -->
                 <ContentControl Grid.Row="2" Content="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}">
                     <ContentControl.Style>
                         <Style TargetType="ContentControl">
@@ -357,7 +326,6 @@
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <!-- 已有的 CPU 设置触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="CpuSettings">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -367,8 +335,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 已有的 CPU 亲和性触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="CpuAffinity">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -378,8 +344,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 已有的内存设置触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="MemorySettings">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -389,8 +353,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】存储设置列表触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="StorageSettings">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -400,20 +362,15 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】添加存储界面触发器 (如果有对应的 View) -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="AddStorage">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
                                             <DataTemplate>
-                                                <!-- 假设你的添加视图组件名为 VmAddStorageView -->
                                                 <components:VmAddStorageView/>
                                             </DataTemplate>
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】显卡详细设置触发器 (原有) -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="GpuSettings">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -423,8 +380,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】显卡添加 - 选择界面触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="AddGpuSelect">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -434,8 +389,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】显卡添加 - 进度界面触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="AddGpuProgress">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -445,8 +398,6 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
-                                <!-- 【新增】网络设置界面触发器 -->
                                 <DataTrigger Binding="{Binding DataContext.CurrentViewType, RelativeSource={RelativeSource AncestorType=Page}}" Value="NetworkSettings">
                                     <Setter Property="ContentTemplate">
                                         <Setter.Value>
@@ -456,20 +407,20 @@
                                         </Setter.Value>
                                     </Setter>
                                 </DataTrigger>
-
                             </Style.Triggers>
                         </Style>
                     </ContentControl.Style>
                 </ContentControl>
-                
+
+                <!-- 加载遮罩 -->
                 <Grid Grid.Row="0" Grid.RowSpan="3" Panel.ZIndex="100"
-                      Background="{ui:ThemeResource ApplicationBackgroundBrush}" 
-                      Visibility="{Binding DataContext.IsLoading, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolToVis}}">
+              Background="{ui:ThemeResource ApplicationBackgroundBrush}" 
+              Visibility="{Binding DataContext.IsLoading, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolToVis}}">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <ui:ProgressRing IsIndeterminate="True" Width="40" Height="40" Margin="0,0,0,16"/>
                         <TextBlock Text="{x:Static properties:Resources.DataLoading}" 
-                                   Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                                   HorizontalAlignment="Center"/>
+                           Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
+                           HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -494,7 +445,7 @@
                     <ui:TextBox PlaceholderText="搜索虚拟机 ..." ClearButtonEnabled="True" Padding="10,0,32,0"
                                 Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <ui:SymbolIcon Symbol="Search24" HorizontalAlignment="Right" Margin="0,0,10,0" 
-                                   Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" IsHitTestVisible="False"/>
+                                   Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" IsHitTestVisible="False"/>
                 </Grid>
                 <ui:ListView Grid.Row="1" ItemsSource="{Binding VmList}" SelectedItem="{Binding SelectedVm, Mode=TwoWay}" 
                              ItemTemplate="{StaticResource VmListItemTemplate}" Margin="4,0,4,4"/>

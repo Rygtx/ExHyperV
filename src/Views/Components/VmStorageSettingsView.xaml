@@ -37,7 +37,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <ui:Button  Content="添加" Icon="{ui:SymbolIcon Symbol=Add24,FontSize=20}" 
+                <ui:Button  Content="添加" Icon="{ui:SymbolIcon Symbol=Add24}" 
                ToolTip="{x:Static properties:Resources.Storage_AddStorage}"
                Appearance="Primary" 
                Margin="0,0,12,0"
@@ -76,7 +76,7 @@
                                         <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0,0,0">
                                             <TextBlock Text="{Binding DisplayName}" FontSize="15" FontWeight="Medium" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
-                                            <TextBlock FontSize="12" Opacity="0.6" Margin="12,2,0,0" VerticalAlignment="Bottom">
+                                            <TextBlock FontSize="12" Margin="12,2,0,0" VerticalAlignment="Bottom">
                                                 <TextBlock.Style>
                                                     <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                                                         <Setter Property="Text" Value="{Binding SizeDisplay}"/>
@@ -154,9 +154,9 @@
                                 </ui:CardExpander.Header>
 
                                 <Border Padding="20,16" Background="{ui:ThemeResource ControlFillColorSecondaryBrush}" BorderThickness="0,1,0,0" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}">
-                                    <Grid>
+                                    <Grid Margin="32,0,0,0">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="80"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
@@ -165,10 +165,10 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Resources.Common_Type}" Margin="0,0,0,10" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properties:Resources.Common_Type}" Margin="0,0,0,10" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SourceTypeDisplayName}" Margin="0,0,0,10" FontWeight="Medium"/>
 
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Resources.Storage_Slot}" Margin="0,0,0,10" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properties:Resources.Storage_Slot}" Margin="0,0,0,10" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,10">
                                             <TextBlock Text="{Binding ControllerType}" FontWeight="Medium"/>
                                             <TextBlock Text=" 控制器 " FontWeight="Medium"/>
@@ -177,14 +177,13 @@
                                             <TextBlock Text="{Binding ControllerLocation}" FontWeight="Medium"/>
                                         </StackPanel>
 
-                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static properties:Resources.Common_Path}" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PathOrDiskNumber}" TextWrapping="Wrap" FontWeight="Medium" Opacity="0.9">
+                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static properties:Resources.Common_Path}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PathOrDiskNumber}" TextWrapping="Wrap" FontWeight="Medium">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding PathOrDiskNumber}" Value="">
                                                             <Setter Property="Text" Value="{x:Static properties:Resources.Common_Empty}"/>
-                                                            <Setter Property="Opacity" Value="0.5"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>

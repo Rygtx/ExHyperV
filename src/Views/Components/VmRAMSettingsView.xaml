@@ -104,7 +104,7 @@
         <ScrollViewer Grid.Row="2" Padding="24,12,24,24" VerticalScrollBarVisibility="Auto"
                       IsEnabled="{Binding IsLoadingSettings, Converter={StaticResource InverseBooleanConverter}}">
             <StackPanel>
-                <TextBlock Text="计算资源" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="计算资源" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,12"/>
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Margin="0,0,0,32">
                     <StackPanel>
                         <Grid Margin="24,20">
@@ -114,7 +114,7 @@
                                 <ColumnDefinition Width="1.5*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="启动内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                                <TextBlock Text="启动内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                                 <ComboBox IsEditable="True" ItemsSource="{StaticResource CommonMemoryValues}"
                                           Text="{Binding SelectedVm.MemorySettings.Startup, UpdateSourceTrigger=PropertyChanged}">
                                     <ComboBox.Style>
@@ -138,7 +138,7 @@
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <Grid Margin="0,0,0,8">
-                                    <TextBlock Text="内存权重 (%)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="内存权重 (%)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding SelectedVm.MemorySettings.Priority}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" HorizontalAlignment="Right"/>
                                 </Grid>
                                 <Slider Minimum="0" Maximum="100" Value="{Binding SelectedVm.MemorySettings.Priority, UpdateSourceTrigger=PropertyChanged}"/>
@@ -152,7 +152,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock Text="启用动态内存" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
-                                <TextBlock Text="允许 Hyper-V 根据负载在最小和最大值之间调整" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                <TextBlock Text="允许 Hyper-V 根据负载在最小和最大值之间自动调整" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                             </StackPanel>
                             <ui:ToggleSwitch Grid.Column="1" Style="{StaticResource ShutdownRequiredToggleStyle}" Tag="True"
                                              IsChecked="{Binding SelectedVm.MemorySettings.DynamicMemoryEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -169,16 +169,16 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Style="{StaticResource DynamicDependencyStyle}">
-                                <TextBlock Text="最小内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                                <TextBlock Text="最小内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                                 <ComboBox IsEditable="True" ItemsSource="{StaticResource CommonMemoryValues}" Text="{Binding SelectedVm.MemorySettings.Minimum, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Style="{StaticResource DynamicDependencyStyle}">
-                                <TextBlock Text="最大内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                                <TextBlock Text="最大内存 (MB)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                                 <ComboBox IsEditable="True" ItemsSource="{StaticResource CommonMemoryValues}" Text="{Binding SelectedVm.MemorySettings.Maximum, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="4" Style="{StaticResource DynamicDependencyStyle}">
                                 <Grid Margin="0,0,0,8">
-                                    <TextBlock Text="内存缓冲区 (%)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                    <TextBlock Text="内存缓冲区 (%)" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <TextBlock Text="{Binding SelectedVm.MemorySettings.Buffer, StringFormat='{}{0}%'}" FontSize="13" HorizontalAlignment="Right" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
                                 </Grid>
                                 <Slider Minimum="5" Maximum="200" Value="{Binding SelectedVm.MemorySettings.Buffer, UpdateSourceTrigger=PropertyChanged}"/>
@@ -188,7 +188,7 @@
                     </StackPanel>
                 </Border>
 
-                <TextBlock Text="高级功能" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="高级功能" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,12"/>
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="0" Margin="0,0,0,32">
                     <StackPanel>
                         <Grid Margin="24,16">

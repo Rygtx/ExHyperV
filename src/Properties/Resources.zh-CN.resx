@@ -130,7 +130,7 @@
     <value>刷新</value>
   </data>
   <data name="exhyperv" xml:space="preserve">
-    <value>轻松玩转Hyper-V高级功能</value>
+    <value>轻松玩转 Hyper-V 高级功能</value>
   </data>
   <data name="systeminfo" xml:space="preserve">
     <value>系统信息</value>
@@ -1366,13 +1366,13 @@
     <value>光盘</value>
   </data>
   <data name="AddDisk_VhdType_Differencing" xml:space="preserve">
-    <value>差分磁盘</value>
+    <value>差异磁盘</value>
   </data>
   <data name="AddDisk_VhdType_Dynamic" xml:space="preserve">
-    <value>动态扩展</value>
+    <value>动态磁盘</value>
   </data>
   <data name="AddDisk_VhdType_Fixed" xml:space="preserve">
-    <value>固定大小</value>
+    <value>固定磁盘</value>
   </data>
   <data name="AddDisk_VolumeLabel" xml:space="preserve">
     <value>卷标</value>

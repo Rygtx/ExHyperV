@@ -49,7 +49,7 @@
 
                 <!-- 插槽配置 -->
                 <TextBlock Text="{x:Static properties:Resources.AddDisk_SlotConfig}" 
-           FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+           FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
 
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" 
         BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" 
@@ -79,7 +79,7 @@
 
                             <!-- 接口 -->
                             <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.AddDisk_Interface}" 
-                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" 
+                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" 
                        VerticalAlignment="Center" Margin="0,0,8,0"/>
                             <ComboBox Grid.Column="1" ItemsSource="{Binding AvailableControllerTypes}" 
                       SelectedItem="{Binding SelectedControllerType}" 
@@ -87,7 +87,7 @@
 
                             <!-- 编号 -->
                             <TextBlock Grid.Column="3" Text="{x:Static properties:Resources.AddDisk_Number}" 
-                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" 
+                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" 
                        VerticalAlignment="Center" Margin="0,0,8,0"/>
                             <ComboBox Grid.Column="4" ItemsSource="{Binding AvailableControllerNumbers}" 
                       SelectedItem="{Binding SelectedControllerNumber}" 
@@ -95,7 +95,7 @@
 
                             <!-- 位置 -->
                             <TextBlock Grid.Column="6" Text="{x:Static properties:Resources.AddDisk_Location}" 
-                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" 
+                       FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" 
                        VerticalAlignment="Center" Margin="0,0,8,0"/>
                             <ComboBox Grid.Column="7" ItemsSource="{Binding AvailableLocations}" 
                       SelectedItem="{Binding SelectedLocation, Mode=TwoWay}" 
@@ -104,7 +104,7 @@
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="16,0,0,0">
                             <TextBlock Text="{x:Static properties:Resources.AddDisk_AutoAssign}" 
-                       FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                       FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                         </StackPanel>
                         
                         <!-- 右侧：开关 -->
@@ -112,7 +112,7 @@
                     </Grid>
                 </Border>
                 <!-- 媒体设置 -->
-                <TextBlock Text="媒体设置" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                <TextBlock Text="媒体设置" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
 
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" 
                         BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" 
@@ -134,7 +134,7 @@
                             <!-- 来源 -->
                             <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.AddDisk_Source}" 
                                        VerticalAlignment="Center" Margin="0,0,12,0"
-                                       Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
                             <ComboBox Grid.Column="1" SelectedValue="{Binding IsPhysicalSource, Mode=TwoWay}" SelectedValuePath="Tag" HorizontalAlignment="Stretch">
                                 <ComboBoxItem Content="{x:Static properties:Resources.AddDisk_Source_VirtualFile}" Tag="{x:Static system:Boolean.FalseString}"/>
@@ -144,7 +144,7 @@
                             <!-- 类型 -->
                             <TextBlock Grid.Column="3" Text="{x:Static properties:Resources.AddDisk_Type}" 
                                        VerticalAlignment="Center" Margin="0,0,12,0"
-                                       Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
                             <ComboBox Grid.Column="4" SelectedValue="{Binding DeviceType, Mode=TwoWay}" SelectedValuePath="Tag" HorizontalAlignment="Stretch">
                                 <ComboBoxItem Content="{x:Static properties:Resources.AddDisk_Type_HardDisk}" Tag="HardDisk"/>
@@ -165,7 +165,7 @@
                                 </StackPanel.Style>
                                 <TextBlock Text="{x:Static properties:Resources.AddDisk_New}" 
                                            VerticalAlignment="Center" Margin="0,0,12,0"
-                                           Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                           Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 <!-- 重点：使用 TwoWay 绑定并立即更新，防止切换类型时状态丢失 -->
                                 <ui:ToggleSwitch IsChecked="{Binding IsNewDisk, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
@@ -236,7 +236,7 @@
                                     <!-- 容量 -->
                                     <StackPanel Grid.Column="0">
                                         <TextBlock Text="{x:Static properties:Resources.AddDisk_CapacityGB}" 
-                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4"/>
+                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
                                         <ComboBox ItemsSource="{Binding NewDiskSizePresets}" Text="{Binding NewDiskSize, Mode=TwoWay}" 
                                                   IsEditable="True" HorizontalAlignment="Stretch">
                                             <ComboBox.Style>
@@ -254,7 +254,7 @@
                                     <!-- 磁盘类型 -->
                                     <StackPanel Grid.Column="2">
                                         <TextBlock Text="{x:Static properties:Resources.AddDisk_DiskType}" 
-                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4"/>
+                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
                                         <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding SelectedVhdType}" HorizontalAlignment="Stretch">
                                             <ComboBoxItem Content="{x:Static properties:Resources.AddDisk_VhdType_Dynamic}" Tag="Dynamic"/>
                                             <ComboBoxItem Content="{x:Static properties:Resources.AddDisk_VhdType_Fixed}" Tag="Fixed"/>
@@ -265,7 +265,7 @@
                                     <!-- 扇区格式 -->
                                     <StackPanel Grid.Column="4">
                                         <TextBlock Text="{x:Static properties:Resources.AddDisk_SectorFormat}" 
-                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4"/>
+                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
                                         <ComboBox SelectedValue="{Binding SectorFormat}" SelectedValuePath="Tag" HorizontalAlignment="Stretch">
                                             <ComboBox.Style>
                                                 <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
@@ -286,7 +286,7 @@
                                     <!-- 块大小 -->
                                     <StackPanel Grid.Column="6">
                                         <TextBlock Text="{x:Static properties:Resources.AddDisk_BlockSize}" 
-                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4"/>
+                                                   FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
                                         <ComboBox SelectedValue="{Binding BlockSize, Mode=TwoWay}" SelectedValuePath="Tag" HorizontalAlignment="Stretch">
                                             <ComboBox.Style>
                                                 <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
@@ -298,10 +298,15 @@
                                                 </Style>
                                             </ComboBox.Style>
                                             <ComboBoxItem Content="{x:Static properties:Resources.Common_Default}" Tag="Default"/>
-                                            <ComboBoxItem Content="1MB" Tag="1048576"/>
-                                            <ComboBoxItem Content="2MB" Tag="2097152"/>
-                                            <ComboBoxItem Content="32MB" Tag="33554432"/>
-                                            <ComboBoxItem Content="256MB" Tag="268435456"/>
+                                            <ComboBoxItem Content="1 MB" Tag="1048576"/>
+                                            <ComboBoxItem Content="2 MB" Tag="2097152"/>
+                                            <ComboBoxItem Content="4 MB" Tag="4194304"/>
+                                            <ComboBoxItem Content="8 MB" Tag="8388608"/>
+                                            <ComboBoxItem Content="16 MB" Tag="16777216"/>
+                                            <ComboBoxItem Content="32 MB" Tag="33554432"/>
+                                            <ComboBoxItem Content="64 MB" Tag="67108864"/>
+                                            <ComboBoxItem Content="128 MB" Tag="134217728"/>
+                                            <ComboBoxItem Content="256 MB" Tag="268435456"/>
                                         </ComboBox>
                                     </StackPanel>
                                 </Grid>
@@ -345,7 +350,7 @@
                                 </Style>
                             </StackPanel.Style>
 
-                            <TextBlock Text="源文件夹" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4"/>
+                            <TextBlock Text="源文件夹" FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -355,10 +360,10 @@
                                 <ui:Button Grid.Column="1" Content="{x:Static properties:Resources.Common_Select}" Margin="8,0,0,0" Width="80" Command="{Binding BrowseFolderCommand}"/>
                             </Grid>
 
-                            <TextBlock Margin="0,12,0,4" Text="卷标签" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Margin="0,12,0,4" Text="卷标签" FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                             <ui:TextBox Text="{Binding IsoVolumeLabel, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="{x:Static properties:Resources.AddDisk_Placeholder_VolumeLabel}" HorizontalAlignment="Stretch"/>
 
-                            <TextBlock Margin="0,12,0,4" Text="ISO 保存路径" FontSize="12" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Margin="0,12,0,4" Text="ISO 保存路径" FontSize="12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -381,7 +386,7 @@
                         <!-- 物理磁盘列表 (IsPhysicalSource = True) -->
                         <!-- 重点修复：使用 Converter 直接控制可见性，避免 Style Trigger 失效留白 -->
                         <StackPanel Visibility="{Binding IsPhysicalSource, Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <TextBlock Text="{x:Static properties:Resources.AddDisk_NoAvailablePhysical}" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                            <TextBlock Text="{x:Static properties:Resources.AddDisk_NoAvailablePhysical}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,24"
                                        Visibility="{Binding HostDisks.Count, Converter={StaticResource EqualityToVisibilityConverter}, ConverterParameter=0}"/>
 
@@ -394,14 +399,14 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <ui:FontIcon Glyph="&#xEDA2;" FontFamily="{StaticResource SegoeFluentIcons}" FontSize="24" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                            <ui:FontIcon Glyph="&#xEDA2;" FontFamily="{StaticResource SegoeFluentIcons}" FontSize="24" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                             <StackPanel Grid.Column="1" Margin="16,0,0,0">
                                                 <TextBlock Text="{Binding FriendlyName}" FontWeight="Medium" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                                 <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-                                                    <TextBlock Text="{x:Static properties:Resources.Common_Disk}" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                                                    <TextBlock Text="{Binding Number}" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="4,0,0,0"/>
+                                                    <TextBlock Text="{x:Static properties:Resources.Common_Disk}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                                    <TextBlock Text="{Binding Number}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="4,0,0,0"/>
                                                     <TextBlock Text=" | " Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}" Margin="8,0"/>
-                                                    <TextBlock Text="{Binding SizeGB, StringFormat='{}{0:F2} GB'}" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                                    <TextBlock Text="{Binding SizeGB, StringFormat='{}{0:F2} GB'}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </Grid>

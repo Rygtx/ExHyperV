@@ -47,8 +47,7 @@
 
         <Style x:Key="SectionHeaderTextStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+            <Setter Property="Foreground" Value="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
             <Setter Property="Margin" Value="4,0,0,8"/>
         </Style>
 
@@ -96,7 +95,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <ui:FontIcon Glyph="&#xE839;" FontFamily="{StaticResource SegoeFluentIcons}" FontSize="24" Margin="0,0,16,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                    <ui:FontIcon Glyph="&#xE839;" FontFamily="{StaticResource SegoeFluentIcons}" FontSize="24" Margin="0,0,16,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Normal"/>
                                         <ui:ToggleSwitch IsChecked="{Binding IsConnected, Mode=TwoWay}" Margin="24,0,0,0"
@@ -127,7 +126,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Text="虚拟交换机" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Text="虚拟交换机" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <ComboBox Grid.Column="1" Margin="0,0,0,12"
                                                   SelectedValue="{Binding SwitchName, Mode=TwoWay}"
                                                   ItemsSource="{Binding DataContext.AvailableSwitchNames, RelativeSource={RelativeSource AncestorType=UserControl}}"
@@ -139,7 +138,7 @@
                                             </i:Interaction.Triggers>
                                         </ComboBox>
 
-                                        <TextBlock Grid.Row="1" Text="MAC 地址" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Grid.Row="1" Text="MAC 地址" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <ui:Button Grid.Row="1" Grid.Column="1" Appearance="Transparent" Margin="0,0,0,12" HorizontalAlignment="Left"
                                                    Command="{Binding DataContext.CopyToClipboardCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                                    CommandParameter="{Binding MacAddress}">
@@ -149,7 +148,7 @@
                                             </StackPanel>
                                         </ui:Button>
 
-                                        <TextBlock Grid.Row="2" Text="IP 地址" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Grid.Row="2" Text="IP 地址" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <ItemsControl Grid.Row="2" Grid.Column="1" ItemsSource="{Binding IpAddresses}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
@@ -182,7 +181,7 @@
                                             <!-- 应用按钮 -->
                                         </Grid.ColumnDefinitions>
 
-                                        <TextBlock Text="模式" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Text="模式" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
                                         <!-- 减少模式宽度: 140 -> 110 -->
                                         <ComboBox Grid.Column="1" Width="110" 
@@ -245,9 +244,9 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="上限 (Mbps)" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Text="上限 (Mbps)" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <ComboBox Grid.Column="1" Width="110" IsEditable="True" Text="{Binding BandwidthLimit, Mode=TwoWay}" ItemsSource="{StaticResource BandwidthPresets}"/>
-                                        <TextBlock Grid.Column="3" Text="下限 (Mbps)" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock Grid.Column="3" Text="下限 (Mbps)" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                         <ComboBox Grid.Column="4" Width="110" IsEditable="True" Text="{Binding BandwidthReservation, Mode=TwoWay}" ItemsSource="{StaticResource BandwidthPresets}"/>
                                         <ui:Button Grid.Column="6" Content="应用" Appearance="Primary" Width="60" Command="{Binding DataContext.ApplyQosSettingsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
                                     </Grid>
@@ -347,13 +346,13 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Text="端口镜像" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                            <TextBlock Text="端口镜像" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                             <ComboBox Grid.Column="1" Width="140" 
           ItemsSource="{Binding DataContext.PortMirroringOptions, RelativeSource={RelativeSource AncestorType=UserControl}}" 
           SelectedValue="{Binding MonitorMode, Mode=TwoWay}"
           DisplayMemberPath="Name"
           SelectedValuePath="Value"/>
-                                            <TextBlock Grid.Column="3" Text="风暴阈值" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                                            <TextBlock Grid.Column="3" Text="风暴阈值" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                             <ComboBox Grid.Column="4" IsEditable="True" Width="100" Text="{Binding StormLimit, Mode=TwoWay}" ItemsSource="{StaticResource StormLimitPresets}"/>
 
                                             <ui:Button Grid.Column="6" Content="应用" Appearance="Primary" Width="60" Command="{Binding DataContext.ApplySecuritySettingsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>

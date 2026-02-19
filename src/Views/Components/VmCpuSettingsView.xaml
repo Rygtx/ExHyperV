@@ -88,7 +88,7 @@
         <ScrollViewer Grid.Row="2" Padding="24,12,24,24" VerticalScrollBarVisibility="Auto"
               IsEnabled="{Binding IsLoadingSettings, Converter={StaticResource InverseBooleanConverter}}">
             <StackPanel>
-                <TextBlock Text="{x:Static properties:Resources.ComputeResources}" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="{x:Static properties:Resources.ComputeResources}" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,12"/>
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="24" Margin="0,0,0,32">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -103,7 +103,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="{x:Static properties:Resources.VCpuCount}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{x:Static properties:Resources.VCpuCount}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                             <!-- 恢复：IsEnabled 绑定，禁止运行时修改 CPU 数量 -->
                             <ComboBox IsEditable="True" 
                               HorizontalAlignment="Stretch" 
@@ -114,7 +114,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="2">
-                            <TextBlock Text="{x:Static properties:Resources.ReservePercentage}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{x:Static properties:Resources.ReservePercentage}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                             <ComboBox IsEditable="True" HorizontalAlignment="Stretch" Padding="10,6" Text="{Binding SelectedVm.Processor.Reserve, UpdateSourceTrigger=PropertyChanged}">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="10"/>
@@ -123,7 +123,7 @@
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Grid.Column="4">
-                            <TextBlock Text="{x:Static properties:Resources.LimitPercentage}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{x:Static properties:Resources.LimitPercentage}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                             <ComboBox IsEditable="True" HorizontalAlignment="Stretch" Padding="10,6" Text="{Binding SelectedVm.Processor.Maximum, UpdateSourceTrigger=PropertyChanged}">
                                 <ComboBoxItem Content="100"/>
                                 <ComboBoxItem Content="75"/>
@@ -132,7 +132,7 @@
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Grid.Column="6">
-                            <TextBlock Text="{x:Static properties:Resources.Weight}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{x:Static properties:Resources.Weight}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,8"/>
                             <ComboBox IsEditable="True" HorizontalAlignment="Stretch" Padding="10,6" Text="{Binding SelectedVm.Processor.RelativeWeight, UpdateSourceTrigger=PropertyChanged}">
                                 <ComboBoxItem Content="50"/>
                                 <ComboBoxItem Content="100"/>
@@ -144,7 +144,7 @@
                     </Grid>
                 </Border>
 
-                <TextBlock Text="{x:Static properties:Resources.AdvancedFeatures}" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="{x:Static properties:Resources.AdvancedFeatures}" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,12"/>
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="0" Margin="0,0,0,32">
                     <StackPanel>
                         <Grid Margin="24,16">
@@ -311,7 +311,7 @@
                     </StackPanel>
                 </Border>
 
-                <TextBlock Text="实验功能" FontSize="14" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="实验功能" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,12"/>
                 <Border Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="0">
                     <StackPanel>
                         <Grid Margin="24,16">

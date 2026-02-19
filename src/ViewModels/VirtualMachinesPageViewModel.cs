@@ -1235,7 +1235,7 @@ namespace ExHyperV.ViewModels
                     Title = "创建虚拟磁盘",
                     Filter = "虚拟磁盘 (*.vhdx)|*.vhdx|旧版虚拟磁盘 (*.vhd)|*.vhd",
                     DefaultExt = ".vhdx",
-                    FileName = "NewVirtualDisk.vhdx"
+                    FileName = "新建虚拟磁盘.vhdx"
                 };
 
                 if (saveDialog.ShowDialog() == true)
