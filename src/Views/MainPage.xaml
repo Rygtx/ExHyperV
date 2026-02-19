@@ -37,7 +37,6 @@
         <Grid Grid.Row="1" Margin="0,5,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- 系统信息卡片 -->
@@ -75,38 +74,6 @@
                 </ui:CardControl.Header>
             </ui:CardControl>
 
-            <!-- 应用信息卡片 (VerticalAlignment="Top" 确保从顶部开始排列) -->
-            <ui:CardControl Grid.Column="1" Margin="5,0,0,0" VerticalAlignment="Top">
-                <ui:CardControl.Header>
-                    <StackPanel Margin="5">
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                            <ui:FontIcon FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="" FontSize="24" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                            <TextBlock Text="{x:Static properties:Resources.soft}" FontSize="18" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                        </StackPanel>
-
-                        <Grid Margin="38,0,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" Text="{x:Static properties:Resources.appversion}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                            <TextBlock Grid.Row="1" Text="{x:Static properties:Resources.author}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                            <TextBlock Grid.Row="2" Text="{x:Static properties:Resources.buildtime}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding AppVersion}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Author}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding BuildDate}" FontSize="16" VerticalAlignment="Center" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
-                        </Grid>
-                    </StackPanel>
-                </ui:CardControl.Header>
-            </ui:CardControl>
         </Grid>
 
         <!-- 3. 引导按钮区 (移除加粗) -->
