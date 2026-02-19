@@ -607,10 +607,26 @@ namespace ExHyperV.Models
         {
             State = _transientState ?? _backendState;
             IsRunning = !string.IsNullOrEmpty(State) && !new[] { "已关机", "Off", "已暂停", "Paused", "已保存", "Saved" }.Contains(State);
+
             if (!IsRunning)
             {
+                // 1. 归零内存
                 UpdateMemoryStatus(0, 0);
-                IsGpuActive = false; 
+
+                // 2. 归零 GPU 状态和灯光
+                IsGpuActive = false;
+                Gpu3dUsage = 0;      // 新增
+                GpuCopyUsage = 0;    // 新增
+                GpuEncodeUsage = 0;  // 新增
+                GpuDecodeUsage = 0;  // 新增
+
+                // 3. (可选) 如果你想让波形图也清空，可以调用你已有的逻辑
+                // 这里手动传一个空的 Data 结构或者直接清空队列
+                UpdateSingleGpuHistory(_gpu3dHistory, 0);
+                UpdateSingleGpuHistory(_gpuCopyHistory, 0);
+                UpdateSingleGpuHistory(_gpuEncodeHistory, 0);
+                UpdateSingleGpuHistory(_gpuDecodeHistory, 0);
+                RefreshGpuPoints();
             }
         }
 

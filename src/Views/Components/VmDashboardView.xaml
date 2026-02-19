@@ -421,7 +421,7 @@
                                             <Polyline Points="{Binding SelectedVm.Gpu3dHistoryPoints}" Stroke="#FF54C7FC" StrokeThickness="1.5"/>
                                         </Grid>
                                     </Viewbox>
-                                    <TextBlock Text="3D" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                    <TextBlock Text="3D 渲染" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <TextBlock Text="{Binding SelectedVm.Gpu3dUsage, StringFormat='{}{0:N1}%'}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Effect="{StaticResource TextShadow}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 </Grid>
                             </Border>
@@ -437,7 +437,7 @@
                                             <Polyline Points="{Binding SelectedVm.GpuCopyHistoryPoints}" Stroke="#FF54C7FC" StrokeThickness="1.5"/>
                                         </Grid>
                                     </Viewbox>
-                                    <TextBlock Text="Copy" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                    <TextBlock Text="数据复制" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <TextBlock Text="{Binding SelectedVm.GpuCopyUsage, StringFormat='{}{0:N1}%'}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Effect="{StaticResource TextShadow}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 </Grid>
                             </Border>
@@ -453,7 +453,7 @@
                                             <Polyline Points="{Binding SelectedVm.GpuEncodeHistoryPoints}" Stroke="#FF54C7FC" StrokeThickness="1.5"/>
                                         </Grid>
                                     </Viewbox>
-                                    <TextBlock Text="Encode" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                    <TextBlock Text="视频编码" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <TextBlock Text="{Binding SelectedVm.GpuEncodeUsage, StringFormat='{}{0:N1}%'}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Effect="{StaticResource TextShadow}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 </Grid>
                             </Border>
@@ -469,7 +469,7 @@
                                             <Polyline Points="{Binding SelectedVm.GpuDecodeHistoryPoints}" Stroke="#FF54C7FC" StrokeThickness="1.5"/>
                                         </Grid>
                                     </Viewbox>
-                                    <TextBlock Text="Decode" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                                    <TextBlock Text="视频解码" FontSize="10" Opacity="0.5" Margin="5,3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                     <TextBlock Text="{Binding SelectedVm.GpuDecodeUsage, StringFormat='{}{0:N1}%'}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Effect="{StaticResource TextShadow}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                                 </Grid>
                             </Border>
@@ -494,7 +494,6 @@
                             </Style>
                         </Border.Style>
                         <StackPanel HorizontalAlignment="Center">
-                            <ui:SymbolIcon Symbol="Warning24" FontSize="28" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Opacity="0.6" Margin="0,0,0,8"/>
                             <TextBlock Text="显卡驱动未就绪" HorizontalAlignment="Center" Opacity="0.6" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                         </StackPanel>
                     </Border>
@@ -530,7 +529,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
-                        <TextBlock Text="此虚拟机未分配显卡分区" HorizontalAlignment="Center" Opacity="0.4" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="虚拟机未分配显卡" HorizontalAlignment="Center" Opacity="0.4" FontSize="14" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                     </Border>
 
                 </Grid>

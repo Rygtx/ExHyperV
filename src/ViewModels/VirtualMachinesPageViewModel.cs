@@ -538,12 +538,15 @@ namespace ExHyperV.ViewModels
                             }
                         }
 
-                        if (gpuUsageMap.Count > 0)
+                        foreach (var vm in VmList)
                         {
-                            foreach (var vm in VmList)
+                            if (gpuUsageMap.TryGetValue(vm.Id, out var gpuData))
                             {
-                                if (gpuUsageMap.TryGetValue(vm.Id, out var gpuData))
-                                    vm.UpdateGpuStats(gpuData);
+                                vm.UpdateGpuStats(gpuData);
+                            }
+                            else
+                            {
+                                vm.UpdateGpuStats(new VmQueryService.GpuUsageData());
                             }
                         }
                         if (needsResort)
