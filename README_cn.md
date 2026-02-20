@@ -418,8 +418,8 @@ DDA以PCIe设备为单位划分可分配设备。如果设备未显示在列表�
 | **Nvidia** | RTX 5090 | Blackwell 2.0 | ✅ | ✅ | ✅ |
 | **Nvidia** | RTX 4090 | Ada Lovelace | ✅ | ✅ | ✅ |
 | **Nvidia** | RTX 4080 Super | Ada Lovelace | ✅ | ✅ | ✅ |
-| **Nvidia** | RTX 2080 Super | Turing | ✅ | ✅ | ✅ |
 | **Nvidia** | RTX 4070 | Ada Lovelace | ✅ | ✅ | ✅ |
+| **Nvidia** | RTX 2080 Super | Turing | ✅ | ✅ | ✅ |
 | **Nvidia** | GTX 1660 Super | Turing | ✅ | ✅ | ✅ |
 | **Nvidia** | GTX 1050 | Pascal | ✅ | ✅ | ✅ |
 | **Nvidia** | GT 1030 | Pascal | ✅ | ✅ | ✅ |
