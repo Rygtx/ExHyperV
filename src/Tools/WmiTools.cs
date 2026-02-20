@@ -70,7 +70,7 @@ public static class WmiTools
                     return WaitForJob(jobPath, scope);
                 }
 
-                return (false, $"WMI 错误代码: {returnValue}");
+                return (false, string.Format(Properties.Resources.Error_Wmi_Code, returnValue));
             }
             catch (Exception ex)
             {

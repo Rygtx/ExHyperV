@@ -78,20 +78,6 @@
 
         <!-- 3. 引导按钮区 (移除加粗) -->
         <UniformGrid Grid.Row="2" Columns="2" VerticalAlignment="Top">
-            <!-- 虚拟机管理 -->
-            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xF5ED;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <TextBlock Text="{x:Static properties:Resources.Menu_VMManagement}" FontSize="16"/>
-                        <TextBlock Text="{x:Static properties:Resources.Desc_VMManagement}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
-                    </StackPanel>
-                </Grid>
-            </ui:CardAction>
 
             <!-- 环境配置 -->
             <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Host">
@@ -108,6 +94,22 @@
                 </Grid>
             </ui:CardAction>
 
+            <!-- 虚拟机管理 -->
+            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xF5ED;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{x:Static properties:Resources.Menu_VMManagement}" FontSize="16"/>
+                        <TextBlock Text="{x:Static properties:Resources.Desc_VMManagement}" FontSize="13" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </ui:CardAction>
+
+            
             <!-- PCIe 直通 -->
             <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="PCIe">
                 <Grid>

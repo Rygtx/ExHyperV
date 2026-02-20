@@ -208,18 +208,33 @@ namespace ExHyperV.Services
         // 为虚拟机新增一块网络适配器
         public async Task<(bool Success, string Message)> AddNetworkAdapterAsync(string vmName)
         {
-            var searcher = new ManagementObjectSearcher(ScopeNamespace, "SELECT * FROM Msvm_SyntheticEthernetPortSettingData WHERE InstanceID LIKE '%Default%'");
-            var template = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
-            if (template == null) return (false, Properties.Resources.Error_Net_TemplateMissing);
-            template["InstanceID"] = Guid.NewGuid().ToString();
-            string xml = template.GetText(TextFormat.CimDtd20);
-            var vmPaths = await WmiTools.QueryAsync($"SELECT * FROM Msvm_ComputerSystem WHERE ElementName = '{vmName.Replace("'", "''")}'", (vm) => {
-                var sets = vm.GetRelated("Msvm_VirtualSystemSettingData").Cast<ManagementObject>().ToList();
-                return sets.FirstOrDefault(s => s["VirtualSystemType"]?.ToString().Contains("Realized") == true)?.Path.Path ?? sets.FirstOrDefault()?.Path.Path;
-            });
-            return await WmiTools.ExecuteMethodAsync($"SELECT * FROM {ServiceClass}", "AddResourceSettings", new Dictionary<string, object> { { "SystemSettingData", vmPaths.First() }, { "ResourceSettings", new string[] { xml } } });
-        }
+            try
+            {
+                Log($">>> [PS] 正在尝试添加网卡到 {vmName}...");
 
+                // 1. 构造脚本
+                string script = $"Add-VMNetworkAdapter -VMName '{vmName.Replace("'", "''")}'";
+
+                // 2. 使用 Run2 (异步且带错误流检测)
+                await Utils.Run2(script);
+
+                return (true, "添加网卡成功");
+            }
+            catch (PowerShellScriptException psEx)
+            {
+                // 这里会捕获到你刚才在终端看到的“一代机运行中无法添加”的具体报错
+                Log($"[PS 业务逻辑错误] {psEx.Message}");
+
+                // 使用你现有的格式化工具，把冗长的 PS 报错简化
+                string friendlyMsg = Utils.GetFriendlyErrorMessages(psEx.Message);
+                return (false, friendlyMsg);
+            }
+            catch (Exception ex)
+            {
+                Log($"[系统级别错误] {ex.Message}");
+                return (false, ex.Message);
+            }
+        }
         // 移除指定的网络适配器
         public async Task<(bool Success, string Message)> RemoveNetworkAdapterAsync(string vmName, string id)
         {
