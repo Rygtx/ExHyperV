@@ -258,7 +258,7 @@ namespace ExHyperV.Services
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine($"[扫描磁盘失败] {target.Path ?? "Physical"}: {ex.Message}");
+                        Debug.WriteLine(string.Format(Properties.Resources.Error_Format_FailMsg, $"{target.Path ?? "Physical"}: {ex.Message}"));
                     }
                     finally
                     {
@@ -456,7 +456,7 @@ namespace ExHyperV.Services
                 // --- 阶段 1：剥离与挂载 ---
                 if (isPhysical)
                 {
-                    Log($"[物理磁盘] 正在锁定并剥离磁盘 {diskTarget.PhysicalDiskNumber}...");
+                    Log(string.Format(Properties.Resources.Msg_Gpu_DismountingDisk, diskTarget.PhysicalDiskNumber));
                     hostDiskNumber = diskTarget.PhysicalDiskNumber;
 
                     // 获取坐标座次并从 VM 移除
@@ -484,7 +484,7 @@ namespace ExHyperV.Services
                 }
                 else
                 {
-                    Log($"[虚拟磁盘] 正在挂载: {Path.GetFileName(diskTarget.Path)}...");
+                    Log(string.Format(Properties.Resources.Msg_Gpu_MountingVhd, Path.GetFileName(diskTarget.Path)));
                     var mountRes = Utils.Run($@"
         Dismount-DiskImage -ImagePath '{diskTarget.Path}' -ErrorAction SilentlyContinue
         $img = Mount-DiskImage -ImagePath '{diskTarget.Path}' -NoDriveLetter -PassThru -ErrorAction Stop
@@ -495,7 +495,7 @@ namespace ExHyperV.Services
                 }
 
                 // --- 阶段 2：分配盘符与检查 ---
-                Log($"正在分配临时盘符 (磁盘 {hostDiskNumber}, 分区 {partition.PartitionNumber})..."); // 新增状态更新
+                Log(string.Format(Properties.Resources.Msg_Gpu_AssignTempDrive, hostDiskNumber, partition.PartitionNumber)); // 新增状态更新
 
                 char suggestedLetter = GetFreeDriveLetter();
                 var assignRes = Utils.Run($@"
@@ -528,7 +528,7 @@ return 'OK'
 
                 if (!Directory.Exists(Path.Combine(assignedDriveLetter, "Windows", "System32")))
                 {
-                    return $"安装中止：目标分区 ({assignedDriveLetter}) 不是有效的系统分区。";
+                    return string.Format(Properties.Resources.Error_Gpu_InvalidSystemPart, assignedDriveLetter);
                 }
 
                 // --- 阶段 3：同步驱动文件 ---
@@ -556,7 +556,7 @@ return 'OK'
 
                 // [修复状态显示]：在耗时操作前更新 Log
                 Log(Properties.Resources.Msg_Gpu_SyncingFiles);
-                Log($"源: {sourceFolder}"); // 可选：打印源路径方便调试
+                Log(string.Format(Properties.Resources.Msg_Gpu_Source, sourceFolder)); // 可选：打印源路径方便调试
 
                 using (Process p = Process.Start(new ProcessStartInfo
                 {
@@ -576,7 +576,7 @@ return 'OK'
 
                 return "OK";
             }
-            catch (Exception ex) { return $"注入失败: {ex.Message}"; }
+            catch (Exception ex) { return string.Format(Properties.Resources.Error_Gpu_InjectFailed, ex.Message); }
             finally
             {
                 // --- 阶段 4：清理与归还 ---
@@ -617,7 +617,7 @@ return 'OK'
                     }
                     catch (Exception ex)
                     {
-                        Log($"[严重警告] 物理磁盘自动回挂失败: {ex.Message}");
+                        Log(string.Format(Properties.Resources.Error_Gpu_RemountFailed, ex.Message));
                     }
                 }
                 else if (!string.IsNullOrEmpty(diskTarget?.Path))
@@ -1257,7 +1257,7 @@ return 'OK'
                     if (string.IsNullOrEmpty(targetIp)) return Properties.Resources.Error_NoValidIpv4AddressFound;
 
                     credentials.Host = targetIp;
-                    Log($"虚拟机 IP 已获取: {targetIp}，正在建立 SSH 连接...");
+                    Log(string.Format(Properties.Resources.Msg_Gpu_LinuxIpObtained, targetIp));
 
                     // 3. 等待 SSH 端口响应
                     if (!await WaitForVmToBeResponsiveAsync(credentials.Host, credentials.Port, cancellationToken))
@@ -1276,12 +1276,12 @@ return 'OK'
                         client.RunCommand($"mkdir -p {remoteTempDir}/drivers {remoteTempDir}/lib");
                         client.Disconnect();
                     }
-                    Log($"远程环境初始化完成，临时目录: {remoteTempDir}");
+                    Log(string.Format(Properties.Resources.Msg_Gpu_LinuxRemoteInit, remoteTempDir));
 
                     // 5. 配置代理 (如果有)
                     if (!string.IsNullOrEmpty(credentials.ProxyHost) && credentials.ProxyPort.HasValue)
                     {
-                        Log($"配置 APT 和环境变量代理 ({credentials.ProxyHost}:{credentials.ProxyPort})...");
+                        Log(string.Format(Properties.Resources.Msg_Gpu_LinuxProxy, credentials.ProxyHost, credentials.ProxyPort));
                         string proxyUrl = $"http://{credentials.ProxyHost}:{credentials.ProxyPort}";
                         string aptContent = $"Acquire::http::Proxy \"{proxyUrl}\";\nAcquire::https::Proxy \"{proxyUrl}\";\n";
                         string envContent = $"\nexport http_proxy=\"{proxyUrl}\"\nexport https_proxy=\"{proxyUrl}\"\nexport no_proxy=\"localhost,127.0.0.1\"\n";
@@ -1364,7 +1364,7 @@ return 'OK'
                 }
                 catch (Exception ex)
                 {
-                    return $"Linux 配置失败: {ex.Message}";
+                    return string.Format(Properties.Resources.Error_Gpu_LinuxDeployFail, ex.Message);
                 }
             });
         }

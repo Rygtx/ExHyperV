@@ -2442,7 +2442,7 @@ This operation sends a shutdown signal to the guest OS.</value>
     <value>Start</value>
   </data>
   <data name="Button_ShutDown" xml:space="preserve">
-    <value>Shut Down</value>
+    <value>Shutdown</value>
   </data>
   <data name="Button_Restart" xml:space="preserve">
     <value>Restart</value>
@@ -2502,7 +2502,7 @@ This operation sends a shutdown signal to the guest OS.</value>
     <value>Apply</value>
   </data>
   <data name="Error_VerNotSupport" xml:space="preserve">
-    <value>Current VM version does not support this.</value>
+    <value>Current config version does not support this.</value>
   </data>
   <data name="Warn_VmOffRequired" xml:space="preserve">
     <value>Shut down VM to change this setting.</value>

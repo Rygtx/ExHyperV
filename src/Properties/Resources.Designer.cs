@@ -817,7 +817,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Shut Down 的本地化字符串。
+        ///   查找类似 Shutdown 的本地化字符串。
         /// </summary>
         public static string Button_ShutDown {
             get {
@@ -3210,7 +3210,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Current VM version does not support this. 的本地化字符串。
+        ///   查找类似 Current config version does not support this. 的本地化字符串。
         /// </summary>
         public static string Error_VerNotSupport {
             get {
