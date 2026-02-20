@@ -23,7 +23,6 @@ namespace ExHyperV.ViewModels
         AddGpuSelect,
         AddGpuProgress, NetworkSettings
     }
-
     public partial class VirtualMachinesPageViewModel : ObservableObject, IDisposable
     {
         // ----------------------------------------------------------------------------------
@@ -2131,12 +2130,38 @@ namespace ExHyperV.ViewModels
             AppendLog($"设备路径: {SelectedHostGpu.Pname}");
 
             GpuTasks.Clear();
-            GpuTasks.Add(new TaskItem { Name = "环境准备", Description = "正在准备宿主机环境...", Status = ExHyperV.Models.TaskStatus.Pending });
-            GpuTasks.Add(new TaskItem { Name = "电源检查", Description = "检查虚拟机电源状态...", Status = ExHyperV.Models.TaskStatus.Pending });
-            GpuTasks.Add(new TaskItem { Name = "系统优化", Description = "正在配置 MMIO 地址空间...", Status = ExHyperV.Models.TaskStatus.Pending });
-            GpuTasks.Add(new TaskItem { Name = "分配显卡", Description = "正在创建 GPU 分区...", Status = ExHyperV.Models.TaskStatus.Pending });
 
-            if (AutoInstallDrivers)
+            GpuTasks.Add(new TaskItem
+            {
+                TaskType = GpuTaskType.Prepare,
+                Name = "环境准备",
+                Description = "正在准备宿主机环境...",
+                Status = ExHyperV.Models.TaskStatus.Pending  // 这里写全称
+            });
+
+            GpuTasks.Add(new TaskItem
+            {
+                TaskType = GpuTaskType.PowerCheck,
+                Name = "电源检查",
+                Description = "检查虚拟机电源状态...",
+                Status = ExHyperV.Models.TaskStatus.Pending  // 这里写全称
+            });
+
+            GpuTasks.Add(new TaskItem
+            {
+                TaskType = GpuTaskType.Optimization,
+                Name = "系统优化",
+                Description = "正在配置 MMIO 地址空间...",
+                Status = ExHyperV.Models.TaskStatus.Pending  // 这里写全称
+            });
+
+            GpuTasks.Add(new TaskItem
+            {
+                TaskType = GpuTaskType.Assign,
+                Name = "分配显卡",
+                Description = "正在创建 GPU 分区...",
+                Status = ExHyperV.Models.TaskStatus.Pending  // 这里写全称
+            }); if (AutoInstallDrivers)
             {
                 GpuTasks.Add(new TaskItem { Name = "驱动安装", Description = "等待扫描分区...", Status = ExHyperV.Models.TaskStatus.Pending });
             }
@@ -2158,14 +2183,14 @@ namespace ExHyperV.ViewModels
 
                 try
                 {
-                    switch (task.Name)
+                    switch (task.TaskType)
                     {
-                        case "环境准备":
+                        case GpuTaskType.Prepare:
                             await _vmGpuService.PrepareHostEnvironmentAsync();
                             task.Description = "策略已成功应用。";
                             break;
 
-                        case "电源检查":
+                        case GpuTaskType.PowerCheck:
                             var (isOff, state) = await _vmGpuService.IsVmPoweredOffAsync(SelectedVm.Name);
                             if (!isOff)
                             {
@@ -2180,12 +2205,12 @@ namespace ExHyperV.ViewModels
                             task.Description = "虚拟机已关机。";
                             break;
 
-                        case "系统优化":
+                        case GpuTaskType.Optimization:
                             bool optOk = await _vmGpuService.OptimizeVmForGpuAsync(SelectedVm.Name);
                             task.Description = optOk ? "MMIO 地址空间配置完成。" : "优化配置失败，将尝试继续。";
                             break;
 
-                        case "分配显卡":
+                        case GpuTaskType.Assign:
                             string targetPath = !string.IsNullOrEmpty(SelectedHostGpu.Pname)
                                                 ? SelectedHostGpu.Pname
                                                 : SelectedHostGpu.InstanceId;
@@ -2197,29 +2222,27 @@ namespace ExHyperV.ViewModels
                             var currentAdapters = await _vmGpuService.GetVmGpuAdaptersAsync(SelectedVm.Name);
                             // 记录下来，以便后续步骤（如驱动安装）失败时删除
                             _currentProcessingGpuAdapterId = currentAdapters.LastOrDefault().Id;
-
                             break;
 
-                        case "驱动安装":
+                        case GpuTaskType.Driver:
                             try
                             {
                                 task.Description = "正在扫描所有挂载硬盘的分区...";
                                 AppendLog(task.Description);
 
-                            // 获取所有硬盘的所有分区
-                            var allPartitions = await _vmGpuService.GetPartitionsFromVmAsync(SelectedVm.Name);
+                                // 获取所有硬盘的所有分区
+                                var allPartitions = await _vmGpuService.GetPartitionsFromVmAsync(SelectedVm.Name);
 
-                            if (allPartitions == null || allPartitions.Count == 0)
-                            {
-                                throw new Exception("未能在任何硬盘上识别到有效分区。请确保系统已安装。");
-                            }
+                                if (allPartitions == null || allPartitions.Count == 0)
+                                {
+                                    throw new Exception("未能在任何硬盘上识别到有效分区。请确保系统已安装。");
+                                }
 
-                            // 计算涉及到的物理磁盘数量（通过 DiskPath 判别）
-                            // 注意：需要在 PartitionInfo 中实现 DiskPath 赋值
-                            var distinctDisks = allPartitions.Select(p => p.DiskPath).Distinct().Count();
-                            AppendLog($"扫描完成：共发现 {allPartitions.Count} 个分区，分布在 {distinctDisks} 个磁盘上。");
+                                // 计算涉及到的物理磁盘数量
+                                var distinctDisks = allPartitions.Select(p => p.DiskPath).Distinct().Count();
+                                AppendLog($"扫描完成：共发现 {allPartitions.Count} 个分区，分布在 {distinctDisks} 个磁盘上。");
 
-                                // 自动注入逻辑：只有当“只有一个磁盘”且“该磁盘只有一个 Windows 分区”时才执行
+                                // 自动注入逻辑
                                 if (distinctDisks == 1 && allPartitions.Count == 1 && allPartitions[0].OsType == OperatingSystemType.Windows)
                                 {
                                     task.Description = "检测到唯一的 Windows 系统分区，正在同步驱动...";
@@ -2249,17 +2272,16 @@ namespace ExHyperV.ViewModels
                                     task.Description = "请手动选择操作系统所在的分区...";
                                     AppendLog(task.Description);
 
-                                    // 关键：停止当前循环工作流，等待用户点击 UI 列表触发 SelectPartitionAndContinue 命令
+                                    // 停止当前循环工作流，等待用户点击 UI
                                     return;
                                 }
-                            } catch (Exception ex)
+                            }
+                            catch (Exception)
                             {
-                                throw; 
+                                throw;
                             }
                             break;
-
                     }
-
                     task.Status = ExHyperV.Models.TaskStatus.Success;
                     AppendLog($"[成功] {task.Name}: {task.Description}");
                 }

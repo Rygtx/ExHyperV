@@ -1,0 +1,417 @@
+﻿Key,Type,Content,Args,File,Line
+Xaml_7fea6e,XAML,虚拟机,,./MainWindow.xaml,60
+CS_b2f29b,CS,动态磁盘,,./Converters\DiskTypeToTextConverter.cs,14
+CS_dc01bf,CS,固定磁盘,,./Converters\DiskTypeToTextConverter.cs,15
+CS_936948,CS,差异磁盘,,./Converters\DiskTypeToTextConverter.cs,16
+CS_e3446a,CS,光盘镜像,,./Converters\DiskTypeToTextConverter.cs,17
+CS_58c6b9,CS,物理磁盘,,./Converters\DiskTypeToTextConverter.cs,18
+CS_e80623,CS,物理光驱,,./Converters\DiskTypeToTextConverter.cs,19
+CS_1622dc,CS,未知,,./Models\GPUInfo.cs,21
+CS_73abb0,CS,未知路径,,./Models\GPUInfo.cs,37
+CS_d07a63,CS,[{0}] 分区 {1} ({2:F1} GB),"DiskDisplayName,PartitionNumber,SizeInGb",./Models\PartitionInfo.cs,38
+CS_7f3a55,CS,未连接,,./Models\VmNetworkAdapter.cs,86
+CS_901650,CS,设置已更新,,./Services\HyperVNUMAService.cs,40
+CS_a7bac2,CS,中文,,./Services\SettingsService.cs,105
+CS_0ef241,CS,[物理磁盘] 正在锁定并剥离磁盘 {0}...,diskTarget.PhysicalDiskNumber,./Services\VmGPUService.cs,459
+CS_08e340,CS,无法剥离磁盘：未在虚拟机配置中找到该磁盘。,,./Services\VmGPUService.cs,473
+CS_3a7777,CS,[虚拟磁盘] 正在挂载: {0}...,Path.GetFileName(diskTarget.Path),./Services\VmGPUService.cs,487
+CS_e22de1,CS,虚拟磁盘挂载失败。,,./Services\VmGPUService.cs,494
+CS_026e84,CS,"正在分配临时盘符 (磁盘 {0}, 分区 {1})...","hostDiskNumber,partition.PartitionNumber",./Services\VmGPUService.cs,498
+CS_f3c4af,CS,目标分区已开启 BitLocker 保护，请先关闭 BitLocker。,,./Services\VmGPUService.cs,526
+CS_59f8aa,CS,安装中止：目标分区 ({0}) 不是有效的系统分区。,assignedDriveLetter,./Services\VmGPUService.cs,531
+CS_1a4db3,CS,正在同步驱动文件...,,./Services\VmGPUService.cs,558
+CS_01057b,CS,源: {0},sourceFolder,./Services\VmGPUService.cs,559
+CS_762db6,CS,正在注入 NVIDIA 注册表项...,,./Services\VmGPUService.cs,573
+CS_88a4a3,CS,注入失败: {0},ex.Message,./Services\VmGPUService.cs,579
+CS_f806ef,CS,正在执行物理磁盘安全回挂流程...,,./Services\VmGPUService.cs,585
+CS_341ca0,CS,正在同步...,,./Services\VmGPUService.cs,585
+CS_bc4294,CS,物理磁盘已成功回挂至虚拟机。,,./Services\VmGPUService.cs,616
+CS_9f6c4c,CS,[严重警告] 物理磁盘自动回挂失败: {0},ex.Message,./Services\VmGPUService.cs,620
+CS_e130fe,CS,正在卸载虚拟磁盘...,,./Services\VmGPUService.cs,625
+CS_16a34b,CS,正在准备目标磁盘...,,./Services\VmGPUService.cs,739
+CS_d94464,CS,PowerShell 命令已执行但未产生分区。请检查宿主机 GPU 是否支持分区，以及是否以管理员权限运行。,,./Services\VmGPUService.cs,1115
+CS_9fde7a,CS,未选择分区,,./Services\VmGPUService.cs,1199
+CS_9b892c,CS,正在启动虚拟机以进行 Linux 配置...,,./Services\VmGPUService.cs,1239
+CS_7c645e,CS,正在等待虚拟机网络就绪并获取 IP...,,./Services\VmGPUService.cs,1245
+CS_b6c4b9,CS,虚拟机 IP 已获取: {0}，正在建立 SSH 连接...,targetIp,./Services\VmGPUService.cs,1260
+CS_69ce80,CS,SSH 连接超时，请检查虚拟机网络设置。,,./Services\VmGPUService.cs,1265
+CS_90d2f3,CS,远程环境初始化完成，临时目录: {0},remoteTempDir,./Services\VmGPUService.cs,1279
+CS_d49319,CS,配置 APT 和环境变量代理 ({0}:{1})...,"credentials.ProxyHost,credentials.ProxyPort",./Services\VmGPUService.cs,1284
+CS_33213a,CS,正在定位并上传宿主机 GPU 驱动...,,./Services\VmGPUService.cs,1297
+CS_406a07,CS,警告：无法精确定位驱动，使用全量 DriverStore (速度较慢)...,,./Services\VmGPUService.cs,1301
+CS_7e3297,CS,正在上传 WSL 依赖库...,,./Services\VmGPUService.cs,1309
+CS_502b48,CS,正在下载配置脚本...,,./Services\VmGPUService.cs,1313
+CS_5d0cc2,CS,正在编译安装 dxgkrnl 内核模块 (这可能需要一些时间)...,,./Services\VmGPUService.cs,1325
+CS_368608,CS,内核已更新，正在重启虚拟机以应用更改...,,./Services\VmGPUService.cs,1330
+CS_6d3c32,CS,dxgkrnl 编译脚本执行失败，请检查日志。,,./Services\VmGPUService.cs,1341
+CS_31e25e,CS,正在配置 Mesa 3D...,,./Services\VmGPUService.cs,1347
+CS_7893ba,CS,正在完成系统最终配置...,,./Services\VmGPUService.cs,1351
+CS_bc5177,CS,配置完成，正在重启虚拟机...,,./Services\VmGPUService.cs,1356
+CS_bbc2a3,CS,Linux 配置失败: {0},ex.Message,./Services\VmGPUService.cs,1367
+CS_d679ae,CS,运行中,,./Services\VmMapper.cs,34
+CS_d62033,CS,已关机,,./Services\VmMapper.cs,35
+CS_f8dfed,CS,已保存,,./Services\VmMapper.cs,36
+CS_a2d930,CS,已暂停,,./Services\VmMapper.cs,37
+CS_d573e5,CS,正在启动,,./Services\VmMapper.cs,40
+CS_9b5ceb,CS,正在快照,,./Services\VmMapper.cs,41
+CS_a3c4f7,CS,正在保存,,./Services\VmMapper.cs,42
+CS_4f9060,CS,正在停止,,./Services\VmMapper.cs,43
+CS_7c098d,CS,正在暂停,,./Services\VmMapper.cs,44
+CS_d6bbd5,CS,正在恢复,,./Services\VmMapper.cs,45
+CS_5f5209,CS,未知状态({0}),code,./Services\VmMapper.cs,46
+CS_104d6d,CS,找不到虚拟机实例。,,./Services\VmMemoryService.cs,55
+CS_628e59,CS,无法定位内存配置对象。,,./Services\VmMemoryService.cs,63
+CS_8137ec,CS,修改失败: {0},result.Message,./Services\VmMemoryService.cs,79
+CS_ed409d,CS,内存设置已应用。,,./Services\VmMemoryService.cs,82
+CS_f7d0a4,CS,高级设置应用异常: {0},ex.Message,./Services\VmMemoryService.cs,86
+CS_73fc13,CS,开始为虚拟机 '{0}' 获取网卡信息...,vmName,./Services\VmNetworkService.cs,29
+CS_c61eee,CS,[错误] 传入的 vmName 为空，操作中止。,,./Services\VmNetworkService.cs,34
+CS_31f790,CS,[1/4] 正在查询虚拟机 '{0}' 的 GUID...,vmName,./Services\VmNetworkService.cs,39
+CS_ab0abc,CS,[错误] 找不到名为 '{0}' 的虚拟机。请检查虚拟机名称是否正确。,vmName,./Services\VmNetworkService.cs,47
+CS_7143bb,CS,[成功] 获取到 VM GUID: {0},vmGuid,./Services\VmNetworkService.cs,50
+CS_d1a84b,CS,[2/4] 正在并发查询属于 GUID '{0}' 的网卡端口和分配设置...,vmGuid,./Services\VmNetworkService.cs,53
+CS_97a8c0,CS,"[成功] 查询完成: 找到 {0} 个网卡端口, {1} 个分配设置。","allPorts.Count,allAllocs.Count",./Services\VmNetworkService.cs,66
+CS_f83109,CS,[3/4] 开始遍历和匹配每个网卡...,,./Services\VmNetworkService.cs,70
+CS_c00f85,CS,（无名称）,,./Services\VmNetworkService.cs,75
+CS_122e6b,CS,  [警告] 此端口的 InstanceID 为空，跳过处理。,,./Services\VmNetworkService.cs,81
+CS_25d9a2,CS,    [高级设置] 未找到关联设置，将使用默认值。,,./Services\VmNetworkService.cs,147
+CS_82a0fb,CS,    [高级设置] 读取异常: {0},ex.Message,./Services\VmNetworkService.cs,152
+CS_373983,CS,\n[4/4] 所有网卡处理完毕。,,./Services\VmNetworkService.cs,164
+CS_30ea80,CS,IP获取失败: {0},ex.Message,./Services\VmNetworkService.cs,199
+CS_0e31e7,CS,模板缺失,,./Services\VmNetworkService.cs,213
+CS_5dca30,CS,找不到分配对象,,./Services\VmNetworkService.cs,247
+CS_0cd3d9,CS,[归一执行] 网关模式：强制辅ID {0} -> 主ID {1},"adapter.PvlanSecondaryId,adapter.PvlanPrimaryId",./Services\VmNetworkService.cs,269
+CS_cf6cbd,CS,[WMI修正] 网关模式底层对齐：SecondaryVlanId 已设为 0，Array 已填入 {0},priId,./Services\VmNetworkService.cs,321
+CS_cf2349,CS,无法定位配置对象或创建模板失败。,,./Services\VmNetworkService.cs,407
+CS_a21dcf,CS,正在提交 {0} 设置...,featureClass,./Services\VmNetworkService.cs,413
+CS_2bda8e,CS,"[WMI 错误] 方法: {0}, 返回信息: {1}","methodName,result.Message",./Services\VmNetworkService.cs,428
+CS_85e28f,CS,[异常] {0}\n{1},"ex.Message,ex.StackTrace",./Services\VmNetworkService.cs,435
+CS_39fde0,CS,未知交换机,,./Services\VmNetworkService.cs,494
+CS_3d89d7,CS,找不到虚拟机或处理器配置。,,./Services\VmProcessorService.cs,94
+CS_73b0a3,CS,异常: {0},ex.Message,./Services\VmProcessorService.cs,109
+CS_f1e7ef,CS,无法找到虚拟机 (ID: {0}) 的处理器配置。,vmId,./Tools\HcsManager.cs,34
+CS_68347b,CS,应用CPU组的作业失败。作业状态: {(ushort)job[,,./Tools\HcsManager.cs,80
+CS_2bfff2,CS,]}. 错误: {job[,,./Tools\HcsManager.cs,80
+CS_6623d2,CS,应用CPU组失败。错误码: {0},returnValue,./Tools\HcsManager.cs,85
+CS_0bc6f4,CS,错误: 必须编译为 x64 并在 64 位环境下运行！,,./Tools\SystemSwitcher.cs,78
+CS_fd9375,CS,无法删除旧的临时 Hive 文件，请确保没有被挂载,,./Tools\SystemSwitcher.cs,86
+CS_714bd5,CS,权限提升失败 (SeBackup/Restore),,./Tools\SystemSwitcher.cs,94
+CS_48f703,CS,"打不开 SYSTEM 键, 错误码: {0}",openRet,./Tools\SystemSwitcher.cs,100
+CS_8f2f2c,CS,导出 Hive 失败: {0} (检查是否有杀毒软件拦截),saveRet,./Tools\SystemSwitcher.cs,106
+CS_a2c9c1,CS,导出异常: 文件大小仅为 {0} KB，导出不完整。,fi.Length / 1024,./Tools\SystemSwitcher.cs,112
+CS_f6bfe2,CS,离线修改失败 (Load/Unload 环节错误),,./Tools\SystemSwitcher.cs,117
+CS_4dfeef,CS,替换失败: 拒绝访问 (Build 28000 内核已锁定 SYSTEM 蜂巢。请尝试在 PE 环境下替换程序导出的 C:\\temp\\sys_mod_exec.hiv),,./Tools\SystemSwitcher.cs,129
+CS_cbda80,CS,替换失败: 错误码 {0},replaceRet,./Tools\SystemSwitcher.cs,133
+CS_99a379,CS,错误：未知的网络模式 '{0}',mode,./Tools\Utils.cs,279
+CS_02d981,CS,提示,,./Tools\Utils.cs,431
+CS_6b29fd,CS,未找到 WMI 目标对象。,,./Tools\WmiTools.cs,55
+CS_330363,CS,成功,,./Tools\WmiTools.cs,66
+CS_65b3b0,CS,WMI 错误代码: {0},returnValue,./Tools\WmiTools.cs,73
+CS_787a27,CS,任务执行失败 (状态码: {0}),jobState,./Tools\WmiTools.cs,99
+CS_3ae6cd,CS,等待任务时异常: {0},ex.Message,./Tools\WmiTools.cs,107
+CS_662653,CS,经典 (Classic),,./ViewModels\HostPageViewModel.cs,43
+CS_dae361,CS,核心 (Core),,./ViewModels\HostPageViewModel.cs,44
+CS_ed039f,CS,根 (Root),,./ViewModels\HostPageViewModel.cs,45
+CS_61a114,CS,需要管理员权限才能执行此操作。,,./ViewModels\HostPageViewModel.cs,214
+CS_180fb3,CS,正在启用 Hyper-V 服务，请稍候...,,./ViewModels\HostPageViewModel.cs,219
+CS_64a9c7,CS,Hyper-V 服务已启用，重启系统后生效。,,./ViewModels\HostPageViewModel.cs,238
+CS_769462,CS,启用 Hyper-V 服务失败，请尝试在“启用或关闭 Windows 功能”中手动开启。,,./ViewModels\HostPageViewModel.cs,243
+CS_381355,CS,调度器类型已更改，请重启系统生效。,,./ViewModels\HostPageViewModel.cs,319
+CS_c9c7d4,CS,设置调度器类型失败。,,./ViewModels\HostPageViewModel.cs,323
+CS_a7f24f,CS,内测版本,,./ViewModels\SettingsViewModel.cs,55
+CS_5fa802,CS,操作失败,,./ViewModels\VirtualMachinesPageViewModel.cs,291
+CS_866b79,CS,加载失败,,./ViewModels\VirtualMachinesPageViewModel.cs,330
+CS_efb08e,CS,启动失败,,./ViewModels\VirtualMachinesPageViewModel.cs,358
+CS_7e471b,CS,无法打开官方连接工具，请确保已安装 Hyper-V 管理组件。,,./ViewModels\VirtualMachinesPageViewModel.cs,358
+CS_5badb3,CS,修改失败,,./ViewModels\VirtualMachinesPageViewModel.cs,376
+CS_2d8709,CS,无法保存标签，请检查权限,,./ViewModels\VirtualMachinesPageViewModel.cs,376
+CS_efafd9,CS,应用失败,,./ViewModels\VirtualMachinesPageViewModel.cs,668
+CS_a22e63,CS,系统异常,,./ViewModels\VirtualMachinesPageViewModel.cs,674
+CS_737897,CS,加载亲和性失败,,./ViewModels\VirtualMachinesPageViewModel.cs,735
+CS_3b1083,CS,保存成功,,./ViewModels\VirtualMachinesPageViewModel.cs,765
+CS_976f41,CS,CPU 亲和性已应用。,,./ViewModels\VirtualMachinesPageViewModel.cs,765
+CS_390750,CS,设定已排队,,./ViewModels\VirtualMachinesPageViewModel.cs,774
+CS_b89860,CS,当前为 Root 调度模式，亲和性已保存，将在虚拟机下次启动时自动生效。,,./ViewModels\VirtualMachinesPageViewModel.cs,774
+CS_6de920,CS,保存失败,,./ViewModels\VirtualMachinesPageViewModel.cs,779
+CS_e7c80c,CS,无法应用设置，请检查 HCS 权限或调度器状态。,,./ViewModels\VirtualMachinesPageViewModel.cs,779
+CS_7030ff,CS,错误,,./ViewModels\VirtualMachinesPageViewModel.cs,785
+CS_45993a,CS,加载失败: {0},Utils.GetFriendlyErrorMessages(ex.Message),./ViewModels\VirtualMachinesPageViewModel.cs,815
+CS_b7e2b3,CS,自动应用失败,,./ViewModels\VirtualMachinesPageViewModel.cs,838
+CS_c195df,CS,异常,,./ViewModels\VirtualMachinesPageViewModel.cs,863
+CS_882f2e,CS,加载存储失败,,./ViewModels\VirtualMachinesPageViewModel.cs,886
+CS_2d0f70,CS,光盘已弹出,,./ViewModels\VirtualMachinesPageViewModel.cs,913
+CS_19cca3,CS,设备已移除,,./ViewModels\VirtualMachinesPageViewModel.cs,913
+CS_6a6b05,CS,移除失败,,./ViewModels\VirtualMachinesPageViewModel.cs,916
+CS_7dacca,CS,操作受限,,./ViewModels\VirtualMachinesPageViewModel.cs,936
+CS_bb2010,CS,物理直通磁盘无法修改路径，请移除后重新添加。,,./ViewModels\VirtualMachinesPageViewModel.cs,936
+CS_f89720,CS,无法在虚拟机运行时更换虚拟硬盘文件，请先关机。,,./ViewModels\VirtualMachinesPageViewModel.cs,942
+CS_d4e158,CS,镜像文件 (*.iso)|*.iso|所有文件 (*.*)|*.*,,./ViewModels\VirtualMachinesPageViewModel.cs,947
+CS_949913,CS,虚拟磁盘 (*.vhdx;*.vhd)|*.vhdx;*.vhd|所有文件 (*.*)|*.*,,./ViewModels\VirtualMachinesPageViewModel.cs,948
+CS_950f68,CS,选择 ISO 镜像,,./ViewModels\VirtualMachinesPageViewModel.cs,952
+CS_937eb3,CS,选择虚拟磁盘文件,,./ViewModels\VirtualMachinesPageViewModel.cs,952
+CS_69be67,CS,修改成功,,./ViewModels\VirtualMachinesPageViewModel.cs,983
+CS_aabb8b,CS,存储路径已更新,,./ViewModels\VirtualMachinesPageViewModel.cs,983
+CS_8e29da,CS,选择或输入 .vhdx / .vhd 文件路径,,./ViewModels\VirtualMachinesPageViewModel.cs,1043
+CS_297e5b,CS,选择或输入 .iso 镜像文件路径,,./ViewModels\VirtualMachinesPageViewModel.cs,1044
+CS_39a8ff,CS,保存到...,,./ViewModels\VirtualMachinesPageViewModel.cs,1046
+CS_9ae4c7,CS,浏览...,,./ViewModels\VirtualMachinesPageViewModel.cs,1046
+CS_2f5e59,CS,位置冲突,,./ViewModels\VirtualMachinesPageViewModel.cs,1158
+CS_0643b0,CS,该插槽已被占用，请选择其他位置。,,./ViewModels\VirtualMachinesPageViewModel.cs,1158
+CS_f06ec9,CS,缺少参数,,./ViewModels\VirtualMachinesPageViewModel.cs,1167
+CS_1ed804,CS,请选择存储设备或文件。,,./ViewModels\VirtualMachinesPageViewModel.cs,1167
+CS_457062,CS,创建 ISO 时必须指定源文件夹。,,./ViewModels\VirtualMachinesPageViewModel.cs,1176
+CS_163ee4,CS,创建 ISO 时必须指定保存路径。,,./ViewModels\VirtualMachinesPageViewModel.cs,1182
+CS_3669fd,CS,无法创建输出目录: {0},ex.Message,./ViewModels\VirtualMachinesPageViewModel.cs,1197
+CS_a6c651,CS,源文件夹不存在。,,./ViewModels\VirtualMachinesPageViewModel.cs,1204
+CS_af4318,CS,创建虚拟磁盘,,./ViewModels\VirtualMachinesPageViewModel.cs,1235
+CS_905e70,CS,虚拟磁盘 (*.vhdx)|*.vhdx|旧版虚拟磁盘 (*.vhd)|*.vhd,,./ViewModels\VirtualMachinesPageViewModel.cs,1236
+CS_6e12fe,CS,新建虚拟磁盘.vhdx,,./ViewModels\VirtualMachinesPageViewModel.cs,1238
+CS_5ecc6e,CS,选择虚拟磁盘,,./ViewModels\VirtualMachinesPageViewModel.cs,1250
+CS_eb2c8f,CS,虚拟磁盘 (*.vhdx;*.vhd)|*.vhdx;*.vhd,,./ViewModels\VirtualMachinesPageViewModel.cs,1252
+CS_9ac0d1,CS,镜像文件 (*.iso)|*.iso,,./ViewModels\VirtualMachinesPageViewModel.cs,1253
+CS_86bbf7,CS,保存 ISO 镜像文件,,./ViewModels\VirtualMachinesPageViewModel.cs,1285
+CS_e3ce05,CS,ISO 镜像 (*.iso)|*.iso,,./ViewModels\VirtualMachinesPageViewModel.cs,1286
+CS_3fdaea,CS,添加成功,,./ViewModels\VirtualMachinesPageViewModel.cs,1334
+CS_3bc44a,CS,设备已连接到 {0} {1}:{2},"result.ActualType,result.ActualNumber,result.ActualLocation",./ViewModels\VirtualMachinesPageViewModel.cs,1334
+CS_6452a0,CS,添加失败,,./ViewModels\VirtualMachinesPageViewModel.cs,1339
+CS_aec78b,CS,第 1 代虚拟机的光盘无法在运行状态下添加（IDE 不支持热插拔）。请先关机。,,./ViewModels\VirtualMachinesPageViewModel.cs,1370
+CS_d5b760,CS,第 1 代虚拟机的 IDE 控制器已满，无法添加光盘。,,./ViewModels\VirtualMachinesPageViewModel.cs,1382
+CS_f704c9,CS,运行中的虚拟机没有可用的 SCSI 插槽。,,./ViewModels\VirtualMachinesPageViewModel.cs,1397
+CS_a5bb22,CS,没有可用的 SCSI 插槽。,,./ViewModels\VirtualMachinesPageViewModel.cs,1397
+CS_7a6307,CS,该虚拟机没有可用的存储插槽。,,./ViewModels\VirtualMachinesPageViewModel.cs,1423
+CS_d70618,CS,控制器 {0} #{1} 已满,"SelectedControllerType,SelectedControllerNumber",./ViewModels\VirtualMachinesPageViewModel.cs,1531
+CS_ca1fc2,CS,接入,,./ViewModels\VirtualMachinesPageViewModel.cs,1606
+CS_f367e6,CS,中继,,./ViewModels\VirtualMachinesPageViewModel.cs,1607
+CS_5ce055,CS,专用,,./ViewModels\VirtualMachinesPageViewModel.cs,1608
+CS_96de25,CS,隔离,,./ViewModels\VirtualMachinesPageViewModel.cs,1614
+CS_888af1,CS,社区,,./ViewModels\VirtualMachinesPageViewModel.cs,1615
+CS_878985,CS,混杂,,./ViewModels\VirtualMachinesPageViewModel.cs,1616
+CS_710ad0,CS,禁用,,./ViewModels\VirtualMachinesPageViewModel.cs,1622
+CS_987add,CS,加入发送组,,./ViewModels\VirtualMachinesPageViewModel.cs,1623
+CS_afe69d,CS,加入接收组,,./ViewModels\VirtualMachinesPageViewModel.cs,1624
+CS_46919a,CS,已添加新的网络适配器,,./ViewModels\VirtualMachinesPageViewModel.cs,1744
+CS_a716ca,CS,添加异常,,./ViewModels\VirtualMachinesPageViewModel.cs,1754
+CS_2898f5,CS,移除成功,,./ViewModels\VirtualMachinesPageViewModel.cs,1775
+CS_2494e6,CS,网络适配器已移除,,./ViewModels\VirtualMachinesPageViewModel.cs,1775
+CS_28764a,CS,移除异常,,./ViewModels\VirtualMachinesPageViewModel.cs,1785
+CS_084983,CS,VLAN 设置已应用,,./ViewModels\VirtualMachinesPageViewModel.cs,1823
+CS_acd5cb,CS,失败,,./ViewModels\VirtualMachinesPageViewModel.cs,1824
+CS_861f96,CS,流量控制设置已应用,,./ViewModels\VirtualMachinesPageViewModel.cs,1841
+CS_75c062,CS,安全设置应用失败: {0},secResult.Message,./ViewModels\VirtualMachinesPageViewModel.cs,1861
+CS_360527,CS,硬件加速设置应用失败: {0},offloadResult.Message,./ViewModels\VirtualMachinesPageViewModel.cs,1868
+CS_5677bf,CS,设置已应用,,./ViewModels\VirtualMachinesPageViewModel.cs,1872
+CS_c18d44,CS,设置应用失败,,./ViewModels\VirtualMachinesPageViewModel.cs,1888
+CS_cba331,CS,安全设置应用失败,,./ViewModels\VirtualMachinesPageViewModel.cs,1900
+CS_f0009a,CS,无法读取 GPU 配置信息: ,,./ViewModels\VirtualMachinesPageViewModel.cs,1922
+CS_db89ed,CS,刷新显卡失败,,./ViewModels\VirtualMachinesPageViewModel.cs,1998
+CS_1f164b,CS,GPU 分区已从虚拟机移除。,,./ViewModels\VirtualMachinesPageViewModel.cs,2026
+CS_eb2606,CS,未能成功移除 GPU 分区，请检查权限。,,./ViewModels\VirtualMachinesPageViewModel.cs,2033
+CS_281ad3,CS,操作异常,,./ViewModels\VirtualMachinesPageViewModel.cs,2038
+CS_ed313f,CS,无法加载宿主机显卡: ,,./ViewModels\VirtualMachinesPageViewModel.cs,2067
+CS_e17f5e,CS,选中物理显卡: {0},SelectedHostGpu.Name,./ViewModels\VirtualMachinesPageViewModel.cs,2130
+CS_a0b6e1,CS,设备路径: {0},SelectedHostGpu.Pname,./ViewModels\VirtualMachinesPageViewModel.cs,2131
+CS_cbb060,CS,环境准备,,./ViewModels\VirtualMachinesPageViewModel.cs,2134
+CS_092e33,CS,正在准备宿主机环境...,,./ViewModels\VirtualMachinesPageViewModel.cs,2134
+CS_1d8e06,CS,电源检查,,./ViewModels\VirtualMachinesPageViewModel.cs,2135
+CS_779461,CS,检查虚拟机电源状态...,,./ViewModels\VirtualMachinesPageViewModel.cs,2135
+CS_b2b90c,CS,系统优化,,./ViewModels\VirtualMachinesPageViewModel.cs,2136
+CS_0c3d22,CS,正在配置 MMIO 地址空间...,,./ViewModels\VirtualMachinesPageViewModel.cs,2136
+CS_b5a265,CS,分配显卡,,./ViewModels\VirtualMachinesPageViewModel.cs,2137
+CS_d0b54b,CS,正在创建 GPU 分区...,,./ViewModels\VirtualMachinesPageViewModel.cs,2137
+CS_109735,CS,驱动安装,,./ViewModels\VirtualMachinesPageViewModel.cs,2141
+CS_af8aa2,CS,等待扫描分区...,,./ViewModels\VirtualMachinesPageViewModel.cs,2141
+CS_73a729,CS,正在执行: {0}...,task.Name,./ViewModels\VirtualMachinesPageViewModel.cs,2157
+CS_5b0bdb,CS,策略已成功应用。,,./ViewModels\VirtualMachinesPageViewModel.cs,2165
+CS_993355,CS,当前状态: {0}。正在强制关闭虚拟机...,state,./ViewModels\VirtualMachinesPageViewModel.cs,2172
+CS_4b8002,CS,虚拟机已关机。,,./ViewModels\VirtualMachinesPageViewModel.cs,2180
+CS_ff9925,CS,MMIO 地址空间配置完成。,,./ViewModels\VirtualMachinesPageViewModel.cs,2185
+CS_e318ff,CS,优化配置失败，将尝试继续。,,./ViewModels\VirtualMachinesPageViewModel.cs,2185
+CS_c04efd,CS,GPU 分区已成功创建。,,./ViewModels\VirtualMachinesPageViewModel.cs,2195
+CS_1e54ad,CS,正在扫描所有挂载硬盘的分区...,,./ViewModels\VirtualMachinesPageViewModel.cs,2206
+CS_6b2902,CS,未能在任何硬盘上识别到有效分区。请确保系统已安装。,,./ViewModels\VirtualMachinesPageViewModel.cs,2214
+CS_4b9eee,CS,扫描完成：共发现 {0} 个分区，分布在 {1} 个磁盘上。,"allPartitions.Count,distinctDisks",./ViewModels\VirtualMachinesPageViewModel.cs,2220
+CS_b12d72,CS,检测到唯一的 Windows 系统分区，正在同步驱动...,,./ViewModels\VirtualMachinesPageViewModel.cs,2225
+CS_6c479d,CS,Windows 驱动安装成功。,,./ViewModels\VirtualMachinesPageViewModel.cs,2238
+CS_c31fa1,CS,请手动选择操作系统所在的分区...,,./ViewModels\VirtualMachinesPageViewModel.cs,2249
+CS_8a2002,CS,[成功] {0}: {1},"task.Name,task.Description",./ViewModels\VirtualMachinesPageViewModel.cs,2264
+CS_9de089,CS,失败: {0},ex.Message,./ViewModels\VirtualMachinesPageViewModel.cs,2269
+CS_451b67,CS,[错误] {0} 环节异常: {1},"task.Name,ex.Message",./ViewModels\VirtualMachinesPageViewModel.cs,2270
+CS_88d24f,CS,{0} 环节出现异常,task.Name,./ViewModels\VirtualMachinesPageViewModel.cs,2279
+CS_eb7f17,CS,正在同步驱动至分区 {0}...,partition.PartitionNumber,./ViewModels\VirtualMachinesPageViewModel.cs,2298
+CS_8317fc,CS,[回滚] 驱动同步失败: {0},result.Message,./ViewModels\VirtualMachinesPageViewModel.cs,2321
+CS_36bb2f,CS,检测到 Linux 分区，正在等待虚拟机启动...,,./ViewModels\VirtualMachinesPageViewModel.cs,2338
+CS_9f9897,CS,已自动识别系统代理: {0}:{1},"pHost,pPort",./ViewModels\VirtualMachinesPageViewModel.cs,2346
+CS_f0fd53,CS,正在自动启动虚拟机以初始化网络...,,./ViewModels\VirtualMachinesPageViewModel.cs,2351
+CS_0e82f2,CS,正在嗅探虚拟机 IP 地址...,,./ViewModels\VirtualMachinesPageViewModel.cs,2357
+CS_be1e16,CS,获取到 MAC 地址: {0}，正在匹配 IP...,formattedMac,./ViewModels\VirtualMachinesPageViewModel.cs,2369
+CS_d22a85,CS,成功获取 IP 地址: {0},SshHost,./ViewModels\VirtualMachinesPageViewModel.cs,2388
+CS_083575,CS,未能自动获取到 IP，请手动输入。,,./ViewModels\VirtualMachinesPageViewModel.cs,2392
+CS_ad3b00,CS,请确认 SSH 凭据以开始部署...,,./ViewModels\VirtualMachinesPageViewModel.cs,2396
+CS_f5b3f9,CS,环境获取失败,,./ViewModels\VirtualMachinesPageViewModel.cs,2400
+CS_80d33a,CS,[警告] 获取环境异常: {0},ex.Message,./ViewModels\VirtualMachinesPageViewModel.cs,2401
+CS_e441b1,CS,验证失败,,./ViewModels\VirtualMachinesPageViewModel.cs,2421
+CS_ef38e9,CS,主机 IP 地址不能为空,,./ViewModels\VirtualMachinesPageViewModel.cs,2421
+CS_374534,CS,"连接参数 - Host: {0}, Port: {1}, User: {2}","SshHost,SshPort,SshUsername",./ViewModels\VirtualMachinesPageViewModel.cs,2426
+CS_685ad2,CS,使用代理: {0}:{1},"SshProxyHost,SshProxyPort",./ViewModels\VirtualMachinesPageViewModel.cs,2427
+CS_4ef22b,CS,[回滚] Linux 部署失败，正在移除 GPU 分区...,,./ViewModels\VirtualMachinesPageViewModel.cs,2467
+CS_659c36,CS,请选择目标分区进行适配...,,./ViewModels\VirtualMachinesPageViewModel.cs,2486
+CS_a6d385,CS,配置成功,,./ViewModels\VirtualMachinesPageViewModel.cs,2496
+CS_522ad1,CS,{0} 已准备就绪,SelectedHostGpu.Name,./ViewModels\VirtualMachinesPageViewModel.cs,2496
+CS_7a5f65,CS,正在重启,,./ViewModels\VirtualMachinesPageViewModel.cs,2528
+CS_8cbf19,CS,正在关闭,,./ViewModels\VirtualMachinesPageViewModel.cs,2528
+CS_2fb90b,CS,处理中...,,./ViewModels\VirtualMachinesPageViewModel.cs,2528
+CS_20a495,CS,复制成功,,./ViewModels\VirtualMachinesPageViewModel.cs,2547
+CS_409093,CS,配置日志已拷贝到剪贴板,,./ViewModels\VirtualMachinesPageViewModel.cs,2547
+CS_508127,CS,标准 (4KB),,./ViewModels\VmInstanceInfo.cs,163
+CS_ee5cce,CS,大页 (2MB),,./ViewModels\VmInstanceInfo.cs,164
+CS_5265fd,CS,巨页 (1GB),,./ViewModels\VmInstanceInfo.cs,165
+CS_d81bb2,CS,无,,./ViewModels\VmInstanceInfo.cs,377
+CS_8520de,CS,无磁盘,,./ViewModels\VmInstanceInfo.cs,565
+CS_09b4d6,CS,{0} 核 / {1:0.#} GB / {2},"_cpuCount,_memoryGb,diskPart",./ViewModels\VmInstanceInfo.cs,575
+Xaml_c6b901,XAML,环境与设定,,./Views\HostPage.xaml,17
+Xaml_158744,XAML,运行环境,,./Views\HostPage.xaml,22
+Xaml_a595ca,XAML,CPU 虚拟化,,./Views\HostPage.xaml,48
+Xaml_51151e,XAML,IOMMU 状态,,./Views\HostPage.xaml,71
+Xaml_93b81d,XAML,Hyper-V 服务,,./Views\HostPage.xaml,95
+Xaml_7854b5,XAML,启用,,./Views\HostPage.xaml,98
+Xaml_f425f5,XAML,系统版本：,,./Views\HostPage.xaml,125
+Xaml_d30e64,XAML,属于 Windows Server 系统,,./Views\HostPage.xaml,150
+Xaml_de8713,XAML,高级设定,,./Views\HostPage.xaml,157
+Xaml_7c4e0a,XAML,调度器类型,,./Views\HostPage.xaml,167
+Xaml_e4362c,XAML,允许 NUMA 跨越,,./Views\HostPage.xaml,186
+Xaml_369219,XAML,开启后虚拟机可跨物理节点分配内存,,./Views\HostPage.xaml,187
+Xaml_7052b7,XAML,解锁消费级硬件限制,,./Views\HostPage.xaml,202
+Xaml_a3d3a6,XAML,修复因硬件安全检查导致的问题,,./Views\HostPage.xaml,203
+Xaml_3ba6b7,XAML,切换系统为服务器版本,,./Views\HostPage.xaml,217
+Xaml_713580,XAML,黑魔法，仅对 Build 26100 及以下系统生效,,./Views\HostPage.xaml,218
+Xaml_9ed2d5,XAML,虚拟机管理,,./Views\MainPage.xaml,90
+Xaml_a89289,XAML,创建、配置并运行 Hyper-V 虚拟机,,./Views\MainPage.xaml,91
+Xaml_081963,XAML,主机配置,,./Views\MainPage.xaml,105
+Xaml_c2eed6,XAML,检查主机运行环境及高级设定,,./Views\MainPage.xaml,106
+Xaml_653113,XAML,PCIe 直通,,./Views\MainPage.xaml,120
+Xaml_3c063b,XAML,将物理显卡等设备直接分配给虚拟机,,./Views\MainPage.xaml,121
+Xaml_b7ad65,XAML,虚拟交换机,,./Views\MainPage.xaml,135
+Xaml_a43ba1,XAML,管理虚拟交换机、网络模式和上游网络,,./Views\MainPage.xaml,136
+Xaml_15710c,XAML,我很可爱，请给我钱,,./Views\Setting.xaml,200
+Xaml_c4b1c7,XAML,未选择虚拟机,,./Views\VirtualMachinesPage.xaml,28
+Xaml_3f904e,XAML,请从左侧列表选择一个虚拟机以开始管理,,./Views\VirtualMachinesPage.xaml,34
+Xaml_b9a4e2,XAML,双击以连接,,./Views\VirtualMachinesPage.xaml,111
+Xaml_e200b4,XAML,"{Binding Generation, StringFormat='{}{0} 代'}",,./Views\VirtualMachinesPage.xaml,165
+Xaml_f0c97d,XAML,"{Binding Version, StringFormat='{}配置版本 {0}'}",,./Views\VirtualMachinesPage.xaml,174
+Xaml_98aeb9,XAML,点击复制完整 IP 地址,,./Views\VirtualMachinesPage.xaml,233
+Xaml_b5c377,XAML,控制台,,./Views\VirtualMachinesPage.xaml,249
+Xaml_8e54dd,XAML,启动,,./Views\VirtualMachinesPage.xaml,254
+Xaml_f2eebd,XAML,关机,,./Views\VirtualMachinesPage.xaml,285
+Xaml_01b4e0,XAML,重启,,./Views\VirtualMachinesPage.xaml,292
+Xaml_8d63ef,XAML,暂停,,./Views\VirtualMachinesPage.xaml,295
+Xaml_8e7e4e,XAML,保存状态,,./Views\VirtualMachinesPage.xaml,299
+Xaml_e98c1b,XAML,强制关闭,,./Views\VirtualMachinesPage.xaml,302
+Xaml_802f7e,XAML,配置进度,,./Views\Components\VmAddGpuProgressView.xaml,32
+Xaml_4663a4,XAML,请选择要安装驱动的分区,,./Views\Components\VmAddGpuProgressView.xaml,67
+Xaml_9ab1fb,XAML,配置日志,,./Views\Components\VmAddGpuProgressView.xaml,262
+Xaml_3615f7,XAML,复制日志,,./Views\Components\VmAddGpuProgressView.xaml,266
+Xaml_ce7ec8,XAML,可用物理显卡,,./Views\Components\VmAddGpuSelectView.xaml,34
+Xaml_38ce27,XAML,下一步,,./Views\Components\VmAddGpuSelectView.xaml,37
+Xaml_a01010,XAML,安装驱动,,./Views\Components\VmAddGpuSelectView.xaml,105
+Xaml_6bc456,XAML,媒体设置,,./Views\Components\VmAddStorageView.xaml,115
+Xaml_6c7c77,XAML,源文件夹,,./Views\Components\VmAddStorageView.xaml,353
+Xaml_3a3ff2,XAML,卷标签,,./Views\Components\VmAddStorageView.xaml,363
+Xaml_e0704e,XAML,ISO 保存路径,,./Views\Components\VmAddStorageView.xaml,366
+Xaml_d55900,XAML,保存为...,,./Views\Components\VmAddStorageView.xaml,379
+Xaml_4a996e,XAML,CPU 绑定,,./Views\Components\VmCpuAffinityView.xaml,92
+Xaml_f38016,XAML,选择要绑定的宿主核心 (按住左键拖动可多选),,./Views\Components\VmCpuAffinityView.xaml,93
+Xaml_5b0520,XAML,应用,,./Views\Components\VmCpuAffinityView.xaml,136
+Xaml_61dba6,XAML,当前虚拟机配置版本不支持此功能,,./Views\Components\VmCpuSettingsView.xaml,30
+Xaml_28f8b4,XAML,此设置项要求虚拟机处于关机状态,,./Views\Components\VmCpuSettingsView.xaml,39
+Xaml_8832dd,XAML,处理器设置,,./Views\Components\VmCpuSettingsView.xaml,79
+Xaml_b9026c,XAML,隐藏 Hypervisor 标识,,./Views\Components\VmCpuSettingsView.xaml,239
+Xaml_4aaebf,XAML,为虚拟机系统隐藏虚拟化标识符，可能有助于绕过软件检测,,./Views\Components\VmCpuSettingsView.xaml,240
+Xaml_7b0c91,XAML,暴露架构性能监控单元,,./Views\Components\VmCpuSettingsView.xaml,255
+Xaml_29779d,XAML,透传硬件计数器，允许开发工具直接访问物理 PMU,,./Views\Components\VmCpuSettingsView.xaml,256
+Xaml_35acfc,XAML,暴露频率监视寄存器,,./Views\Components\VmCpuSettingsView.xaml,271
+Xaml_c9db5d,XAML,允许虚拟机读取处理器真实频率,,./Views\Components\VmCpuSettingsView.xaml,272
+Xaml_9bedad,XAML,禁用侧信道攻击缓解,,./Views\Components\VmCpuSettingsView.xaml,287
+Xaml_e9cca4,XAML,禁用漏洞补丁 (如 Spectre)，提升性能但降低安全性,,./Views\Components\VmCpuSettingsView.xaml,288
+Xaml_acbfff,XAML,启用插槽拓扑,,./Views\Components\VmCpuSettingsView.xaml,303
+Xaml_933865,XAML,映射物理插槽拓扑，优化多插槽软件的运行环境,,./Views\Components\VmCpuSettingsView.xaml,304
+Xaml_41c074,XAML,实验功能,,./Views\Components\VmCpuSettingsView.xaml,314
+Xaml_3ae455,XAML,配置虚拟机与物理核心的亲和性,,./Views\Components\VmCpuSettingsView.xaml,324
+Xaml_9d0e70,XAML,配置亲和性,,./Views\Components\VmCpuSettingsView.xaml,326
+Xaml_e492af,XAML,处理器,,./Views\Components\VmDashboardView.xaml,54
+Xaml_fe9ca1,XAML,核心配置与实时监控,,./Views\Components\VmDashboardView.xaml,55
+Xaml_993255,XAML,内存,,./Views\Components\VmDashboardView.xaml,127
+Xaml_373b71,XAML,内存配置与使用趋势,,./Views\Components\VmDashboardView.xaml,128
+Xaml_601e3c,XAML,内存使用趋势,,./Views\Components\VmDashboardView.xaml,161
+Xaml_a39cf1,XAML,存储,,./Views\Components\VmDashboardView.xaml,188
+Xaml_d68784,XAML,磁盘空间与读写速率,,./Views\Components\VmDashboardView.xaml,189
+Xaml_4bd29f,XAML,未挂载虚拟磁盘,,./Views\Components\VmDashboardView.xaml,308
+Xaml_d405d9,XAML,显卡,,./Views\Components\VmDashboardView.xaml,339
+Xaml_f573b1,XAML,GPU 配置与引擎负载,,./Views\Components\VmDashboardView.xaml,340
+Xaml_05db03,XAML,3D 渲染,,./Views\Components\VmDashboardView.xaml,399
+Xaml_82a6c7,XAML,数据复制,,./Views\Components\VmDashboardView.xaml,415
+Xaml_2c56e5,XAML,视频编码,,./Views\Components\VmDashboardView.xaml,431
+Xaml_d25c77,XAML,视频解码,,./Views\Components\VmDashboardView.xaml,447
+Xaml_ab695c,XAML,显卡驱动未就绪,,./Views\Components\VmDashboardView.xaml,472
+Xaml_40e5df,XAML,虚拟机未启动,,./Views\Components\VmDashboardView.xaml,492
+Xaml_be55b8,XAML,虚拟机未分配显卡,,./Views\Components\VmDashboardView.xaml,507
+Xaml_7ddbe1,XAML,网络,,./Views\Components\VmDashboardView.xaml,528
+Xaml_f7f93a,XAML,网络设置与连接信息,,./Views\Components\VmDashboardView.xaml,529
+Xaml_8cd6a6,XAML,"{Binding IpAddressDisplay, FallbackValue='获取中...'}",,./Views\Components\VmDashboardView.xaml,577
+Xaml_10d178,XAML,"{Binding SwitchName, FallbackValue='未连接'}",,./Views\Components\VmDashboardView.xaml,595
+Xaml_82e87c,XAML,未配置网络适配器,,./Views\Components\VmDashboardView.xaml,611
+Xaml_69eba6,XAML,显卡设置,,./Views\Components\VmGPUSettingsView.xaml,35
+Xaml_b58c75,XAML,添加,,./Views\Components\VmGPUSettingsView.xaml,37
+Xaml_81824c,XAML,卸载,,./Views\Components\VmGPUSettingsView.xaml,73
+Xaml_1267b6,XAML,制造商,,./Views\Components\VmGPUSettingsView.xaml,96
+Xaml_224d9b,XAML,显存,,./Views\Components\VmGPUSettingsView.xaml,99
+Xaml_2f6b28,XAML,驱动程序版本,,./Views\Components\VmGPUSettingsView.xaml,102
+Xaml_d3fe70,XAML,GPU分区ID,,./Views\Components\VmGPUSettingsView.xaml,105
+Xaml_7179b3,XAML,GPU分区路径,,./Views\Components\VmGPUSettingsView.xaml,108
+Xaml_f6de24,XAML,网络设置,,./Views\Components\VmNetSettingsView.xaml,75
+Xaml_f4cb1c,XAML,基础连接,,./Views\Components\VmNetSettingsView.xaml,116
+Xaml_310239,XAML,MAC 地址,,./Views\Components\VmNetSettingsView.xaml,141
+Xaml_c10992,XAML,IP 地址,,./Views\Components\VmNetSettingsView.xaml,151
+Xaml_269ea0,XAML,VLAN 与 隔离,,./Views\Components\VmNetSettingsView.xaml,170
+Xaml_f0789e,XAML,模式,,./Views\Components\VmNetSettingsView.xaml,184
+Xaml_e18024,XAML,本征 ID,,./Views\Components\VmNetSettingsView.xaml,204
+Xaml_66040d,XAML,允许列表,,./Views\Components\VmNetSettingsView.xaml,206
+Xaml_226b09,XAML,类型,,./Views\Components\VmNetSettingsView.xaml,212
+Xaml_b33368,XAML,主 ID,,./Views\Components\VmNetSettingsView.xaml,220
+Xaml_ab76ce,XAML,辅 ID,,./Views\Components\VmNetSettingsView.xaml,223
+Xaml_a3c20e,XAML,流量控制 (QoS),,./Views\Components\VmNetSettingsView.xaml,235
+Xaml_8d8aef,XAML,上限 (Mbps),,./Views\Components\VmNetSettingsView.xaml,247
+Xaml_0cb111,XAML,下限 (Mbps),,./Views\Components\VmNetSettingsView.xaml,249
+Xaml_1a025b,XAML,硬件加速,,./Views\Components\VmNetSettingsView.xaml,256
+Xaml_ec6efb,XAML,单根 I/O 虚拟化,,./Views\Components\VmNetSettingsView.xaml,265
+Xaml_93820a,XAML,获得最高性能和最低延迟（需要虚拟交换机和对应的物理网卡支持并开启了 SR-IOV ）,,./Views\Components\VmNetSettingsView.xaml,266
+Xaml_424ee0,XAML,虚拟机队列,,./Views\Components\VmNetSettingsView.xaml,277
+Xaml_5e493f,XAML,使用物理网卡 DMA 传输包到虚拟机内存，降低 CPU 开销,,./Views\Components\VmNetSettingsView.xaml,278
+Xaml_eb9ad2,XAML,IPsec 任务卸载,,./Views\Components\VmNetSettingsView.xaml,289
+Xaml_3747a5,XAML,减轻主机 CPU 负担并提高网络吞吐量,,./Views\Components\VmNetSettingsView.xaml,290
+Xaml_f37ec9,XAML,安全与监控,,./Views\Components\VmNetSettingsView.xaml,298
+Xaml_4e194b,XAML,允许 MAC 地址欺骗,,./Views\Components\VmNetSettingsView.xaml,307
+Xaml_e96bd2,XAML,允许虚拟机更改源 MAC，用于负载均衡或嵌套虚拟化,,./Views\Components\VmNetSettingsView.xaml,308
+Xaml_258851,XAML,启用 DHCP 防护,,./Views\Components\VmNetSettingsView.xaml,319
+Xaml_29aff6,XAML,防止未经授权的虚拟机充当 DHCP 服务器,,./Views\Components\VmNetSettingsView.xaml,320
+Xaml_da1f0f,XAML,启用路由器防护,,./Views\Components\VmNetSettingsView.xaml,331
+Xaml_c8f0a9,XAML,防止未经授权的虚拟机发送路由器通告,,./Views\Components\VmNetSettingsView.xaml,332
+Xaml_f33c8f,XAML,端口镜像,,./Views\Components\VmNetSettingsView.xaml,349
+Xaml_86c62e,XAML,风暴阈值,,./Views\Components\VmNetSettingsView.xaml,355
+Xaml_46747f,XAML,内存设置,,./Views\Components\VmRAMSettingsView.xaml,95
+Xaml_afc48d,XAML,计算资源,,./Views\Components\VmRAMSettingsView.xaml,107
+Xaml_6c8869,XAML,启动内存 (MB),,./Views\Components\VmRAMSettingsView.xaml,117
+Xaml_5e99d5,XAML,启用动态内存时，无法在虚拟机运行时修改启动内存。,,./Views\Components\VmRAMSettingsView.xaml,131
+Xaml_f70e04,XAML,内存权重 (%),,./Views\Components\VmRAMSettingsView.xaml,141
+Xaml_8a7076,XAML,启用动态内存,,./Views\Components\VmRAMSettingsView.xaml,154
+Xaml_70ceb1,XAML,允许 Hyper-V 根据负载在最小和最大值之间自动调整,,./Views\Components\VmRAMSettingsView.xaml,155
+Xaml_40c2db,XAML,最小内存 (MB),,./Views\Components\VmRAMSettingsView.xaml,172
+Xaml_efcd7b,XAML,最大内存 (MB),,./Views\Components\VmRAMSettingsView.xaml,176
+Xaml_c595e1,XAML,内存缓冲区 (%),,./Views\Components\VmRAMSettingsView.xaml,181
+Xaml_a4c944,XAML,高级功能,,./Views\Components\VmRAMSettingsView.xaml,191
+Xaml_59c2a1,XAML,内存页大小,,./Views\Components\VmRAMSettingsView.xaml,200
+Xaml_656699,XAML,选择用于支持虚拟机内存的物理页大小,,./Views\Components\VmRAMSettingsView.xaml,201
+Xaml_a50393,XAML,内存加密,,./Views\Components\VmRAMSettingsView.xaml,221
+Xaml_f79f92,XAML,启用硬件支持的内存隔离与加密,,./Views\Components\VmRAMSettingsView.xaml,222
+Xaml_c24fc0,XAML,打开所在文件夹,,./Views\Components\VmStorageSettingsView.xaml,99
+Xaml_f5394b,XAML, 控制器 ,,./Views\Components\VmStorageSettingsView.xaml,174
+Xaml_def745,XAML, - 位置 ,,./Views\Components\VmStorageSettingsView.xaml,176
