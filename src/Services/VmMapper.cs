@@ -43,7 +43,7 @@ namespace ExHyperV.Services
                 32774 => Properties.Resources.Status_Stopping,
                 32776 => Properties.Resources.Status_Suspending,
                 32777 => Properties.Resources.Status_Resuming,
-                _ => $"未知状态({code})"
+                _ => string.Format(Properties.Resources.Status_UnknownCode, code)
             };
         }
     }
