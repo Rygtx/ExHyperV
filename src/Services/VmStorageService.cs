@@ -512,11 +512,11 @@ namespace ExHyperV.Services
             if (!sourceDirInfo.Exists) return (false, "Iso_Error_SourceDirNotFound");
 
             const long MaxFileSize = 4294967295;
-            const int MaxFileNameLength = 64;
+            const int MaxFileNameLength = 103;
             const int MaxPathLength = 240;
             const int MaxDirectoryDepth = 8;
-            const int MaxVolumeLabelLength = 16;
-            const long MaxTotalSize = 4700000000;
+            const int MaxVolumeLabelLength = 31;
+            const long MaxTotalSize = 8796093022208;
 
             string finalVolumeLabel = string.IsNullOrWhiteSpace(volumeLabel)
                 ? sourceDirInfo.Name
