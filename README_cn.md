@@ -27,7 +27,7 @@ ExHyperV 通过深入研究 Hyper-V 文档、 [WMI](https://github.com/Justsenge
 
 由于个人时间和精力有限，项目可能存在未经测试的场景或错误。如果您在使用中遇到任何关于硬件/软件的问题，欢迎通过 [Issues](https://github.com/Justsenger/ExHyperV/issues) 提出！
 
-各项功能将随着时间的推进逐步完善。如果您有特别希望优先添加的功能，或非常喜爱此项目，可以通过[赞赏](https://afdian.com/a/saniye)按钮提供赞助并留言！
+各项功能将随着时间的推进逐步完善。如果您有特别希望优先添加的功能，或非常喜爱此项目，可以通过文档底部的赞赏按钮提供赞助并留言！
 
 ## 🎨 界面一览
 
@@ -479,6 +479,7 @@ PCIe 直通以 PCIe 设备为单位查找可分配设备。如果设备未显示
 - **代码贡献**: Fork 项目并提交 Pull Request。
 
 ## ❤️ 支持项目
+
 如果你觉得这个项目对你有帮助，欢迎考虑赞助我！
 
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/Justsenger/ExHyperV/sponsors)
+[![Ko-fi](https://img.shields.io/badge/Sponsor-Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/saniye) &nbsp;&nbsp; [![爱发电](https://img.shields.io/badge/Sponsor-爱发电-633991?style=for-the-badge&logo=afdian&logoColor=white)](https://afdian.com/a/saniye)
