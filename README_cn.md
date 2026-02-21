@@ -23,7 +23,7 @@
 
 ---
 
-ExHyperV 通过深入研究微软官方文档、 [WMI](https://github.com/Justsenger/HyperV-WMI-Documentation) 以及 [HCS](https://learn.microsoft.com/en-us/virtualization/api/hcs/overview) 等文档，旨在为用户提供一个图形化的、易于使用的 Hyper-V 高级功能配置工具。
+ExHyperV 通过深入研究 Hyper-V 文档、 [WMI](https://github.com/Justsenger/HyperV-WMI-Documentation) 以及 [HCS](https://learn.microsoft.com/en-us/virtualization/api/hcs/overview) 等技术细节，旨在为用户提供一个图形化的、易于使用的 Hyper-V 高级功能配置工具。
 
 由于个人时间和精力有限，项目可能存在未经测试的场景或错误。如果您在使用中遇到任何关于硬件/软件的问题，欢迎通过 [Issues](https://github.com/Justsenger/ExHyperV/issues) 提出！
 
@@ -31,7 +31,7 @@ ExHyperV 通过深入研究微软官方文档、 [WMI](https://github.com/Justse
 
 ## 🎨 界面一览
 
-界面使用 [WPF-UI](https://github.com/lepoco/wpfui) 框架，提供流畅现代的用户界面体验和科幻的视觉效果。支持黑色主题和白色主题，并且会根据系统主题自动切换。
+ExHyperV 使用 [WPF-UI](https://github.com/lepoco/wpfui) 框架，提供流畅现代的用户界面体验和科幻的视觉效果。支持黑色主题和白色主题，并且会根据系统主题自动切换。
 
 ![主界面](https://github.com/Justsenger/ExHyperV/blob/main/img/01.png)
 
@@ -59,7 +59,7 @@ ExHyperV 通过深入研究微软官方文档、 [WMI](https://github.com/Justse
 - **运行**: 解压后直接运行 `ExHyperV.exe` 即可。
 ---
 ### 2. 构建 (可选)
-1. 安装 [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)，并确保勾选 .NET 桌面开发。
+1. 安装 [Visual Studio](https://visualstudio.microsoft.com/vs/)，并确保勾选 .NET 桌面开发。
 2. 使用 GitHub Desktop 或 Git 克隆本仓库。
 3. 使用 Visual Studio 打开 `/src/ExHyperV.sln` 文件，即可编译。
 
@@ -71,7 +71,7 @@ dotnet build
 
 ## 📖 技术文档
 
-这部分内容将长期维护，根据作者的HyperV开发实践以及相关文档编写而成，可能存在问题或缺省内容。
+这部分内容将长期维护，根据 HyperV 相关文档以及开发实践编写而成，可能会存在问题。
 
 ---
 ### Hyper-V 简介
