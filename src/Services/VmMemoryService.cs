@@ -43,7 +43,7 @@ public class VmMemoryService
         }
     }
 
-    public async Task<(bool Success, string Message)> SetVmMemorySettingsAsync(string vmName, VmMemorySettings newSettings)
+    public async Task<(bool Success, string Message)> SetVmMemorySettingsAsync(string vmName, VmMemorySettings newSettings, bool isVmRunning)
     {
         return await Task.Run(async () =>
         {
@@ -62,7 +62,7 @@ public class VmMemoryService
 
                 if (memObj == null) return (false, Properties.Resources.Error_Memory_ObjNotFound);
 
-                ApplyMemorySettingsToWmiObject(memObj, newSettings);
+                ApplyMemorySettingsToWmiObject(memObj, newSettings, isVmRunning);
 
                 string xml = memObj.GetText(TextFormat.CimDtd20);
 
@@ -87,51 +87,70 @@ public class VmMemoryService
             }
         });
     }
-    private void ApplyMemorySettingsToWmiObject(ManagementObject memData, VmMemorySettings memorySettings)
+    private void ApplyMemorySettingsToWmiObject(ManagementObject memData, VmMemorySettings memorySettings, bool isVmRunning)
     {
         long alignment = 1;
 
+        // 处理大页内存对齐 (逻辑保留)
         if (memorySettings.BackingPageSize.HasValue && HasProperty(memData, "BackingPageSize"))
         {
             byte pageSize = memorySettings.BackingPageSize.Value;
-            memData["BackingPageSize"] = pageSize;
-
-            if (pageSize == 1) alignment = 2;
-            else if (pageSize == 2) alignment = 1024;
+            if (!isVmRunning) // 只有关机才能改大页
+            {
+                memData["BackingPageSize"] = pageSize;
+            }
+            if (pageSize == 1) alignment = 2; // 2MB
+            else if (pageSize == 2) alignment = 1024; // 1GB
         }
 
+        // 计算对齐后的启动内存
         long originalStartup = memorySettings.Startup;
         long alignedStartup = (originalStartup + alignment - 1) / alignment * alignment;
-        memData["VirtualQuantity"] = (ulong)alignedStartup;
 
+        // 无论何时，修改 VirtualQuantity 都是安全的
+        memData["VirtualQuantity"] = (ulong)alignedStartup;
         memData["Weight"] = (uint)(memorySettings.Priority * 100);
 
-        if (memorySettings.MemoryEncryptionPolicy.HasValue && HasProperty(memData, "MemoryEncryptionPolicy"))
+        // 处理加密策略 (仅关机)
+        if (!isVmRunning && memorySettings.MemoryEncryptionPolicy.HasValue && HasProperty(memData, "MemoryEncryptionPolicy"))
         {
             memData["MemoryEncryptionPolicy"] = memorySettings.MemoryEncryptionPolicy.Value;
         }
 
-        if (HasProperty(memData, "MaxMemoryBlocksPerNumaNode"))
-        {
-            if (alignment > 1)
-            {
-                long currentNumaNodeSize = Convert.ToInt64(memData["MaxMemoryBlocksPerNumaNode"]);
-                long alignedNumaNodeSize = (currentNumaNodeSize + alignment - 1) / alignment * alignment;
-                memData["MaxMemoryBlocksPerNumaNode"] = (ulong)alignedNumaNodeSize;
-            }
-        }
+        // --- 重点：动态内存属性的条件修改 ---
 
-        if (memorySettings.BackingPageSize > 0)
+        // 如果是关机状态，可以随便改
+        if (!isVmRunning)
         {
-            memData["DynamicMemoryEnabled"] = false;
-            memData["Reservation"] = (ulong)alignedStartup;
-            memData["Limit"] = (ulong)alignedStartup;
+            if (memorySettings.BackingPageSize > 0)
+            {
+                memData["DynamicMemoryEnabled"] = false;
+                memData["Reservation"] = (ulong)alignedStartup;
+                memData["Limit"] = (ulong)alignedStartup;
+            }
+            else
+            {
+                memData["DynamicMemoryEnabled"] = memorySettings.DynamicMemoryEnabled;
+                if (memorySettings.DynamicMemoryEnabled)
+                {
+                    memData["Reservation"] = (ulong)memorySettings.Minimum;
+                    memData["Limit"] = (ulong)memorySettings.Maximum;
+                    if (HasProperty(memData, "TargetMemoryBuffer"))
+                        memData["TargetMemoryBuffer"] = (uint)memorySettings.Buffer;
+                }
+                else
+                {
+                    memData["Reservation"] = (ulong)alignedStartup;
+                    memData["Limit"] = (ulong)alignedStartup;
+                }
+            }
         }
         else
         {
-            memData["DynamicMemoryEnabled"] = memorySettings.DynamicMemoryEnabled;
+            // --- 运行时热调整逻辑 ---
             if (memorySettings.DynamicMemoryEnabled)
             {
+                // 运行时开启了动态内存：允许调整 Min/Max
                 memData["Reservation"] = (ulong)memorySettings.Minimum;
                 memData["Limit"] = (ulong)memorySettings.Maximum;
                 if (HasProperty(memData, "TargetMemoryBuffer"))
@@ -139,12 +158,9 @@ public class VmMemoryService
             }
             else
             {
-                memData["Reservation"] = (ulong)originalStartup;
-                memData["Limit"] = (ulong)originalStartup;
             }
         }
     }
-
     private static bool HasProperty(ManagementObject obj, string propName) =>
         obj.Properties.Cast<PropertyData>().Any(p => p.Name.Equals(propName, StringComparison.OrdinalIgnoreCase));
 

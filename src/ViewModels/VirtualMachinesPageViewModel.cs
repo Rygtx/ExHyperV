@@ -866,7 +866,11 @@ namespace ExHyperV.ViewModels
                 IsLoadingSettings = true;
                 try
                 {
-                    var result = await _vmMemoryService.SetVmMemorySettingsAsync(SelectedVm.Name, SelectedVm.MemorySettings);
+                    var result = await _vmMemoryService.SetVmMemorySettingsAsync(
+    SelectedVm.Name,
+    SelectedVm.MemorySettings,
+    SelectedVm.IsRunning // 传入当前运行状态
+);
                     if (!result.Success)
                     {
                         ShowSnackbar(Properties.Resources.Error_Memory_AutoApply, result.Message, ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
@@ -890,8 +894,11 @@ namespace ExHyperV.ViewModels
             IsLoadingSettings = true;
             try
             {
-                var result = await _vmMemoryService.SetVmMemorySettingsAsync(SelectedVm.Name, SelectedVm.MemorySettings);
-                if (!result.Success) ShowSnackbar(Properties.Resources.Error_Common_SaveFail, Utils.GetFriendlyErrorMessages(result.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+                var result = await _vmMemoryService.SetVmMemorySettingsAsync(
+                    SelectedVm.Name,
+                    SelectedVm.MemorySettings,
+                    SelectedVm.IsRunning // 传入当前运行状态
+                ); if (!result.Success) ShowSnackbar(Properties.Resources.Error_Common_SaveFail, Utils.GetFriendlyErrorMessages(result.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
                 await GoToMemorySettings();
             }
             catch (Exception ex) { ShowSnackbar(Properties.Resources.Common_ExceptionLabel, Utils.GetFriendlyErrorMessages(ex.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24); }
