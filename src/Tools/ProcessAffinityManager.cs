@@ -76,37 +76,27 @@ namespace ExHyperV.Services
         /// <summary>
         /// 为指定虚拟机的 vmmem 进程设置新的 CPU 核心相关性。
         /// </summary>
-        public static void SetVmProcessAffinity(Guid vmId, List<int> coreIds)
+        public static bool SetVmProcessAffinity(Guid vmId, List<int> coreIds)
         {
             var process = FindVmMemoryProcess(vmId);
-            if (process != null)
-            {
-                try
-                {
-                    long newAffinityMask = 0;
-                    foreach (int coreId in coreIds)
-                    {
-                        newAffinityMask |= (1L << coreId);
-                    }
+            if (process == null) return false; // 没找到进程，返回失败
 
-                    if (coreIds.Any())
-                    {
-                        process.ProcessorAffinity = (IntPtr)newAffinityMask;
-                    }
-                    else
-                    {
-                        long allProcessorsMask = (1L << Environment.ProcessorCount) - 1;
-                        if (Environment.ProcessorCount == 64)
-                        {
-                            allProcessorsMask = -1;
-                        }
-                        process.ProcessorAffinity = (IntPtr)allProcessorsMask;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"[ProcessAffinityManager] 设置进程 {process.Id} 的相关性失败: {ex.Message}");
-                }
+            try
+            {
+                long newAffinityMask = 0;
+                foreach (int coreId in coreIds) newAffinityMask |= (1L << coreId);
+
+                if (coreIds.Any())
+                    process.ProcessorAffinity = (IntPtr)newAffinityMask;
+                else
+                    process.ProcessorAffinity = (IntPtr)((1L << Environment.ProcessorCount) - 1);
+
+                return true; // 设置成功
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[ProcessAffinityManager] 设置失败: {ex.Message}");
+                return false;
             }
         }
     }

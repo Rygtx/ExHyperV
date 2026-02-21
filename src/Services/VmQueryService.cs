@@ -380,6 +380,36 @@ namespace ExHyperV.Services
 
         // --- 虚拟机设置修改方法 ---
 
+        public async Task<bool> SetVmNotesAsync(string vmName, string newNotes)
+        {
+            try
+            {
+                string safeName = vmName.Replace("'", "''");
+
+                // 查询虚拟机的配置设置对象
+                var settingsList = await WmiTools.QueryAsync(
+                    $"SELECT * FROM Msvm_VirtualSystemSettingData WHERE ElementName = '{safeName}' AND VirtualSystemType = 'Microsoft:Hyper-V:System:Realized'",
+                    o => (ManagementObject)o);
+
+                var settings = settingsList.FirstOrDefault();
+                if (settings == null) return false;
+
+                // 修复点：修改的是对象的 "Notes" 属性，而不是对象本身
+                settings["Notes"] = new string[] { newNotes ?? string.Empty };
+
+                // 提交修改
+                var result = await WmiTools.ExecuteMethodAsync(
+                    "SELECT * FROM Msvm_VirtualSystemManagementService",
+                    "ModifySystemSettings",
+                    new Dictionary<string, object> { { "SystemSettings", settings.GetText(TextFormat.CimDtd20) } });
+
+                return result.Success;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         // 设置虚拟机的 OSType 标记（存储在 Notes 字段中）
         public async Task<bool> SetVmOsTypeAsync(string vmName, string osType)
         {

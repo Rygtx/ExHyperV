@@ -1,6 +1,7 @@
-﻿using ExHyperV.Models;
+﻿using System.Text.Json;
+using ExHyperV.Models;
 using ExHyperV.Tools;
-using System.Text.Json;
+using Org.BouncyCastle.Utilities;
 
 namespace ExHyperV.Services
 {
@@ -9,16 +10,27 @@ namespace ExHyperV.Services
         /// <summary>
         /// 获取虚拟机的 CPU 亲和性设置
         /// </summary>
-        public async Task<List<int>> GetCpuAffinityAsync(Guid vmId)
+        public async Task<List<int>> GetCpuAffinityAsync(Guid vmId, string notes)
         {
-            if (vmId == Guid.Empty) return new List<int>();
+            // 1. 优先尝试从 Notes 中解析（持久化配置）
+            string savedAffinity = Utils.GetTagValue(notes, "Affinity");
+            if (!string.IsNullOrEmpty(savedAffinity))
+            {
+                try
+                {
+                    return savedAffinity.Split(',')
+                        .Select(s => int.Parse(s.Trim()))
+                        .ToList();
+                }
+                catch { /* 解析失败则回退到探测逻辑 */ }
+            }
 
-            // 1. 获取当前实时生效的调度器类型
+            // 2. 如果 Notes 没数据，再执行原有的实时探测逻辑
+            if (vmId == Guid.Empty) return new List<int>();
             var scheduler = HyperVSchedulerService.GetSchedulerType();
 
             if (scheduler == HyperVSchedulerType.Root)
             {
-                // Root 模式：直接从 vmmem 进程的相关性掩码中读取
                 return await Task.Run(() => ProcessAffinityManager.GetVmProcessAffinity(vmId));
             }
 

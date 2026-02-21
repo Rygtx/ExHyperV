@@ -76,11 +76,11 @@
 
         </Grid>
 
-        <!-- 3. 引导按钮区 (移除加粗) -->
+        <!-- 3. 引导按钮区 (修复了对齐问题) -->
         <UniformGrid Grid.Row="2" Columns="2" VerticalAlignment="Top">
 
-            <!-- 环境配置 -->
-            <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Host">
+            <!-- 【左列】环境配置 (左边距0，右边距5) -->
+            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Host">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -94,8 +94,8 @@
                 </Grid>
             </ui:CardAction>
 
-            <!-- 虚拟机管理 -->
-            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
+            <!-- 【右列】虚拟机管理 (左边距5，右边距0) -->
+            <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -109,8 +109,7 @@
                 </Grid>
             </ui:CardAction>
 
-            
-            <!-- PCIe 直通 -->
+            <!-- 【左列】PCIe 直通 (左边距0，右边距5) -->
             <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="PCIe">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -125,7 +124,7 @@
                 </Grid>
             </ui:CardAction>
 
-            <!-- 虚拟网络 -->
+            <!-- 【右列】虚拟网络 (左边距5，右边距0) -->
             <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Network">
                 <Grid>
                     <Grid.ColumnDefinitions>
