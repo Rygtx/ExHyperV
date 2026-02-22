@@ -242,6 +242,52 @@ namespace ExHyperV.ViewModels
             HostDisks.Clear();
         }
 
+        private VmInstanceInfo CreateVmInstance(ExHyperV.Models.VmInstanceInfo vm)
+        {
+            var instance = new VmInstanceInfo(vm.Id, vm.Name)
+            {
+                OsType = vm.OsType,
+                CpuCount = vm.CpuCount,
+                MemoryGb = vm.MemoryGb,
+                Notes = vm.Notes,
+                Generation = vm.Generation,
+                Version = vm.Version,
+                GpuName = vm.GpuName
+            };
+
+            foreach (var disk in vm.Disks) instance.Disks.Add(disk);
+            if (vm.NetworkAdapters != null)
+            {
+                foreach (var net in vm.NetworkAdapters) instance.NetworkAdapters.Add(net);
+            }
+
+            instance.SyncBackendData(vm.State, vm.RawUptime);
+            instance.IpAddress = vm.IpAddress;
+
+            // 绑定电源控制命令 (必须绑定，否则新发现的 VM 按钮无效)
+            instance.ControlCommand = new AsyncRelayCommand<string>(async (action) => {
+                instance.SetTransientState(GetOptimisticText(action));
+                try
+                {
+                    await _powerService.ExecuteControlActionAsync(instance.Name, action);
+                    await SyncSingleVmStateAsync(instance);
+                    if (action == "Start" || action == "Restart")
+                    {
+                        TryApplyAffinityForRootScheduler(instance);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Application.Current.Dispatcher.Invoke(() => instance.ClearTransientState());
+                    var realEx = ex;
+                    while (realEx.InnerException != null) { realEx = realEx.InnerException; }
+                    ShowSnackbar(Properties.Resources.Error_Common_OpFail, Utils.GetFriendlyErrorMessages(realEx.Message), ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+                }
+            });
+
+            return instance;
+        }
+
         public List<string> AvailableOsTypes => Utils.SupportedOsTypes;
 
         // 加载虚拟机列表
@@ -412,6 +458,7 @@ namespace ExHyperV.ViewModels
             {
                 try
                 {
+                    // 1. 获取后端最新原始数据
                     var updates = await _queryService.GetVmListAsync();
                     var memoryMap = await _queryService.GetVmRuntimeMemoryDataAsync();
 
@@ -421,15 +468,47 @@ namespace ExHyperV.ViewModels
                     Application.Current.Dispatcher.Invoke(() => {
                         bool needsResort = false;
 
+                        // --- A. 监测删除：移除本地列表中 已经不存在于后端 的 VM ---
+                        var updateIds = updates.Select(u => u.Id).ToHashSet();
+                        for (int i = VmList.Count - 1; i >= 0; i--)
+                        {
+                            if (!updateIds.Contains(VmList[i].Id))
+                            {
+                                if (SelectedVm == VmList[i]) SelectedVm = null;
+                                VmList.RemoveAt(i);
+                                needsResort = true;
+                            }
+                        }
+
+                        // --- B. 监测新建：添加后端存在但 本地列表没有 的 VM ---
+                        var currentIds = VmList.Select(v => v.Id).ToHashSet();
                         foreach (var update in updates)
                         {
-                            var vm = VmList.FirstOrDefault(v => v.Name == update.Name);
+                            if (!currentIds.Contains(update.Id))
+                            {
+                                var newVm = CreateVmInstance(update);
+                                VmList.Add(newVm);
+                                needsResort = true;
+                            }
+                        }
+
+                        // --- C. 更新属性：原有逻辑 ---
+                        foreach (var update in updates)
+                        {
+                            // 使用 Id 匹配比 Name 更可靠，因为 VM 可能会被改名
+                            var vm = VmList.FirstOrDefault(v => v.Id == update.Id);
                             if (vm != null)
                             {
+                                // 如果名字变了，更新名字
+                                if (vm.Name != update.Name) vm.Name = update.Name;
+
                                 bool wasRunning = vm.IsRunning;
                                 vm.Notes = update.Notes;
 
                                 vm.SyncBackendData(update.State, update.RawUptime);
+
+                                // 如果状态从关机变开机（或反之），需要重新排序
+                                if (wasRunning != vm.IsRunning) needsResort = true;
 
                                 if (CurrentViewType != VmDetailViewType.NetworkSettings && !IsLoadingSettings)
                                 {
@@ -467,22 +546,18 @@ namespace ExHyperV.ViewModels
                                     vm.IpAddress = "---";
                                 }
 
-                                // --- 核心修复：使用忽略大小写的 HashSet ---
+                                // --- 磁盘同步逻辑 ---
                                 var updatePaths = update.Disks.Select(d => d.Path).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-                                // 1. 移除不存在的磁盘
                                 for (int i = vm.Disks.Count - 1; i >= 0; i--)
                                 {
                                     if (!updatePaths.Contains(vm.Disks[i].Path))
                                         vm.Disks.RemoveAt(i);
                                 }
 
-                                // 2. 更新或添加新磁盘
                                 foreach (var newDiskData in update.Disks)
                                 {
-                                    // 使用忽略大小写的比对
                                     var existingDisk = vm.Disks.FirstOrDefault(d => d.Path.Equals(newDiskData.Path, StringComparison.OrdinalIgnoreCase));
-
                                     if (existingDisk != null)
                                     {
                                         existingDisk.Name = newDiskData.Name;
@@ -509,7 +584,6 @@ namespace ExHyperV.ViewModels
                                         vm.Disks.Add(newDiskData);
                                     }
                                 }
-                                // --- 磁盘同步逻辑结束 ---
 
                                 vm.GpuName = update.GpuName;
 
@@ -525,17 +599,14 @@ namespace ExHyperV.ViewModels
                         foreach (var vm in VmList)
                         {
                             if (gpuUsageMap.TryGetValue(vm.Id, out var gpuData))
-                            {
                                 vm.UpdateGpuStats(gpuData);
-                            }
                             else
-                            {
                                 vm.UpdateGpuStats(new VmQueryService.GpuUsageData());
-                            }
                         }
+
                         if (needsResort)
                         {
-                            CollectionViewSource.GetDefaultView(VmList).Refresh();
+                            CollectionViewSource.GetDefaultView(VmList)?.Refresh();
                         }
                     });
 
@@ -567,9 +638,7 @@ namespace ExHyperV.ViewModels
                     await Task.Delay(3000, token);
                 }
             }
-        }
-        // ----------------------------------------------------------------------------------
-        // 同步单个虚拟机的最新状态
+        }        // 同步单个虚拟机的最新状态
         private async Task SyncSingleVmStateAsync(VmInstanceInfo vm)
         {
             try
