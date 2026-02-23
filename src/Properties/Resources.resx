@@ -1698,7 +1698,7 @@ This operation sends a shutdown signal to the guest OS.</value>
     <value>Saved</value>
   </data>
   <data name="Status_Suspended" xml:space="preserve">
-    <value>Suspended</value>
+    <value>Paused</value>
   </data>
   <data name="Status_Starting" xml:space="preserve">
     <value>Starting</value>
@@ -1713,13 +1713,13 @@ This operation sends a shutdown signal to the guest OS.</value>
     <value>Stopping</value>
   </data>
   <data name="Status_Suspending" xml:space="preserve">
-    <value>Suspending</value>
+    <value>Pausing</value>
   </data>
   <data name="Status_Resuming" xml:space="preserve">
     <value>Resuming</value>
   </data>
   <data name="Status_UnknownCode" xml:space="preserve">
-    <value>Unknown({0})</value>
+    <value>Unknown ({0})</value>
   </data>
   <data name="Error_Memory_VmNotFound" xml:space="preserve">
     <value>VM instance not found.</value>
@@ -2316,7 +2316,7 @@ This operation sends a shutdown signal to the guest OS.</value>
     <value>Shutting down</value>
   </data>
   <data name="Status_Processing" xml:space="preserve">
-    <value>Processing...</value>
+    <value>Processing</value>
   </data>
   <data name="Msg_Common_CopyOk" xml:space="preserve">
     <value>Copied Successfully</value>
@@ -2786,20 +2786,11 @@ This operation sends a shutdown signal to the guest OS.</value>
   <data name="Status_Other" xml:space="preserve">
     <value>Other</value>
   </data>
-  <data name="Status_Running" xml:space="preserve">
-    <value>Running</value>
-  </data>
-  <data name="Status_Off" xml:space="preserve">
-    <value>Off</value>
-  </data>
   <data name="Status_ShuttingDown" xml:space="preserve">
     <value>Shutting Down</value>
   </data>
   <data name="Status_NotApplicable" xml:space="preserve">
     <value>Not Applicable</value>
-  </data>
-  <data name="Status_Saved" xml:space="preserve">
-    <value>Saved</value>
   </data>
   <data name="Status_InTest" xml:space="preserve">
     <value>In Test</value>
@@ -2807,37 +2798,16 @@ This operation sends a shutdown signal to the guest OS.</value>
   <data name="Status_Deferred" xml:space="preserve">
     <value>Deferred</value>
   </data>
-  <data name="Status_Suspended" xml:space="preserve">
-    <value>Paused</value>
-  </data>
-  <data name="Status_Starting" xml:space="preserve">
-    <value>Starting</value>
-  </data>
   <data name="Status_WaitingToStart" xml:space="preserve">
     <value>Waiting to Start</value>
   </data>
   <data name="Status_MergingDisks" xml:space="preserve">
     <value>Merging Disks</value>
   </data>
-  <data name="Status_Saving" xml:space="preserve">
-    <value>Saving</value>
-  </data>
-  <data name="Status_Stopping" xml:space="preserve">
-    <value>Stopping</value>
-  </data>
-  <data name="Status_Processing" xml:space="preserve">
-    <value>Processing</value>
-  </data>
-  <data name="Status_Suspending" xml:space="preserve">
-    <value>Pausing</value>
-  </data>
-  <data name="Status_Resuming" xml:space="preserve">
-    <value>Resuming</value>
-  </data>
   <data name="Status_Migrating" xml:space="preserve">
     <value>Migrating</value>
   </data>
-  <data name="Status_UnknownCode" xml:space="preserve">
-    <value>Unknown ({0})</value>
+  <data name="Status_Msg_GpuPvNotSupported" xml:space="preserve">
+    <value> (GPU-PV Not Supported)</value>
   </data>
 </root>

@@ -50,11 +50,24 @@ namespace ExHyperV.ViewModels
         }
 
         private async Task CheckSystemInfoAsync() => await Task.Run(() => {
-            VersionStatus.StatusText = Environment.OSVersion.Version.Build.ToString();
-            VersionStatus.IsSuccess = true;
+            int buildNumber = Environment.OSVersion.Version.Build;
+            string baseVersion = buildNumber.ToString();
+
+            const int MinimumBuild = 17134;
+
+            if (buildNumber >= MinimumBuild)
+            {
+                VersionStatus.IsSuccess = true;
+                VersionStatus.StatusText = baseVersion;
+            }
+            else
+            {
+                VersionStatus.IsSuccess = false;
+                VersionStatus.StatusText = baseVersion + ExHyperV.Properties.Resources.Status_Msg_GpuPvNotSupported;
+            }
+
             VersionStatus.IsChecking = false;
         });
-
         private async Task CheckCpuInfoAsync()
         {
             CpuStatus.IsSuccess = await Task.Run(() => HyperVEnvironmentService.IsVirtualizationEnabled());
@@ -175,7 +188,7 @@ namespace ExHyperV.ViewModels
             if (AdminStatus.IsSuccess != true) return;
             ShowSnackbar(Translate("Status_Title_Info"), ExHyperV.Properties.Resources.Msg_Host_EnableHyperV, ControlAppearance.Info, SymbolRegular.Settings24);
             bool ok = await Task.Run(() => {
-                try { Utils.Run("Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRestart"); return true; } catch { return false; }
+                try { Utils.Run("Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V, Microsoft-Hyper-V-Management-PowerShell, Microsoft-Hyper-V-Management-Clients -All -NoRestart"); return true; } catch { return false; }
             });
             if (ok) ShowRestartPrompt(ExHyperV.Properties.Resources.Msg_Host_EnableSuccess);
         }

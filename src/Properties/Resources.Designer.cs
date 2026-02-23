@@ -6816,6 +6816,15 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
+        ///   查找类似  (GPU-PV Not Supported) 的本地化字符串。
+        /// </summary>
+        public static string Status_Msg_GpuPvNotSupported {
+            get {
+                return ResourceManager.GetString("Status_Msg_GpuPvNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 An operation is already pending. Please restart your computer first. 的本地化字符串。
         /// </summary>
         public static string Status_Msg_OperationPending {
