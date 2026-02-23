@@ -26,18 +26,32 @@
 
         <!-- 1. Banner 区 (移除加粗，恢复圆角) -->
         <Grid Grid.Row="0" Margin="0,0,0,10">
+            <!-- 背景图片 -->
             <ui:Image CornerRadius="15" Stretch="Uniform" Source="pack://application:,,,/Assets/banner.png"/>
+
+            <!-- 左侧标题文字 -->
             <StackPanel VerticalAlignment="Center" Margin="30,5,0,-25">
                 <TextBlock Text="ExHyperV" 
-           FontSize="42" 
-           Foreground="White"
-           FontFamily="pack://application:,,,/Assets/fonts/#Audiowide" 
-           FontWeight="Bold"
-           />
+                   FontSize="42" 
+                   Foreground="White"
+                   FontFamily="pack://application:,,,/Assets/fonts/#Audiowide" 
+                   FontWeight="Bold"/>
                 <TextBlock Text="{x:Static properties:Resources.exhyperv}"
-                           FontFamily="pack://application:,,,/Assets/fonts/#Audiowide"
-                           FontWeight="Bold" FontSize="18" Foreground="#CCFFFFFF" Margin="5,10,0,0"/>
+                   FontFamily="pack://application:,,,/Assets/fonts/#Audiowide"
+                   FontWeight="Bold" 
+                   FontSize="18" 
+                   Foreground="#CCFFFFFF" 
+                   Margin="5,10,0,0"/>
             </StackPanel>
+
+            <!-- 右下角版本号 (新增) -->
+            <TextBlock Text="{Binding AppVersion}"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Margin="0,0,25,15"
+               Foreground="#99FFFFFF"
+               FontSize="14"
+               FontWeight="SemiBold"/>
         </Grid>
 
         <!-- 2. 信息展示区 (改为 VerticalAlignment="Top" 解决居中问题，移除加粗) -->

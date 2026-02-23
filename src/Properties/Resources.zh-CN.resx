@@ -2781,4 +2781,64 @@
   <data name="Placeholder_SearchVm" xml:space="preserve">
     <value>搜索虚拟机...</value>
   </data>
+  <data name="Status_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Status_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Status_Running" xml:space="preserve">
+    <value>正在运行</value>
+  </data>
+  <data name="Status_Off" xml:space="preserve">
+    <value>已关机</value>
+  </data>
+  <data name="Status_ShuttingDown" xml:space="preserve">
+    <value>正在关机</value>
+  </data>
+  <data name="Status_NotApplicable" xml:space="preserve">
+    <value>不适用</value>
+  </data>
+  <data name="Status_Saved" xml:space="preserve">
+    <value>已保存</value>
+  </data>
+  <data name="Status_InTest" xml:space="preserve">
+    <value>测试中</value>
+  </data>
+  <data name="Status_Deferred" xml:space="preserve">
+    <value>已推迟</value>
+  </data>
+  <data name="Status_Suspended" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
+  <data name="Status_Starting" xml:space="preserve">
+    <value>正在启动</value>
+  </data>
+  <data name="Status_WaitingToStart" xml:space="preserve">
+    <value>等待启动</value>
+  </data>
+  <data name="Status_MergingDisks" xml:space="preserve">
+    <value>正在合并磁盘</value>
+  </data>
+  <data name="Status_Saving" xml:space="preserve">
+    <value>正在保存</value>
+  </data>
+  <data name="Status_Stopping" xml:space="preserve">
+    <value>正在停止</value>
+  </data>
+  <data name="Status_Processing" xml:space="preserve">
+    <value>正在处理</value>
+  </data>
+  <data name="Status_Suspending" xml:space="preserve">
+    <value>正在暂停</value>
+  </data>
+  <data name="Status_Resuming" xml:space="preserve">
+    <value>正在恢复</value>
+  </data>
+  <data name="Status_Migrating" xml:space="preserve">
+    <value>正在迁移</value>
+  </data>
+  <data name="Status_UnknownCode" xml:space="preserve">
+    <value>未知状态 ({0})</value>
+  </data>
 </root>

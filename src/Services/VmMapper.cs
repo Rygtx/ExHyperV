@@ -31,18 +31,33 @@ namespace ExHyperV.Services
         {
             return code switch
             {
+                // --- 标准 CIM 状态码 ---
+                0 => Properties.Resources.Status_Unknown,
+                1 => Properties.Resources.Status_Other,
                 2 => Properties.Resources.Status_Running,       // Enabled
-                3 => Properties.Resources.Status_Off,       // Disabled
-                6 => Properties.Resources.Status_Saved,       // Enabled but Offline
-                9 => Properties.Resources.Status_Suspended,       // Quiesce
-                32768 => Properties.Resources.Status_Suspended,   // Paused
-                32769 => Properties.Resources.Status_Saved,   // Saved
+                3 => Properties.Resources.Status_Off,           // Disabled
+                4 => Properties.Resources.Status_ShuttingDown,
+                5 => Properties.Resources.Status_NotApplicable,
+                6 => Properties.Resources.Status_Saved,         // Enabled but Offline
+                7 => Properties.Resources.Status_InTest,
+                8 => Properties.Resources.Status_Deferred,
+                9 => Properties.Resources.Status_Suspended,     // Quiesce
+                10 => Properties.Resources.Status_Starting,
+
+                // --- Hyper-V 扩展状态码 ---
+                32768 => Properties.Resources.Status_Suspended, // Paused
+                32769 => Properties.Resources.Status_Saved,     // Saved
                 32770 => Properties.Resources.Status_Starting,
-                32771 => Properties.Resources.Status_Snapshotting,
+                32771 => Properties.Resources.Status_WaitingToStart,
+                32772 => Properties.Resources.Status_MergingDisks,
                 32773 => Properties.Resources.Status_Saving,
                 32774 => Properties.Resources.Status_Stopping,
+                32775 => Properties.Resources.Status_Processing,
                 32776 => Properties.Resources.Status_Suspending,
                 32777 => Properties.Resources.Status_Resuming,
+                32779 => Properties.Resources.Status_Migrating,
+
+                // --- 兜底 ---
                 _ => string.Format(Properties.Resources.Status_UnknownCode, code)
             };
         }

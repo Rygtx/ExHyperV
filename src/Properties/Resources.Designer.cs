@@ -6717,6 +6717,15 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Deferred 的本地化字符串。
+        /// </summary>
+        public static string Status_Deferred {
+            get {
+                return ResourceManager.GetString("Status_Deferred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Deployment Complete! 的本地化字符串。
         /// </summary>
         public static string Status_DeploymentComplete {
@@ -6758,6 +6767,33 @@ namespace ExHyperV.Properties {
         public static string Status_InstallationInProgress {
             get {
                 return ResourceManager.GetString("Status_InstallationInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 In Test 的本地化字符串。
+        /// </summary>
+        public static string Status_InTest {
+            get {
+                return ResourceManager.GetString("Status_InTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Merging Disks 的本地化字符串。
+        /// </summary>
+        public static string Status_MergingDisks {
+            get {
+                return ResourceManager.GetString("Status_MergingDisks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Migrating 的本地化字符串。
+        /// </summary>
+        public static string Status_Migrating {
+            get {
+                return ResourceManager.GetString("Status_Migrating", resourceCulture);
             }
         }
         
@@ -6825,6 +6861,15 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Not Applicable 的本地化字符串。
+        /// </summary>
+        public static string Status_NotApplicable {
+            get {
+                return ResourceManager.GetString("Status_NotApplicable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Off 的本地化字符串。
         /// </summary>
         public static string Status_Off {
@@ -6834,7 +6879,16 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Processing... 的本地化字符串。
+        ///   查找类似 Other 的本地化字符串。
+        /// </summary>
+        public static string Status_Other {
+            get {
+                return ResourceManager.GetString("Status_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Processing 的本地化字符串。
         /// </summary>
         public static string Status_Processing {
             get {
@@ -6897,6 +6951,15 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Shutting Down 的本地化字符串。
+        /// </summary>
+        public static string Status_ShuttingDown {
+            get {
+                return ResourceManager.GetString("Status_ShuttingDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Snapshotting 的本地化字符串。
         /// </summary>
         public static string Status_Snapshotting {
@@ -6933,7 +6996,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Suspended 的本地化字符串。
+        ///   查找类似 Paused 的本地化字符串。
         /// </summary>
         public static string Status_Suspended {
             get {
@@ -6942,7 +7005,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Suspending 的本地化字符串。
+        ///   查找类似 Pausing 的本地化字符串。
         /// </summary>
         public static string Status_Suspending {
             get {
@@ -7032,7 +7095,16 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Unknown({0}) 的本地化字符串。
+        ///   查找类似 Unknown 的本地化字符串。
+        /// </summary>
+        public static string Status_Unknown {
+            get {
+                return ResourceManager.GetString("Status_Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknown ({0}) 的本地化字符串。
         /// </summary>
         public static string Status_UnknownCode {
             get {
@@ -7046,6 +7118,15 @@ namespace ExHyperV.Properties {
         public static string Status_UpstreamNotConnected {
             get {
                 return ResourceManager.GetString("Status_UpstreamNotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Waiting to Start 的本地化字符串。
+        /// </summary>
+        public static string Status_WaitingToStart {
+            get {
+                return ResourceManager.GetString("Status_WaitingToStart", resourceCulture);
             }
         }
         
