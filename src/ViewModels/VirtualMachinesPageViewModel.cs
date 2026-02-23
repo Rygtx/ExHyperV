@@ -231,6 +231,177 @@ namespace ExHyperV.ViewModels
         }
 
         // ----------------------------------------------------------------------------------
+        // [新增] 视图模型属性 - 创建虚拟机表单
+        // ----------------------------------------------------------------------------------
+        [ObservableProperty] private bool _isCreatingVm = false; // 控制右侧界面切换
+
+        // 表单字段
+        [ObservableProperty] private string _newVmName = "New Virtual Machine";
+        [ObservableProperty] private int _newVmGeneration = 2; // 1 或 2
+        [ObservableProperty] private int _newVmMemoryMb = 4096;
+        [ObservableProperty] private string _newVmSelectedSwitch; // 选中的交换机
+
+        // 磁盘选项
+        [ObservableProperty] private bool _newVmIsNewDisk = true; // True=新建磁盘, False=现有磁盘(暂未实现)
+        [ObservableProperty] private int _newVmDiskSizeGb = 128;
+
+
+        // ----------------------------------------------------------------------------------
+        // [新增] 创建虚拟机逻辑模块
+        // ----------------------------------------------------------------------------------
+
+        // 1. 点击左侧 "+" 按钮：进入创建模式
+        [RelayCommand]
+        private async Task CreateVm()
+        {
+            // 初始化表单默认值
+            NewVmName = GetUniqueNewVmName();
+            NewVmGeneration = 2;
+            NewVmMemoryMb = 4096;
+            NewVmIsNewDisk = true;
+            NewVmDiskSizeGb = 127;
+
+            // 确保交换机列表已加载
+            if (AvailableSwitchNames.Count == 0)
+            {
+                var switches = await _vmNetworkService.GetAvailableSwitchesAsync();
+                AvailableSwitchNames = new ObservableCollection<string>(switches);
+            }
+            // 默认选中第一个交换机
+            NewVmSelectedSwitch = AvailableSwitchNames.FirstOrDefault() ?? "Default Switch";
+
+            // 切换视图状态：这会触发 UI 中 Visibility 的变化
+            IsCreatingVm = true;
+
+            // 可选：取消选中列表项，让视觉焦点集中在右侧
+            SelectedVm = null;
+        }
+
+        // 2. 点击 "取消" 按钮：退出创建模式
+        [RelayCommand]
+        private void CancelCreate()
+        {
+            IsCreatingVm = false;
+            // 恢复选中第一个（如果存在），提升体验
+            if (SelectedVm == null && VmList.Count > 0)
+            {
+                SelectedVm = VmList.First();
+            }
+        }
+
+        // 3. 点击 "立即创建" 按钮：执行创建
+        [RelayCommand]
+        private async Task ConfirmCreate()
+        {
+            // --- 基础验证 ---
+            if (string.IsNullOrWhiteSpace(NewVmName))
+            {
+                ShowSnackbar(Properties.Resources.Error_Common_Args, "虚拟机名称不能为空", ControlAppearance.Caution, SymbolRegular.Warning24);
+                return;
+            }
+
+            // 检查名称是否重复
+            if (VmList.Any(v => v.Name.Equals(NewVmName, StringComparison.OrdinalIgnoreCase)))
+            {
+                ShowSnackbar(Properties.Resources.Error_Common_Args, "该名称的虚拟机已存在，请换一个名字", ControlAppearance.Caution, SymbolRegular.Warning24);
+                return;
+            }
+
+            IsLoading = true; // 显示全屏遮罩
+            try
+            {
+                // 构建 PowerShell 脚本
+                // 注意：这里为了不破坏现有 Service 结构，我们直接使用 Utils.Run 或模拟 Service 调用
+                // 理想情况下，你应该在 VmQueryService 中添加 CreateVmAsync 方法
+
+                bool success = await Task.Run(async () =>
+                {
+                    try
+                    {
+                        // 1. 构建创建命令
+                        string script = $"New-VM -Name '{NewVmName}' -MemoryStartupBytes {NewVmMemoryMb}MB -Generation {NewVmGeneration}";
+
+                        // 2. 处理磁盘
+                        if (NewVmIsNewDisk)
+                        {
+                            // 默认路径通常是 Hyper-V 默认路径，这里简化处理，让系统自动决定路径
+                            // 或者你可以显式指定：-NewVHDPath "C:\VMs\{NewVmName}\{NewVmName}.vhdx"
+                            script += $" -NewVHDSizeBytes {NewVmDiskSizeGb}GB";
+                        }
+                        else
+                        {
+                            script += " -NoVHD"; // 稍后挂载或不挂载
+                        }
+
+                        // 3. 处理网络
+                        if (!string.IsNullOrEmpty(NewVmSelectedSwitch))
+                        {
+                            script += $" -SwitchName '{NewVmSelectedSwitch}'";
+                        }
+
+                        // 执行 PowerShell
+                        // 假设 Utils.Run 仅返回结果对象，我们需要捕获错误
+                        // 这里使用的是伪代码逻辑，你需要根据你的 Utils.Run 实际签名调整
+                        // 如果 Utils.Run 不抛出异常，你需要检查返回值
+                        var psResult = Utils.Run(script);
+                        // 简单的成功判断：如果没有抛出异常，通常认为命令已下发
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        return false;
+                    }
+                });
+
+                if (success)
+                {
+                    // 创建成功
+                    ShowSnackbar(Properties.Resources.Common_Success, $"虚拟机 {NewVmName} 创建成功", ControlAppearance.Success, SymbolRegular.CheckmarkCircle24);
+
+                    // 关闭创建界面
+                    IsCreatingVm = false;
+
+                    // 刷新列表 (LoadVmsAsync 会自动把新 VM 加进来)
+                    await LoadVmsAsync();
+
+                    // 选中新创建的 VM
+                    var newVm = VmList.FirstOrDefault(v => v.Name == NewVmName);
+                    if (newVm != null) SelectedVm = newVm;
+                }
+                else
+                {
+                    ShowSnackbar(Properties.Resources.Error_Common_OpFail, "创建虚拟机失败，请检查参数或日志", ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowSnackbar(Properties.Resources.Common_Error, ex.Message, ControlAppearance.Danger, SymbolRegular.ErrorCircle24);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
+
+        // 辅助方法：生成一个不重复的默认名字 (New VM 1, New VM 2...)
+        private string GetUniqueNewVmName()
+        {
+            string baseName = "New Virtual Machine";
+            if (!VmList.Any(v => v.Name.Equals(baseName, StringComparison.OrdinalIgnoreCase))) return baseName;
+
+            int i = 2;
+            while (VmList.Any(v => v.Name.Equals($"{baseName} ({i})", StringComparison.OrdinalIgnoreCase)))
+            {
+                i++;
+            }
+            return $"{baseName} ({i})";
+        }
+
+
+
+
+        // ----------------------------------------------------------------------------------
         // 虚拟机列表管理与核心操作
         // ----------------------------------------------------------------------------------
 

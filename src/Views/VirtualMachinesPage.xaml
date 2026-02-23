@@ -21,6 +21,8 @@
 
 
 
+        
+        
         <!-- 保底界面模板：未选择虚拟机时显示 -->
         <DataTemplate x:Key="VmEmptyStateTemplate">
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -37,6 +39,11 @@
                        Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
                 </StackPanel>
             </Grid>
+        </DataTemplate>
+
+        <!-- [新增] 纯白/纯空模板：用于创建模式下的底层占位 -->
+        <DataTemplate x:Key="VmBlankTemplate">
+            <Grid Background="Transparent"/>
         </DataTemplate>
         
         <DataTemplate x:Key="VmListItemTemplate">
@@ -453,12 +460,39 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <!-- 左侧搜索和添加区域 -->
                 <Grid Grid.Row="0" Margin="8">
-                    <ui:TextBox PlaceholderText="{x:Static properties:Resources.Placeholder_SearchVm}"  ClearButtonEnabled="True" Padding="10,0,32,0"
-                                Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <ui:SymbolIcon Symbol="Search24" HorizontalAlignment="Right" Margin="0,0,10,0" 
-                                   Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" IsHitTestVisible="False"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 搜索框容器 -->
+                    <Grid Grid.Column="0">
+                        <ui:TextBox PlaceholderText="{x:Static properties:Resources.Placeholder_SearchVm}" 
+                    ClearButtonEnabled="True" 
+                    Padding="10,0,32,0"
+                    Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <ui:SymbolIcon Symbol="Search24" 
+                       HorizontalAlignment="Right" 
+                       Margin="0,0,8,0" 
+                       Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" 
+                       IsHitTestVisible="False"/>
+                    </Grid>
+
+                    <!-- 添加按钮 -->
+                    <ui:Button Grid.Column="1" 
+               Margin="8,0,0,0" 
+               Padding="0" 
+               Width="24" 
+               Height="24"
+               Icon="{ui:SymbolIcon Symbol=Add24}"
+               Appearance="Secondary"
+               ToolTip="创建虚拟机"
+               Command="{Binding CreateVmCommand}"/>
+                    <!-- 请确保 ViewModel 中有对应的 Command -->
                 </Grid>
+                
                 <ui:ListView Grid.Row="1" ItemsSource="{Binding VmList}" SelectedItem="{Binding SelectedVm, Mode=TwoWay}" 
                              ItemTemplate="{StaticResource VmListItemTemplate}" Margin="4,0,4,4"/>
             </Grid>
@@ -467,26 +501,43 @@
         <GridSplitter Grid.Column="1" Width="12" HorizontalAlignment="Stretch" Background="Transparent"/>
 
         <Border Grid.Column="2" Background="{ui:ThemeResource LayerFillColorDefaultBrush}"
-        BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" ClipToBounds="True">
-            <ContentControl Content="{Binding SelectedVm}">
-                <ContentControl.Style>
-                    <Style TargetType="ContentControl">
-                        <!-- 默认使用详情模板 -->
-                        <Setter Property="ContentTemplate" Value="{StaticResource VmDetailTemplate}" />
-                        <Style.Triggers>
-                            <!-- 逻辑 1: 当未选中虚拟机时，显示保底模板 -->
-                            <DataTrigger Binding="{Binding SelectedVm}" Value="{x:Null}">
-                                <Setter Property="ContentTemplate" Value="{StaticResource VmEmptyStateTemplate}" />
-                            </DataTrigger>
+                BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" ClipToBounds="True">
+            <Grid>
+                <!-- 1. 底层视图 -->
+                <!-- 移除了原本直接在 ContentControl 上写的 Visibility，改为在 Style 里统一控制 -->
+                <ContentControl Content="{Binding SelectedVm}">
+                    <ContentControl.Style>
+                        <Style TargetType="ContentControl">
+                            <!-- 默认状态：显示详情 -->
+                            <Setter Property="ContentTemplate" Value="{StaticResource VmDetailTemplate}" />
 
-                            <!-- 逻辑 2: 当处于加载状态时，彻底隐藏内容，防止保底界面在加载遮罩下露出 -->
-                            <DataTrigger Binding="{Binding IsLoading}" Value="True">
-                                <Setter Property="Visibility" Value="Hidden"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ContentControl.Style>
-            </ContentControl>
+                            <Style.Triggers>
+                                <!-- 逻辑 1 (低优先级): 没有选 VM 时，显示“未选择”文字 -->
+                                <DataTrigger Binding="{Binding SelectedVm}" Value="{x:Null}">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource VmEmptyStateTemplate}" />
+                                </DataTrigger>
+
+                                <!-- 逻辑 2 (高优先级): 正在创建 VM 时，强制显示空白模板 -->
+                                <!-- 这样即使 SelectedVm 为空，也不会显示那行字 -->
+                                <DataTrigger Binding="{Binding DataContext.IsCreatingVm, RelativeSource={RelativeSource AncestorType=Page}}" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource VmBlankTemplate}" />
+                                    <!--以此确保彻底隐藏，也可以加 Visibility Collapsed，双重保险 -->
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+
+                                <!-- 逻辑 3: 加载中隐藏 -->
+                                <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+
+                <!-- 2. 新的创建界面 (保持不变) -->
+                <components:VmCreateView Visibility="{Binding IsCreatingVm, Converter={StaticResource BoolToVis}}"/>
+            </Grid>
         </Border>
+        
     </Grid>
 </Page>

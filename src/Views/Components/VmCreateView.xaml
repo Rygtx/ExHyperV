@@ -1,0 +1,189 @@
+﻿<UserControl
+    x:Class="ExHyperV.Views.Components.VmCreateView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:properties="clr-namespace:ExHyperV.Properties"
+    xmlns:converters="clr-namespace:ExHyperV.Converters"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <converters:EqualityConverter x:Key="EqualityConverter" />
+        <converters:EqualityToVisibilityConverter x:Key="EqualityToVis" />
+    </UserControl.Resources>
+
+    <Grid Background="{ui:ThemeResource ApplicationBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 内容区域 -->
+        <ScrollViewer Grid.Row="0" Padding="24,24,24,12" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!-- 1. 标题 -->
+                <TextBlock Text="新建虚拟机" 
+                           FontSize="24" 
+                           Margin="0,0,0,24"
+                           Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <!-- 常规 -->
+                <TextBlock Text="常规" FontSize="16" FontWeight="Medium" Margin="0,0,0,12"
+                           Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <ui:CardControl Header="名称" Icon="{ui:SymbolIcon Symbol=Edit24}" Margin="0,0,0,8" HorizontalContentAlignment="Stretch">
+                    <ui:TextBox Text="{Binding NewVmName, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="例如: Windows_Server_2025_Test"/>
+                </ui:CardControl>
+
+                <ui:CardControl Header="配置文件位置" Icon="{ui:SymbolIcon Symbol=FolderOpen24}" Margin="0,0,0,8" HorizontalContentAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Text="{Binding NewVmStoragePath}" Width="450"/>
+                        <ui:Button Grid.Column="1" Content="浏览" Margin="8,0,0,0" Command="{Binding BrowseNewVmPathCommand}"/>
+                    </Grid>
+                </ui:CardControl>
+
+                <ui:CardControl Header="虚拟机版本" Icon="{ui:SymbolIcon Symbol=History24}" Margin="0,0,0,8">
+                    <ComboBox ItemsSource="{Binding SupportedVersions}" SelectedItem="{Binding SelectedVersion}" Width="100"/>
+                </ui:CardControl>
+
+                <ui:CardControl Header="代际" Margin="0,0,0,24">
+                    <ui:CardControl.Icon>
+                        <ui:FontIcon Glyph="&#xE8C8;" FontSize="20" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="4,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    </ui:CardControl.Icon>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="第 1 代 ( BIOS + MBR )" IsChecked="{Binding NewVmGeneration, Converter={StaticResource EqualityConverter}, ConverterParameter=1}" Margin="0,0,24,0"/>
+                        <RadioButton Content="第 2 代 ( UEFI + GPT )" IsChecked="{Binding NewVmGeneration, Converter={StaticResource EqualityConverter}, ConverterParameter=2}"/>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <!-- === 计算资源 === -->
+                <TextBlock Text="计算资源" FontSize="16" FontWeight="Medium" Margin="0,0,0,12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <ui:CardControl Header="处理器核心数" Margin="0,0,0,8">
+                    <ui:CardControl.Icon>
+                        <ui:FontIcon Glyph="&#xE950;" FontSize="20" FontFamily="{DynamicResource SegoeFluentIcons}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    </ui:CardControl.Icon>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox IsEditable="True" Text="{Binding NewVmProcessorCount, UpdateSourceTrigger=PropertyChanged}" Width="85">
+                            <sys:String>1</sys:String>
+                            <sys:String>2</sys:String>
+                            <sys:String>4</sys:String>
+                            <sys:String>8</sys:String>
+                            <sys:String>16</sys:String>
+                            <sys:String>32</sys:String>
+                            <sys:String>64</sys:String>
+                        </ComboBox>
+                        <TextBlock Text="核心" VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <ui:CardControl Header="启动内存" Margin="0,0,0,8">
+                    <ui:CardControl.Icon>
+                        <ui:FontIcon Glyph="&#xEEA0;" FontSize="22" FontFamily="{DynamicResource SegoeFluentIcons}" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    </ui:CardControl.Icon>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox IsEditable="True" Text="{Binding NewVmMemoryMb, UpdateSourceTrigger=PropertyChanged}" Width="105">
+                            <sys:String>1024</sys:String>
+                            <sys:String>2048</sys:String>
+                            <sys:String>4096</sys:String>
+                            <sys:String>8192</sys:String>
+                            <sys:String>16384</sys:String>
+                            <sys:String>32768</sys:String>
+                        </ComboBox>
+                        <TextBlock Text="MB" VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <ui:CardControl Header="动态内存" Icon="{ui:SymbolIcon Symbol=CheckmarkCircle24}" Margin="0,0,0,8">
+                    <ui:ToggleSwitch IsChecked="{Binding NewVmDynamicMemory}"/>
+                </ui:CardControl>
+
+                <ui:CardControl Header="机密计算" Icon="{ui:SymbolIcon Symbol=ShieldLock24}" Margin="0,0,0,24"
+                                IsEnabled="{Binding NewVmGeneration, Converter={StaticResource EqualityConverter}, ConverterParameter=2}">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox SelectedValue="{Binding NewVmIsolationType}" Width="200">
+                            <sys:String>Disabled</sys:String>
+                            <sys:String>TrustedLaunch</sys:String>
+                            <sys:String>VBS</sys:String>
+                            <sys:String>SNP (AMD SEV-SNP)</sys:String>
+                            <sys:String>TDX (Intel Trust Domain)</sys:String>
+                        </ComboBox>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <!-- === 存储资源 === -->
+                <TextBlock Text="存储资源" FontSize="16" FontWeight="Medium" Margin="0,0,0,12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <ui:CardControl Header="虚拟硬盘" Icon="{ui:SymbolIcon Symbol=Storage24}" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="新建磁盘" IsChecked="{Binding NewVmDiskMode, Converter={StaticResource EqualityConverter}, ConverterParameter=0}" Margin="0,0,16,0"/>
+                        <RadioButton Content="现有磁盘" IsChecked="{Binding NewVmDiskMode, Converter={StaticResource EqualityConverter}, ConverterParameter=1}" Margin="0,0,16,0"/>
+                        <RadioButton Content="无" IsChecked="{Binding NewVmDiskMode, Converter={StaticResource EqualityConverter}, ConverterParameter=2}"/>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <ui:CardControl Margin="0,0,0,8" Visibility="{Binding NewVmDiskMode, Converter={StaticResource EqualityToVis}, ConverterParameter=0}">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox IsEditable="True" Text="{Binding NewVmDiskSizeGb, UpdateSourceTrigger=PropertyChanged}" Width="180">
+                            <sys:String>32</sys:String>
+                            <sys:String>64</sys:String>
+                            <sys:String>128</sys:String>
+                            <sys:String>256</sys:String>
+                        </ComboBox>
+                        <TextBlock Text="GB" VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"/>
+                    </StackPanel>
+                </ui:CardControl>
+
+                <ui:CardControl Margin="0,0,0,8" HorizontalContentAlignment="Stretch" Visibility="{Binding NewVmDiskMode, Converter={StaticResource EqualityToVis}, ConverterParameter=1}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Text="{Binding NewVmExistingDiskPath}" Width="400" PlaceholderText="选择 .vhdx 文件"/>
+                        <ui:Button Grid.Column="1" Content="浏览" Margin="8,0,0,0" Command="{Binding BrowseExistingDiskCommand}"/>
+                    </Grid>
+                </ui:CardControl>
+
+                <ui:CardControl Header="安装镜像" Icon="{ui:SymbolIcon Symbol=FolderZip24}" Margin="0,0,0,24" HorizontalContentAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Text="{Binding NewVmIsoPath}" Width="400" PlaceholderText="选择.ISO 文件"/>
+                        <ui:Button Grid.Column="1" Content="浏览" Margin="8,0,0,0" Command="{Binding BrowseIsoImageCommand}"/>
+                    </Grid>
+                </ui:CardControl>
+
+                <!-- === 网络资源 === -->
+                <TextBlock Text="网络资源" FontSize="16" FontWeight="Medium" Margin="0,0,0,12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <ui:CardControl Header="虚拟交换机" Margin="0,0,0,24" HorizontalContentAlignment="Stretch">
+                    <ui:CardControl.Icon>
+                        <ui:FontIcon Glyph="&#xE774;" FontSize="20" FontFamily="{DynamicResource SegoeFluentIcons}" Margin="0,0,12,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    </ui:CardControl.Icon>
+                    <ComboBox ItemsSource="{Binding AvailableSwitchNames}" SelectedItem="{Binding NewVmSelectedSwitch}"/>
+                </ui:CardControl>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 3. 底部操作栏 -->
+        <Border Grid.Row="1" Background="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ui:ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0,1,0,0" Padding="24">
+            <Grid>
+                <CheckBox Content="创建完成后立即启动" IsChecked="{Binding StartVmAfterCreation}" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ui:Button Content="取消" Appearance="Secondary" Width="100" Margin="0,0,12,0" Command="{Binding CancelCreateCommand}"/>
+                    <ui:Button Content="创建虚拟机" Appearance="Primary" Width="150" Icon="{ui:SymbolIcon Symbol=Add24}" Command="{Binding ConfirmCreateCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
