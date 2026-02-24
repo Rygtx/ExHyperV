@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Management; // 需要 NuGet: System.Management
 using System.Threading.Tasks;
+using Microsoft.Win32;
 
 namespace ExHyperV.Services
 {
@@ -122,6 +123,30 @@ namespace ExHyperV.Services
             catch
             {
                 return 0;
+            }
+        }
+
+
+        /// <summary>
+        /// 统一检查当前系统是否被视为 Server 系统。
+        /// 逻辑：读取注册表 ProductOptions，只要不是 "WinNT" (Workstation)，即视为 Server。
+        /// 包含：ServerNT (Server), LanmanNT (Domain Controller) 以及伪装后的系统。
+        /// </summary>
+        public static bool IsServerSystem()
+        {
+            try
+            {
+                using var key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\ProductOptions");
+                var type = key?.GetValue("ProductType")?.ToString();
+
+                // 核心逻辑：排除法。只要不是 WinNT (工作站)，就是 Server。
+                // 这样既支持了域控制器，也支持了即时修改注册表后的状态。
+                return type != null && !type.Equals("WinNT", StringComparison.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                // 读取失败默认为 False (保守策略)
+                return false;
             }
         }
     }

@@ -174,13 +174,9 @@ namespace ExHyperV.Services
             return (deviceList, vmNameList);
         }
 
-        public async Task<bool> IsServerOperatingSystemAsync()
+        public Task<bool> IsServerOperatingSystemAsync()
         {
-            return await Task.Run(() =>
-            {
-                var result = Utils.Run("(Get-CimInstance -Class Win32_OperatingSystem).ProductType");
-                return result != null && result.Count > 0 && result[0].ToString() == "3";
-            });
+            return Task.FromResult(HyperVEnvironmentService.IsServerSystem());
         }
 
         public async Task<(MmioCheckResultType Result, string Message)> CheckMmioSpaceAsync(string vmName)

@@ -110,15 +110,8 @@ namespace ExHyperV.ViewModels
 
         private async Task CheckServerInfoAsync()
         {
-            SystemStatus.IsSuccess = await Task.Run(() => {
-                try
-                {
-                    using var key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\ProductOptions");
-                    var type = key?.GetValue("ProductType")?.ToString();
-                    return type != null && !type.Equals("WinNT", StringComparison.OrdinalIgnoreCase);
-                }
-                catch { return false; }
-            });
+            // 调用统一逻辑
+            SystemStatus.IsSuccess = await Task.Run(() => HyperVEnvironmentService.IsServerSystem());
             SystemStatus.IsChecking = false;
         }
 
@@ -201,13 +194,8 @@ namespace ExHyperV.ViewModels
 
         private void InitializeProductType()
         {
-            try
-            {
-                using var key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\ProductOptions");
-                var val = key?.GetValue("ProductType")?.ToString();
-                IsServerSystem = val != null && val.Contains("Server");
-            }
-            catch { }
+            // 调用统一逻辑
+            IsServerSystem = HyperVEnvironmentService.IsServerSystem();
             UpdateSystemDesc(IsServerSystem);
         }
 
