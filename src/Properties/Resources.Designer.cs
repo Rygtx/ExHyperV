@@ -1204,7 +1204,7 @@ namespace ExHyperV.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Compatibility and Settings 的本地化字符串。
+        ///   查找类似 Host 的本地化字符串。
         /// </summary>
         public static string complisetting {
             get {

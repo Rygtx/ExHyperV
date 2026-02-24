@@ -340,7 +340,7 @@
     <value>Home</value>
   </data>
   <data name="complisetting" xml:space="preserve">
-    <value>Compatibility and Settings</value>
+    <value>Host</value>
   </data>
   <data name="gpupvv" xml:space="preserve">
     <value>GPU Paravirtualization</value>
