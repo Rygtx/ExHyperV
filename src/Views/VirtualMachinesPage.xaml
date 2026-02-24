@@ -534,7 +534,7 @@
                     </ContentControl.Style>
                 </ContentControl>
 
-                <!-- 2. 新的创建界面 (保持不变) -->
+                <!-- 创建界面-->
                 <components:VmCreateView Visibility="{Binding IsCreatingVm, Converter={StaticResource BoolToVis}}"/>
             </Grid>
         </Border>

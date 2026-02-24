@@ -40,7 +40,12 @@
                            Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
                 <ui:CardControl Header="名称" Icon="{ui:SymbolIcon Symbol=Edit24}" Margin="0,0,0,8" HorizontalContentAlignment="Stretch">
-                    <ui:TextBox Text="{Binding NewVmName, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="例如: Windows_Server_2025_Test"/>
+                    <!-- 添加 Width="450" 以防止收缩，并保持与下方“配置文件位置”对齐 -->
+                    <ui:TextBox Text="{Binding NewVmName, UpdateSourceTrigger=PropertyChanged}" 
+                PlaceholderText="例如: Windows_Server_2025"
+                Width="210"
+                HorizontalAlignment="Right"/>
+
                 </ui:CardControl>
 
                 <ui:CardControl Header="配置文件位置" Icon="{ui:SymbolIcon Symbol=FolderOpen24}" Margin="0,0,0,8" HorizontalContentAlignment="Stretch">
@@ -115,23 +120,28 @@
                                 IsEnabled="{Binding NewVmGeneration, Converter={StaticResource EqualityConverter}, ConverterParameter=2}">
                     <StackPanel Orientation="Horizontal">
                         <CheckBox Content="启用安全启动" IsChecked="{Binding NewVmEnableSecureBoot}" Margin="0,0,24,0"/>
-                        <CheckBox Content="启用 TPM (受信任的平台模块)" IsChecked="{Binding NewVmEnableTpm}"/>
+                        <CheckBox Content="启用 TPM" IsChecked="{Binding NewVmEnableTpm}"/>
                     </StackPanel>
                 </ui:CardControl>
 
-                <ui:CardControl Header="机密计算" Icon="{ui:SymbolIcon Symbol=ShieldLock24}" Margin="0,0,0,24"
-                                IsEnabled="{Binding NewVmGeneration, Converter={StaticResource EqualityConverter}, ConverterParameter=2}">
+                <ui:CardControl Header="机密计算" 
+                Icon="{ui:SymbolIcon Symbol=ShieldLock24}" 
+                Margin="0,0,0,24"
+                IsEnabled="{Binding CanEnableIsolation}">
+
                     <StackPanel Orientation="Horizontal">
-                        <ComboBox SelectedValue="{Binding NewVmIsolationType}" Width="200">
-                            <sys:String>Disabled</sys:String>
-                            <sys:String>TrustedLaunch</sys:String>
-                            <sys:String>VBS</sys:String>
-                            <sys:String>SNP (AMD SEV-SNP)</sys:String>
-                            <sys:String>TDX (Intel Trust Domain)</sys:String>
-                        </ComboBox>
+                        <ComboBox ItemsSource="{Binding SupportedIsolationTypes}" 
+                  SelectedItem="{Binding NewVmIsolationType}" 
+                  Width="200"/>
+
+                        <!-- 修复点：只有当 IsIsolationSupported 等于 False 时，才显示这个警告文本 -->
+                        <TextBlock Text="当前宿主机不支持机密计算" 
+                   VerticalAlignment="Center" Margin="12,0,0,0"
+                   Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                   Visibility="{Binding IsIsolationSupported, Converter={StaticResource EqualityToVis}, ConverterParameter=False}"/>
                     </StackPanel>
                 </ui:CardControl>
-
+                
                 <!-- === 存储资源 === -->
                 <TextBlock Text="存储资源" FontSize="16" FontWeight="Medium" Margin="0,12,0,12" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
 
