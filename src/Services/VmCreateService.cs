@@ -82,8 +82,8 @@ namespace ExHyperV.Services
                         1 => $"-VHDPath '{p.VhdPath}'",
                         _ => "-NoVHD"
                     };
-                    string createScript = $"New-VM -Name '{finalVmName}' -MemoryStartupBytes {memoryBytes} -Generation {p.Generation} -Path '{p.Path}' -Version {p.Version} {switchParam} {diskParam} -ErrorAction Stop";
-
+                    // 使用 -Force 参数来强制跳过预发行版本(如 255.0)的警告和确认提示
+                    string createScript = $"New-VM -Name '{finalVmName}' -MemoryStartupBytes {memoryBytes} -Generation {p.Generation} -Path '{p.Path}' -Version {p.Version} {switchParam} {diskParam} -Force -ErrorAction Stop";
                     double.TryParse(p.Version, out double ver);
                     if (p.Generation == 2 && ver >= 10.0 && p.IsolationType != "Disabled")
                     {
