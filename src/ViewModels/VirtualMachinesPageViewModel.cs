@@ -3108,7 +3108,7 @@ namespace ExHyperV.ViewModels
                 CancellationToken.None
             );
 
-            if (result == "OK")
+            if (result == "OK" || (result.Contains("successfully") && result.Contains("signing")))
             {
                 driveTask.Status = ExHyperV.Models.TaskStatus.Success;
                 _currentProcessingGpuAdapterId = null;

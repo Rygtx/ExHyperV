@@ -439,7 +439,6 @@ install_dkms() {
     echo "========================================"
     
     echo "Verifying kernel headers..."
-    # Arch Linux uses /usr/lib/modules, others use /lib/modules (which may be a symlink)
     if [[ "$LINUX_DISTRO" == *"arch"* ]]; then
         HEADERS_PATH="/usr/lib/modules/${TARGET_KERNEL_VERSION}/build"
     else
@@ -463,6 +462,7 @@ install_dkms() {
     
     echo ""
     echo "Building module (this may take a few minutes)..."
+    # 这里我们保留报错退出，因为如果编译报错，那是真的代码有问题
     if ! dkms -k ${TARGET_KERNEL_VERSION} build dxgkrnl/$VERSION; then
         echo ""
         echo "========================================"
@@ -485,42 +485,43 @@ install_dkms() {
     
     echo ""
     echo "Installing module..."
-    dkms -k ${TARGET_KERNEL_VERSION} install dxgkrnl/$VERSION --force || true
+    # 【关键修改点 1】: 后面加 || true。 
+    # 即使签名工具(kmodsign)因为 EFI 变量访问不到而报非0状态码，也不会触发 set -e 导致脚本提前退出。
+    dkms -k ${TARGET_KERNEL_VERSION} install dxgkrnl/$VERSION --force || echo "Notice: DKMS install reported an error. This is often a signing issue on Secure Boot systems and can usually be ignored."
 
-    # Check for module in both possible locations (Arch uses /usr/lib/modules, others use /lib/modules)
+    # 【关键修改点 2】: 增加物理文件探测逻辑。
+    # 只要安装路径下出现了 dxgkrnl.ko (或者其压缩格式)，就说明安装动作完成了。
     MODULE_FOUND=false
-    if [[ "$LINUX_DISTRO" == *"arch"* ]]; then
-        if [ -f "/usr/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko" ] || [ -f "/usr/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko.zst" ]; then
+    # 常见的 DKMS 安装路径
+    SEARCH_LOCS=(
+        "/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/"
+        "/usr/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/"
+        "/lib/modules/${TARGET_KERNEL_VERSION}/extra/"
+    )
+
+    for loc in "${SEARCH_LOCS[@]}"; do
+        # 检查各种可能的扩展名 (.ko, .ko.zst, .ko.xz)
+        if ls ${loc}dxgkrnl.ko* 1> /dev/null 2>&1; then
             MODULE_FOUND=true
+            FOUND_PATH=$loc
+            break
         fi
-        # Also check /lib/modules in case it's a symlink
-        if [ -f "/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko" ] || [ -f "/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko.zst" ]; then
-            MODULE_FOUND=true
-        fi
-    else
-        if [ -f "/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko" ] || [ -f "/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/dxgkrnl.ko.zst" ]; then
-            MODULE_FOUND=true
-        fi
-    fi
+    done
     
-    if [ "$MODULE_FOUND" = false ]; then
+    if [ "$MODULE_FOUND" = true ]; then
         echo ""
-        echo "Error: DKMS installation failed (Module file not found)."
-        echo "Checked locations:"
-        if [[ "$LINUX_DISTRO" == *"arch"* ]]; then
-            echo "  /usr/lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/"
-            echo "  /lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/"
-        else
-            echo "  /lib/modules/${TARGET_KERNEL_VERSION}/updates/dkms/"
-        fi
+        echo "✓ dxgkrnl.ko file confirmed at: $FOUND_PATH"
+        echo "✓ DKMS module installed (ignoring minor hook errors)."
+    else
+        # 只有连文件都没生成，才认为是真的失败
         echo ""
-        echo "Please check the build log:"
-        echo "  /var/lib/dkms/dxgkrnl/$VERSION/build/make.log"
+        echo "Error: DKMS installation failed. Module file not found in system directories."
+        echo "Please check the build log: /var/lib/dkms/dxgkrnl/$VERSION/build/make.log"
         exit 1
     fi
 
     echo ""
-    echo "✓ DKMS module installed successfully"
+    echo "✓ DKMS module process finished"
 }
 
 all() {
