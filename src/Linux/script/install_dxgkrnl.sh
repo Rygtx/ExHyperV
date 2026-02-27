@@ -40,7 +40,7 @@ install_dependencies() {
 }
 
 check_and_install_kernel() {
-    
+    echo ""
     echo "========================================"
     echo "  Checking Kernel Headers"
     echo "========================================"
@@ -60,9 +60,9 @@ check_and_install_kernel() {
     fi
     
     echo "✗ Kernel headers not found for ${TARGET_KERNEL_VERSION}"
-    
+    echo ""
     echo "Will install a new kernel from standard repository..."
-    
+    echo ""
     
     if [[ "$LINUX_DISTRO" == *"debian"* || "$LINUX_DISTRO" == *"ubuntu"* ]]; then
         echo "Updating package list..."
@@ -80,7 +80,7 @@ check_and_install_kernel() {
         
         if [ -z "$AVAILABLE_KERNELS" ]; then
             echo "ERROR: No standard kernel images found in repository!"
-            
+            echo ""
             echo "Debugging information:"
             echo "All available kernel images:"
             apt-cache search "^linux-image-[0-9]" | head -20
@@ -89,7 +89,7 @@ check_and_install_kernel() {
         
         echo "Available standard kernels:"
         echo "$AVAILABLE_KERNELS" | nl
-        
+        echo ""
         
         NEW_KERNEL_IMAGE=$(echo "$AVAILABLE_KERNELS" | tail -1)
         NEW_KERNEL_VERSION=$(echo "$NEW_KERNEL_IMAGE" | sed 's/linux-image-//')
@@ -99,7 +99,7 @@ check_and_install_kernel() {
         echo "  Image:   $NEW_KERNEL_IMAGE"
         echo "  Version: $NEW_KERNEL_VERSION"
         echo "  Headers: $NEW_KERNEL_HEADERS"
-        
+        echo ""
         
         # 验证包是否存在
         echo "Verifying packages availability..."
@@ -114,27 +114,27 @@ check_and_install_kernel() {
         fi
         
         echo "✓ Both packages verified in repository"
-        
+        echo ""
         
         # 检查是否已安装
         if dpkg -l | grep -q "^ii.*$NEW_KERNEL_IMAGE\s"; then
             echo "✓ Kernel image $NEW_KERNEL_VERSION is already installed"
         else
             echo "Installing kernel image and headers..."
-            
+            echo ""
             
             apt install -y "$NEW_KERNEL_IMAGE" "$NEW_KERNEL_HEADERS"
             
-            
+            echo ""
             echo "========================================"
             echo "  ACTION REQUIRED: REBOOT"
             echo "========================================"
             echo "A new kernel (${NEW_KERNEL_VERSION}) has been installed."
             echo "Please reboot and run this script again."
-            
+            echo ""
             echo "After reboot, run:"
             echo "  sudo $0"
-            
+            echo ""
             echo "STATUS: REBOOT_REQUIRED"
             exit 0
         fi
@@ -145,7 +145,7 @@ check_and_install_kernel() {
             apt install -y "$NEW_KERNEL_HEADERS"
         fi
         
-        
+        echo ""
         echo "Updating target kernel version to: $NEW_KERNEL_VERSION"
         TARGET_KERNEL_VERSION="$NEW_KERNEL_VERSION"
         
@@ -165,7 +165,7 @@ check_and_install_kernel() {
         NEW_KERNEL_VERSION=$(rpm -q kernel --last | head -1 | awk '{print $1}' | sed 's/kernel-//')
         echo "New kernel version: $NEW_KERNEL_VERSION"
         
-        
+        echo ""
         echo "========================================"
         echo "  ACTION REQUIRED: REBOOT"
         echo "========================================"
@@ -230,11 +230,11 @@ check_and_install_kernel() {
         
         # If still not installed, show helpful message
         if ! $INSTALLED; then
-            
+            echo ""
             echo "WARNING: Failed to install $HEADERS_PKG automatically."
             if $IS_AUR_PKG; then
                 echo "This package is from AUR and requires an AUR helper."
-                
+                echo ""
                 echo "Please install it manually using one of these methods:"
                 if command -v paru >/dev/null 2>&1; then
                     echo "  paru -S $HEADERS_PKG"
@@ -243,7 +243,7 @@ check_and_install_kernel() {
                 else
                     echo "  paru -S $HEADERS_PKG  # if you have paru installed"
                     echo "  yay -S $HEADERS_PKG    # if you have yay installed"
-                    
+                    echo ""
                     echo "If you don't have an AUR helper, install one first:"
                     echo "  # For paru:"
                     echo "  git clone https://aur.archlinux.org/paru.git"
@@ -258,13 +258,13 @@ check_and_install_kernel() {
         # Arch Linux kernel headers are installed to /usr/lib/modules/$(uname -r)/build
         # Check if headers exist for current kernel
         if [ ! -e "/usr/lib/modules/${TARGET_KERNEL_VERSION}/build" ]; then
-            
+            echo ""
             echo "WARNING: Headers not found for ${TARGET_KERNEL_VERSION}"
             echo "This may happen if you're using a custom kernel."
-            
+            echo ""
             echo "Available kernel versions:"
             ls -d /usr/lib/modules/*/build 2>/dev/null | sed 's|/usr/lib/modules/||;s|/build||' || echo "None found"
-            
+            echo ""
             echo "Please install the matching headers package manually:"
             if [[ "$TARGET_KERNEL_VERSION" == *"-lts66"* ]]; then
                 echo "  sudo pacman -S linux-lts66-headers"
@@ -275,7 +275,7 @@ check_and_install_kernel() {
                 echo "  or"
                 echo "  paru -S $HEADERS_PKG  # if using AUR"
             fi
-            
+            echo ""
             echo "After installing headers, run this script again."
             exit 1
         fi
@@ -292,7 +292,7 @@ update_git() {
     KERNEL_MAJOR=$(echo ${TARGET_KERNEL_VERSION} | grep -oP '^\d+')
     KERNEL_MINOR=$(echo ${TARGET_KERNEL_VERSION} | grep -oP '^\d+\.(\d+)' | grep -oP '\d+$')
     
-    
+    echo ""
     echo "========================================"
     echo "  Preparing Source Code"
     echo "========================================"
@@ -332,7 +332,7 @@ get_version() {
 }
 
 install() {
-    
+    echo ""
     echo "========================================"
     echo "  Applying Patches"
     echo "========================================"
@@ -373,7 +373,7 @@ install() {
             exit 1;;
     esac
 
-    
+    echo ""
     echo "========================================"
     echo "  Installing Module Files"
     echo "========================================"
@@ -433,7 +433,7 @@ EOF
 }
 
 install_dkms() {
-    
+    echo ""
     echo "========================================"
     echo "  Building and Installing DKMS Module"
     echo "========================================"
@@ -456,26 +456,26 @@ install_dkms() {
         dkms remove dxgkrnl/$VERSION --all
     fi
     
-    
+    echo ""
     echo "Adding module to DKMS..."
     dkms -k ${TARGET_KERNEL_VERSION} add dxgkrnl/$VERSION
     
-    
+    echo ""
     echo "Building module (this may take a few minutes)..."
     # 这里我们保留报错退出，因为如果编译报错，那是真的代码有问题
     if ! dkms -k ${TARGET_KERNEL_VERSION} build dxgkrnl/$VERSION; then
-        
+        echo ""
         echo "========================================"
         echo "  Build Failed"
         echo "========================================"
         echo "DKMS build failed. Please check the build log for details:"
         echo "  /var/lib/dkms/dxgkrnl/$VERSION/build/make.log"
-        
+        echo ""
         echo "Common issues:"
         echo "  1. Kernel version too new - patches may not be compatible"
         echo "  2. Missing dependencies - ensure all build tools are installed"
         echo "  3. Kernel headers mismatch - verify headers match kernel version"
-        
+        echo ""
         echo "Showing last 50 lines of build log:"
         echo "----------------------------------------"
         tail -50 /var/lib/dkms/dxgkrnl/$VERSION/build/make.log 2>/dev/null || echo "Log file not found"
@@ -483,7 +483,7 @@ install_dkms() {
         exit 1
     fi
     
-    
+    echo ""
     echo "Installing module..."
     # 【关键修改点 1】: 后面加 || true。 
     # 即使签名工具(kmodsign)因为 EFI 变量访问不到而报非0状态码，也不会触发 set -e 导致脚本提前退出。
@@ -509,20 +509,19 @@ install_dkms() {
     done
     
     if [ "$MODULE_FOUND" = true ]; then
-        
+        echo ""
         echo "✓ dxgkrnl.ko file confirmed at: $FOUND_PATH"
         echo "✓ DKMS module installed (ignoring minor hook errors)."
     else
         # 只有连文件都没生成，才认为是真的失败
-        
+        echo ""
         echo "Error: DKMS installation failed. Module file not found in system directories."
         echo "Please check the build log: /var/lib/dkms/dxgkrnl/$VERSION/build/make.log"
         exit 1
     fi
 
-    
+    echo ""
     echo "✓ DKMS module process finished"
-    echo "STATUS: SUCCESS"
 }
 
 all() {
@@ -536,21 +535,21 @@ all() {
     echo "========================================"
     echo "Initial target kernel: ${TARGET_KERNEL_VERSION}"
     echo "Current running kernel: $(uname -r)"
-    
+    echo ""
     
     install_dependencies
     check_and_install_kernel
     update_git
     get_version
     
-    
+    echo ""
     echo "========================================"
     echo "  Build Information"
     echo "========================================"
     echo "Target kernel: ${TARGET_KERNEL_VERSION}"
     echo "Module version: ${VERSION}"
     echo "Source branch: ${CURRENT_BRANCH}"
-    
+    echo ""
     
     install
     install_dkms
@@ -562,9 +561,18 @@ elif [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+.+$ ]]; then
     all $1
 else
     echo "Usage: $0 [kernel_version]"
-    
+    echo ""
     echo "Examples:"
     echo "  $0"
     echo "  $0 6.1.0-41-amd64"
     exit 1
 fi
+
+echo ""
+echo "========================================"
+echo "  Installation Completed Successfully!"
+echo "========================================"
+echo "Kernel version: ${TARGET_KERNEL_VERSION}"
+echo "Module installed: dxgkrnl/${VERSION}"
+echo ""
+echo "STATUS: SUCCESS"
