@@ -418,7 +418,7 @@ namespace ExHyperV.ViewModels
 
             NewVmDiskMode = 0;
             NewVmDiskSizeGb = "128";
-            NewVmDynamicMemory = true;
+            NewVmDynamicMemory = false;
             NewVmEnableSecureBoot = true;
             NewVmEnableTpm = true;
             StartVmAfterCreation = true;
