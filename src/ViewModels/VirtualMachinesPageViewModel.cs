@@ -345,7 +345,7 @@ namespace ExHyperV.ViewModels
         // --- 2. 计算资源 ---
         [ObservableProperty] private string _newVmProcessorCount = "4"; // ComboBox IsEditable="True" 绑定 string
         [ObservableProperty] private string _newVmMemoryMb = "4096";    // ComboBox IsEditable="True" 绑定 string
-        [ObservableProperty] private bool _newVmDynamicMemory = true;
+        [ObservableProperty] private bool _newVmDynamicMemory = false;
 
         // 安全特性 (仅第 2 代)
         [ObservableProperty] private bool _newVmEnableSecureBoot = true;
