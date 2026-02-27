@@ -1,4 +1,6 @@
 #!/bin/bash -e
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
 # install_dxgkrnl.sh
 WORKDIR="$(dirname $(realpath $0))"
 LINUX_DISTRO="$(cat /etc/*-release)"
