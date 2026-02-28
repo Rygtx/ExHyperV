@@ -11,7 +11,7 @@
     mc:Ignorable="d"
     d:DataContext="{d:DesignInstance Type=vm:MainPageViewModel, IsDesignTimeCreatable=True}"
     Title="MainPage"
-    d:DesignHeight="700"
+    d:DesignHeight="800"
     d:DesignWidth="1000">
 
     <Grid Margin="15">
@@ -97,10 +97,8 @@
 
         </Grid>
 
-        <!-- 3. 引导按钮区 (修复了对齐问题) -->
         <UniformGrid Grid.Row="2" Columns="2" VerticalAlignment="Top">
 
-            <!-- 【左列】环境配置 (左边距0，右边距5) -->
             <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Host">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -115,7 +113,6 @@
                 </Grid>
             </ui:CardAction>
 
-            <!-- 【右列】虚拟机管理 (左边距5，右边距0) -->
             <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="VM">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -130,7 +127,6 @@
                 </Grid>
             </ui:CardAction>
 
-            <!-- 【左列】PCIe 直通 (左边距0，右边距5) -->
             <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="PCIe">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -145,7 +141,7 @@
                 </Grid>
             </ui:CardAction>
 
-            <!-- 【右列】虚拟网络 (左边距5，右边距0) -->
+
             <ui:CardAction Margin="5,5,0,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="Network">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -159,6 +155,22 @@
                     </StackPanel>
                 </Grid>
             </ui:CardAction>
+
+            <ui:CardAction Margin="0,5,5,5" Padding="15,20" Command="{Binding NavigateCommand}" CommandParameter="USB">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ui:FontIcon Grid.Column="0" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xE88E;" FontSize="24" Margin="0,0,15,0" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="USB 直通" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" FontSize="16"/>
+                        <TextBlock Text="将宿主 USB 设备直接分配给虚拟机" FontSize="13" Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </ui:CardAction>
+
+
         </UniformGrid>
     </Grid>
 </Page>

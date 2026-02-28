@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="ExHyperV.Views.Pages.USBPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vm="clr-namespace:ExHyperV.ViewModels"
+    xmlns:converters="clr-namespace:ExHyperV.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance vm:USBPageViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d" Title="USBPage">
+
+    <Page.DataContext>
+        <vm:USBPageViewModel/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        <converters:CommandParameterConverter x:Key="CommandParameterConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel Margin="10,0,10,10">
+            <!-- Header -->
+            <Grid Margin="0,5,0,0">
+                <ui:Card BorderThickness="1" Padding="10">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <ui:FontIcon Glyph="&#xE88E;" FontSize="24" FontFamily="{DynamicResource SegoeFluentIcons}"/>
+                            <TextBlock Text="USB 直通" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <ui:Button HorizontalAlignment="Right"
+                                   Content="刷新" 
+                                   Command="{Binding LoadDataCommand}"
+                                   IsEnabled="{Binding IsUiEnabled}"/>
+                    </Grid>
+                </ui:Card>
+            </Grid>
+
+            <!-- Device List -->
+            <ItemsControl ItemsSource="{Binding Devices}" Margin="0,0,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ui:Card Margin="0,5,0,0" Padding="12">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <ui:FontIcon Grid.Column="0" 
+                                 Glyph="&#xE88E;" 
+                                 FontSize="24" 
+                                 FontFamily="{DynamicResource SegoeFluentIcons}" 
+                                 Margin="0,0,15,0"/>
+
+                                <TextBlock Grid.Column="1" 
+                               Text="{Binding Description}" 
+                               FontSize="16" 
+                               VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"/>
+
+                                <ui:DropDownButton Grid.Column="2" 
+                                       Content="{Binding CurrentAssignment}" 
+                                       Margin="10,0,0,0"
+                                       IsEnabled="{Binding DataContext.IsUiEnabled, RelativeSource={RelativeSource AncestorType=Page}}">
+                                    <ui:DropDownButton.Flyout>
+                                        <ContextMenu ItemsSource="{Binding AssignmentOptions}">
+                                            <ContextMenu.ItemContainerStyle>
+                                                <Style TargetType="MenuItem">
+                                                    <Setter Property="Header" Value="{Binding}"/>
+                                                    <Setter Property="Command" Value="{Binding DataContext.ChangeAssignmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"/>
+                                                    <Setter Property="CommandParameter">
+                                                        <Setter.Value>
+                                                            <MultiBinding Converter="{StaticResource CommandParameterConverter}">
+                                                                <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType=ui:Card}"/>
+                                                                <Binding/>
+                                                            </MultiBinding>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ContextMenu.ItemContainerStyle>
+                                        </ContextMenu>
+                                    </ui:DropDownButton.Flyout>
+                                </ui:DropDownButton>
+                            </Grid>
+                        </ui:Card>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+        <ProgressBar Panel.ZIndex="1" VerticalAlignment="Top" Height="4"
+                     IsIndeterminate="True"
+                     Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}"/>
+    </Grid>
+</Page>

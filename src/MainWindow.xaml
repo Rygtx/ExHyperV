@@ -86,6 +86,18 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
+                <!-- USB 直通菜单项 -->
+                <ui:NavigationViewItem
+    x:Name="USBPassThrough"
+    Content="USB 直通" 
+    NavigationCacheMode="Enabled"
+    TargetPageType="{x:Type pages:USBPage}">
+                    <ui:NavigationViewItem.Icon>
+                        <!-- 使用 USB 相关的图标 -->
+                        <ui:FontIcon FontSize="16" FontFamily="{DynamicResource SegoeFluentIcons}" Glyph="&#xE88E;"/>
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
             </ui:NavigationView.MenuItems>
 
             <ui:NavigationView.FooterMenuItems>

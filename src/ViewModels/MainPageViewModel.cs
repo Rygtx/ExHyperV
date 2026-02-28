@@ -45,6 +45,7 @@ namespace ExHyperV.ViewModels
                 "Host" => typeof(HostPage),
                 "PCIe" => typeof(DDAPage),
                 "Network" => typeof(SwitchPage),
+                "USB" => typeof(USBPage),
                 _ => null
             };
 
