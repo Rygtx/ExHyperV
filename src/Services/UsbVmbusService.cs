@@ -36,59 +36,57 @@ namespace ExHyperV.Services
         private void Log(string msg) => Debug.WriteLine($"[ExHyperV-USB] [{DateTime.Now:HH:mm:ss.fff}] {msg}");
 
         // 停止隧道任务
-        public void StopTunnel(string busId)
+        public async Task StopTunnelAsync(string busId)
         {
-            // 1. 停止后台线程并释放 Socket (解决 Attached 状态)
+            // 1. 取消信号并移除记录
             if (_activeCts.TryRemove(busId, out var cts))
             {
-                try
-                {
-                    cts.Cancel();
-                    cts.Dispose();
-                    Log($"[StopTunnel] 隧道已取消: {busId}");
-                }
-                catch { }
+                cts.Cancel();
+                cts.Dispose();
+                Log($"[StopTunnel] 正在停止旧隧道: {busId}");
             }
 
-            // 2. 核心补丁：强制执行 unbind (解决 Shared/Attached 状态，让宿主机拿回设备)
-            // 这里使用 Task.Run 是为了不阻塞 UI 线程
-            _ = Task.Run(async () => {
-                Log($"[StopTunnel] 执行命令: usbipd unbind --busid {busId}");
-                bool ok = await RunUsbIpCommand($"unbind --busid {busId}");
-                if (ok) Log($"[StopTunnel] 设备 {busId} 已成功返回主机");
-            });
+            // 2. 显式等待 unbind 完成，确保宿主机重新获得控制权
+            Log($"[StopTunnel] 强制执行 unbind: {busId}");
+            await RunUsbIpCommand($"unbind --busid {busId}");
+
+            // 给系统一点反应时间（usbipd 驱动释放需要时间）
+            await Task.Delay(500);
         }
 
         // 自动恢复隧道 (由 Watchdog 调用)
         public async Task AutoRecoverTunnel(string busId, string vmName)
         {
-            if (_activeCts.ContainsKey(busId)) return;
+            // 如果已经有任务在跑，需要判断目标是否一致（或者为了保险，切换时直接重建）
+            if (_activeCts.ContainsKey(busId))
+            {
+                // 如果你的逻辑允许直接切换，这里需要先调用 Stop
+                await StopTunnelAsync(busId);
+            }
+
             var cts = new CancellationTokenSource();
-            if (!_activeCts.TryAdd(busId, cts)) { cts.Dispose(); return; }
+            if (!_activeCts.TryAdd(busId, cts)) return;
 
             try
             {
-                Log($"[AutoRecover] 准备连接 {busId} -> {vmName}");
-
-                // 解决手机变身的关键：先强制解绑再绑定
+                // 关键：在 bind 之前确保环境干净
                 await RunUsbIpCommand($"unbind --busid {busId}");
+
                 bool bound = await RunUsbIpCommand($"bind --busid {busId}");
                 if (!bound) bound = await RunUsbIpCommand($"bind --busid {busId} --force");
 
-                if (!bound) return;
+                if (!bound) throw new Exception("usbipd bind failed");
 
                 var vms = await GetRunningVMsAsync();
                 var targetVm = vms.FirstOrDefault(v => v.Name == vmName);
-                if (targetVm == null) return;
+                if (targetVm == null) throw new Exception($"VM {vmName} not found or not running");
 
-                // 启动阻塞式隧道任务
                 await StartTunnelAsync(targetVm.Id, busId, cts.Token);
             }
-            catch (Exception ex) { Log($"[AutoRecover] 隧道中断: {ex.Message}"); }
-            finally
+            catch (Exception ex)
             {
+                Log($"[AutoRecover] 隧道建立失败: {ex.Message}");
                 _activeCts.TryRemove(busId, out _);
-                cts.Dispose();
             }
         }
 
