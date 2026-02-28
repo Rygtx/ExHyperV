@@ -208,17 +208,34 @@ namespace ExHyperV.Services
             var list = new List<VmInfo>();
             try
             {
-                System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-                var psi = new ProcessStartInfo("powershell.exe", "-NoProfile -Command \"Get-VM | Where-Object {$_.State -eq 'Running'} | ForEach-Object { $_.Name + '|' + $_.Id.Guid }\"") { RedirectStandardOutput = true, UseShellExecute = false, CreateNoWindow = true, StandardOutputEncoding = System.Text.Encoding.Default };
-                using var proc = Process.Start(psi);
-                string outStr = await proc.StandardOutput.ReadToEndAsync();
-                foreach (var line in outStr.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                // 直接运行原生命令，不需要拼字符串，直接返回对象
+                string script = "Get-VM | Where-Object {$_.State -eq 'Running'} | Select-Object Name, Id";
+
+                // 使用你的 Utils.Run2
+                var results = await Utils.Run2(script);
+
+                foreach (var psObj in results)
                 {
-                    var p = line.Trim().Split('|');
-                    if (p.Length == 2) list.Add(new VmInfo { Name = p[0], Id = Guid.Parse(p[1]) });
+                    // 直接从属性中提取值，SDK 会自动处理类型转换
+                    // Name 是 String，Id 是 Guid (在 PowerShell 中实际上是个对象)
+                    var name = psObj.Properties["Name"]?.Value?.ToString();
+                    var idValue = psObj.Properties["Id"]?.Value;
+
+                    if (!string.IsNullOrEmpty(name) && idValue != null)
+                    {
+                        list.Add(new VmInfo
+                        {
+                            Name = name,
+                            // 处理可能出现的不同 ID 类型包装
+                            Id = idValue is Guid guid ? guid : Guid.Parse(idValue.ToString())
+                        });
+                    }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[ExHyperV-USB] 获取虚拟机列表失败: {ex.Message}");
+            }
             return list;
         }
 
