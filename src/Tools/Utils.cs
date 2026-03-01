@@ -649,7 +649,7 @@ public class Utils
         catch { }
         return (string.Empty, string.Empty);
     }
-    public static string Version => "V1.4.1";
+    public static string Version => "V1.4.2";
     public static string Author => "Saniye";
 
 }

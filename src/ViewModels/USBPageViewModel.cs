@@ -105,15 +105,19 @@ namespace ExHyperV.ViewModels
                 if (selectedTarget == "主机")
                 {
                     UsbVmbusService.ActiveTunnels.TryRemove(deviceVM.BusId, out _);
-                    _srv.StopTunnel(deviceVM.BusId);
+                    await _srv.StopTunnelAsync(deviceVM.BusId); // 使用 Await 版本
                     deviceVM.CurrentAssignment = "主机";
                 }
                 else
                 {
+                    // 1. 先记录意图
                     UsbVmbusService.ActiveTunnels[deviceVM.BusId] = selectedTarget;
-                    deviceVM.CurrentAssignment = selectedTarget;
-                    // 立即触发连接
-                    _ = Task.Run(() => _srv.AutoRecoverTunnel(deviceVM.BusId, selectedTarget));
+                    deviceVM.CurrentAssignment = "正在连接...";
+
+                    // 2. 异步执行切换，内部会处理 Stop 旧隧道 -> Start 新隧道
+                    _ = Task.Run(async () => {
+                        await _srv.AutoRecoverTunnel(deviceVM.BusId, selectedTarget);
+                    });
                 }
             }
             finally { IsUiEnabled = true; }
