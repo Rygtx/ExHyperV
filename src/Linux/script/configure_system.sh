@@ -80,9 +80,21 @@ fi
 echo " -> Creating late-load script..."
 sudo tee /usr/local/bin/load_dxg_driver.sh > /dev/null << 'EOF'
 #!/bin/bash
-modprobe dxgkrnl
+set -e
+
+# Retry because early-boot timing may delay module availability.
+for _ in $(seq 1 10); do
+    if modprobe dxgkrnl 2>/dev/null; then
+        break
+    fi
+    sleep 1
+done
+
 if [ -e /dev/dxg ]; then
     chmod 666 /dev/dxg
+else
+    echo "load_dxg_driver: /dev/dxg not found after modprobe" >&2
+    exit 1
 fi
 EOF
 sudo chmod +x /usr/local/bin/load_dxg_driver.sh
@@ -92,20 +104,25 @@ echo " -> Creating systemd service for late loading..."
 sudo tee /etc/systemd/system/load-dxg-late.service > /dev/null << 'EOF'
 [Unit]
 Description=Late load dxgkrnl
-After=graphical.target
+After=multi-user.target
 
 [Service]
-Type=simple
+Type=oneshot
 User=root
 ExecStart=/usr/local/bin/load_dxg_driver.sh
+RemainAfterExit=yes
 
 [Install]
-WantedBy=graphical.target
+WantedBy=multi-user.target
 EOF
 
 # 6. 启用服务
-sudo systemctl daemon-reload
-sudo systemctl enable load-dxg-late.service
+if command -v systemctl >/dev/null 2>&1; then
+    sudo systemctl daemon-reload
+    sudo systemctl enable --now load-dxg-late.service
+else
+    echo "WARNING: systemctl not found. load-dxg-late.service was not enabled."
+fi
 
 # ==========================================================
 

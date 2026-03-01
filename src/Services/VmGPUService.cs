@@ -1086,6 +1086,7 @@ return 'OK'
                     string escapedPassword = credentials.Password.Replace("'", "'\\''");
                     return $"echo '{escapedPassword}' | sudo -S -E -p '' bash -c '{cmd.Replace("'", "'\\''")}'";
                 };
+                static string EscapeForSingleQuotedShell(string value) => value.Replace("'", "'\\''");
 
                 var sshService = new SshService();
 
@@ -1107,10 +1108,9 @@ return 'OK'
 
                     string macAddress = System.Text.RegularExpressions.Regex.Replace(macResult[0].ToString(), "(.{2})", "$1:").TrimEnd(':');
                     string vmIpAddress = await Utils.GetVmIpAddressAsync(vmName, macAddress);
-
-                    string targetIp = vmIpAddress.Split(',')
-                        .Select(ip => ip.Trim())
-                        .FirstOrDefault(ip => System.Net.IPAddress.TryParse(ip, out var addr) && addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
+                    string detectedIp = Utils.SelectBestIpv4Address(vmIpAddress);
+                    string userProvidedIp = Utils.SelectBestIpv4Address(credentials.Host);
+                    string targetIp = !string.IsNullOrWhiteSpace(userProvidedIp) ? userProvidedIp : detectedIp;
 
                     if (string.IsNullOrEmpty(targetIp)) return Properties.Resources.Error_NoValidIpv4AddressFound;
 
@@ -1119,7 +1119,21 @@ return 'OK'
 
                     if (!await WaitForVmToBeResponsiveAsync(credentials.Host, credentials.Port, cancellationToken))
                     {
-                        return Properties.Resources.Error_Gpu_SshTimeout;
+                        // 如果用户填写地址不可达，自动回退到探测地址再尝试一次
+                        if (!string.IsNullOrWhiteSpace(detectedIp) &&
+                            !string.Equals(detectedIp, credentials.Host, StringComparison.OrdinalIgnoreCase))
+                        {
+                            credentials.Host = detectedIp;
+                            Log($"[Fallback] Manual SSH host unreachable, retrying with detected IP: {detectedIp}");
+                            if (!await WaitForVmToBeResponsiveAsync(credentials.Host, credentials.Port, cancellationToken))
+                            {
+                                return Properties.Resources.Error_Gpu_SshTimeout;
+                            }
+                        }
+                        else
+                        {
+                            return Properties.Resources.Error_Gpu_SshTimeout;
+                        }
                     }
 
                     string homeDirectory;
@@ -1134,18 +1148,29 @@ return 'OK'
                     }
                     Log(string.Format(Properties.Resources.Msg_Gpu_LinuxRemoteInit, remoteTempDir));
 
+                    string runtimeProxyEnvPrefix = string.Empty;
                     if (!string.IsNullOrEmpty(credentials.ProxyHost) && credentials.ProxyPort.HasValue)
                     {
                         Log(string.Format(Properties.Resources.Msg_Gpu_LinuxProxy, credentials.ProxyHost, credentials.ProxyPort));
                         string proxyUrl = $"http://{credentials.ProxyHost}:{credentials.ProxyPort}";
+                        string noProxyValue = "localhost,127.0.0.1,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16";
+                        string escapedProxyUrl = EscapeForSingleQuotedShell(proxyUrl);
+                        string escapedNoProxyValue = EscapeForSingleQuotedShell(noProxyValue);
+                        runtimeProxyEnvPrefix = $"http_proxy='{escapedProxyUrl}' https_proxy='{escapedProxyUrl}' HTTP_PROXY='{escapedProxyUrl}' HTTPS_PROXY='{escapedProxyUrl}' no_proxy='{escapedNoProxyValue}' NO_PROXY='{escapedNoProxyValue}'";
+
                         string aptContent = $"Acquire::http::Proxy \"{proxyUrl}\";\nAcquire::https::Proxy \"{proxyUrl}\";\n";
-                        string envContent = $"\nexport http_proxy=\"{proxyUrl}\"\nexport https_proxy=\"{proxyUrl}\"\nexport no_proxy=\"localhost,127.0.0.1\"\n";
+                        string envContent = $"\nhttp_proxy=\"{proxyUrl}\"\nhttps_proxy=\"{proxyUrl}\"\nHTTP_PROXY=\"{proxyUrl}\"\nHTTPS_PROXY=\"{proxyUrl}\"\nno_proxy=\"{noProxyValue}\"\nNO_PROXY=\"{noProxyValue}\"\n";
 
                         await sshService.WriteTextFileAsync(credentials, aptContent, $"{homeDirectory}/99proxy");
                         await sshService.WriteTextFileAsync(credentials, envContent, $"{homeDirectory}/proxy_env");
 
-                        await sshService.ExecuteSingleCommandAsync(credentials, $"sudo mv {homeDirectory}/99proxy /etc/apt/apt.conf.d/99proxy", Log);
-                        await sshService.ExecuteSingleCommandAsync(credentials, $"sudo sh -c 'cat {homeDirectory}/proxy_env >> /etc/environment'", Log);
+                        await sshService.ExecuteSingleCommandAsync(credentials,
+                            withSudo($"if [ -d /etc/apt/apt.conf.d ]; then mv '{homeDirectory}/99proxy' /etc/apt/apt.conf.d/99proxy; else rm -f '{homeDirectory}/99proxy'; fi"),
+                            Log);
+
+                        await sshService.ExecuteSingleCommandAsync(credentials,
+                            withSudo($"touch /etc/environment && grep -vE '^(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)=' /etc/environment > /tmp/exhyperv_environment && cat '{homeDirectory}/proxy_env' >> /tmp/exhyperv_environment && mv /tmp/exhyperv_environment /etc/environment"),
+                            Log);
                     }
 
                     Log(Properties.Resources.Msg_Gpu_LinuxUploadingDriver);
@@ -1180,7 +1205,16 @@ return 'OK'
 
                     foreach (var script in scripts)
                     {
-                        string cmd = $"wget -O {remoteTempDir}/{script} {ScriptBaseUrl}{script}";
+                        string scriptPath = $"{remoteTempDir}/{script}";
+                        string scriptUrl = $"{ScriptBaseUrl}{script}";
+                        string escapedScriptPath = EscapeForSingleQuotedShell(scriptPath);
+                        string escapedScriptUrl = EscapeForSingleQuotedShell(scriptUrl);
+                        string cmd =
+                            $"{runtimeProxyEnvPrefix} sh -c \"if command -v wget >/dev/null 2>&1; then " +
+                            $"wget -O '{escapedScriptPath}' '{escapedScriptUrl}'; " +
+                            $"elif command -v curl >/dev/null 2>&1; then " +
+                            $"curl -fL '{escapedScriptUrl}' -o '{escapedScriptPath}'; " +
+                            $"else echo 'Neither wget nor curl found' >&2; exit 1; fi\"".TrimStart();
                         await sshService.ExecuteSingleCommandAsync(credentials, cmd, Log);
                     }
                     await sshService.ExecuteSingleCommandAsync(credentials, $"chmod +x {remoteTempDir}/*.sh", Log);
@@ -1211,7 +1245,7 @@ return 'OK'
 
                     try
                     {
-                        string scriptCmd = $"DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true {remoteTempDir}/install_dxgkrnl.sh";
+                        string scriptCmd = $"{runtimeProxyEnvPrefix} DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true {remoteTempDir}/install_dxgkrnl.sh".TrimStart();
                         var dxgResult = await sshService.ExecuteCommandAndCaptureOutputAsync(credentials, withSudo(scriptCmd), interceptLog, TimeSpan.FromMinutes(60));
 
                         if (dxgResult != null && dxgResult.Output != null)
@@ -1260,7 +1294,8 @@ return 'OK'
                         Log(Properties.Resources.Msg_Gpu_LinuxMesa);
                         try
                         {
-                            await sshService.ExecuteSingleCommandAsync(credentials, withSudo($"export DEBIAN_FRONTEND=noninteractive; {remoteTempDir}/setup_graphics.sh"), Log, TimeSpan.FromMinutes(20));
+                            string setupGraphicsCmd = $"{runtimeProxyEnvPrefix} DEBIAN_FRONTEND=noninteractive {remoteTempDir}/setup_graphics.sh".TrimStart();
+                            await sshService.ExecuteSingleCommandAsync(credentials, withSudo(setupGraphicsCmd), Log, TimeSpan.FromMinutes(20));
                         }
                         catch (Exception ex) { Log($"[Warning] setup_graphics.sh reported an error, but continuing. ({ex.Message})"); }
                     }
@@ -1269,7 +1304,8 @@ return 'OK'
                     string configArgs = credentials.InstallGraphics ? "enable_graphics" : "no_graphics";
                     try
                     {
-                        await sshService.ExecuteSingleCommandAsync(credentials, withSudo($"export DEBIAN_FRONTEND=noninteractive; {remoteTempDir}/configure_system.sh {configArgs}"), Log);
+                        string configureCmd = $"{runtimeProxyEnvPrefix} DEBIAN_FRONTEND=noninteractive {remoteTempDir}/configure_system.sh {configArgs}".TrimStart();
+                        await sshService.ExecuteSingleCommandAsync(credentials, withSudo(configureCmd), Log);
                     }
                     catch (Exception ex) { Log($"[Warning] configure_system.sh reported an error, but continuing. ({ex.Message})"); }
 

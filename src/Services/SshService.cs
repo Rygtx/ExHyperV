@@ -25,16 +25,23 @@ namespace ExHyperV.Services
     public class SshService
     {
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
-        public async Task<string> ExecuteSingleCommandAsync(SshCredentials credentials, string command, Action<string> logCallback, TimeSpan? commandTimeout = null)
+        private static ConnectionInfo CreateConnectionInfo(SshCredentials credentials, TimeSpan? timeout = null)
         {
-            string commandToExecute = command; 
-            string commandToLog = command;
-
-            var connectionInfo = new ConnectionInfo(credentials.Host, credentials.Username,
+            return new ConnectionInfo(
+                credentials.Host,
+                credentials.Port,
+                credentials.Username,
                 new PasswordAuthenticationMethod(credentials.Username, credentials.Password))
             {
-                Timeout = TimeSpan.FromSeconds(30)
+                Timeout = timeout ?? TimeSpan.FromSeconds(30)
             };
+        }
+
+        public async Task<string> ExecuteSingleCommandAsync(SshCredentials credentials, string command, Action<string> logCallback, TimeSpan? commandTimeout = null)
+        {
+            string commandToExecute = command;
+
+            var connectionInfo = CreateConnectionInfo(credentials);
 
             using (var client = new SshClient(connectionInfo))
             {
@@ -76,11 +83,7 @@ namespace ExHyperV.Services
                 outputBuilder.Append(log);
             };
 
-            var connectionInfo = new ConnectionInfo(credentials.Host, credentials.Username,
-                new PasswordAuthenticationMethod(credentials.Username, credentials.Password))
-            {
-                Timeout = TimeSpan.FromSeconds(30)
-            };
+            var connectionInfo = CreateConnectionInfo(credentials);
 
             using (var client = new SshClient(connectionInfo))
             {
@@ -128,8 +131,7 @@ namespace ExHyperV.Services
         {
             return Task.Run(() =>
             {
-                var connectionInfo = new ConnectionInfo(credentials.Host, credentials.Username,
-                    new PasswordAuthenticationMethod(credentials.Username, credentials.Password));
+                var connectionInfo = CreateConnectionInfo(credentials);
 
                 using (var sftp = new SftpClient(connectionInfo))
                 {
@@ -146,8 +148,7 @@ namespace ExHyperV.Services
         {
             return Task.Run(() =>
             {
-                var connectionInfo = new ConnectionInfo(credentials.Host, credentials.Username,
-                    new PasswordAuthenticationMethod(credentials.Username, credentials.Password));
+                var connectionInfo = CreateConnectionInfo(credentials);
 
                 using (var sftp = new SftpClient(connectionInfo))
                 {
@@ -203,8 +204,7 @@ namespace ExHyperV.Services
         {
             return Task.Run(() =>
             {
-                var connectionInfo = new ConnectionInfo(credentials.Host, credentials.Username,
-                    new PasswordAuthenticationMethod(credentials.Username, credentials.Password));
+                var connectionInfo = CreateConnectionInfo(credentials);
 
                 using (var sftp = new SftpClient(connectionInfo))
                 {

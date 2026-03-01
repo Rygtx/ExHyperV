@@ -1,6 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Windows;
@@ -346,6 +348,78 @@ public class Utils
     }
 
     #region Hyper-V Network Helpers
+
+    public static string SelectBestIpv4Address(string ipCandidates)
+    {
+        if (string.IsNullOrWhiteSpace(ipCandidates))
+        {
+            return string.Empty;
+        }
+
+        var parsedAddresses = ipCandidates
+            .Split(new[] { ',', ';', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(NormalizeIpCandidate)
+            .Where(candidate => !string.IsNullOrWhiteSpace(candidate))
+            .Select(candidate => IPAddress.TryParse(candidate, out var addr) && addr.AddressFamily == AddressFamily.InterNetwork ? addr : null)
+            .Where(addr => addr != null)
+            .Cast<IPAddress>()
+            .Distinct()
+            .ToList();
+
+        if (parsedAddresses.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var preferred = parsedAddresses.FirstOrDefault(IsRfc1918PrivateAddress)
+            ?? parsedAddresses.FirstOrDefault(addr => !IsLinkLocalOrLoopback(addr))
+            ?? parsedAddresses[0];
+
+        return preferred.ToString();
+    }
+
+    private static string NormalizeIpCandidate(string candidate)
+    {
+        if (string.IsNullOrWhiteSpace(candidate))
+        {
+            return string.Empty;
+        }
+
+        string trimmed = candidate.Trim().Trim('[', ']');
+        int cidrIndex = trimmed.IndexOf('/');
+        if (cidrIndex > 0)
+        {
+            trimmed = trimmed.Substring(0, cidrIndex);
+        }
+        return trimmed.Trim();
+    }
+
+    private static bool IsLinkLocalOrLoopback(IPAddress address)
+    {
+        var bytes = address.GetAddressBytes();
+        return bytes.Length == 4 && (bytes[0] == 127 || (bytes[0] == 169 && bytes[1] == 254));
+    }
+
+    private static bool IsRfc1918PrivateAddress(IPAddress address)
+    {
+        var bytes = address.GetAddressBytes();
+        if (bytes.Length != 4)
+        {
+            return false;
+        }
+
+        if (bytes[0] == 10)
+        {
+            return true;
+        }
+
+        if (bytes[0] == 172 && bytes[1] >= 16 && bytes[1] <= 31)
+        {
+            return true;
+        }
+
+        return bytes[0] == 192 && bytes[1] == 168;
+    }
 
     /// <summary>
     /// 异步获取虚拟机的IP地址。
