@@ -3036,11 +3036,7 @@ namespace ExHyperV.ViewModels
 
                     if (!string.IsNullOrEmpty(vmIp))
                     {
-                        SshHost = vmIp.Split(',')
-                                     .Select(ip => ip.Trim())
-                                     .FirstOrDefault(ip => System.Net.IPAddress.TryParse(ip, out var addr)
-                                                     && addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                                     ?? string.Empty;
+                        SshHost = Utils.SelectBestIpv4Address(vmIp);
                         AppendLog(string.Format(Properties.Resources.Msg_Gpu_IpOk, SshHost));
                     }
                     else
