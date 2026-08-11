@@ -2,17 +2,33 @@
   {
     "DisplayName": "Alpine Linux",
     "OS": "alpine",
-    "Release": "v3.15",
+    "Release": "v3.21",
     "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.15/releases/x86_64/alpine-virt-3.15.11-x86_64.iso",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-virt-3.21.7-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Alpine Linux",
     "OS": "alpine",
-    "Release": "v3.17",
+    "Release": "v3.24",
     "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-virt-3.17.10-x86_64.iso",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-virt-3.24.1-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Alpine Linux",
+    "OS": "alpine",
+    "Release": "v3.16",
+    "Option": "",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.9-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Alpine Linux",
+    "OS": "alpine",
+    "Release": "v3.19",
+    "Option": "",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64/alpine-virt-3.19.9-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
   },
   {
@@ -26,9 +42,17 @@
   {
     "DisplayName": "Alpine Linux",
     "OS": "alpine",
-    "Release": "v3.24",
+    "Release": "v3.15",
     "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-virt-3.24.1-x86_64.iso",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.15/releases/x86_64/alpine-virt-3.15.11-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Alpine Linux",
+    "OS": "alpine",
+    "Release": "v3.17",
+    "Option": "",
+    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-virt-3.17.10-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
   },
   {
@@ -50,50 +74,18 @@
   {
     "DisplayName": "Alpine Linux",
     "OS": "alpine",
-    "Release": "v3.16",
-    "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.9-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Alpine Linux",
-    "OS": "alpine",
-    "Release": "v3.21",
-    "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-virt-3.21.7-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Alpine Linux",
-    "OS": "alpine",
     "Release": "v3.22",
     "Option": "",
     "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.22/releases/x86_64/alpine-virt-3.22.5-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Alpine Linux",
-    "OS": "alpine",
-    "Release": "v3.19",
-    "Option": "",
-    "DownloadURL": "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64/alpine-virt-3.19.9-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alpine/alpine-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "AlmaLinux",
     "OS": "alma",
     "Release": "8",
-    "Option": "boot",
-    "DownloadURL": "https://repo.almalinux.org/almalinux/8/isos/x86_64/AlmaLinux-8-latest-x86_64-boot.iso",
+    "Option": "minimal",
+    "DownloadURL": "https://repo.almalinux.org/almalinux/8/isos/x86_64/AlmaLinux-8-latest-x86_64-minimal.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Android x86",
-    "OS": "android",
-    "Release": "7.1",
-    "Option": "x86_64",
-    "DownloadURL": "https://mirrors.gigenet.com/OSDN/android-x86/67834/android-x86_64-7.1-r5.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "AlmaLinux",
@@ -107,8 +99,24 @@
     "DisplayName": "AlmaLinux",
     "OS": "alma",
     "Release": "8",
-    "Option": "minimal",
-    "DownloadURL": "https://repo.almalinux.org/almalinux/8/isos/x86_64/AlmaLinux-8-latest-x86_64-minimal.iso",
+    "Option": "boot",
+    "DownloadURL": "https://repo.almalinux.org/almalinux/8/isos/x86_64/AlmaLinux-8-latest-x86_64-boot.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "AlmaLinux",
+    "OS": "alma",
+    "Release": "9",
+    "Option": "boot",
+    "DownloadURL": "https://repo.almalinux.org/almalinux/9/isos/x86_64/AlmaLinux-9-latest-x86_64-boot.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "AlmaLinux",
+    "OS": "alma",
+    "Release": "9",
+    "Option": "dvd",
+    "DownloadURL": "https://repo.almalinux.org/almalinux/9/isos/x86_64/AlmaLinux-9-latest-x86_64-dvd.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
   },
   {
@@ -128,12 +136,20 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "AlmaLinux",
-    "OS": "alma",
-    "Release": "9",
-    "Option": "dvd",
-    "DownloadURL": "https://repo.almalinux.org/almalinux/9/isos/x86_64/AlmaLinux-9-latest-x86_64-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
+    "DisplayName": "Android x86",
+    "OS": "android",
+    "Release": "8.1",
+    "Option": "x86_64",
+    "DownloadURL": "https://mirrors.gigenet.com/OSDN/android-x86/69704/android-x86_64-8.1-r6.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Android x86",
+    "OS": "android",
+    "Release": "7.1",
+    "Option": "x86_64",
+    "DownloadURL": "https://mirrors.gigenet.com/OSDN/android-x86/67834/android-x86_64-7.1-r5.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Android x86",
@@ -141,22 +157,6 @@
     "Release": "7.1",
     "Option": "x86",
     "DownloadURL": "https://mirrors.gigenet.com/OSDN/android-x86/67834/android-x86-7.1-r5.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "AlmaLinux",
-    "OS": "alma",
-    "Release": "9",
-    "Option": "boot",
-    "DownloadURL": "https://repo.almalinux.org/almalinux/9/isos/x86_64/AlmaLinux-9-latest-x86_64-boot.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/alma/alma-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Android x86",
-    "OS": "android",
-    "Release": "8.1",
-    "Option": "x86_64",
-    "DownloadURL": "https://mirrors.gigenet.com/OSDN/android-x86/69704/android-x86_64-8.1-r6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/android/android-quickemu-white-pinkbg.png"
   },
   {
@@ -180,7 +180,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "base-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-base.iso?viasf=1&fid=fdb673401d9d62a9&e=1786408964&st=U78yDrMcBxsp2jj6cLYcJg",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-base.iso?viasf=1&fid=fdb673401d9d62a9&e=1786495373&st=Dc7tz9tgsmMU_W3NV8I3Kg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -188,7 +188,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "base-sysv",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-base.iso?viasf=1&fid=a64414eab711d3a1&e=1786408968&st=KROFUnS8gweS8hgi-ATePQ",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-base.iso?viasf=1&fid=a64414eab711d3a1&e=1786495373&st=x9QkIfMxPFXgggTrHLg6xA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -196,7 +196,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "core-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-core.iso?viasf=1&fid=535b615b4cb5bcf7&e=1786408964&st=hUOmRrYz2-HCSoTCBUnHiA",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-core.iso?viasf=1&fid=535b615b4cb5bcf7&e=1786495373&st=IfPR-Pdlr4KybrQA7cXgLQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -204,7 +204,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "core-sysv",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-core.iso?viasf=1&fid=eecf68e5f224dcd9&e=1786408968&st=rKOUsXm58TeJG4DclQ6nGg",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-core.iso?viasf=1&fid=eecf68e5f224dcd9&e=1786495374&st=Z9DdGvGijgfq1qcPxz07wQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -212,7 +212,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "full-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-full.iso?viasf=1&fid=54b3391a096cb098&e=1786408964&st=2EBcE4Ew2poAk7Ep4jCwBA",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit_x64-full.iso?viasf=1&fid=54b3391a096cb098&e=1786495374&st=QAR88KXnA9zWjQjCr12Zkw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -220,7 +220,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "full-sysv",
-    "DownloadURL": "https://cytranet-dal.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-full.iso?viasf=1&fid=ac870afa3970f2e5&e=1786408965&st=hJvG_MK0zuGJWQ-UKNrPRQ",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21_x64-full.iso?viasf=1&fid=ac870afa3970f2e5&e=1786495375&st=wCXs3-Nb8mt5zffXNBJt2g",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -228,7 +228,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "net-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit-net_x64-net.iso?viasf=1&fid=be082a8a50f69085&e=1786408964&st=bBNzGOVCp6fRUwERtYEXZA",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-21/runit-bullseye/antiX-21-runit-net_x64-net.iso?viasf=1&fid=be082a8a50f69085&e=1786495374&st=z1smPpyOWzWjNSMDuY-JBg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -236,15 +236,7 @@
     "OS": "antix",
     "Release": "21",
     "Option": "net-sysv",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21-net_x64-net.iso?viasf=1&fid=6cb09e4261b79d96&e=1786408965&st=nc7hpukJJK54MAs-Faeryg",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "22",
-    "Option": "base-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-base.iso?viasf=1&fid=c54a29117eb480de&e=1786408981&st=41tGYJ-4r57MZyghoxRx_A",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-21/antiX-21-net_x64-net.iso?viasf=1&fid=6cb09e4261b79d96&e=1786495375&st=nHPbzbdclUqiykcALzxrrQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -252,7 +244,7 @@
     "OS": "antix",
     "Release": "22",
     "Option": "base-sysv",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-base.iso?viasf=1&fid=93c70a6f1f186e8b&e=1786408981&st=47V-6JE1b_bnO0Ra2u_QHw",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-base.iso?viasf=1&fid=93c70a6f1f186e8b&e=1786495389&st=46LHEidev8Iy7PMQIa_VNg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -260,15 +252,15 @@
     "OS": "antix",
     "Release": "22",
     "Option": "core-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-core.iso?viasf=1&fid=1f442b7a26d574a3&e=1786408981&st=aGS5mtAZc_OgCVAE7FM9mw",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-core.iso?viasf=1&fid=1f442b7a26d574a3&e=1786495388&st=63-ZGPkakYCfKd6aEDnVUw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Antix",
     "OS": "antix",
     "Release": "22",
-    "Option": "full-sysv",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-full.iso?viasf=1&fid=b8017c36fb8e67d5&e=1786408982&st=7EnANitzDwQGF1po3TzLcA",
+    "Option": "base-runit",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-base.iso?viasf=1&fid=c54a29117eb480de&e=1786495388&st=vAxm9ELocYkQoK1wsLN3SA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -276,7 +268,7 @@
     "OS": "antix",
     "Release": "22",
     "Option": "core-sysv",
-    "DownloadURL": "https://excellmedia.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-core.iso?viasf=1&fid=927d50d60395ad25&e=1786408982&st=xuMJs4RR1N2P-m374kGpmg",
+    "DownloadURL": "https://altushost-swe.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-core.iso?viasf=1&fid=927d50d60395ad25&e=1786495388&st=3zB4bkMyTSD6QfLosIZE2w",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -284,15 +276,15 @@
     "OS": "antix",
     "Release": "22",
     "Option": "full-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-full.iso?viasf=1&fid=2ffbdcd9c74a822e&e=1786408981&st=aj9xL3rDFGkwtX6vyWsHIg",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit_x64-full.iso?viasf=1&fid=2ffbdcd9c74a822e&e=1786495388&st=PWjciVOzfJ3wE6d7JWX3cQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Antix",
     "OS": "antix",
     "Release": "22",
-    "Option": "net-sysv",
-    "DownloadURL": "https://excellmedia.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22-net_x64-net.iso?viasf=1&fid=699af384e6796823&e=1786408981&st=Nz-rGex9lOq9EpykbVWSoA",
+    "Option": "full-sysv",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22_x64-full.iso?viasf=1&fid=b8017c36fb8e67d5&e=1786495388&st=JKK0D0TXtGdEEsZ9GY246A",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -300,15 +292,7 @@
     "OS": "antix",
     "Release": "22",
     "Option": "net-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit-net_x64-net.iso?viasf=1&fid=02eae397456fd053&e=1786408981&st=qW9p8vtxJwsC8G3bEiFw0g",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "base-runit",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-base.iso?viasf=1&fid=9cb463c644326575&e=1786408981&st=gbuEa-2Cg5YE15gvATgJ-w",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-22/runit-antiX-22/antiX-22-runit-net_x64-net.iso?viasf=1&fid=02eae397456fd053&e=1786495388&st=lRIeqY0UIWGyR5soxjg5aQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -316,31 +300,79 @@
     "OS": "antix",
     "Release": "23",
     "Option": "base-sysv",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-base.iso?viasf=1&fid=c49abe0f45a32ea5&e=1786408982&st=obq6RWvUKF-g7Aewifj6Sg",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-base.iso?viasf=1&fid=c49abe0f45a32ea5&e=1786495388&st=FIpbvd2-u_y-MjngYJupLg",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "base-runit",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-base.iso?viasf=1&fid=9cb463c644326575&e=1786495388&st=fwGLbRqS-_SKqTS95fysWA",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "22",
+    "Option": "net-sysv",
+    "DownloadURL": "https://altushost-swe.dl.sourceforge.net/project/antix-linux/Final/antiX-22/antiX-22-net_x64-net.iso?viasf=1&fid=699af384e6796823&e=1786495388&st=cVs76w5FzH9dJbRTNm1xEg",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "core-runit",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-core.iso?viasf=1&fid=0cf419c2b8ca53e1&e=1786495392&st=LG8kSwFNzrEOPJb19IEyvw",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "core-sysv",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-core.iso?viasf=1&fid=1456aea8bbedc1d9&e=1786495392&st=gQxOAbdAPr63zr_eH7mCRw",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "full-runit",
+    "DownloadURL": "https://excellmedia.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-full.iso?viasf=1&fid=b9ff1b968c48050b&e=1786495393&st=Bi4q2oxBAFyWIA8CLBKX5A",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "full-sysv",
+    "DownloadURL": "https://cfhcable.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-full.iso?viasf=1&fid=e2d7aeef0e784739&e=1786495393&st=BMlmT-q0Qnoz9E0jOSD6iA",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "net-runit",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit-net_x64-net.iso?viasf=1&fid=82085538d6f4774e&e=1786495393&st=64ngvuZFvXWth-rfCIXyYw",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Antix",
+    "OS": "antix",
+    "Release": "23",
+    "Option": "net-sysv",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23-net_x64-net.iso?viasf=1&fid=b5f1b60ebfb0b704&e=1786495395&st=qjdbyoY25BaQXMylgCvJWA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Antix",
     "OS": "antix",
     "Release": "23.1",
-    "Option": "base-sysv",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-base.iso?viasf=1&fid=b53e9fe194d52d64&e=1786408985&st=gH4U8YVg1oKr8nPjhsn7hQ",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "core-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-core.iso?viasf=1&fid=0cf419c2b8ca53e1&e=1786408984&st=b20ezwoWbpDJ_moQIOoeog",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "core-sysv",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-core.iso?viasf=1&fid=1456aea8bbedc1d9&e=1786408984&st=7tgwQr8U85PDbundcXHW9w",
+    "Option": "base-runit",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-base.iso?viasf=1&fid=249e1216d68b5dbb&e=1786495395&st=lk1OOdjFoYxdKSlWBi2-kQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -352,43 +384,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "full-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit_x64-full.iso?viasf=1&fid=b9ff1b968c48050b&e=1786408984&st=ClScRExaU90srPMDOE4F5Q",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "full-sysv",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23_x64-full.iso?viasf=1&fid=e2d7aeef0e784739&e=1786408984&st=t2TJoDjQkOAh0iI0dqnwVQ",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "net-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/runit-antiX-23/antiX-23-runit-net_x64-net.iso?viasf=1&fid=82085538d6f4774e&e=1786408984&st=0eCj7qZ9u-eZ_JNhQho8jQ",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Antix",
-    "OS": "antix",
-    "Release": "23",
-    "Option": "net-sysv",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23/antiX-23-net_x64-net.iso?viasf=1&fid=b5f1b60ebfb0b704&e=1786408984&st=S6yETbrSEofIXGZzOQ9O2A",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
+    "DisplayName": "Artix Linux",
+    "OS": "artixlinux",
+    "Release": "20260402",
+    "Option": "cinnamon-openrc",
+    "DownloadURL": "https://artixlinux.org/download.php",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Antix",
     "OS": "antix",
     "Release": "23.1",
-    "Option": "base-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-base.iso?viasf=1&fid=249e1216d68b5dbb&e=1786408985&st=w7XaRlJ4f3pa_QYPAWa5qQ",
+    "Option": "base-sysv",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-base.iso?viasf=1&fid=b53e9fe194d52d64&e=1786495395&st=hmJQA96-9LWf2qEfqVdSqA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -396,7 +404,7 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "core-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-core.iso?viasf=1&fid=b2930491f3b0f8eb&e=1786408985&st=xEdOMyk5U06MvKyVckhmUw",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-core.iso?viasf=1&fid=b2930491f3b0f8eb&e=1786495395&st=9NN9TyiWD3eQ3Qe-HFLHPg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -404,16 +412,8 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "core-sysv",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-core.iso?viasf=1&fid=9d11ef003abf4ba6&e=1786408985&st=9sZ_5woujO3b53C2tgsZWQ",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-core.iso?viasf=1&fid=9d11ef003abf4ba6&e=1786495395&st=a5YHp5AZSCHaRMSpdIAreg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Artix Linux",
-    "OS": "artixlinux",
-    "Release": "20260402",
-    "Option": "cinnamon-openrc",
-    "DownloadURL": "https://artixlinux.org/download.php",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Artix Linux",
@@ -427,7 +427,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "cinnamon-s6",
+    "Option": "lxde-dinit",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -435,7 +435,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "lxde-dinit",
+    "Option": "cinnamon-s6",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -523,7 +523,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "plasma-openrc",
+    "Option": "plasma-dinit",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -539,7 +539,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "plasma-dinit",
+    "Option": "plasma-openrc",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -555,7 +555,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "xfce-dinit",
+    "Option": "plasma-s6",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -563,7 +563,7 @@
     "DisplayName": "Artix Linux",
     "OS": "artixlinux",
     "Release": "20260402",
-    "Option": "plasma-s6",
+    "Option": "xfce-dinit",
     "DownloadURL": "https://artixlinux.org/download.php",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
@@ -596,7 +596,7 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "full-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-full.iso?viasf=1&fid=4273ed4ec3fb2170&e=1786409002&st=bOwWBOjRZa_cRJGp_7xhDA",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit_x64-full.iso?viasf=1&fid=4273ed4ec3fb2170&e=1786495409&st=lnkpbxNNaNK7qekCazfqUw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -604,7 +604,7 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "full-sysv",
-    "DownloadURL": "https://cytranet-dal.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-full.iso?viasf=1&fid=ca44f6ffe7ad863f&e=1786409002&st=OTVF9OWm5CifXd268iXz5w",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1_x64-full.iso?viasf=1&fid=ca44f6ffe7ad863f&e=1786495409&st=DWnoE0z5oGFOExJsBw2JnA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -612,7 +612,7 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "net-runit",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit-net_x64-net.iso?viasf=1&fid=13dc6ba6d88bbb70&e=1786409002&st=KdJ5-D93_-eOmIzrlwv6LQ",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/runit-antiX-23.1/antiX-23.1-runit-net_x64-net.iso?viasf=1&fid=13dc6ba6d88bbb70&e=1786495409&st=2JWTIhIuWgjWIDbVmAqsQg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -620,7 +620,7 @@
     "OS": "antix",
     "Release": "23.1",
     "Option": "net-sysv",
-    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1-net_x64-net.iso?viasf=1&fid=3f77d46ebc5e644e&e=1786409002&st=gN945GS3ygbSQJO21SNkCw",
+    "DownloadURL": "https://master.dl.sourceforge.net/project/antix-linux/Final/antiX-23.1/antiX-23.1-net_x64-net.iso?viasf=1&fid=3f77d46ebc5e644e&e=1786495409&st=QmP4XlsthOYDszTib9Uvlw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/antix/antix-quickemu-white-pinkbg.png"
   },
   {
@@ -628,8 +628,16 @@
     "OS": "archcraft",
     "Release": "latest",
     "Option": "",
-    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/archcraft/v26.08/archcraft-2026.08.01-x86_64.iso?viasf=1&fid=879b3e20971887d0&e=1786409003&st=6PNaqc1zRP8LyK7MKtPUzQ",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/archcraft/v26.08/archcraft-2026.08.01-x86_64.iso?viasf=1&fid=879b3e20971887d0&e=1786495409&st=-7mzN_ISGzXVPRbKeu-d-g",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/archcraft/archcraft-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Arch Linux",
+    "OS": "archlinux",
+    "Release": "latest",
+    "Option": "",
+    "DownloadURL": "https://geo.mirror.pkgbuild.com//iso/2026.08.01/archlinux-2026.08.01-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/archlinux/archlinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Artix Linux",
@@ -640,12 +648,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Arch Linux",
-    "OS": "archlinux",
-    "Release": "latest",
-    "Option": "",
-    "DownloadURL": "https://geo.mirror.pkgbuild.com//iso/2026.08.01/archlinux-2026.08.01-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/archlinux/archlinux-quickemu-white-pinkbg.png"
+    "DisplayName": "Artix Linux",
+    "OS": "artixlinux",
+    "Release": "20260402",
+    "Option": "base-s6",
+    "DownloadURL": "https://iso.artixlinux.org/iso/artix-base-s6-20260402-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Artix Linux",
@@ -661,14 +669,6 @@
     "Release": "20260402",
     "Option": "base-openrc",
     "DownloadURL": "https://iso.artixlinux.org/iso/artix-base-openrc-20260402-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Artix Linux",
-    "OS": "artixlinux",
-    "Release": "20260402",
-    "Option": "base-s6",
-    "DownloadURL": "https://iso.artixlinux.org/iso/artix-base-s6-20260402-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/artixlinux/artixlinux-quickemu-white-pinkbg.png"
   },
   {
@@ -752,86 +752,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bazzite/bazzite-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Bodhi",
-    "OS": "bodhi",
-    "Release": "7.0.0",
-    "Option": "s76",
-    "DownloadURL": "https://cytranet-dal.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64-s76.iso?viasf=1&fid=d2dd3203a385ce30&e=1786409022&st=lSRr0ZWm8tldLIwdLCs15Q",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "BlendOS",
-    "OS": "blendos",
-    "Release": "latest",
-    "Option": "",
-    "DownloadURL": "https://git.blendos.co/api/v4/projects/32/jobs/artifacts/main/raw/blendOS.iso?job=build-job",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/blendos/blendos-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Bodhi",
-    "OS": "bodhi",
-    "Release": "7.0.0",
-    "Option": "standard",
-    "DownloadURL": "https://cfhcable.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64.iso?viasf=1&fid=8a58a5ee54383bf4&e=1786409022&st=KV8DvKq1eeDWDM2VSoQJ1w",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "BigLinux",
-    "OS": "biglinux",
-    "Release": "2026-08-08",
-    "Option": "k71",
-    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k71.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "BunsenLabs",
-    "OS": "bunsenlabs",
-    "Release": "boron",
-    "Option": "",
-    "DownloadURL": "https://ddl.bunsenlabs.org/ddl/boron-1-240123-amd64.hybrid.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bunsenlabs/bunsenlabs-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Bodhi",
-    "OS": "bodhi",
-    "Release": "7.0.0",
-    "Option": "hwe",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64-hwe.iso?viasf=1&fid=93a162ffa28f3311&e=1786409022&st=Je2f5bMLiCnp6U7SQZ4ZrA",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "CachyOS",
-    "OS": "cachyos",
-    "Release": "latest",
-    "Option": "desktop",
-    "DownloadURL": "https://cdn77.cachyos.org/ISO/desktop/260809/cachyos-desktop-linux-260809.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/cachyos/cachyos-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "BigLinux",
-    "OS": "biglinux",
-    "Release": "2026-08-08",
-    "Option": "k618",
-    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k618.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "BigLinux",
-    "OS": "biglinux",
-    "Release": "2026-08-08",
-    "Option": "k612",
-    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k612.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "CachyOS",
-    "OS": "cachyos",
-    "Release": "latest",
-    "Option": "handheld",
-    "DownloadURL": "https://cdn77.cachyos.org/ISO/handheld/260628/cachyos-handheld-linux-260628.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/cachyos/cachyos-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "CentOS Stream",
     "OS": "centos-stream",
     "Release": "10",
@@ -846,6 +766,86 @@
     "Option": "dvd1",
     "DownloadURL": "https://linuxsoft.cern.ch/centos-stream/10-stream/BaseOS/x86_64/iso/CentOS-Stream-10-latest-x86_64-dvd1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/centos-stream/centos-stream-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "BigLinux",
+    "OS": "biglinux",
+    "Release": "2026-08-08",
+    "Option": "k612",
+    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k612.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Bodhi",
+    "OS": "bodhi",
+    "Release": "7.0.0",
+    "Option": "hwe",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64-hwe.iso?viasf=1&fid=93a162ffa28f3311&e=1786495428&st=pRHZLhFIGsOhr2ywnxBp6w",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "BigLinux",
+    "OS": "biglinux",
+    "Release": "2026-08-08",
+    "Option": "k71",
+    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k71.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Bodhi",
+    "OS": "bodhi",
+    "Release": "7.0.0",
+    "Option": "s76",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64-s76.iso?viasf=1&fid=d2dd3203a385ce30&e=1786495429&st=E_LNVNaLjyFodvd33iFslQ",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "BigLinux",
+    "OS": "biglinux",
+    "Release": "2026-08-08",
+    "Option": "k618",
+    "DownloadURL": "https://iso.biglinux.com.br/biglinux_2026-08-08_k618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/biglinux/biglinux-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "BlendOS",
+    "OS": "blendos",
+    "Release": "latest",
+    "Option": "",
+    "DownloadURL": "https://git.blendos.co/api/v4/projects/32/jobs/artifacts/main/raw/blendOS.iso?job=build-job",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/blendos/blendos-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Bodhi",
+    "OS": "bodhi",
+    "Release": "7.0.0",
+    "Option": "standard",
+    "DownloadURL": "https://psychz.dl.sourceforge.net/project/bodhilinux/7.0.0/bodhi-7.0.0-64.iso?viasf=1&fid=8a58a5ee54383bf4&e=1786495428&st=bOdg95u2g6YtMdNW7ZMzVw",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bodhi/bodhi-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "BunsenLabs",
+    "OS": "bunsenlabs",
+    "Release": "boron",
+    "Option": "",
+    "DownloadURL": "https://ddl.bunsenlabs.org/ddl/boron-1-240123-amd64.hybrid.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/bunsenlabs/bunsenlabs-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "CachyOS",
+    "OS": "cachyos",
+    "Release": "latest",
+    "Option": "desktop",
+    "DownloadURL": "https://cdn77.cachyos.org/ISO/desktop/260809/cachyos-desktop-linux-260809.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/cachyos/cachyos-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "CachyOS",
+    "OS": "cachyos",
+    "Release": "latest",
+    "Option": "handheld",
+    "DownloadURL": "https://cdn77.cachyos.org/ISO/handheld/260628/cachyos-handheld-linux-260628.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/cachyos/cachyos-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "CentOS Stream",
@@ -884,7 +884,7 @@
     "OS": "crunchbang++",
     "Release": "10.1",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/ab9b9481-485a-4a2c-a839-f9a3dd184648?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A33%3A53Z&rscd=attachment%3B+filename%3Dcbpp-10.1-amd64-20190713.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A33%3A47Z&ske=2026-08-10T01%3A33%3A53Z&sks=b&skv=2018-11-09&sig=XLhyZ48DGuLA5PrT7C9CQa9bKVFQjCplqoNWrCOHeEI%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjIyOSwibmJmIjoxNzg2MzIyNjI5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.TOlNTi4K9Gd28paVQjICbGWjJ79R6AerOz9LUulNu6Q&response-content-disposition=attachment%3B%20filename%3Dcbpp-10.1-amd64-20190713.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/ab9b9481-485a-4a2c-a839-f9a3dd184648?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A39%3A40Z&rscd=attachment%3B+filename%3Dcbpp-10.1-amd64-20190713.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A39%3A02Z&ske=2026-08-11T01%3A39%3A40Z&sks=b&skv=2018-11-09&sig=CyUzU%2Fi2HmajhWoJ0op%2F%2FSqKJDHuiPH%2BEEGz%2F3tu%2BHc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMjYzOSwibmJmIjoxNzg2NDA5MDM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MqzBbOJI2sRgLtPMy5Rzt75qYKlzh5u6k_r7iJ4eZ-A&response-content-disposition=attachment%3B%20filename%3Dcbpp-10.1-amd64-20190713.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/crunchbang++/crunchbang++-quickemu-white-pinkbg.png"
   },
   {
@@ -892,7 +892,7 @@
     "OS": "crunchbang++",
     "Release": "11.2",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/9de39026-2271-45ff-87b6-10e1f86dd660?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A19%3A05Z&rscd=attachment%3B+filename%3Dcbpp-11.2-amd64-20230514.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A18%3A59Z&ske=2026-08-10T01%3A19%3A05Z&sks=b&skv=2018-11-09&sig=BvZfVoRiBowBITeEHYWfWunsypfV3MF%2BOtYgWptS0T0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjIzMCwibmJmIjoxNzg2MzIyNjMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.S3SQt_0IaVzKEtGEj_-N7gadxVEp1nYlmEHNxRB9jgc&response-content-disposition=attachment%3B%20filename%3Dcbpp-11.2-amd64-20230514.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/9de39026-2271-45ff-87b6-10e1f86dd660?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A41Z&rscd=attachment%3B+filename%3Dcbpp-11.2-amd64-20230514.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A36%3A57Z&ske=2026-08-11T01%3A37%3A41Z&sks=b&skv=2018-11-09&sig=5yt77TuekHxk95tgrZpN9lXEqsrVK%2Fsyuy03sw09Z6s%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMjYzOSwibmJmIjoxNzg2NDA5MDM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MqzBbOJI2sRgLtPMy5Rzt75qYKlzh5u6k_r7iJ4eZ-A&response-content-disposition=attachment%3B%20filename%3Dcbpp-11.2-amd64-20230514.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/crunchbang++/crunchbang++-quickemu-white-pinkbg.png"
   },
   {
@@ -900,7 +900,7 @@
     "OS": "crunchbang++",
     "Release": "12.0",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/16649d3d-d768-47b0-afbc-83987fac1df4?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A24%3A13Z&rscd=attachment%3B+filename%3Dcbpp-12.0-amd64-20230611.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A23%3A54Z&ske=2026-08-10T01%3A24%3A13Z&sks=b&skv=2018-11-09&sig=A1t5RXuuJNbqDq4GNexv%2F0XW5jSUYRQdXvYg3vdSD6w%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjIzMCwibmJmIjoxNzg2MzIyNjMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.S3SQt_0IaVzKEtGEj_-N7gadxVEp1nYlmEHNxRB9jgc&response-content-disposition=attachment%3B%20filename%3Dcbpp-12.0-amd64-20230611.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/16649d3d-d768-47b0-afbc-83987fac1df4?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A52Z&rscd=attachment%3B+filename%3Dcbpp-12.0-amd64-20230611.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A14Z&ske=2026-08-11T01%3A37%3A52Z&sks=b&skv=2018-11-09&sig=i8DMiEgW0cpy3GLkfjiQ0ncf%2B7tUqfz%2FWFGrTTKmKD8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMjYzOSwibmJmIjoxNzg2NDA5MDM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MqzBbOJI2sRgLtPMy5Rzt75qYKlzh5u6k_r7iJ4eZ-A&response-content-disposition=attachment%3B%20filename%3Dcbpp-12.0-amd64-20230611.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/crunchbang++/crunchbang++-quickemu-white-pinkbg.png"
   },
   {
@@ -908,24 +908,8 @@
     "OS": "crunchbang++",
     "Release": "9.0",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/9318d9d4-cdc9-4d7e-8e6c-d73f5561bd2b?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A18%3A50Z&rscd=attachment%3B+filename%3Dcbpp-9.0-amd64-20170621.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A18%3A32Z&ske=2026-08-10T01%3A18%3A50Z&sks=b&skv=2018-11-09&sig=t2qrJQobxsyg4gDkf6r%2F5I4ukkDDylgb2Y4%2Beqh9PzA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjIzMCwibmJmIjoxNzg2MzIyNjMwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.S3SQt_0IaVzKEtGEj_-N7gadxVEp1nYlmEHNxRB9jgc&response-content-disposition=attachment%3B%20filename%3Dcbpp-9.0-amd64-20170621.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/30788395/9318d9d4-cdc9-4d7e-8e6c-d73f5561bd2b?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A42%3A31Z&rscd=attachment%3B+filename%3Dcbpp-9.0-amd64-20170621.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A42%3A07Z&ske=2026-08-11T01%3A42%3A31Z&sks=b&skv=2018-11-09&sig=Ue31WLcPbVj77o9mpzbhLfZNRFdEhxFcofcPNWLeoiA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMjYzOSwibmJmIjoxNzg2NDA5MDM5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.MqzBbOJI2sRgLtPMy5Rzt75qYKlzh5u6k_r7iJ4eZ-A&response-content-disposition=attachment%3B%20filename%3Dcbpp-9.0-amd64-20170621.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/crunchbang++/crunchbang++-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Debian",
-    "OS": "debian",
-    "Release": "11.11.0",
-    "Option": "gnome",
-    "DownloadURL": "https://saimei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-gnome.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Debian",
-    "OS": "debian",
-    "Release": "11.11.0",
-    "Option": "lxqt",
-    "DownloadURL": "https://gemmei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-lxqt.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Debian",
@@ -939,16 +923,8 @@
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "11.11.0",
-    "Option": "mate",
-    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-mate.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Debian",
-    "OS": "debian",
-    "Release": "11.11.0",
-    "Option": "xfce",
-    "DownloadURL": "https://gemmei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-xfce.iso",
+    "Option": "gnome",
+    "DownloadURL": "https://saimei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-gnome.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -963,16 +939,16 @@
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "11.11.0",
-    "Option": "netinst",
-    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso",
+    "Option": "lxde",
+    "DownloadURL": "https://saimei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-lxde.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "11.11.0",
-    "Option": "lxde",
-    "DownloadURL": "https://saimei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-lxde.iso",
+    "Option": "mate",
+    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-mate.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -986,9 +962,25 @@
   {
     "DisplayName": "Debian",
     "OS": "debian",
-    "Release": "12.15.0",
-    "Option": "cinnamon",
-    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/12.15.0-live/amd64/iso-hybrid/debian-live-12.15.0-amd64-cinnamon.iso",
+    "Release": "11.11.0",
+    "Option": "netinst",
+    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/11.11.0/amd64/iso-cd/debian-11.11.0-amd64-netinst.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Debian",
+    "OS": "debian",
+    "Release": "11.11.0",
+    "Option": "lxqt",
+    "DownloadURL": "https://gemmei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-lxqt.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Debian",
+    "OS": "debian",
+    "Release": "11.11.0",
+    "Option": "xfce",
+    "DownloadURL": "https://gemmei.ftp.acc.umu.se/cdimage/archive/11.11.0-live/amd64/iso-hybrid/debian-live-11.11.0-amd64-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -997,6 +989,14 @@
     "Release": "12.15.0",
     "Option": "gnome",
     "DownloadURL": "https://gemmei.ftp.acc.umu.se/cdimage/archive/12.15.0-live/amd64/iso-hybrid/debian-live-12.15.0-amd64-gnome.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Debian",
+    "OS": "debian",
+    "Release": "12.15.0",
+    "Option": "cinnamon",
+    "DownloadURL": "https://laotzu.ftp.acc.umu.se/cdimage/archive/12.15.0-live/amd64/iso-hybrid/debian-live-12.15.0-amd64-cinnamon.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -1083,6 +1083,14 @@
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "13.6.0",
+    "Option": "lxde",
+    "DownloadURL": "https://laotzu.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Debian",
+    "OS": "debian",
+    "Release": "13.6.0",
     "Option": "lxqt",
     "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxqt.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
@@ -1091,16 +1099,16 @@
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "13.6.0",
-    "Option": "netinst",
-    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
+    "Option": "mate",
+    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "13.6.0",
-    "Option": "lxde",
-    "DownloadURL": "https://laotzu.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
+    "Option": "netinst",
+    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -1115,16 +1123,16 @@
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "13.6.0",
-    "Option": "mate",
-    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
+    "Option": "standard",
+    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-standard.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Debian",
     "OS": "debian",
     "Release": "13.6.0",
-    "Option": "standard",
-    "DownloadURL": "https://saimei.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-standard.iso",
+    "Option": "xfce",
+    "DownloadURL": "https://laotzu.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
@@ -1134,14 +1142,6 @@
     "Option": "",
     "DownloadURL": "https://cdimage.deepin.com/releases/23.1/amd64/deepin-desktop-community-23.1-amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/deepin/deepin-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Debian",
-    "OS": "debian",
-    "Release": "13.6.0",
-    "Option": "xfce",
-    "DownloadURL": "https://laotzu.ftp.acc.umu.se/debian-cd/13.6.0-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/debian/debian-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Deepin",
@@ -1248,27 +1248,27 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "EasyOS",
+    "OS": "easyos",
+    "Release": "5.8.5",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/easyos/easyos-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "EasyOS",
+    "OS": "easyos",
+    "Release": "5.9",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/easyos/easyos-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "DragonFlyBSD",
     "OS": "dragonflybsd",
     "Release": "5.4.1",
     "Option": "",
     "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.4.1_REL.iso.bz2",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "DragonFlyBSD",
-    "OS": "dragonflybsd",
-    "Release": "5.6.2",
-    "Option": "",
-    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.2_REL.iso.bz2",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "DragonFlyBSD",
-    "OS": "dragonflybsd",
-    "Release": "5.4.2",
-    "Option": "",
-    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.4.2_REL.iso.bz2",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
   },
   {
@@ -1282,17 +1282,17 @@
   {
     "DisplayName": "DragonFlyBSD",
     "OS": "dragonflybsd",
-    "Release": "5.6.1",
+    "Release": "5.4.2",
     "Option": "",
-    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.1_REL.iso.bz2",
+    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.4.2_REL.iso.bz2",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "DragonFlyBSD",
     "OS": "dragonflybsd",
-    "Release": "5.6.3",
+    "Release": "5.6.1",
     "Option": "",
-    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.3_REL.iso.bz2",
+    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.1_REL.iso.bz2",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
   },
   {
@@ -1306,66 +1306,26 @@
   {
     "DisplayName": "DragonFlyBSD",
     "OS": "dragonflybsd",
+    "Release": "5.6.2",
+    "Option": "",
+    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.2_REL.iso.bz2",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "DragonFlyBSD",
+    "OS": "dragonflybsd",
+    "Release": "5.6.3",
+    "Option": "",
+    "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.6.3_REL.iso.bz2",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "DragonFlyBSD",
+    "OS": "dragonflybsd",
     "Release": "5.8.0",
     "Option": "",
     "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.8.0_REL.iso.bz2",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "elementary OS",
-    "OS": "elementary",
-    "Release": "7.1",
-    "Option": "",
-    "DownloadURL": "https://elementary.io/404",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "elementary OS",
-    "OS": "elementary",
-    "Release": "7.0",
-    "Option": "",
-    "DownloadURL": "https://elementary.io/404",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "elementary OS",
-    "OS": "elementary",
-    "Release": "8.1",
-    "Option": "",
-    "DownloadURL": "https://elementary.io/404",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "elementary OS",
-    "OS": "elementary",
-    "Release": "8.0",
-    "Option": "",
-    "DownloadURL": "https://elementary.io/404",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "EasyOS",
-    "OS": "easyos",
-    "Release": "5.9",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/easyos/easyos-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "EasyOS",
-    "OS": "easyos",
-    "Release": "5.8.5",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/easyos/easyos-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Edubuntu",
-    "OS": "edubuntu",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "DragonFlyBSD",
@@ -1382,6 +1342,46 @@
     "Option": "",
     "DownloadURL": "http://mirror-master.dragonflybsd.org/iso-images/dfly-x86_64-5.8.2_REL.iso.bz2",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "elementary OS",
+    "OS": "elementary",
+    "Release": "8.1",
+    "Option": "",
+    "DownloadURL": "https://elementary.io/404",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "elementary OS",
+    "OS": "elementary",
+    "Release": "7.1",
+    "Option": "",
+    "DownloadURL": "https://elementary.io/404",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "elementary OS",
+    "OS": "elementary",
+    "Release": "8.0",
+    "Option": "",
+    "DownloadURL": "https://elementary.io/404",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "elementary OS",
+    "OS": "elementary",
+    "Release": "7.0",
+    "Option": "",
+    "DownloadURL": "https://elementary.io/404",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/elementary/elementary-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Edubuntu",
+    "OS": "edubuntu",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "DragonFlyBSD",
@@ -1448,51 +1448,27 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/dragonflybsd/dragonflybsd-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Edubuntu",
+    "OS": "edubuntu",
+    "Release": "24.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/edubuntu/releases/24.04/release/edubuntu-24.04.4-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Edubuntu",
+    "OS": "edubuntu",
+    "Release": "26.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/edubuntu/releases/26.04/release/edubuntu-26.04-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Fedora",
     "OS": "fedora",
     "Release": "42",
     "Option": "KDE_Mobile",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "COSMIC-Atomic",
-    "DownloadURL": "https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/releases/42/COSMIC-Atomic/x86_64/iso/Fedora-COSMIC-Atomic-ostree-x86_64-42-1.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "KDE",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-42-1.1.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "COSMIC",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-COSMIC-Live-42-1.1.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Budgie",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Budgie-Live-42-1.1.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Cinnamon",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Cinnamon-Live-x86_64-42-1.1.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-KDE-Mobile-Live-42-1.1.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1507,8 +1483,40 @@
     "DisplayName": "Fedora",
     "OS": "fedora",
     "Release": "42",
-    "Option": "LXQt",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-LXQt-Live-42-1.1.x86_64.iso",
+    "Option": "Budgie",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Budgie-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "COSMIC-Atomic",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/COSMIC-Atomic/x86_64/iso/Fedora-COSMIC-Atomic-ostree-x86_64-42-1.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "KDE",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Cinnamon",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Cinnamon-Live-x86_64-42-1.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "COSMIC",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-COSMIC-Live-42-1.1.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1523,8 +1531,32 @@
     "DisplayName": "Fedora",
     "OS": "fedora",
     "Release": "42",
-    "Option": "MiracleWM",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-MiracleWM-Live-42-1.1.x86_64.iso",
+    "Option": "LXQt",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-LXQt-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Kinoite",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-42-1.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Silverblue",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-42-1.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Sway",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Sway-Live-x86_64-42-1.1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1533,6 +1565,38 @@
     "Release": "42",
     "Option": "Onyx",
     "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Onyx/x86_64/iso/Fedora-Onyx-ostree-x86_64-42-1.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Workstation",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Workstation/x86_64/iso/Fedora-Workstation-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "Xfce",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Xfce-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "43",
+    "Option": "Budgie",
+    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Budgie-Live-43-1.6.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "i3",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-i3-Live-x86_64-42-1.1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1550,46 +1614,6 @@
     "Option": "Sericea",
     "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Sericea/x86_64/iso/Fedora-Sericea-ostree-x86_64-42-1.1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Silverblue",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-42-1.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Workstation",
-    "DownloadURL": "https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/releases/42/Workstation/x86_64/iso/Fedora-Workstation-Live-42-1.1.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Xfce",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Xfce-Live-42-1.1.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Edubuntu",
-    "OS": "edubuntu",
-    "Release": "24.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/edubuntu/releases/24.04/release/edubuntu-24.04.4-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Edubuntu",
-    "OS": "edubuntu",
-    "Release": "26.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/edubuntu/releases/26.04/release/edubuntu-26.04-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "EndeavourOS",
@@ -1610,17 +1634,17 @@
   {
     "DisplayName": "EndeavourOS",
     "OS": "endeavouros",
-    "Release": "mercury-neo-2025.03.19",
+    "Release": "titan-2026.03.06",
     "Option": "",
-    "DownloadURL": "https://mirror.alpix.eu/endeavouros/iso/EndeavourOS_Mercury-Neo-2025.03.19.iso",
+    "DownloadURL": "https://mirror.alpix.eu/endeavouros/iso/EndeavourOS_Titan-2026.03.06.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/endeavouros/endeavouros-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "EndeavourOS",
     "OS": "endeavouros",
-    "Release": "titan-2026.03.06",
+    "Release": "mercury-neo-2025.03.19",
     "Option": "",
-    "DownloadURL": "https://mirror.alpix.eu/endeavouros/iso/EndeavourOS_Titan-2026.03.06.iso",
+    "DownloadURL": "https://mirror.alpix.eu/endeavouros/iso/EndeavourOS_Mercury-Neo-2025.03.19.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/endeavouros/endeavouros-quickemu-white-pinkbg.png"
   },
   {
@@ -1630,6 +1654,14 @@
     "Option": "",
     "DownloadURL": "https://mirror.alpix.eu/endeavouros/iso/EndeavourOS_Titan-Neo-2026.04.27.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/endeavouros/endeavouros-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "42",
+    "Option": "MiracleWM",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-MiracleWM-Live-42-1.1.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Endless OS",
@@ -1656,22 +1688,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/endless/endless-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "43",
-    "Option": "Kinoite",
-    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/43/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-43-1.6.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "43",
-    "Option": "Sericea",
-    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/43/Sericea/x86_64/iso/Fedora-Sericea-ostree-x86_64-43-1.6.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Endless OS",
     "OS": "endless",
     "Release": "6.0.4",
@@ -1690,41 +1706,9 @@
   {
     "DisplayName": "Fedora",
     "OS": "fedora",
-    "Release": "42",
-    "Option": "Kinoite",
-    "DownloadURL": "https://mirrors.xmission.com/fedora/linux/releases/42/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-42-1.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "44",
-    "Option": "Budgie",
-    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Budgie-Live-44-1.7.x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "Sway",
-    "DownloadURL": "https://mirrors.xmission.com/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-Sway-Live-x86_64-42-1.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "42",
-    "Option": "i3",
-    "DownloadURL": "https://mirrors.xmission.com/fedora/linux/releases/42/Spins/x86_64/iso/Fedora-i3-Live-x86_64-42-1.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
     "Release": "43",
-    "Option": "Budgie",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Budgie-Live-43-1.6.x86_64.iso",
+    "Option": "KDE_Mobile",
+    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-KDE-Mobile-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1732,7 +1716,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "COSMIC",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-COSMIC-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://ord.mirror.rackspace.com/fedora/releases/43/Spins/x86_64/iso/Fedora-COSMIC-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1748,7 +1732,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Cinnamon",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Cinnamon-Live-x86_64-43-1.6.iso",
+    "DownloadURL": "https://mirror.cs.siue.edu/fedora/releases/43/Spins/x86_64/iso/Fedora-Cinnamon-Live-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1756,15 +1740,15 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "KDE",
-    "DownloadURL": "https://fdix-ind.mm.fcix.net/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://paducahix.mm.fcix.net/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Fedora",
     "OS": "fedora",
     "Release": "43",
-    "Option": "KDE_Mobile",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-KDE-Mobile-Live-43-1.6.x86_64.iso",
+    "Option": "Kinoite",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1772,7 +1756,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "LXDE",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-LXDE-Live-x86_64-43-1.6.iso",
+    "DownloadURL": "https://mirror.servaxnet.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-LXDE-Live-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1796,7 +1780,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "MiracleWM",
-    "DownloadURL": "https://mirror.servaxnet.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-MiracleWM-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-MiracleWM-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1804,7 +1788,15 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Onyx",
-    "DownloadURL": "https://coresite.mm.fcix.net/fedora/linux/releases/43/Onyx/x86_64/iso/Fedora-Onyx-ostree-x86_64-43-1.6.iso",
+    "DownloadURL": "https://paducahix.mm.fcix.net/fedora/linux/releases/43/Onyx/x86_64/iso/Fedora-Onyx-ostree-x86_64-43-1.6.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "43",
+    "Option": "Sericea",
+    "DownloadURL": "https://mirror.servaxnet.com/fedora/linux/releases/43/Sericea/x86_64/iso/Fedora-Sericea-ostree-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1812,7 +1804,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Server",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-dvd-x86_64-43-1.6.iso",
+    "DownloadURL": "https://ohioix.mm.fcix.net/fedora/linux/releases/43/Server/x86_64/iso/Fedora-Server-dvd-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1828,7 +1820,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Sway",
-    "DownloadURL": "https://mirror.fcix.net/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Sway-Live-x86_64-43-1.6.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Sway-Live-x86_64-43-1.6.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1836,7 +1828,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Workstation",
-    "DownloadURL": "https://nocix.mm.fcix.net/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://ziply.mm.fcix.net/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1844,7 +1836,7 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "Xfce",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Xfce-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-Xfce-Live-43-1.6.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1852,7 +1844,15 @@
     "OS": "fedora",
     "Release": "43",
     "Option": "i3",
-    "DownloadURL": "https://mirror.lstn.net/fedora/releases/43/Spins/x86_64/iso/Fedora-i3-Live-43-1.6.x86_64.iso",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/43/Spins/x86_64/iso/Fedora-i3-Live-43-1.6.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "44",
+    "Option": "Budgie",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Budgie-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1860,7 +1860,15 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "COSMIC",
-    "DownloadURL": "https://iad.mirror.rackspace.com/fedora/releases/44/Spins/x86_64/iso/Fedora-COSMIC-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://mirror.fcix.net/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-COSMIC-Live-44-1.7.x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Fedora",
+    "OS": "fedora",
+    "Release": "44",
+    "Option": "Sericea",
+    "DownloadURL": "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/44/Sericea/x86_64/iso/Fedora-Sericea-ostree-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1868,7 +1876,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "COSMIC-Atomic",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/COSMIC-Atomic/x86_64/iso/Fedora-COSMIC-Atomic-ostree-x86_64-44-1.7.iso",
+    "DownloadURL": "https://coresite-atl.mm.fcix.net/fedora/linux/releases/44/COSMIC-Atomic/x86_64/iso/Fedora-COSMIC-Atomic-ostree-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1876,7 +1884,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Cinnamon",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Cinnamon-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Cinnamon-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1884,7 +1892,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "KDE",
-    "DownloadURL": "https://ix-denver.mm.fcix.net/fedora/linux/releases/44/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1900,7 +1908,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Kinoite",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-44-1.7.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1908,7 +1916,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "LXDE",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-LXDE-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://mirror.web-ster.com/fedora/releases/44/Spins/x86_64/iso/Fedora-LXDE-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1916,7 +1924,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "LXQt",
-    "DownloadURL": "https://fedora-mirror-atl.gigsouth.com/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-LXQt-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-LXQt-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1924,7 +1932,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Mate",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-MATE_Compiz-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-MATE_Compiz-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1940,15 +1948,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Onyx",
-    "DownloadURL": "https://codingflyboy.mm.fcix.net/fedora/linux/releases/44/Onyx/x86_64/iso/Fedora-Onyx-ostree-x86_64-44-1.7.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Fedora",
-    "OS": "fedora",
-    "Release": "44",
-    "Option": "Sericea",
-    "DownloadURL": "https://mirror.fcix.net/fedora/linux/releases/44/Sericea/x86_64/iso/Fedora-Sericea-ostree-x86_64-44-1.7.iso",
+    "DownloadURL": "https://mirror.web-ster.com/fedora/releases/44/Onyx/x86_64/iso/Fedora-Onyx-ostree-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1956,7 +1956,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Server",
-    "DownloadURL": "https://gigsouth.mm.fcix.net/fedora/linux/releases/44/Server/x86_64/iso/Fedora-Server-dvd-x86_64-44-1.7.iso",
+    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Server/x86_64/iso/Fedora-Server-dvd-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1964,7 +1964,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Silverblue",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-44-1.7.iso",
+    "DownloadURL": "https://mirror.fcix.net/fedora/linux/releases/44/Silverblue/x86_64/iso/Fedora-Silverblue-ostree-x86_64-44-1.7.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1972,7 +1972,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Sway",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Sway-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Sway-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1980,7 +1980,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Workstation",
-    "DownloadURL": "https://irltoolkit.mm.fcix.net/fedora/linux/releases/44/Workstation/x86_64/iso/Fedora-Workstation-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://nocix.mm.fcix.net/fedora/linux/releases/44/Workstation/x86_64/iso/Fedora-Workstation-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1988,7 +1988,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "Xfce",
-    "DownloadURL": "https://fedora.mirror.constant.com/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-Xfce-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://mirror.lstn.net/fedora/releases/44/Spins/x86_64/iso/Fedora-Xfce-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -1996,7 +1996,7 @@
     "OS": "fedora",
     "Release": "44",
     "Option": "i3",
-    "DownloadURL": "https://ftp2.osuosl.org/pub/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-i3-Live-44-1.7.x86_64.iso",
+    "DownloadURL": "https://mirror.fcix.net/fedora/linux/releases/44/Spins/x86_64/iso/Fedora-i3-Live-44-1.7.x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/fedora/fedora-quickemu-white-pinkbg.png"
   },
   {
@@ -2104,6 +2104,14 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/garuda/garuda-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Guix",
+    "OS": "guix",
+    "Release": "1.5.0",
+    "Option": "",
+    "DownloadURL": "https://mirror.latigo.net/gnu/guix/guix-system-install-1.5.0.x86_64-linux.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/guix/guix-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Garuda Linux",
     "OS": "garuda",
     "Release": "latest",
@@ -2147,14 +2155,6 @@
     "DisplayName": "Garuda Linux",
     "OS": "garuda",
     "Release": "latest",
-    "Option": "mokka",
-    "DownloadURL": "https://iso.builds.garudalinux.org/iso/garuda/mokka/260309/garuda-mokka-linux-zen-260309.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/garuda/garuda-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Garuda Linux",
-    "OS": "garuda",
-    "Release": "latest",
     "Option": "sway",
     "DownloadURL": "https://iso.builds.garudalinux.org/iso/garuda/sway/260309/garuda-sway-linux-zen-260309.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/garuda/garuda-quickemu-white-pinkbg.png"
@@ -2163,8 +2163,8 @@
     "DisplayName": "Garuda Linux",
     "OS": "garuda",
     "Release": "latest",
-    "Option": "xfce",
-    "DownloadURL": "https://iso.builds.garudalinux.org/iso/garuda/xfce/260309/garuda-xfce-linux-lts-260309.iso",
+    "Option": "mokka",
+    "DownloadURL": "https://iso.builds.garudalinux.org/iso/garuda/mokka/260309/garuda-mokka-linux-zen-260309.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/garuda/garuda-quickemu-white-pinkbg.png"
   },
   {
@@ -2176,28 +2176,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/gentoo/gentoo-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "KDE Neon",
-    "OS": "kdeneon",
-    "Release": "testing",
-    "Option": "",
-    "DownloadURL": "https://files.kde.org/neon/images/testing/current/PUBLIC",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "KDE Neon",
-    "OS": "kdeneon",
-    "Release": "unstable",
-    "Option": "",
-    "DownloadURL": "https://files.kde.org/neon/images/unstable/current/PUBLIC",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "KDE Neon",
-    "OS": "kdeneon",
-    "Release": "user",
-    "Option": "",
-    "DownloadURL": "https://files.kde.org/neon/images/user/current/PUBLIC",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
+    "DisplayName": "Garuda Linux",
+    "OS": "garuda",
+    "Release": "latest",
+    "Option": "xfce",
+    "DownloadURL": "https://iso.builds.garudalinux.org/iso/garuda/xfce/260309/garuda-xfce-linux-lts-260309.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/garuda/garuda-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Gentoo",
@@ -2214,6 +2198,30 @@
     "Option": "mate",
     "DownloadURL": "https://download.ghostbsd.org/releases/amd64/25.01-R14.2p1/GhostBSD-25.01-R14.2p1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ghostbsd/ghostbsd-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "KDE Neon",
+    "OS": "kdeneon",
+    "Release": "testing",
+    "Option": "",
+    "DownloadURL": "https://files.kde.org/neon/images/testing/current/PUBLIC",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "KDE Neon",
+    "OS": "kdeneon",
+    "Release": "user",
+    "Option": "",
+    "DownloadURL": "https://files.kde.org/neon/images/user/current/PUBLIC",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "KDE Neon",
+    "OS": "kdeneon",
+    "Release": "unstable",
+    "Option": "",
+    "DownloadURL": "https://files.kde.org/neon/images/unstable/current/PUBLIC",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kdeneon/kdeneon-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "GhostBSD",
@@ -2256,14 +2264,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ghostbsd/ghostbsd-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "GNOME OS",
-    "OS": "gnomeos",
-    "Release": "nightly",
-    "Option": "",
-    "DownloadURL": "https://1270333429.rsc.cdn77.org/nightly/1089492/gnome_os_1089492-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/gnomeos/gnomeos-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Kubuntu",
     "OS": "kubuntu",
     "Release": "daily-live",
@@ -2272,19 +2272,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "GNOME OS",
+    "OS": "gnomeos",
+    "Release": "nightly",
+    "Option": "",
+    "DownloadURL": "https://1270333429.rsc.cdn77.org/nightly/1090466/gnome_os_1090466-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/gnomeos/gnomeos-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Guix",
     "OS": "guix",
     "Release": "1.4.0",
     "Option": "",
     "DownloadURL": "https://gnu.mirror.constant.com/guix/guix-system-install-1.4.0.x86_64-linux.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/guix/guix-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Guix",
-    "OS": "guix",
-    "Release": "1.5.0",
-    "Option": "",
-    "DownloadURL": "https://mirror.cs.odu.edu/gnu/guix/guix-system-install-1.5.0.x86_64-linux.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/guix/guix-quickemu-white-pinkbg.png"
   },
   {
@@ -2340,7 +2340,7 @@
     "OS": "kali",
     "Release": "current",
     "Option": "",
-    "DownloadURL": "https://mirrors.ocf.berkeley.edu/kali-images/kali-2026.2/kali-linux-2026.2-installer-amd64.iso",
+    "DownloadURL": "https://ohioix.mm.fcix.net/kali-images/kali-2026.2/kali-linux-2026.2-installer-amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kali/kali-quickemu-white-pinkbg.png"
   },
   {
@@ -2348,7 +2348,7 @@
     "OS": "kali",
     "Release": "kali-weekly",
     "Option": "",
-    "DownloadURL": "https://kali.download/base-images/kali-weekly/kali-linux-2026-W32-installer-amd64.iso",
+    "DownloadURL": "https://us.mirror.ionos.com/linux/distributions/kali/kali-images/kali-weekly/kali-linux-2026-W32-installer-amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/kali/kali-quickemu-white-pinkbg.png"
   },
   {
@@ -2428,7 +2428,7 @@
     "OS": "linuxlite",
     "Release": "6.0",
     "Option": "",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/linux-lite/6.0/linux-lite-6.0-64bit.iso?viasf=1&fid=e8df9a5ae5e110b4&e=1786409207&st=kEDordDXBMBhhzTUapMT9A",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/linux-lite/6.0/linux-lite-6.0-64bit.iso?viasf=1&fid=e8df9a5ae5e110b4&e=1786495606&st=Ukd3zqBmOX99vG0_knpLVQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxlite/linuxlite-quickemu-white-pinkbg.png"
   },
   {
@@ -2436,7 +2436,7 @@
     "OS": "linuxlite",
     "Release": "6.2",
     "Option": "",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/linux-lite/6.2/linux-lite-6.2-64bit.iso?viasf=1&fid=0157f1b07c1ad714&e=1786409212&st=KfP-pAOV_RF_ak2Ga2oMgw",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/linux-lite/6.2/linux-lite-6.2-64bit.iso?viasf=1&fid=0157f1b07c1ad714&e=1786495607&st=rQPEx2I6lAQIhC5BKuQzXw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxlite/linuxlite-quickemu-white-pinkbg.png"
   },
   {
@@ -2444,7 +2444,7 @@
     "OS": "linuxlite",
     "Release": "6.4",
     "Option": "",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/linux-lite/6.4/linux-lite-6.4-64bit.iso?viasf=1&fid=1aa8cf1d28596b94&e=1786409208&st=Vh9Au6rQnVcgpDNn3XRduQ",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/linux-lite/6.4/linux-lite-6.4-64bit.iso?viasf=1&fid=1aa8cf1d28596b94&e=1786495607&st=07SwU-CxgVLdo0I-lflbjg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxlite/linuxlite-quickemu-white-pinkbg.png"
   },
   {
@@ -2452,7 +2452,7 @@
     "OS": "linuxlite",
     "Release": "6.6",
     "Option": "",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/linux-lite/6.6/linux-lite-6.6-64bit.iso?viasf=1&fid=66e82fad13501332&e=1786409206&st=DnyB48UdOTn64d9TkFkQrg",
+    "DownloadURL": "https://psychz.dl.sourceforge.net/project/linux-lite/6.6/linux-lite-6.6-64bit.iso?viasf=1&fid=66e82fad13501332&e=1786495607&st=E-1Skz_QRKDN5L3Q6UUDuQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxlite/linuxlite-quickemu-white-pinkbg.png"
   },
   {
@@ -2520,14 +2520,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxmint/linuxmint-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Lubuntu",
-    "OS": "lubuntu",
-    "Release": "16.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/lubuntu/releases/16.04/release/lubuntu-16.04.6-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Linux Mint",
     "OS": "linuxmint",
     "Release": "21",
@@ -2558,6 +2550,14 @@
     "Option": "xfce",
     "DownloadURL": "https://mirrors.edge.kernel.org/linuxmint/stable/21.1/linuxmint-21.1-xfce-64bit.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxmint/linuxmint-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Lubuntu",
+    "OS": "lubuntu",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Linux Mint",
@@ -2632,12 +2632,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/macos/macos-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Lubuntu",
-    "OS": "lubuntu",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+    "DisplayName": "Mageia",
+    "OS": "mageia",
+    "Release": "9",
+    "Option": "GNOME",
+    "DownloadURL": "https://us.mirrors.cicku.me/mageia/iso/9/Mageia-9-Live-GNOME-x86_64/Mageia-9-Live-GNOME-x86_64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mageia/mageia-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Linux Mint",
@@ -2656,100 +2656,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxmint/linuxmint-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "cinnamon",
-    "Option": "full",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "cinnamon",
-    "Option": "minimal",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Linux Mint",
     "OS": "linuxmint",
     "Release": "21.3",
     "Option": "cinnamon",
     "DownloadURL": "https://mirrors.edge.kernel.org/linuxmint/stable/21.3/linuxmint-21.3-cinnamon-64bit.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxmint/linuxmint-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Mageia",
-    "OS": "mageia",
-    "Release": "9",
-    "Option": "GNOME",
-    "DownloadURL": "https://us.mirrors.cicku.me/mageia/iso/9/Mageia-9-Live-GNOME-x86_64/Mageia-9-Live-GNOME-x86_64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mageia/mageia-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "gnome",
-    "Option": "full",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "gnome",
-    "Option": "minimal",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "i3",
-    "Option": "full",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "i3",
-    "Option": "minimal",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "plasma",
-    "Option": "full",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "plasma",
-    "Option": "minimal",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "xfce",
-    "Option": "full",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Manjaro",
-    "OS": "manjaro",
-    "Release": "xfce",
-    "Option": "minimal",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Linux Mint",
@@ -2774,14 +2686,6 @@
     "Option": "cinnamon",
     "DownloadURL": "https://mirrors.edge.kernel.org/linuxmint/stable/22/linuxmint-22-cinnamon-64bit.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/linuxmint/linuxmint-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "netboot.xyz",
-    "OS": "netboot",
-    "Release": "latest",
-    "Option": "",
-    "DownloadURL": "https://boot.netboot.xyz/ipxe/netboot.xyz.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/netboot/netboot-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Linux Mint",
@@ -2834,6 +2738,14 @@
   {
     "DisplayName": "Lubuntu",
     "OS": "lubuntu",
+    "Release": "16.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/lubuntu/releases/16.04/release/lubuntu-16.04.6-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Lubuntu",
+    "OS": "lubuntu",
     "Release": "18.04",
     "Option": "",
     "DownloadURL": "https://cdimage.ubuntu.com/lubuntu/releases/18.04/release/lubuntu-18.04.5-desktop-amd64.iso",
@@ -2872,11 +2784,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "netboot.xyz",
+    "OS": "netboot",
+    "Release": "latest",
+    "Option": "",
+    "DownloadURL": "https://boot.netboot.xyz/ipxe/netboot.xyz.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/netboot/netboot-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Mabox Linux",
     "OS": "maboxlinux",
     "Release": "latest",
     "Option": "",
-    "DownloadURL": "",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/mabox-linux/26.07/linux66/mabox-linux-26.07-Istredd-260731-linux66.iso?viasf=1&fid=b8a443d822207590&e=1786495634&st=5jxom67BLd1RtyAOBhxNAg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/maboxlinux/maboxlinux-quickemu-white-pinkbg.png"
   },
   {
@@ -2884,7 +2804,7 @@
     "OS": "mageia",
     "Release": "9",
     "Option": "Plasma",
-    "DownloadURL": "https://mirrors.kernel.org/mageia/iso/9/Mageia-9-Live-Plasma-x86_64/Mageia-9-Live-Plasma-x86_64.iso",
+    "DownloadURL": "https://mirror.math.princeton.edu/pub/mageia/iso/9/Mageia-9-Live-Plasma-x86_64/Mageia-9-Live-Plasma-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mageia/mageia-quickemu-white-pinkbg.png"
   },
   {
@@ -2892,8 +2812,72 @@
     "OS": "mageia",
     "Release": "9",
     "Option": "Xfce",
-    "DownloadURL": "https://mirrors.kernel.org/mageia/iso/9/Mageia-9-Live-Xfce-x86_64/Mageia-9-Live-Xfce-x86_64.iso",
+    "DownloadURL": "https://mirror.math.princeton.edu/pub/mageia/iso/9/Mageia-9-Live-Xfce-x86_64/Mageia-9-Live-Xfce-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mageia/mageia-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "cinnamon",
+    "Option": "full",
+    "DownloadURL": "https://download.manjaro.org/cinnamon/25.0.3/manjaro-cinnamon-25.0.3-250609-linux612.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "cinnamon",
+    "Option": "minimal",
+    "DownloadURL": "https://download.manjaro.org/cinnamon/25.0.3/manjaro-cinnamon-25.0.3-minimal-250609-linux612.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "gnome",
+    "Option": "full",
+    "DownloadURL": "https://download.manjaro.org/gnome/26.0.4/manjaro-gnome-26.0.4-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "gnome",
+    "Option": "minimal",
+    "DownloadURL": "https://download.manjaro.org/gnome/26.0.4/manjaro-gnome-26.0.4-minimal-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "i3",
+    "Option": "full",
+    "DownloadURL": "https://download.manjaro.org/i3/25.0.3/manjaro-i3-25.0.3-250609-linux612.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "i3",
+    "Option": "minimal",
+    "DownloadURL": "https://download.manjaro.org/i3/25.0.3/manjaro-i3-25.0.3-minimal-250609-linux612.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "plasma",
+    "Option": "full",
+    "DownloadURL": "https://download.manjaro.org/kde/26.0.4/manjaro-kde-26.0.4-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "plasma",
+    "Option": "minimal",
+    "DownloadURL": "https://download.manjaro.org/kde/26.0.4/manjaro-kde-26.0.4-minimal-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Manjaro",
@@ -2912,11 +2896,27 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "xfce",
+    "Option": "full",
+    "DownloadURL": "https://download.manjaro.org/xfce/26.0.4/manjaro-xfce-26.0.4-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Manjaro",
+    "OS": "manjaro",
+    "Release": "xfce",
+    "Option": "minimal",
+    "DownloadURL": "https://download.manjaro.org/xfce/26.0.4/manjaro-xfce-26.0.4-minimal-260327-linux618.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/manjaro/manjaro-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "MX Linux",
     "OS": "mxlinux",
     "Release": "25.2",
     "Option": "Fluxbox",
-    "DownloadURL": "https://cfhcable.dl.sourceforge.net/project/mx-linux/Final/Fluxbox/MX-25.2_fluxbox_x64.iso?viasf=1&fid=2495da6faf1117fb&e=1786409239&st=rFL_iMLyRgDc-oE4BdxsnA",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/mx-linux/Final/Fluxbox/MX-25.2_fluxbox_x64.iso?viasf=1&fid=2495da6faf1117fb&e=1786495650&st=gi9Lin1NxS5hEL5T8Cs4Nw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mxlinux/mxlinux-quickemu-white-pinkbg.png"
   },
   {
@@ -2924,7 +2924,7 @@
     "OS": "mxlinux",
     "Release": "25.2",
     "Option": "KDE",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/mx-linux/Final/KDE/MX-25.2_KDE_x64.iso?viasf=1&fid=012680c5d47b9b29&e=1786409251&st=Sz8-zEEuDzcrMIFCApAcZA",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/mx-linux/Final/KDE/MX-25.2_KDE_x64.iso?viasf=1&fid=012680c5d47b9b29&e=1786495650&st=Aaai9kI3PaVcXxZo4PjSuw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mxlinux/mxlinux-quickemu-white-pinkbg.png"
   },
   {
@@ -2932,7 +2932,7 @@
     "OS": "mxlinux",
     "Release": "25.2",
     "Option": "Xfce",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/mx-linux/Final/Xfce/MX-25.2_Xfce_x64.iso?viasf=1&fid=27dcbe16bdc1b9f5&e=1786409243&st=W9kjxCyFppvygD9-FpxK-g",
+    "DownloadURL": "https://psychz.dl.sourceforge.net/project/mx-linux/Final/Xfce/MX-25.2_Xfce_x64.iso?viasf=1&fid=27dcbe16bdc1b9f5&e=1786495651&st=4kZWa98-P8HSmvl3ppClaA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/mxlinux/mxlinux-quickemu-white-pinkbg.png"
   },
   {
@@ -2972,7 +2972,7 @@
     "OS": "nitrux",
     "Release": "latest",
     "Option": "",
-    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/nitruxos/Release/ISO/nitrux-contemporary-cachy-nvopen-32deb156-amd64.iso?viasf=1&fid=98279e3644800828&e=1786409243&st=qJawTMP1khzB89U7hLW4Dg",
+    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/nitruxos/Release/ISO/nitrux-contemporary-cachy-nvopen-32deb156-amd64.iso?viasf=1&fid=98279e3644800828&e=1786495664&st=3aCzhz0j1MwOTkYkkXI5IA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/nitrux/nitrux-quickemu-white-pinkbg.png"
   },
   {
@@ -2980,7 +2980,7 @@
     "OS": "nixos",
     "Release": "26.05",
     "Option": "graphical",
-    "DownloadURL": "https://releases.nixos.org/nixos/26.05/nixos-26.05.7273.8b8c811c7c25/nixos-graphical-26.05.7273.8b8c811c7c25-x86_64-linux.iso",
+    "DownloadURL": "https://releases.nixos.org/nixos/26.05/nixos-26.05.7376.fcb8fcd6bf2d/nixos-graphical-26.05.7376.fcb8fcd6bf2d-x86_64-linux.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/nixos/nixos-quickemu-white-pinkbg.png"
   },
   {
@@ -2988,7 +2988,7 @@
     "OS": "nixos",
     "Release": "26.05",
     "Option": "minimal",
-    "DownloadURL": "https://releases.nixos.org/nixos/26.05/nixos-26.05.7273.8b8c811c7c25/nixos-minimal-26.05.7273.8b8c811c7c25-x86_64-linux.iso",
+    "DownloadURL": "https://releases.nixos.org/nixos/26.05/nixos-26.05.7376.fcb8fcd6bf2d/nixos-minimal-26.05.7376.fcb8fcd6bf2d-x86_64-linux.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/nixos/nixos-quickemu-white-pinkbg.png"
   },
   {
@@ -3012,7 +3012,7 @@
     "OS": "nwg-shell",
     "Release": "2025.06.08",
     "Option": "",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/nwg-iso/nwg-live-2025.06.08-x86_64.iso?viasf=1&fid=ed0f2557224675d3&e=1786409251&st=wlZ7im1TZcPoQLcapCYyIg",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/nwg-iso/nwg-live-2025.06.08-x86_64.iso?viasf=1&fid=ed0f2557224675d3&e=1786495666&st=WcHkii2-u0OWLvss1aKJ-Q",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/nwg-shell/nwg-shell-quickemu-white-pinkbg.png"
   },
   {
@@ -3020,7 +3020,7 @@
     "OS": "nwg-shell",
     "Release": "2025.07.01",
     "Option": "",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/nwg-iso/nwg-live-2025.07.01-x86_64.iso?viasf=1&fid=3788bf9b0318dfcf&e=1786409252&st=wnv7c5Kytyc9907mlBPI2g",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/nwg-iso/nwg-live-2025.07.01-x86_64.iso?viasf=1&fid=3788bf9b0318dfcf&e=1786495667&st=_xRFa0RQuCSvoiWGMomhsw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/nwg-shell/nwg-shell-quickemu-white-pinkbg.png"
   },
   {
@@ -3088,12 +3088,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "openSUSE",
-    "OS": "opensuse",
-    "Release": "16.1",
-    "Option": "",
-    "DownloadURL": "https://download.opensuse.org/distribution/leap/16.1/iso/openSUSE-Leap-16.1-DVD-x86_64-Current.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
+    "DisplayName": "OpenIndiana",
+    "OS": "openindiana",
+    "Release": "20250606",
+    "Option": "minimal",
+    "DownloadURL": "https://dlc.openindiana.org/isos/hipster/20250606/OI-hipster-minimal-20250606.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "OpenIndiana",
@@ -3104,11 +3104,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "openSUSE",
+    "OS": "opensuse",
+    "Release": "16.1",
+    "Option": "",
+    "DownloadURL": "https://download.opensuse.org/distribution/leap/16.1/iso/openSUSE-Leap-16.1-DVD-x86_64-Current.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "OpenIndiana",
     "OS": "openindiana",
-    "Release": "20250606",
+    "Release": "20251026",
     "Option": "minimal",
-    "DownloadURL": "https://dlc.openindiana.org/isos/hipster/20250606/OI-hipster-minimal-20250606.iso",
+    "DownloadURL": "https://dlc.openindiana.org/isos/hipster/20251026/OI-hipster-minimal-20251026.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
   },
   {
@@ -3125,14 +3133,6 @@
     "Release": "20251026",
     "Option": "gui",
     "DownloadURL": "https://dlc.openindiana.org/isos/hipster/20251026/OI-hipster-gui-20251026.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "OpenIndiana",
-    "OS": "openindiana",
-    "Release": "20251026",
-    "Option": "minimal",
-    "DownloadURL": "https://dlc.openindiana.org/isos/hipster/20251026/OI-hipster-minimal-20251026.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/openindiana/openindiana-quickemu-white-pinkbg.png"
   },
   {
@@ -3176,12 +3176,28 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Oracle Linux",
+    "OS": "oraclelinux",
+    "Release": "9.0",
+    "Option": "",
+    "DownloadURL": "https://yum.oracle.com/ISOS/OracleLinux/OL9/u0/x86_64/OracleLinux-R9-U0-x86_64-dvd.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/oraclelinux/oraclelinux-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "openSUSE",
     "OS": "opensuse",
     "Release": "15.1",
     "Option": "",
-    "DownloadURL": "https://mirror.vtti.vt.edu/opensuse/distribution/leap/15.1/iso/openSUSE-Leap-15.1-DVD-x86_64.iso",
+    "DownloadURL": "https://mirror.fcix.net/opensuse/distribution/leap/15.1/iso/openSUSE-Leap-15.1-DVD-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Oracle Linux",
+    "OS": "oraclelinux",
+    "Release": "9.1",
+    "Option": "",
+    "DownloadURL": "https://yum.oracle.com/ISOS/OracleLinux/OL9/u1/x86_64/OracleLinux-R9-U1-x86_64-dvd.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/oraclelinux/oraclelinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "openSUSE",
@@ -3248,22 +3264,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/pclinuxos/pclinuxos-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "openSUSE",
-    "OS": "opensuse",
-    "Release": "microos",
-    "Option": "",
-    "DownloadURL": "https://slc-mirror.opensuse.org/tumbleweed/iso/openSUSE-MicroOS-DVD-x86_64-Snapshot20260806-Media.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "openSUSE",
-    "OS": "opensuse",
-    "Release": "tumbleweed",
-    "Option": "",
-    "DownloadURL": "https://slc-mirror.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Snapshot20260806-Media.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "PCLinuxOS",
     "OS": "pclinuxos",
     "Release": "latest",
@@ -3280,11 +3280,27 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/pclinuxos/pclinuxos-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "openSUSE",
+    "OS": "opensuse",
+    "Release": "microos",
+    "Option": "",
+    "DownloadURL": "https://slc-mirror.opensuse.org/tumbleweed/iso/openSUSE-MicroOS-DVD-x86_64-Snapshot20260806-Media.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "PeppermintOS",
     "OS": "peppermint",
     "Release": "latest",
     "Option": "debian-gnome",
     "DownloadURL": "https://sourceforge.net/projects/peppermintos/files/isos/Gnome_FlashBack/PeppermintOS-Debian_64_gfb.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "PeppermintOS",
+    "OS": "peppermint",
+    "Release": "latest",
+    "Option": "devuan-xfce",
+    "DownloadURL": "https://sourceforge.net/projects/peppermintos/files/isos/XFCE/PeppermintOS-devuan_64_xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
   },
   {
@@ -3296,19 +3312,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/oraclelinux/oraclelinux-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "PeppermintOS",
-    "OS": "peppermint",
-    "Release": "latest",
-    "Option": "devuan-gnome",
-    "DownloadURL": "https://sourceforge.net/projects/peppermintos/files/isos/Gnome_FlashBack/PeppermintOS-devuan_64_gfb.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
+    "DisplayName": "openSUSE",
+    "OS": "opensuse",
+    "Release": "tumbleweed",
+    "Option": "",
+    "DownloadURL": "https://slc-mirror.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Snapshot20260806-Media.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/opensuse/opensuse-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "PeppermintOS",
     "OS": "peppermint",
     "Release": "latest",
-    "Option": "devuan-xfce",
-    "DownloadURL": "https://sourceforge.net/projects/peppermintos/files/isos/XFCE/PeppermintOS-devuan_64_xfce.iso",
+    "Option": "devuan-gnome",
+    "DownloadURL": "https://sourceforge.net/projects/peppermintos/files/isos/Gnome_FlashBack/PeppermintOS-devuan_64_gfb.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
   },
   {
@@ -3378,22 +3394,6 @@
   {
     "DisplayName": "Oracle Linux",
     "OS": "oraclelinux",
-    "Release": "9.0",
-    "Option": "",
-    "DownloadURL": "https://yum.oracle.com/ISOS/OracleLinux/OL9/u0/x86_64/OracleLinux-R9-U0-x86_64-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/oraclelinux/oraclelinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Oracle Linux",
-    "OS": "oraclelinux",
-    "Release": "9.1",
-    "Option": "",
-    "DownloadURL": "https://yum.oracle.com/ISOS/OracleLinux/OL9/u1/x86_64/OracleLinux-R9-U1-x86_64-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/oraclelinux/oraclelinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Oracle Linux",
-    "OS": "oraclelinux",
     "Release": "9.2",
     "Option": "",
     "DownloadURL": "https://yum.oracle.com/ISOS/OracleLinux/OL9/u2/x86_64/OracleLinux-R9-U2-x86_64-dvd.iso",
@@ -3442,18 +3442,18 @@
   {
     "DisplayName": "Proxmox VE",
     "OS": "proxmox-ve",
-    "Release": "9.2-1",
+    "Release": "9.1-1",
     "Option": "",
     "DownloadURL": "",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/proxmox-ve/proxmox-ve-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "PeppermintOS",
-    "OS": "peppermint",
-    "Release": "latest",
-    "Option": "debian-xfce",
-    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/peppermintos/isos/XFCE/PeppermintOS-Debian-64.iso?viasf=1&fid=53379395a32f7485&e=1786409299&st=Mc-2tD9WUKaOy9_IiDKltQ",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
+    "DisplayName": "Proxmox VE",
+    "OS": "proxmox-ve",
+    "Release": "9.2-1",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/proxmox-ve/proxmox-ve-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "RebornOS",
@@ -3464,12 +3464,28 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/rebornos/rebornos-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "PeppermintOS",
+    "OS": "peppermint",
+    "Release": "latest",
+    "Option": "debian-xfce",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/peppermintos/isos/XFCE/PeppermintOS-Debian-64.iso?viasf=1&fid=53379395a32f7485&e=1786495709&st=La5-u00onIKbjow2KQ362w",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/peppermint/peppermint-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Pop!_OS",
     "OS": "popos",
     "Release": "20.04",
     "Option": "intel",
     "DownloadURL": "https://iso.pop-os.org/20.04/amd64/intel/39/pop-os_20.04_amd64_intel_39.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/popos/popos-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Rocky Linux",
+    "OS": "rockylinux",
+    "Release": "link",
+    "Option": "boot",
+    "DownloadURL": "https://dl.rockylinux.org/vault/rocky/link/isos/x86_64/Rocky-link-x86_64-boot.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/rockylinux/rockylinux-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Pop!_OS",
@@ -3488,12 +3504,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/popos/popos-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Rocky Linux",
-    "OS": "rockylinux",
-    "Release": "link",
-    "Option": "boot",
-    "DownloadURL": "https://dl.rockylinux.org/vault/rocky/link/isos/x86_64/Rocky-link-x86_64-boot.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/rockylinux/rockylinux-quickemu-white-pinkbg.png"
+    "DisplayName": "Pop!_OS",
+    "OS": "popos",
+    "Release": "22.04",
+    "Option": "nvidia",
+    "DownloadURL": "https://iso.pop-os.org/22.04/amd64/nvidia/58/pop-os_22.04_amd64_nvidia_58.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/popos/popos-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Rocky Linux",
@@ -3515,14 +3531,6 @@
     "DisplayName": "Siduction",
     "OS": "siduction",
     "Release": "latest",
-    "Option": "kde",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Siduction",
-    "OS": "siduction",
-    "Release": "latest",
     "Option": "lxqt",
     "DownloadURL": "",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
@@ -3531,33 +3539,9 @@
     "DisplayName": "Siduction",
     "OS": "siduction",
     "Release": "latest",
-    "Option": "nox",
+    "Option": "kde",
     "DownloadURL": "",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Siduction",
-    "OS": "siduction",
-    "Release": "latest",
-    "Option": "xfce",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Siduction",
-    "OS": "siduction",
-    "Release": "latest",
-    "Option": "xorg",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Pop!_OS",
-    "OS": "popos",
-    "Release": "22.04",
-    "Option": "nvidia",
-    "DownloadURL": "https://iso.pop-os.org/22.04/amd64/nvidia/58/pop-os_22.04_amd64_nvidia_58.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/popos/popos-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Pop!_OS",
@@ -3574,6 +3558,30 @@
     "Option": "nvidia",
     "DownloadURL": "https://iso.pop-os.org/24.04/amd64/nvidia/27/pop-os_24.04_amd64_nvidia_27.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/popos/popos-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Siduction",
+    "OS": "siduction",
+    "Release": "latest",
+    "Option": "xfce",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Siduction",
+    "OS": "siduction",
+    "Release": "latest",
+    "Option": "nox",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Siduction",
+    "OS": "siduction",
+    "Release": "latest",
+    "Option": "xorg",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/siduction/siduction-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Porteus",
@@ -3606,6 +3614,14 @@
     "Option": "lxde",
     "DownloadURL": "https://mirrors.dotsrc.org/porteus/x86_64/Porteus-v5.01/Porteus-LXDE-v5.01-x86_64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/porteus/porteus-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "ReactOS",
+    "OS": "reactos",
+    "Release": "latest",
+    "Option": "",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/reactos/ReactOS/0.4.15/ReactOS-0.4.15-release-1-gdbb43bbaeb2-x86-iso.zip?viasf=1&fid=7341075185af48e6&e=1786495728&st=Veesa8qxKykOqULFnWcmHg",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/reactos/reactos-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Porteus",
@@ -3644,7 +3660,7 @@
     "OS": "primtux",
     "Release": "7",
     "Option": "2022-10",
-    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/primtux/Distribution/PrimTux7-amd64-2022-10.iso?viasf=1&fid=5c97fb24e327a1b3&e=1786409320&st=JQ101vEzptdJuwT50jw5lQ",
+    "DownloadURL": "https://netactuate.dl.sourceforge.net/project/primtux/Distribution/PrimTux7-amd64-2022-10.iso?viasf=1&fid=5c97fb24e327a1b3&e=1786495727&st=oAiO-Die-Tjk4bSgocu0sA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/primtux/primtux-quickemu-white-pinkbg.png"
   },
   {
@@ -3662,62 +3678,6 @@
     "Option": "",
     "DownloadURL": "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/proxmox-ve/proxmox-ve-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Proxmox VE",
-    "OS": "proxmox-ve",
-    "Release": "9.1-1",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/proxmox-ve/proxmox-ve-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "ReactOS",
-    "OS": "reactos",
-    "Release": "latest",
-    "Option": "",
-    "DownloadURL": "https://gigenet.dl.sourceforge.net/project/reactos/ReactOS/0.4.15/ReactOS-0.4.15-release-1-gdbb43bbaeb2-x86-iso.zip?viasf=1&fid=7341075185af48e6&e=1786409315&st=oseeejnhs6J-k-xgI0Doxg",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/reactos/reactos-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Slackware",
-    "OS": "slackware",
-    "Release": "13.37",
-    "Option": "",
-    "DownloadURL": "https://slackware.nl/slackware/slackware-iso/slackware64-13.37-iso/slackware64-13.37-install-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/slackware/slackware-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Slackware",
-    "OS": "slackware",
-    "Release": "14.0",
-    "Option": "",
-    "DownloadURL": "https://slackware.nl/slackware/slackware-iso/slackware64-14.0-iso/slackware64-14.0-install-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/slackware/slackware-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Slackware",
-    "OS": "slackware",
-    "Release": "14.1",
-    "Option": "",
-    "DownloadURL": "https://slackware.nl/slackware/slackware-iso/slackware64-14.1-iso/slackware64-14.1-install-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/slackware/slackware-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Slackware",
-    "OS": "slackware",
-    "Release": "14.2",
-    "Option": "",
-    "DownloadURL": "https://slackware.nl/slackware/slackware-iso/slackware64-14.2-iso/slackware64-14.2-install-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/slackware/slackware-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Slackware",
-    "OS": "slackware",
-    "Release": "15.0",
-    "Option": "",
-    "DownloadURL": "https://slackware.nl/slackware/slackware-iso/slackware64-15.0-iso/slackware64-15.0-install-dvd.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/slackware/slackware-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Slax",
@@ -3816,30 +3776,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2025-11-29",
-    "Option": "GNOME",
-    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-GNOME-Release-2025-11-29.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2025-11-29",
-    "Option": "Plasma",
-    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-Plasma-Release-2025-11-29.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2025-11-29",
-    "Option": "Xfce",
-    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-Xfce-Release-2025-11-29.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Tiny Core Linux",
     "OS": "tinycore",
     "Release": "14",
@@ -3851,25 +3787,65 @@
     "DisplayName": "Tiny Core Linux",
     "OS": "tinycore",
     "Release": "14",
-    "Option": "CorePure64",
-    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86_64/release/CorePure64-14.0.iso",
+    "Option": "TinyCore",
+    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86/release/TinyCore-14.0.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Tails",
-    "OS": "tails",
-    "Release": "stable",
-    "Option": "",
-    "DownloadURL": "https://tails.darklab.sh/pub/tails/stable/tails-amd64-7.10.1/tails-amd64-7.10.1.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tails/tails-quickemu-white-pinkbg.png"
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2025-11-29",
+    "Option": "GNOME",
+    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-GNOME-Release-2025-11-29.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Tiny Core Linux",
     "OS": "tinycore",
     "Release": "14",
-    "Option": "TinyCore",
-    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86/release/TinyCore-14.0.iso",
+    "Option": "TinyCorePure64",
+    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86_64/release/TinyCorePure64-14.0.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tiny Core Linux",
+    "OS": "tinycore",
+    "Release": "15",
+    "Option": "Core",
+    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86/release/Core-15.0.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tiny Core Linux",
+    "OS": "tinycore",
+    "Release": "14",
+    "Option": "CorePure64",
+    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86_64/release/CorePure64-14.0.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2025-11-29",
+    "Option": "Plasma",
+    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-Plasma-Release-2025-11-29.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tiny Core Linux",
+    "OS": "tinycore",
+    "Release": "15",
+    "Option": "CorePure64",
+    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86_64/release/CorePure64-15.0.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2025-11-29",
+    "Option": "Xfce",
+    "DownloadURL": "https://downloads.getsol.us/isos/2025-11-29/Solus-Xfce-Release-2025-11-29.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Trisquel",
@@ -3878,6 +3854,14 @@
     "Option": "kde",
     "DownloadURL": "https://mirrors.ocf.berkeley.edu/trisquel-images/triskel_10.0.1_amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/trisquel/trisquel-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2026-04-18",
+    "Option": "Budgie",
+    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-Budgie-Release-2026-04-18.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Trisquel",
@@ -3896,14 +3880,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/trisquel/trisquel-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2026-04-18",
-    "Option": "Budgie",
-    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-Budgie-Release-2026-04-18.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Trisquel",
     "OS": "trisquel",
     "Release": "10.0.1",
@@ -3918,22 +3894,6 @@
     "Option": "kde",
     "DownloadURL": "https://mirrors.ocf.berkeley.edu/trisquel-images/triskel_11.0_amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/trisquel/trisquel-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2026-04-18",
-    "Option": "GNOME",
-    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-GNOME-Release-2026-04-18.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Solus",
-    "OS": "solus",
-    "Release": "2026-04-18",
-    "Option": "Plasma",
-    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-Plasma-Release-2026-04-18.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Trisquel",
@@ -3963,6 +3923,22 @@
     "DisplayName": "Solus",
     "OS": "solus",
     "Release": "2026-04-18",
+    "Option": "GNOME",
+    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-GNOME-Release-2026-04-18.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2026-04-18",
+    "Option": "Plasma",
+    "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-Plasma-Release-2026-04-18.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Solus",
+    "OS": "solus",
+    "Release": "2026-04-18",
     "Option": "Xfce",
     "DownloadURL": "https://downloads.getsol.us/isos/2026-04-18/Solus-Xfce-Release-2026-04-18.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/solus/solus-quickemu-white-pinkbg.png"
@@ -3972,7 +3948,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Budgie",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Budgie_12.231005_x86-64.iso?viasf=1&fid=f93a46b88871919b&e=1786409341&st=ldlp9RMJf_H-m8kYkpFonA",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Budgie_12.231005_x86-64.iso?viasf=1&fid=f93a46b88871919b&e=1786495747&st=h9gjPtiQaAqHxAooi_6n-A",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -3980,7 +3956,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Builder",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Builder_12.231005_x86-64.iso?viasf=1&fid=eaa1b93f5a1679af&e=1786409342&st=SZAdFhHLkq2GHY2TndCL1Q",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Builder_12.231005_x86-64.iso?viasf=1&fid=eaa1b93f5a1679af&e=1786495750&st=D5_Dd3JvQQeovpWRYjVReQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -3988,7 +3964,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Cinnamon",
-    "DownloadURL": "https://twds.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Cinnamon_12.231005_x86-64.iso?viasf=1&fid=3b84c3434b05df1b&e=1786409343&st=qwRqU0sZyqfC3iDO6S3Tfw",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Cinnamon_12.231005_x86-64.iso?viasf=1&fid=3b84c3434b05df1b&e=1786495750&st=2bFHfk4-a-AHdS0mp1ApUQ",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -3996,7 +3972,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Gnome",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Gnome_12.231005_x86-64.iso?viasf=1&fid=67c5db6b01b33659&e=1786409343&st=dOR4Z2mrxwLLyvUIIWR6gA",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Gnome_12.231005_x86-64.iso?viasf=1&fid=67c5db6b01b33659&e=1786495750&st=Fq8Efop4lVyQHLpaT5hr9A",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -4004,7 +3980,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "LXQt",
-    "DownloadURL": "https://twds.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_LXQt_12.231005_x86-64.iso?viasf=1&fid=ed3c5f83d3494e88&e=1786409343&st=INCoahK8rQrBYAY0gJwiSw",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_LXQt_12.231005_x86-64.iso?viasf=1&fid=ed3c5f83d3494e88&e=1786495751&st=QFIhlP0iCAGSTi9ts92QiA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -4012,7 +3988,7 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Mate",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Mate_12.231005_x86-64.iso?viasf=1&fid=6efd91d3bf86b6a3&e=1786409343&st=IQlXtSh3XP1jziY65uSKJQ",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Mate_12.231005_x86-64.iso?viasf=1&fid=6efd91d3bf86b6a3&e=1786495751&st=gmKKdE3S7nJv14ENQchlAw",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
   },
   {
@@ -4020,24 +3996,32 @@
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "Plasma",
-    "DownloadURL": "https://twds.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Plasma_12.231005_x86-64.iso?viasf=1&fid=db4c80f9b65f1adc&e=1786409343&st=zkDu-0YVWf1f8aGiDYtctw",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_Plasma_12.231005_x86-64.iso?viasf=1&fid=db4c80f9b65f1adc&e=1786495751&st=4pTeY-4CFu7Uq9Ac7y0SWA",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Tiny Core Linux",
-    "OS": "tinycore",
-    "Release": "15",
-    "Option": "Core",
-    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86/release/Core-15.0.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "SpiralLinux",
     "OS": "spirallinux",
     "Release": "latest",
     "Option": "XFCE",
-    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_XFCE_12.231005_x86-64.iso?viasf=1&fid=86021d687ccff060&e=1786409343&st=wHr-Mxn-hP92jf8YepORjw",
+    "DownloadURL": "https://pilotfiber.dl.sourceforge.net/project/spirallinux/12.231005/SpiralLinux_XFCE_12.231005_x86-64.iso?viasf=1&fid=86021d687ccff060&e=1786495751&st=R3vSGvX_fxRoJnKJIa-Ajg",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/spirallinux/spirallinux-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tails",
+    "OS": "tails",
+    "Release": "stable",
+    "Option": "",
+    "DownloadURL": "https://mirrors.ocf.berkeley.edu/tails/stable/tails-amd64-7.10.1/tails-amd64-7.10.1.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tails/tails-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tiny Core Linux",
+    "OS": "tinycore",
+    "Release": "14",
+    "Option": "CorePlus",
+    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86/release/CorePlus-14.0.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Ubuntu",
@@ -4058,17 +4042,9 @@
   {
     "DisplayName": "Tiny Core Linux",
     "OS": "tinycore",
-    "Release": "14",
-    "Option": "CorePlus",
-    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86/release/CorePlus-14.0.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Tiny Core Linux",
-    "OS": "tinycore",
-    "Release": "14",
+    "Release": "15",
     "Option": "TinyCorePure64",
-    "DownloadURL": "http://www.tinycorelinux.net/14.x/x86_64/release/TinyCorePure64-14.0.iso",
+    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86_64/release/TinyCorePure64-15.0.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
@@ -4077,30 +4053,6 @@
     "Release": "15",
     "Option": "CorePlus",
     "DownloadURL": "http://www.tinycorelinux.net/15.x/x86/release/CorePlus-15.0.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Tiny Core Linux",
-    "OS": "tinycore",
-    "Release": "15",
-    "Option": "CorePure64",
-    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86_64/release/CorePure64-15.0.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Tiny Core Linux",
-    "OS": "tinycore",
-    "Release": "15",
-    "Option": "TinyCore",
-    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86/release/TinyCore-15.0.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Tiny Core Linux",
-    "OS": "tinycore",
-    "Release": "15",
-    "Option": "TinyCorePure64",
-    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86_64/release/TinyCorePure64-15.0.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
@@ -4118,6 +4070,14 @@
     "Option": "",
     "DownloadURL": "",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Tiny Core Linux",
+    "OS": "tinycore",
+    "Release": "15",
+    "Option": "TinyCore",
+    "DownloadURL": "http://www.tinycorelinux.net/15.x/x86/release/TinyCore-15.0.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/tinycore/tinycore-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Tuxedo OS",
@@ -4184,6 +4144,14 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Ubuntu Server",
+    "OS": "ubuntu-server",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu-server/ubuntu-server-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Ubuntu Budgie",
     "OS": "ubuntu-budgie",
     "Release": "18.04",
@@ -4224,30 +4192,6 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Ubuntu Server",
-    "OS": "ubuntu-server",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu-server/ubuntu-server-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Ubuntu Unity",
-    "OS": "ubuntu-unity",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Ubuntu Cinnamon",
-    "OS": "ubuntucinnamon",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Ubuntu MATE",
     "OS": "ubuntu-mate",
     "Release": "16.04",
@@ -4272,6 +4216,22 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Ubuntu Cinnamon",
+    "OS": "ubuntucinnamon",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Ubuntu Unity",
+    "OS": "ubuntu-unity",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Ubuntu MATE",
     "OS": "ubuntu-mate",
     "Release": "22.04",
@@ -4280,19 +4240,19 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Ubuntu MATE",
-    "OS": "ubuntu-mate",
-    "Release": "24.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/ubuntu-mate/releases/24.04/release/ubuntu-mate-24.04.4-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
     "DisplayName": "Ubuntu Kylin",
     "OS": "ubuntukylin",
     "Release": "daily-live",
     "Option": "",
     "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Ubuntu MATE",
+    "OS": "ubuntu-mate",
+    "Release": "24.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/ubuntu-mate/releases/24.04/release/ubuntu-mate-24.04.4-desktop-amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
@@ -4360,6 +4320,14 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu-server/ubuntu-server-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Ubuntu Studio",
+    "OS": "ubuntustudio",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Ubuntu Unity",
     "OS": "ubuntu-unity",
     "Release": "24.04",
@@ -4373,14 +4341,6 @@
     "Release": "26.04",
     "Option": "",
     "DownloadURL": "https://cdimage.ubuntu.com/ubuntu-unity/releases/26.04/release/ubuntu-unity-26.04-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Ubuntu Studio",
-    "OS": "ubuntustudio",
-    "Release": "daily-live",
-    "Option": "",
-    "DownloadURL": "",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
@@ -4500,7 +4460,7 @@
     "OS": "vanillaos",
     "Release": "22.10",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/fb97e451-7bc8-4ce2-b027-6e972076d4f7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A40%3A23Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230226.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A39%3A47Z&ske=2026-08-10T01%3A40%3A23Z&sks=b&skv=2018-11-09&sig=oib5IZL3y0Docq4Y5QoWO1uS3tk9xNu0An0qp%2BJyHks%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwMiwibmJmIjoxNzg2MzIzMDAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aS9qQo-2akpWO2aO5FtuvG6I9Kp9ZlEcWfYQ2Dsjabs&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230226.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/fb97e451-7bc8-4ce2-b027-6e972076d4f7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A48Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230226.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A18Z&ske=2026-08-11T01%3A37%3A48Z&sks=b&skv=2018-11-09&sig=nULc3Nu1IGFuchez%2F83ghlPDaIttDh4Xgr%2BjGG7%2BRME%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNiwibmJmIjoxNzg2NDA5NDA2LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aO6j1jjcfBLEwzYVGEknlVHsiEhPPV8JZFA9D9dti2Q&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230226.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -4508,7 +4468,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r1",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/68a66657-938a-420e-9e40-6f0efd62b391?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A34%3A46Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20221230.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A34%3A46Z&ske=2026-08-10T01%3A34%3A46Z&sks=b&skv=2018-11-09&sig=kGT9ibLcLVOKJ1pjv0%2FP7jaF2kLKFmRyaZaK7e9oaF8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwMiwibmJmIjoxNzg2MzIzMDAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aS9qQo-2akpWO2aO5FtuvG6I9Kp9ZlEcWfYQ2Dsjabs&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20221230.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/68a66657-938a-420e-9e40-6f0efd62b391?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A20Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20221230.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A10Z&ske=2026-08-11T01%3A37%3A20Z&sks=b&skv=2018-11-09&sig=555VAluJCabMvEvysn7XRr33N6q7lt3d9th8pTDbYcY%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNywibmJmIjoxNzg2NDA5NDA3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.4E1TDZUegIm11vYZKMyHHaijCWVpbrmIW0IrVZfcRTk&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20221230.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -4516,7 +4476,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r2",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/0aadebe1-18bc-4f2b-a2ce-c87d09e71fd0?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A48%3A07Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20221231.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A47%3A08Z&ske=2026-08-10T01%3A48%3A07Z&sks=b&skv=2018-11-09&sig=Y%2FRoi9T8Z8Y8dDMZBNMO2x4Si88pZcz4MIyo3GFWOxs%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwMiwibmJmIjoxNzg2MzIzMDAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aS9qQo-2akpWO2aO5FtuvG6I9Kp9ZlEcWfYQ2Dsjabs&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20221231.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/0aadebe1-18bc-4f2b-a2ce-c87d09e71fd0?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A39%3A42Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20221231.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A39%3A14Z&ske=2026-08-11T01%3A39%3A42Z&sks=b&skv=2018-11-09&sig=tU0o9QspC5UJomQ72y20QtG77iWa6wgzn%2BP1v1Rk4ks%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNywibmJmIjoxNzg2NDA5NDA3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.4E1TDZUegIm11vYZKMyHHaijCWVpbrmIW0IrVZfcRTk&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20221231.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5324,7 +5284,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r3",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/9917f3c8-daa4-4e05-8a26-77796bc62b39?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A23%3A17Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230105.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A22%3A53Z&ske=2026-08-10T01%3A23%3A17Z&sks=b&skv=2018-11-09&sig=bl6rpinOEASSyFtWGgbfM8r9FfCdFTHoDosWvw6K%2BJA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwMywibmJmIjoxNzg2MzIzMDAzLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Wpjyr1S7jcb6zxNN8kV99lRd1pAebJAjpgFyYip4dcQ&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230105.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/9917f3c8-daa4-4e05-8a26-77796bc62b39?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A32Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230105.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A20Z&ske=2026-08-11T01%3A37%3A32Z&sks=b&skv=2018-11-09&sig=BFbjrhhsfl312%2BlwuXycPF%2BJ0oWcfLU7WpAzSYX4X8c%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNywibmJmIjoxNzg2NDA5NDA3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.4E1TDZUegIm11vYZKMyHHaijCWVpbrmIW0IrVZfcRTk&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230105.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5332,7 +5292,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r4",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/5ac58b5a-be1f-4d7d-a934-c6a34e914f38?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A24%3A04Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230115.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A23%3A58Z&ske=2026-08-10T01%3A24%3A04Z&sks=b&skv=2018-11-09&sig=cK4cKOym3FMn%2FeD2wmGblcqejFikk%2FBEbEVZwe8FLm0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwNCwibmJmIjoxNzg2MzIzMDA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.wIsjfUJwi9Mmd83zY1I81T0Flw6WAZiyLjH-_b2SgtU&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230115.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/5ac58b5a-be1f-4d7d-a934-c6a34e914f38?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A39%3A50Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230115.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A39%3A26Z&ske=2026-08-11T01%3A39%3A50Z&sks=b&skv=2018-11-09&sig=IMqt3uahWNGDN%2BW8d61Z3F4jvCxFvDf%2FK%2FLwZ%2BpYLHc%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNywibmJmIjoxNzg2NDA5NDA3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.4E1TDZUegIm11vYZKMyHHaijCWVpbrmIW0IrVZfcRTk&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230115.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5340,7 +5300,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r5",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/ba0c8570-46d6-4a07-bdf9-6b69cbf985d6?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A25%3A28Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230116.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A24%3A59Z&ske=2026-08-10T01%3A25%3A28Z&sks=b&skv=2018-11-09&sig=nEcqBaz7FAzssFiPPyyW2FSsQ7l8pU7u7NczvPaxe5E%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwNCwibmJmIjoxNzg2MzIzMDA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.wIsjfUJwi9Mmd83zY1I81T0Flw6WAZiyLjH-_b2SgtU&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230116.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/ba0c8570-46d6-4a07-bdf9-6b69cbf985d6?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A40%3A39Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230116.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A39%3A43Z&ske=2026-08-11T01%3A40%3A39Z&sks=b&skv=2018-11-09&sig=Detnzz%2B%2F6HczpxN5FeinV%2Fc9qH2yeSERFE4rueIRcaQ%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwOCwibmJmIjoxNzg2NDA5NDA4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.05hrk15jBBkZ_GhULV3egaaZhZbZKKjcroJsE82pN5s&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230116.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5348,7 +5308,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r6",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/8354bbcd-1184-4da0-b38d-27ae5973479e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A49%3A57Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230123.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A49%3A15Z&ske=2026-08-10T01%3A49%3A57Z&sks=b&skv=2018-11-09&sig=cl%2FFzFjkedRs2wggJomWURn9DmSUePc8uKt8hkoJPwA%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwNCwibmJmIjoxNzg2MzIzMDA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.wIsjfUJwi9Mmd83zY1I81T0Flw6WAZiyLjH-_b2SgtU&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230123.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/8354bbcd-1184-4da0-b38d-27ae5973479e?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A22Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230123.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A20Z&ske=2026-08-11T01%3A37%3A22Z&sks=b&skv=2018-11-09&sig=KfcFxPZRSM%2FF4EJhG96qKIXSPpT94aF3yoCpBkOZ1As%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAxMSwibmJmIjoxNzg2NDA5NDExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.9rdpGm62saWATiXyZ5dud07zFvQ-A-E2y5mxranz4c4&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230123.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5356,7 +5316,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r7",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/2343d1e9-4cde-480f-b9e9-c00b1942caf9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A24%3A52Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230214.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A24%3A36Z&ske=2026-08-10T01%3A24%3A52Z&sks=b&skv=2018-11-09&sig=%2F9KjfwPa0H17TgqQr6RXjJtPqnakPLJ81ykDPHW0RTw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwNCwibmJmIjoxNzg2MzIzMDA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.wIsjfUJwi9Mmd83zY1I81T0Flw6WAZiyLjH-_b2SgtU&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230214.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/2343d1e9-4cde-480f-b9e9-c00b1942caf9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A47Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230214.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A17Z&ske=2026-08-11T01%3A37%3A47Z&sks=b&skv=2018-11-09&sig=Wu4K2QvsE2m1WrNxVoVhZCMXi7NoeuWD6Dxj8TFZykg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAxMSwibmJmIjoxNzg2NDA5NDExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.9rdpGm62saWATiXyZ5dud07zFvQ-A-E2y5mxranz4c4&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230214.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5364,7 +5324,7 @@
     "OS": "vanillaos",
     "Release": "22.10-r7.5",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/2343d1e9-4cde-480f-b9e9-c00b1942caf9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A24%3A52Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230214.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A24%3A36Z&ske=2026-08-10T01%3A24%3A52Z&sks=b&skv=2018-11-09&sig=%2F9KjfwPa0H17TgqQr6RXjJtPqnakPLJ81ykDPHW0RTw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwNCwibmJmIjoxNzg2MzIzMDA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.wIsjfUJwi9Mmd83zY1I81T0Flw6WAZiyLjH-_b2SgtU&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230214.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/2343d1e9-4cde-480f-b9e9-c00b1942caf9?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A47Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230214.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A17Z&ske=2026-08-11T01%3A37%3A47Z&sks=b&skv=2018-11-09&sig=Wu4K2QvsE2m1WrNxVoVhZCMXi7NoeuWD6Dxj8TFZykg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAxMSwibmJmIjoxNzg2NDA5NDExLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.9rdpGm62saWATiXyZ5dud07zFvQ-A-E2y5mxranz4c4&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230214.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
@@ -5372,39 +5332,31 @@
     "OS": "vanillaos",
     "Release": "22.10-r8",
     "Option": "",
-    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/fb97e451-7bc8-4ce2-b027-6e972076d4f7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-10T01%3A40%3A23Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230226.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-10T00%3A39%3A47Z&ske=2026-08-10T01%3A40%3A23Z&sks=b&skv=2018-11-09&sig=oib5IZL3y0Docq4Y5QoWO1uS3tk9xNu0An0qp%2BJyHks%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjMyNjYwMiwibmJmIjoxNzg2MzIzMDAyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aS9qQo-2akpWO2aO5FtuvG6I9Kp9ZlEcWfYQ2Dsjabs&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230226.iso&response-content-type=application%2Foctet-stream",
+    "DownloadURL": "https://release-assets.githubusercontent.com/github-production-release-asset/533784688/fb97e451-7bc8-4ce2-b027-6e972076d4f7?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-08-11T01%3A37%3A48Z&rscd=attachment%3B+filename%3DVanillaOS-22.10-all.20230226.iso&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-08-11T00%3A37%3A18Z&ske=2026-08-11T01%3A37%3A48Z&sks=b&skv=2018-11-09&sig=nULc3Nu1IGFuchez%2F83ghlPDaIttDh4Xgr%2BjGG7%2BRME%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NjQxMzAwNiwibmJmIjoxNzg2NDA5NDA2LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.aO6j1jjcfBLEwzYVGEknlVHsiEhPPV8JZFA9D9dti2Q&response-content-disposition=attachment%3B%20filename%3DVanillaOS-22.10-all.20230226.iso&response-content-type=application%2Foctet-stream",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/vanillaos/vanillaos-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Void Linux",
     "OS": "void",
-    "Release": "20230628",
-    "Option": "glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-20230628-base.iso",
+    "Release": "20250202",
+    "Option": "xfce-musl",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-musl-20250202-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Xubuntu",
     "OS": "xubuntu",
-    "Release": "daily-live",
+    "Release": "20.04",
     "Option": "",
-    "DownloadURL": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/20.04/release/xubuntu-20.04.6-desktop-amd64.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Void Linux",
     "OS": "void",
-    "Release": "20230628",
-    "Option": "musl",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-musl-20230628-base.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Void Linux",
-    "OS": "void",
-    "Release": "20230628",
+    "Release": "20240314",
     "Option": "xfce-glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-20230628-xfce.iso",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20240314/void-live-x86_64-20240314-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
@@ -5419,14 +5371,6 @@
     "DisplayName": "Void Linux",
     "OS": "void",
     "Release": "20240314",
-    "Option": "glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20240314/void-live-x86_64-20240314-base.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Void Linux",
-    "OS": "void",
-    "Release": "20240314",
     "Option": "musl",
     "DownloadURL": "https://repo-default.voidlinux.org/live/20240314/void-live-x86_64-musl-20240314-base.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
@@ -5434,17 +5378,49 @@
   {
     "DisplayName": "Void Linux",
     "OS": "void",
-    "Release": "20240314",
+    "Release": "20230628",
     "Option": "xfce-glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20240314/void-live-x86_64-20240314-xfce.iso",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-20230628-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Void Linux",
     "OS": "void",
+    "Release": "20230628",
+    "Option": "glibc",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-20230628-base.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Void Linux",
+    "OS": "void",
+    "Release": "20230628",
+    "Option": "musl",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20230628/void-live-x86_64-musl-20230628-base.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Zorin OS",
+    "OS": "zorin",
+    "Release": "18",
+    "Option": "lite64",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Xubuntu",
+    "OS": "xubuntu",
+    "Release": "daily-live",
+    "Option": "",
+    "DownloadURL": "",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Void Linux",
+    "OS": "void",
     "Release": "20250202",
-    "Option": "xfce-musl",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-musl-20250202-xfce.iso",
+    "Option": "xfce-glibc",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-20250202-xfce.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
@@ -5456,36 +5432,12 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
   },
   {
-    "DisplayName": "Zorin OS",
-    "OS": "zorin",
-    "Release": "18",
-    "Option": "core64",
-    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/18/Zorin-OS-18.1-Core-64-bit.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Xubuntu",
-    "OS": "xubuntu",
-    "Release": "22.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/22.04/release/xubuntu-22.04.5-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Zorin OS",
-    "OS": "zorin",
-    "Release": "17",
-    "Option": "lite64",
-    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/17/Zorin-OS-17.3-Lite-64-bit-r2.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Zorin OS",
-    "OS": "zorin",
-    "Release": "16",
-    "Option": "lite64",
-    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/16/Zorin-OS-16.3-Lite-64-bit.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+    "DisplayName": "Void Linux",
+    "OS": "void",
+    "Release": "20250202",
+    "Option": "glibc",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-20250202-base.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Zorin OS",
@@ -5494,46 +5446,6 @@
     "Option": "core64",
     "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/17/Zorin-OS-17.3-Core-64-bit-r2.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Zorin OS",
-    "OS": "zorin",
-    "Release": "17",
-    "Option": "education64",
-    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/17/Zorin-OS-17.3-Education-64-bit-r2.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Xubuntu",
-    "OS": "xubuntu",
-    "Release": "16.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Void Linux",
-    "OS": "void",
-    "Release": "20250202",
-    "Option": "musl",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-musl-20250202-base.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Xubuntu",
-    "OS": "xubuntu",
-    "Release": "26.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/26.04/release/xubuntu-26.04-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Void Linux",
-    "OS": "void",
-    "Release": "20250202",
-    "Option": "glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-20250202-base.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Void Linux",
@@ -5546,34 +5458,26 @@
   {
     "DisplayName": "Void Linux",
     "OS": "void",
-    "Release": "20250202",
-    "Option": "xfce-glibc",
-    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-20250202-xfce.iso",
+    "Release": "20240314",
+    "Option": "glibc",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20240314/void-live-x86_64-20240314-base.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Xubuntu",
-    "OS": "xubuntu",
-    "Release": "24.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/24.04/release/xubuntu-24.04.4-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
-  },
-  {
-    "DisplayName": "Xubuntu",
-    "OS": "xubuntu",
-    "Release": "20.04",
-    "Option": "",
-    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/20.04/release/xubuntu-20.04.6-desktop-amd64.iso",
-    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Zorin OS",
     "OS": "zorin",
-    "Release": "18",
-    "Option": "lite64",
-    "DownloadURL": "",
+    "Release": "16",
+    "Option": "education64",
+    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/16/Zorin-OS-16.3-Education-64-bit.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Xubuntu",
+    "OS": "xubuntu",
+    "Release": "22.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/22.04/release/xubuntu-22.04.5-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
     "DisplayName": "Zorin OS",
@@ -5592,11 +5496,67 @@
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
   },
   {
+    "DisplayName": "Xubuntu",
+    "OS": "xubuntu",
+    "Release": "16.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Void Linux",
+    "OS": "void",
+    "Release": "20250202",
+    "Option": "musl",
+    "DownloadURL": "https://repo-default.voidlinux.org/live/20250202/void-live-x86_64-musl-20250202-base.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/void/void-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Zorin OS",
+    "OS": "zorin",
+    "Release": "17",
+    "Option": "lite64",
+    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/17/Zorin-OS-17.3-Lite-64-bit-r2.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Zorin OS",
+    "OS": "zorin",
+    "Release": "18",
+    "Option": "core64",
+    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/18/Zorin-OS-18.1-Core-64-bit.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Zorin OS",
+    "OS": "zorin",
+    "Release": "17",
+    "Option": "education64",
+    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/17/Zorin-OS-17.3-Education-64-bit-r2.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Xubuntu",
+    "OS": "xubuntu",
+    "Release": "26.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/26.04/release/xubuntu-26.04-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
+    "DisplayName": "Xubuntu",
+    "OS": "xubuntu",
+    "Release": "24.04",
+    "Option": "",
+    "DownloadURL": "https://cdimage.ubuntu.com/xubuntu/releases/24.04/release/xubuntu-24.04.4-desktop-amd64.iso",
+    "Logo": "https://quickemu-project.github.io/quickemu-icons/png/ubuntu/ubuntu-quickemu-white-pinkbg.png"
+  },
+  {
     "DisplayName": "Zorin OS",
     "OS": "zorin",
     "Release": "16",
-    "Option": "education64",
-    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/16/Zorin-OS-16.3-Education-64-bit.iso",
+    "Option": "lite64",
+    "DownloadURL": "https://plug-mirror.rcac.purdue.edu/zorin-iso/16/Zorin-OS-16.3-Lite-64-bit.iso",
     "Logo": "https://quickemu-project.github.io/quickemu-icons/png/zorin/zorin-quickemu-white-pinkbg.png"
   }
 ]
